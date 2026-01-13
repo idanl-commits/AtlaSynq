@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AtlaSynq — The Intelligence Layer for Your Stack</title>
+    <meta name="description" content="Connect your company tools. Don't replace them. Get a unified, secure chat interface governed by default." />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =========================================
+         1. CORE VARIABLES & RESET
+      ========================================= */
+      :root {
+        --bg: #ffffff;
+        --ink: #0f172a;       /* Dark Navy */
+        --ink-light: #334155; /* Slate */
+        --muted: #64748b;     /* Gray */
+        
+        --primary: #6366f1;   /* Indigo */
+        --primary-soft: rgba(99, 102, 241, 0.08);
+        --accent: #f43f5e;    /* Rose */
+        --success: #10b981;   /* Green */
+        
+        --border: #e2e8f0;
+        
+        --radius: 16px;
+        --max-w: 1140px;
+        
+        /* Shadows */
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+        --shadow-card: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+        --shadow-float: 0 25px 50px -12px rgba(0,0,0,0.1);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+      html { scroll-behavior: smooth; }
+      
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--bg);
+        color: var(--ink);
+        line-height: 1.5;
+        overflow-x: hidden;
+        font-size: 16px;
+        background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+
+      body::after {
+        content: ""; position: fixed; inset: 0; 
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%);
+        pointer-events: none; z-index: -1;
+      }
+
+      /* Blobs */
+      .bg-blobs { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+      .blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; animation: floatBlob 25s infinite alternate; }
+      .blob-1 { top: -10%; left: -10%; width: 600px; height: 600px; background: #e0e7ff; }
+      .blob-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: #ffe4e6; animation-delay: -5s; }
+      @keyframes floatBlob { 0% { transform: translate(0, 0); } 100% { transform: translate(40px, 40px); } }
+
+      h1, h2, h3, h4 { font-family: "Outfit", sans-serif; color: var(--ink); line-height: 1.2; letter-spacing: -0.02em; }
+      p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+      a { text-decoration: none; color: inherit; transition: 0.2s; }
+      button { font-family: inherit; cursor: pointer; }
+      ul { list-style: none; padding: 0; }
+
+      .icon { width: 24px; height: 24px; stroke-width: 2; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-sm { width: 18px; height: 18px; }
+
+      .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+      .reveal { opacity: 0; transform: translateY(20px); transition: all 0.7s ease-out; }
+      .reveal.active { opacity: 1; transform: translateY(0); }
+
+      .grad-text {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 1rem;
+        transition: transform 0.2s, box-shadow 0.2s; border: 1px solid transparent;
+      }
+      .btn-primary { background: var(--ink); color: white; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); }
+      .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.2); }
+      .btn-secondary { background: white; color: var(--ink); border-color: var(--border); box-shadow: var(--shadow-sm); }
+      .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+      /* =========================================
+         HEADER
+      ======================================== */
+      header { position: sticky; top: 0; z-index: 900; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+      .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
+      .logo { font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; color: var(--ink); }
+      .nav-links { display: flex; gap: 2.5rem; }
+      .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--muted); }
+      .nav-links a:hover { color: var(--ink); }
+      @media(max-width: 768px) { .nav-links { display: none; } }
+
+      /* =========================================
+         HERO SECTION
+      ======================================== */
+      .hero { padding: 6rem 0 5rem; overflow: visible; text-align: center; }
+      .hero-content { max-width: 760px; margin: 0 auto 4rem auto; }
+      .hero-content h1 { font-size: 3.8rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -0.03em; }
+      .hero-content p { font-size: 1.25rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.6; }
+      .hero-actions { display: flex; gap: 16px; justify-content: center; }
+
+      .demo-window {
+        width: 100%; max-width: 900px; height: 550px; margin: 0 auto;
+        background: white; border: 1px solid var(--border); border-radius: 24px;
+        box-shadow: var(--shadow-float); display: flex; flex-direction: column; overflow: hidden;
+        position: relative; text-align: left;
+      }
+      .app-header { height: 64px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; background: rgba(255,255,255,0.98); z-index: 10; }
+      .ah-title { font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 8px; color: var(--ink); }
+      .ah-status { font-size: 0.75rem; font-weight: 700; color: #10b981; background: #dcfce7; padding: 4px 10px; border-radius: 99px; display: flex; align-items: center; gap: 6px; }
+      .ah-status::before { content:''; width:6px; height:6px; background:#10b981; border-radius:50%; }
+      .chat-feed { flex: 1; padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.2rem; background: #ffffff; }
+      .msg { max-width: 85%; animation: slideUp 0.3s ease-out; display: flex; flex-direction: column; gap: 4px; }
+      @keyframes slideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+      .msg.user { align-self: flex-end; align-items: flex-end; }
+      .msg.user .bubble { background: #f3f4f6; color: var(--ink); padding: 12px 18px; border-radius: 18px 18px 4px 18px; font-size: 1rem; }
+      .msg.ai { align-self: flex-start; align-items: flex-start; }
+      .msg.ai .bubble { background: white; border: 1px solid var(--border); color: var(--ink); padding: 16px 20px; border-radius: 18px 18px 18px 4px; font-size: 1rem; box-shadow: var(--shadow-sm); line-height: 1.6; }
+      .sources { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+      .src-chip { font-size: 0.75rem; background: #f8fafc; border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--muted); transition: 0.2s; }
+      .src-chip:hover { border-color: var(--primary); color: var(--primary); background: #eef2ff; }
+      .src-chip svg { width: 12px; height: 12px; color: var(--primary); }
+      .typing { align-self: flex-start; background: white; padding: 12px 16px; border-radius: 18px; display: none; align-items: center; gap: 4px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+      .dot { width: 5px; height: 5px; background: #94a3b8; border-radius: 50%; animation: bounce 1.4s infinite; }
+      .dot:nth-child(2) { animation-delay: 0.2s; } .dot:nth-child(3) { animation-delay: 0.4s; }
+      @keyframes bounce { 0%,100% {transform:translateY(0);} 50% {transform:translateY(-5px);} }
+      .input-wrapper { padding: 1.5rem; background: white; border-top: 1px solid #f1f5f9; position: relative; }
+      .input-row { display: flex; gap: 12px; align-items: center; width: 100%; }
+      .plus-btn { width: 48px; height: 48px; border-radius: 12px; background: #fcfcfc; color: var(--muted); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; transition: 0.2s; box-shadow: var(--shadow-sm); }
+      .plus-btn:hover, .plus-btn.active { border-color: var(--primary); color: var(--primary); background: #f5f3ff; }
+      .fake-input { flex: 1; height: 48px; background: #ffffff; border: 1px solid var(--border); border-radius: 99px; display: flex; align-items: center; padding: 0 20px; position: relative; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+      .fake-input.focused { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); }
+      .fake-input-text { flex: 1; color: var(--ink); font-size: 1rem; display: flex; align-items: center; overflow: hidden; white-space: pre-wrap; }
+      .send-icon { margin-left: auto; width: 36px; height: 36px; background: var(--ink); color: white; border-radius: 50%; display: grid; place-items: center; transition: 0.2s; }
+      .send-icon.active { transform: scale(0.9); background: var(--primary); }
+      .cursor-bar { width: 2px; height: 20px; background: var(--primary); animation: blink 1s infinite; display: none; margin-left: 2px; }
+      @keyframes blink { 50% { opacity: 0; } }
+      .agent-popover { position: absolute; bottom: 85px; left: 24px; width: 240px; background: white; border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-card); padding: 6px; z-index: 20; display: flex; flex-direction: column; gap: 2px; opacity: 0; transform: translateY(10px) scale(0.95); pointer-events: none; transition: 0.2s; }
+      .agent-popover.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+      .pop-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; font-size: 0.95rem; font-weight: 500; color: var(--ink); transition: 0.2s; }
+      .pop-item:hover, .pop-item.hover-sim { background: #f8fafc; }
+      .pop-icon { width: 24px; height: 24px; background: #f1f5f9; border-radius: 6px; display: grid; place-items: center; font-size: 12px; }
+      
+      /* Fake Cursor */
+      .fake-cursor { position: absolute; width: 28px; height: 28px; background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L22.5 18.5L14.5 19.5L18.5 28L15 29.5L11 21L6 26V4Z' fill='%230f172a' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; z-index: 999; pointer-events: none; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); display: none; top: 0; left: 0; }
+      .fake-cursor.active { display: block; } .fake-cursor.click { transform: scale(0.85); transition: transform 0.1s; }
+
+      /* =========================================
+         INTEGRATIONS
+      ======================================== */
+      .int-intro-sec { padding: 4rem 0 2rem; background: white; text-align: center; }
+      .int-head h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+      .marquee-sec { padding: 1rem 0 4rem; background: white; overflow: hidden; }
+      .marquee-mask { position: relative; max-width: 100%; margin: 0 auto; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+      .marquee-track { display: flex; gap: 3rem; width: max-content; animation: scroll 60s linear infinite; }
+      @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+      .logo-pill { display: flex; align-items: center; gap: 10px; padding: 10px 20px; background: #ffffff; border: 1px solid var(--border); border-radius: 99px; font-weight: 700; color: var(--ink); font-size: 1rem; white-space: nowrap; transition: 0.2s; box-shadow: var(--shadow-sm); }
+      .logo-pill:hover { border-color: var(--primary-soft); box-shadow: var(--shadow-card); }
+      .logo-pill svg { width: 22px; height: 22px; }
+
+      /* =========================================
+         IMPACT / ROI (Clean, No Kickers)
+      ======================================== */
+      .roi-section { padding: 6rem 0; background: #fafafa; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .roi-head { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+      .roi-head h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; }
+      
+      .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      
+      .roi-card { 
+        background: white; padding: 40px 32px; border-radius: 24px; border: 1px solid var(--border); 
+        box-shadow: var(--shadow-sm); text-align: left; display: flex; flex-direction: column; gap: 12px; transition: 0.2s;
+      }
+      .roi-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--shadow-card); }
+      
+      .roi-icon { margin-bottom: 8px; color: var(--primary); }
+      .roi-icon svg { width: 36px; height: 36px; }
+      .roi-title { font-size: 0.9rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+      .roi-number-group { display: flex; align-items: baseline; gap: 4px; font-weight: 800; color: var(--ink); line-height: 1; }
+      .roi-val { font-size: 3.5rem; letter-spacing: -0.03em; }
+      .roi-unit { font-size: 3.5rem; }
+      .roi-desc { font-size: 1rem; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+
+      /* =========================================
+         COMPARISON
+      ======================================== */
+      .split-sec { padding: 8rem 0; background: white; }
+      .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+      .split-content h2 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.1; font-weight: 800; }
+      .comp-visual { background: white; border: 1px solid var(--border); border-radius: 32px; padding: 40px; box-shadow: var(--shadow-card); position: relative; overflow: hidden; }
+      .comp-visual::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #94a3b8 50%, var(--primary) 50%); }
+      .cv-row { display: flex; gap: 24px; align-items: stretch; margin-top: 24px; }
+      .cv-col { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+      .cv-head { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+      .cv-box { padding: 24px; border-radius: 16px; font-size: 1rem; font-weight: 600; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px; }
+      .cv-box.old { background: #f8fafc; color: var(--muted); border: 1px dashed #cbd5e1; }
+      .cv-box.new { background: #eef2ff; color: var(--primary); border: 1px solid var(--primary); }
+      .cv-icon { margin-bottom: 12px; color: currentColor; } .cv-icon svg { width: 32px; height: 32px; }
+
+      /* =========================================
+         FEATURES
+      ======================================== */
+      .process-sec { padding: 8rem 0; background: #fcfcfc; border-top: 1px solid var(--border); }
+      .section-head { text-align: center; max-width: 800px; margin: 0 auto 5rem; }
+      .section-head h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: var(--ink); }
+      
+      .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 100px; }
+      .feature-row:last-child { margin-bottom: 0; }
+      .feature-row.reverse { direction: rtl; }
+      .feature-row.reverse > * { direction: ltr; }
+      
+      .feature-text h3 { font-size: 2rem; margin-bottom: 16px; font-weight: 800; color: var(--ink); }
+      .feature-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+      .feature-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 600; color: var(--ink); font-size: 1rem; }
+      .feature-list li svg { width: 20px; height: 20px; color: var(--success); flex-shrink: 0; }
+
+      .viz-box {
+        background: white; border: 1px solid var(--border); border-radius: 32px;
+        height: 360px; position: relative; overflow: hidden; box-shadow: var(--shadow-sm);
+        background: radial-gradient(circle at 10% 10%, #fcfbfc, #f1f5f9);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .viz-connect, .viz-shield { display: flex; align-items: center; justify-content: center; height: 100%; width: 100%; position: relative; }
+      .center-node { width: 60px; height: 60px; background: var(--ink); border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 2; display: grid; place-items: center; color: white; animation: slowSpin 20s linear infinite; }
+      .sat-node { position: absolute; padding: 8px 16px; background: white; border: 1px solid var(--border); border-radius: 99px; font-weight: 700; color: var(--muted); font-size: 0.8rem; box-shadow: var(--shadow-sm); white-space: nowrap; }
+      @keyframes slowSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      .shield-icon { width: 80px; height: 80px; color: var(--success); animation: softPulse 3s infinite; }
+      @keyframes softPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(0.95); } }
+      .rocket-icon { width: 90px; height: 90px; color: var(--ink); animation: floatY 4s ease-in-out infinite; }
+      @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+      /* =========================================
+         BUILDER DEMO
+      ======================================== */
+      .builder-sec { padding: 8rem 0; background: white; border-top: 1px solid var(--border); }
+      .builder-win {
+        max-width: 900px; margin: 0 auto; background: white; border: 1px solid var(--border);
+        border-radius: 24px; height: 550px; overflow: hidden;
+        box-shadow: var(--shadow-float); display: flex; flex-direction: column; position: relative;
+      }
+      .b-steps { display: flex; border-bottom: 1px solid var(--border); height: 64px; background: #fdfdfd; }
+      .b-step { flex: 1; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.95rem; color: var(--muted); border-bottom: 2px solid transparent; transition: 0.3s; cursor: default; }
+      .b-step.active { color: var(--primary); border-bottom-color: var(--primary); background: white; }
+      .b-canvas { flex: 1; position: relative; padding: 0; background: #fafafa; }
+      .b-panel { position: absolute; inset: 0; padding: 3rem; opacity: 0; transform: translateY(20px); transition: 0.4s ease; pointer-events: none; overflow-y: auto; display: flex; flex-direction: column; }
+      .b-panel.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .b-panel h3 { font-size: 1.5rem; margin-bottom: 2rem; }
+
+      .b-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; width: 100%; max-width: 600px; margin: 0 auto; }
+      .b-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; width: 100%; max-width: 800px; margin: 0 auto; } 
+      .b-card { background: white; border: 1px solid var(--border); padding: 1.5rem; border-radius: 16px; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--shadow-sm); align-items: center; text-align: center; }
+      .b-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+      .b-card.selected { background: #eef2ff; border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); }
+      .b-card h4 { font-size: 1rem; margin: 0; font-weight: 700; color: var(--ink); }
+      .b-card span { font-size: 0.85rem; color: var(--muted); }
+      .b-card .icon { margin-bottom: 6px; color: var(--ink-light); } .b-card .icon svg { width: 28px; height: 28px; }
+
+      .res-container { width: 100%; height: 100%; background: white; display: flex; flex-direction: column; }
+      .res-header { padding: 16px 24px; background: #fdfdfd; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+      .res-icon-box { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; font-size: 1.2rem; background: #eef2ff; }
+      .res-title { font-weight: 700; font-size: 0.95rem; color: var(--ink); }
+      .res-badge { margin-left: auto; font-size: 0.7rem; background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 99px; font-weight: 700; text-transform: uppercase; }
+      .res-chat { flex: 1; padding: 2rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem; background: #ffffff; }
+      .res-input-wrapper { padding: 1.5rem; background: white; border-top: 1px solid #f1f5f9; position: relative; }
+
+      /* =========================================
+         BENTO GRID
+      ======================================== */
+      .bento-sec { padding: 6rem 0; background: white; border-top: 1px solid var(--border); }
+      .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 280px); gap: 1.5rem; }
+      .bento-card { background: white; border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); }
+      .bento-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow-card); }
+      .bc-icon { margin-bottom: 1.5rem; width: 56px; height: 56px; background: #f8fafc; border-radius: 14px; display: grid; place-items: center; color: var(--primary); }
+      .bc-icon svg { width: 28px; height: 28px; }
+      .bc-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--ink); }
+      .bc-query { font-family: "Outfit", sans-serif; font-size: 1rem; color: var(--muted); font-weight: 500; background: #fdfdfd; padding: 14px 20px; border-radius: 12px; border: 1px solid var(--border); display: inline-block; width: fit-content; }
+      .bc-tag { position: absolute; top: 24px; right: 24px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 5px 12px; border-radius: 99px; letter-spacing: 0.05em; }
+      .bento-card.wide { grid-column: span 2; background: linear-gradient(to bottom right, #ffffff, #fdfdfd); }
+
+      /* FAQ & Footer */
+      .faq-sec { padding: 6rem 0; background: #fcfcfc; border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); }
+      .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+      .faq-item { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: 0.2s; }
+      details { cursor: pointer; }
+      summary { padding: 1.5rem; font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; align-items: center; list-style: none; font-size: 1.1rem; }
+      .faq-body { padding: 0 1.5rem 1.5rem; color: var(--muted); }
+      
+      .footer-sec { background: white; padding: 6rem 0 2rem; }
+      .foot-container { max-width: 900px; margin: 0 auto; text-align: center; }
+      .foot-cta { margin-bottom: 4rem; }
+      .foot-cta h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--ink); }
+      .foot-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; }
+      .foot-links a { color: var(--muted); font-weight: 600; font-size: 0.95rem; }
+      .foot-links a:hover { color: var(--primary); }
+      .foot-bottom { border-top: 1px solid var(--border); padding-top: 2rem; color: var(--muted); font-size: 0.9rem; }
+
+      @media (max-width: 900px) {
+        .hero-grid, .split-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+        .demo-window, .builder-win { height: 500px; }
+        .b-grid, .b-grid-3, .roi-grid { grid-template-columns: 1fr; }
+        .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1.5rem; }
+        .bento-card.wide, .bento-card.tall { grid-column: span 1; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+      <div class="container nav">
+        <a href="#" class="logo">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--primary); fill:currentColor;"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>
+          AtlaSynq
+        </a>
+        <nav class="nav-links">
+          <a href="#roi">Impact</a>
+          <a href="#builder">Builder</a>
+          <a href="#usecases">Teams</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <button class="btn btn-primary">Book Your Demo</button>
+      </div>
+    </header>
+
+    <section class="hero reveal active">
+      <div class="container">
+        
+        <div class="hero-content">
+          <h1>Connect your tools.<br>Get <span class="grad-text">answers, not links.</span></h1>
+          <p>
+            Stop searching through 15 tabs. AtlaSynq connects to your entire stack and gives you instant, cited answers in a secure chat interface tailored to every department.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="document.getElementById('builder').scrollIntoView()">Start Building</button>
+            <button class="btn btn-secondary">Read Documentation</button>
+          </div>
+        </div>
+
+        <div class="demo-window" id="heroApp">
+          <div class="fake-cursor" id="heroCursor"></div>
+          
+          <div class="app-header">
+            <div class="ah-title" id="chatTitle">Sales Agent</div>
+            <div class="ah-status">Live</div>
+          </div>
+
+          <div class="chat-feed" id="heroFeed">
+            <div class="typing" id="heroThinking"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+          </div>
+
+          <div class="input-wrapper">
+            <div class="agent-popover" id="agentMenu">
+              <div class="pop-item" id="menu-sales"><div class="pop-icon"><svg class="icon-sm" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>Sales Agent</div>
+              <div class="pop-item" id="menu-finance"><div class="pop-icon"><svg class="icon-sm" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>Finance Agent</div>
+              <div class="pop-item" id="menu-it"><div class="pop-icon"><svg class="icon-sm" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>IT Agent</div>
+            </div>
+
+            <div class="input-row">
+              <div class="plus-btn" id="plusBtn"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
+              <div class="fake-input" id="heroInput">
+                <span class="fake-input-text" id="heroTypingText"></span>
+                <div class="cursor-bar" id="heroBlink"></div>
+                <div class="send-icon" id="heroSend"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" style="color:white;width:16px;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="int-intro-sec">
+       <div class="container">
+          <h2 style="font-size:2rem; margin-bottom:0.5rem;">Works with what you have.</h2>
+          <p style="color:var(--muted); max-width:600px; margin:0 auto;">No rip-and-replace. We sit securely on top of your current stack.</p>
+       </div>
+    </div>
+    <div class="marquee-sec">
+      <div class="marquee-mask">
+        <div class="marquee-track">
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#E01E5A"><path d="M5.042 15.165a2.528 2.528 0 1 0 2.528-2.528h-2.528v2.528Z"/><path d="M8.832 15.165a2.528 2.528 0 1 0-2.528 2.528v-2.528h2.528Z"/><path d="M8.832 8.832a2.528 2.528 0 1 0 2.528-2.528h-2.528v2.528Z"/><path d="M8.832 11.36a2.528 2.528 0 1 0-2.528 2.528h2.528v-2.528Z"/><path d="M15.165 8.832a2.528 2.528 0 1 0 2.528 2.528v-2.528h-2.528Z"/><path d="M15.165 5.042a2.528 2.528 0 1 0-2.528 2.528h2.528V5.042Z"/><path d="M15.165 15.165a2.528 2.528 0 1 0-2.528 2.528h2.528v-2.528Z"/><path d="M11.36 15.165a2.528 2.528 0 1 0-2.528-2.528v2.528h2.528Z"/></svg>Slack</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#0052CC"><path d="M11.571 11.722c0-6.475 5.226-11.722 11.672-11.722v11.722H11.571Z"/><path d="M.029 11.722c0-6.475 5.226-11.722 11.672-11.722v11.722H.029Z"/><path d="M11.571 23.443c0-6.475 5.226-11.722 11.672-11.722v11.722H11.571Z"/></svg>Jira</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#00A1E0"><path d="M16.132 16.395c-.41 1.073-1.519 1.72-2.672 1.685-1.17-.037-2.204-.826-2.614-1.879a3.156 3.156 0 0 1-.11-.586 3.035 3.035 0 0 1 .345-1.845 3.556 3.556 0 0 1 2.015-1.506c.686-.205 1.395-.165 2.064.103.344.138.66.33.938.569l1.27-1.396a4.836 4.836 0 0 0-2.38-1.205c-1.224-.276-2.504-.114-3.632.421-.693.327-1.327.79-1.87 1.368-.29.308-.553.644-.783 1.004-1.345-2.04-3.724-3.23-6.278-2.94a6.052 6.052 0 0 0-2.002.627c.58.86 1.348 1.584 2.24 2.102.792.46 1.673.754 2.573.886.89.13 1.8.078 2.68-.15.287-.076.568-.177.84-.303.216.644.53 1.25.926 1.793-.78 1.308-1.914 2.388-3.29 3.106.65.86 1.465 1.583 2.395 2.11.982.555 2.07.895 3.183 1.027.926.109 1.865.027 2.77-.219.278-.076.549-.174.812-.295.86.706 1.885 1.193 2.978 1.42.912.19 1.851.218 2.772.103 2.035-.254 3.9-1.297 5.184-2.813l-1.496-1.172a5.29 5.29 0 0 1-1.312 1.26 4.397 4.397 0 0 1-1.625.553c-.515.08-1.038.088-1.555.03a3.359 3.359 0 0 1-2.52-1.315 5.253 5.253 0 0 0 3.468-.808 4.47 4.47 0 0 0 1.498-1.703c.183-.38.312-.784.385-1.198l1.82.469a5.374 5.374 0 0 1-.655 1.838Z"/></svg>Salesforce</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#000000"><path d="M15.04 4.635h4.069v15.93h-4.07zM4.892 8.532h4.068V20.57H4.892zM0 13.847h4.069v6.718H0zM10.319 1.984A1.984 1.984 0 1 1 8.334 0a1.984 1.984 0 0 1 1.985 1.984Z"/></svg>Notion</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#FF7A59"><path d="M21.155 14.114a3.464 3.464 0 0 1-3.448 3.329c-.079 0-.158 0-.235-.008v3.063c0 .97-.794 1.76-1.77 1.76-.975 0-1.77-.79-1.77-1.76v-3.925a3.465 3.465 0 0 1 1.374-6.381V6.998a3.463 3.463 0 0 1-2.582-3.35C12.724 1.635 14.335 0 16.317 0 18.3 0 19.91 1.636 19.91 3.649a3.462 3.462 0 0 1-2.574 3.347v3.216a3.462 3.462 0 0 1 2.54 3.325c.705.135 1.238.76 1.238 1.507 0 .842-.673 1.526-1.501 1.526a1.517 1.517 0 0 1-1.502-1.526c0-.842.672-1.526 1.502-1.526.234 0 .454.053.651.148.264-.16.558-.283.873-.363ZM8.672 20.516c0 .975-.79 1.77-1.762 1.77a1.767 1.767 0 0 1-1.77-1.77c0-.975.794-1.77 1.77-1.77.971 0 1.762.795 1.762 1.77ZM11.4 7.647c0 .974-.79 1.769-1.761 1.769S7.877 8.62 7.877 7.647c0-.975.794-1.769 1.762-1.769s1.761.794 1.761 1.769ZM6.25 13.883c0 .975-.79 1.77-1.762 1.77a1.767 1.767 0 0 1-1.77-1.77c0-.975.794-1.77 1.77-1.77.971 0 1.762.794 1.762 1.77Z"/></svg>HubSpot</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#03363D"><path d="M12.637 14.891 1.116 2.593l.008-.008H24v12.295h-4.208v-5.07l-7.154 7.638-7.155-7.638v7.646H1.124v-2.565Zm-1.274 2.565-4.208 4.491h11.363v.009l.008-.009 4.208-4.491H11.363Z"/></svg>Zendesk</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#4285F4"><path d="M8.667 18h6.666L22 6H8.667L2 18Z" fill="#FFC107"/><path d="m15.333 6-6.666 12H2L8.667 6h6.666Z" fill="#4285F4"/><path d="m8.667 18 6.666-12H22l-6.667 12H8.667Z" fill="#0F9D58"/></svg>Google Drive</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#0077C8"><path d="M0 2.136h6.442v19.728H0zM8.779 2.136h15.221v5.676H8.779zM8.779 9.163h7.611v5.675H8.779zM8.779 16.188h15.221v5.676H8.779z"/></svg>NetSuite</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#6264A7"><path d="M18.24 4.56h-8.76v14.88h8.76c2.52 0 4.56-2.04 4.56-4.56v-5.76c0-2.52-2.04-4.56-4.56-4.56Z" fill="#6264A7"/><path d="M6.84 19.44H0V4.56h6.84a1.2 1.2 0 0 1 1.2 1.2v12.48a1.2 1.2 0 0 1-1.2 1.2Z" fill="#6264A7" opacity=".8"/><path d="M6.84 9.24H0v5.52h6.84a1.2 1.2 0 0 0 1.2-1.2v-3.12a1.2 1.2 0 0 0-1.2-1.2Z" fill="#6264A7" opacity=".6"/></svg>Microsoft Teams</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>GitHub</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#5E6AD2"><path d="M11.979 24C5.38 24 0 18.62 0 12.021 0 5.421 5.38 0 11.979 0c6.599 0 11.979 5.421 11.979 12.021 0 6.599-5.38 11.979-11.979 11.979Zm.021-10.137c-1.057 0-1.915.856-1.915 1.912 0 1.057.858 1.913 1.915 1.913s1.915-.856 1.915-1.913c0-1.056-.858-1.912-1.915-1.912Z"/></svg>Linear</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#1F1F1F"><path d="M11.963 23.975c6.552 0 11.872-5.34 11.872-11.891C23.835 5.503 18.515.163 11.963.163 5.411.163.092 5.503.092 12.084c0 3.037 1.138 5.825 3.02 7.952v3.792c0 .19.225.314.395.22l3.596-2.013a11.77 11.77 0 0 0 4.86 1.054v.886Zm-.001-4.444c-4.104 0-7.431-3.327-7.431-7.431 0-4.105 3.327-7.432 7.431-7.432 4.105 0 7.432 3.327 7.432 7.432 0 4.104-3.327 7.431-7.432 7.431Z"/></svg>Intercom</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#E01E5A"><path d="M5.042 15.165a2.528 2.528 0 1 0 2.528-2.528h-2.528v2.528Z"/><path d="M8.832 15.165a2.528 2.528 0 1 0-2.528 2.528v-2.528h2.528Z"/><path d="M8.832 8.832a2.528 2.528 0 1 0 2.528-2.528h-2.528v2.528Z"/><path d="M8.832 11.36a2.528 2.528 0 1 0-2.528 2.528h2.528v-2.528Z"/><path d="M15.165 8.832a2.528 2.528 0 1 0 2.528 2.528v-2.528h-2.528Z"/><path d="M15.165 5.042a2.528 2.528 0 1 0-2.528 2.528h2.528V5.042Z"/><path d="M15.165 15.165a2.528 2.528 0 1 0-2.528 2.528h2.528v-2.528Z"/><path d="M11.36 15.165a2.528 2.528 0 1 0-2.528-2.528v2.528h2.528Z"/></svg>Slack</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#0052CC"><path d="M11.571 11.722c0-6.475 5.226-11.722 11.672-11.722v11.722H11.571Z"/><path d="M.029 11.722c0-6.475 5.226-11.722 11.672-11.722v11.722H.029Z"/><path d="M11.571 23.443c0-6.475 5.226-11.722 11.672-11.722v11.722H11.571Z"/></svg>Jira</div>
+          <div class="logo-pill"><svg viewBox="0 0 24 24" fill="#00A1E0"><path d="M16.132 16.395c-.41 1.073-1.519 1.72-2.672 1.685-1.17-.037-2.204-.826-2.614-1.879a3.156 3.156 0 0 1-.11-.586 3.035 3.035 0 0 1 .345-1.845 3.556 3.556 0 0 1 2.015-1.506c.686-.205 1.395-.165 2.064.103.344.138.66.33.938.569l1.27-1.396a4.836 4.836 0 0 0-2.38-1.205c-1.224-.276-2.504-.114-3.632.421-.693.327-1.327.79-1.87 1.368-.29.308-.553.644-.783 1.004-1.345-2.04-3.724-3.23-6.278-2.94a6.052 6.052 0 0 0-2.002.627c.58.86 1.348 1.584 2.24 2.102.792.46 1.673.754 2.573.886.89.13 1.8.078 2.68-.15.287-.076.568-.177.84-.303.216.644.53 1.25.926 1.793-.78 1.308-1.914 2.388-3.29 3.106.65.86 1.465 1.583 2.395 2.11.982.555 2.07.895 3.183 1.027.926.109 1.865.027 2.77-.219.278-.076.549-.174.812-.295.86.706 1.885 1.193 2.978 1.42.912.19 1.851.218 2.772.103 2.035-.254 3.9-1.297 5.184-2.813l-1.496-1.172a5.29 5.29 0 0 1-1.312 1.26 4.397 4.397 0 0 1-1.625.553c-.515.08-1.038.088-1.555.03a3.359 3.359 0 0 1-2.52-1.315 5.253 5.253 0 0 0 3.468-.808 4.47 4.47 0 0 0 1.498-1.703c.183-.38.312-.784.385-1.198l1.82.469a5.374 5.374 0 0 1-.655 1.838Z"/></svg>Salesforce</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="roi-section reveal" id="roi">
+      <div class="container">
+        <div class="roi-head">
+            <h2>Measurable Impact from Day One</h2>
+            <p>Stop guessing. See how unified intelligence transforms your operational efficiency.</p>
+        </div>
+        
+        <div class="roi-grid">
+          <div class="roi-card">
+            <div class="roi-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+            <div class="roi-title">Reclaimed Focus</div>
+            <div class="roi-number-group">
+                <span class="roi-val count-up" data-target="2.5">0</span><span class="roi-unit">h</span>
+            </div>
+            <div class="roi-desc">Saved per employee, every single day. No more context switching between 10 different tabs to find one answer.</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+            <div class="roi-title">Governance</div>
+            <div class="roi-number-group">
+                <span class="roi-val count-up" data-target="100">0</span><span class="roi-unit">%</span>
+            </div>
+            <div class="roi-desc">Compliance with internal policies. RBAC ensures employees only see data they are explicitly allowed to access.</div>
+          </div>
+          <div class="roi-card">
+            <div class="roi-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+            <div class="roi-title">Onboarding</div>
+            <div class="roi-number-group">
+                <span class="roi-unit">-</span><span class="roi-val count-up" data-target="60">0</span><span class="roi-unit">%</span>
+            </div>
+            <div class="roi-desc">Faster ramp time for new hires. They can ask the system instead of tapping a senior engineer's shoulder.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-sec reveal" id="productivity">
+      <div class="container split-grid">
+        <div class="split-content">
+          <h2>Stop digging for data.<br>Start acting on it.</h2>
+          <p>Your team wastes hours everyday switching apps just to find basic info. We turn that lost time into execution time.</p>
+        </div>
+        <div class="comp-visual">
+          <div class="cv-row">
+            <div class="cv-col">
+              <div class="cv-head">Old Way</div>
+              <div class="cv-box old"><div class="cv-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>Search 10 Apps<br>& Get Lost</div>
+            </div>
+            <div class="cv-col" style="flex:0 0 auto; align-self:center; color:var(--muted);">→</div>
+            <div class="cv-col">
+              <div class="cv-head">AtlaSynq Way</div>
+              <div class="cv-box new"><div class="cv-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>Just Ask &<br>Get Answers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-sec" id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>Engineered for the Enterprise</h2>
+          <p>Security, flexibility, and control. Built into the core.</p>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3>Fully Customizable Workspaces</h3>
+            <p>Don't force a one-size-fits-all bot on your company. Create tailored environments for every department.</p>
+            <ul class="feature-list">
+              <li><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Finance: ERP, Invoices, Excel.</li>
+              <li><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Sales: CRM, Email, Outreach.</li>
+              <li><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> IT: Jira, Confluence, Logs.</li>
+            </ul>
+          </div>
+          <div class="viz-box">
+             <div class="viz-connect">
+               <svg class="icon center-node" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+               <div class="sat-node" style="top:20%; left:10%;">NetSuite</div>
+               <div class="sat-node" style="bottom:25%; right:15%;">Salesforce</div>
+               <div class="sat-node" style="top:15%; right:20%;">Jira</div>
+             </div>
+          </div>
+        </div>
+
+        <div class="feature-row reverse">
+          <div class="feature-text">
+            <h3>Governed by Default</h3>
+            <p>Ensure sensitive data never crosses department lines. Built-in RBAC and audit logs keep you compliant.</p>
+            <ul class="feature-list">
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Role-Based Access Control (RBAC).</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Full conversation audit trails.</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Data boundaries enforced at source.</li>
+            </ul>
+          </div>
+          <div class="viz-box">
+              <div class="viz-shield"><svg class="icon shield-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          </div>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3>Unified Context, One Interface</h3>
+            <p>Stop context switching. Access all your organization's knowledge from a single, intelligent chat interface.</p>
+            <ul class="feature-list">
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Search across multiple tools instantly.</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Synthesize answers with citations.</li>
+              <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Increase team velocity by 30%+.</li>
+            </ul>
+          </div>
+          <div class="viz-box">
+             <div class="viz-connect" style="justify-content:center;">
+                <svg class="icon rocket-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="builder-sec" id="builder">
+      <div class="container">
+        <div class="section-head">
+          <h2>Configure secure agents in seconds.</h2>
+          <p>No coding required. Point, click, and deploy.</p>
+        </div>
+        <div class="demo-window" id="builderApp"> 
+          <div class="fake-cursor" id="builderCursor"></div>
+          <div class="b-steps">
+            <div class="b-step active" id="tab-1">1. LLM</div>
+            <div class="b-step" id="tab-2">2. Agent</div>
+            <div class="b-step" id="tab-3">3. Tools</div>
+            <div class="b-step" id="tab-4">4. Launch</div>
+          </div>
+          <div class="b-canvas">
+            <div class="b-panel active" id="panel-1">
+              <h3>Choose Your Foundation Model</h3>
+              <div class="b-grid">
+                <div class="b-card" id="opt-gpt4"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg></div><h4>GPT-4o</h4></div>
+                <div class="b-card" id="opt-claude"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg></div><h4>Claude 3.5</h4></div>
+                <div class="b-card" id="opt-llama"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div><h4>Llama 3</h4></div>
+                <div class="b-card"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></div><h4>Azure</h4></div>
+              </div>
+            </div>
+            <div class="b-panel" id="panel-2">
+              <h3>Select Agent Type</h3>
+              <div class="b-grid">
+                <div class="b-card" id="opt-finance"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h4>Finance</h4></div>
+                <div class="b-card" id="opt-sales"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h4>Sales</h4></div>
+                <div class="b-card" id="opt-code"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h4>Code</h4></div>
+                <div class="b-card" id="opt-it"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h4>Support</h4></div>
+              </div>
+            </div>
+            <div class="b-panel" id="panel-3">
+              <h3>Connect Tools</h3>
+              <div class="b-grid-3" id="tools-grid"></div>
+              <button class="btn btn-primary" id="launchBtn" style="margin-top:2rem;width:100%;">Launch Workspace</button>
+            </div>
+            <div class="b-panel" id="panel-4" style="padding:0;">
+              <div class="res-container">
+                <div class="res-header">
+                   <div class="res-title" id="resTitle">Finance Agent</div>
+                   <div class="res-badge">Active</div>
+                </div>
+                <div class="res-chat" id="resFeed">
+                  <div class="typing" id="resThinking"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="res-input-wrapper">
+                  <div class="input-row">
+                    <div class="plus-btn"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
+                    <div class="fake-input">
+                       <span class="fake-input-text" id="resTypingText"></span>
+                       <div class="cursor-bar" id="resBlink"></div>
+                       <div class="send-icon" id="resSendBtn"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" style="color:white;width:16px;"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bento-sec" id="usecases">
+      <div class="container">
+        <div class="section-head">
+          <h2>Unlock capacity <span class="grad-text">for everyone.</span></h2>
+          <p>It's not just a dev tool. It's an organization-wide brain.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-card wide">
+            <span class="bc-tag">Finance</span>
+            <div><div class="bc-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><div class="bc-title">Finance & Ops</div><div class="bc-query">"Show me Q3 travel expenses vs budget by department."</div></div>
+          </div>
+          <div class="bento-card">
+            <span class="bc-tag">Sales</span>
+            <div><div class="bc-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><div class="bc-title">Sales</div><div class="bc-query">"Summarize the last 3 calls with BigCorp."</div></div>
+          </div>
+          <div class="bento-card">
+             <span class="bc-tag">People</span>
+            <div><div class="bc-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div class="bc-title">HR</div><div class="bc-query">"What is the dental policy for remote contractors?"</div></div>
+          </div>
+          <div class="bento-card wide">
+             <span class="bc-tag">Engineering</span>
+            <div><div class="bc-icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><div class="bc-title">Engineering</div><div class="bc-query">"List all open P0 bugs related to the Login API."</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-sec" id="faq">
+      <div class="container">
+        <div class="section-head"><h2>Common Questions</h2></div>
+        <div class="faq-list">
+          <div class="faq-item"><details><summary>Does this replace our existing tools? <span>+</span></summary><div class="faq-body">No. We layer on top of them. Your data stays where it is.</div></details></div>
+          <div class="faq-item"><details><summary>Do you train on my data? <span>+</span></summary><div class="faq-body">No. We use zero-retention APIs. Your data stays within your perimeter.</div></details></div>
+          <div class="faq-item"><details><summary>Can I use my own Azure OpenAI key? <span>+</span></summary><div class="faq-body">Yes. You can bring your own model credentials.</div></details></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-sec">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready to govern your internal AI?</h2>
+          <div style="margin-top:2rem;">
+             <button class="btn" style="background: white; color: var(--ink); padding: 14px 28px; font-weight: 700;">Contact Sales</button>
+          </div>
+        </div>
+        
+        <div class="foot-bottom"><span>&copy; 2026 AtlaSynq Inc. All rights reserved.</span></div>
+      </div>
+    </footer>
+
+    <script>
+      const sleep = ms => new Promise(r => setTimeout(r, ms));
+      const qs = sel => document.querySelector(sel);
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { 
+          if (entry.isIntersecting) {
+             entry.target.classList.add('active');
+             const counters = entry.target.querySelectorAll('.count-up');
+             counters.forEach(counter => {
+                 const target = parseFloat(counter.getAttribute('data-target'));
+                 animateValue(counter, 0, target, 2000);
+                 counter.classList.remove('count-up'); 
+             });
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const easeProgress = 1 - Math.pow(1 - progress, 3); 
+          
+          let current = progress * (end - start) + start;
+          
+          if (end % 1 !== 0) {
+             obj.innerHTML = current.toFixed(1);
+          } else {
+             obj.innerHTML = Math.floor(current);
+          }
+          
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            obj.innerHTML = end;
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      async function moveCursor(cursorId, targetSelector, containerId, offsetX=0, offsetY=0) {
+        const cursor = document.getElementById(cursorId);
+        const target = document.querySelector(targetSelector);
+        const container = document.getElementById(containerId);
+        if(!target || !container) return;
+        cursor.classList.add('active');
+        const cRect = container.getBoundingClientRect();
+        const tRect = target.getBoundingClientRect();
+        const left = tRect.left - cRect.left + (tRect.width/2) + offsetX;
+        const top = tRect.top - cRect.top + (tRect.height/2) + offsetY;
+        cursor.style.transform = `translate(${left}px, ${top}px)`;
+        await sleep(700);
+      }
+
+      async function clickElement(cursorId, targetSelector) {
+        const cursor = document.getElementById(cursorId);
+        const el = document.querySelector(targetSelector);
+        cursor.classList.add('click');
+        await sleep(150);
+        cursor.classList.remove('click');
+        if(el.classList.contains('pop-item')) el.style.background = '#e2e8f0';
+        if(el.classList.contains('b-card')) el.classList.add('selected');
+        if(el.id === 'plusBtn') el.classList.add('active');
+        await sleep(200);
+        if(el.classList.contains('pop-item')) el.style.background = '';
+        if(el.id === 'plusBtn') el.classList.remove('active');
+      }
+
+      /* Hero Logic */
+      const heroFeed = document.getElementById('heroFeed');
+      const heroThinking = document.getElementById('heroThinking');
+      const chatTitle = document.getElementById('chatTitle');
+      const heroTyping = document.getElementById('heroTypingText');
+      const heroBlink = document.getElementById('heroBlink');
+      const agentMenu = document.getElementById('agentMenu');
+
+      const chatScenario = [
+        {
+          menuId: '#menu-sales', name: 'Sales Agent',
+          q: "What is the status of the Acme deal?",
+          a: "The Acme deal is in <strong>Contract Negotiation</strong>. Legal reviewed the MSA yesterday.",
+          src: ["Salesforce", "Gong"]
+        },
+        {
+          menuId: '#menu-finance', name: 'Finance Agent',
+          q: "Pull the latest invoice for Globex.",
+          a: "Here is Invoice #INV-2024 for Globex Corp ($12,500). Status: <strong>Paid</strong>.",
+          src: ["NetSuite", "Stripe"]
+        }
+      ];
+
+      async function runHeroLoop() {
+        let idx = 0;
+        while(true) {
+          const s = chatScenario[idx];
+          heroFeed.innerHTML = '';
+          heroFeed.appendChild(heroThinking);
+          heroThinking.style.display = 'none';
+          heroTyping.innerText = '';
+          heroBlink.style.display = 'none';
+          agentMenu.classList.remove('open');
+          chatTitle.innerText = "AtlaSynq Workspace";
+
+          await sleep(1000);
+          await moveCursor('heroCursor', '#plusBtn', 'heroApp');
+          await clickElement('heroCursor', '#plusBtn');
+          agentMenu.classList.add('open');
+          await sleep(600);
+          await moveCursor('heroCursor', s.menuId, 'heroApp');
+          await clickElement('heroCursor', s.menuId);
+          agentMenu.classList.remove('open');
+          chatTitle.innerText = s.name;
+          await sleep(600);
+          await moveCursor('heroCursor', '#heroInput', 'heroApp', -80);
+          document.getElementById('heroInput').classList.add('focused');
+          heroBlink.style.display = 'block';
+          for(let char of s.q) {
+            heroTyping.innerText += char; 
+            await sleep(30 + Math.random()*30);
+          }
+          await sleep(400);
+          await moveCursor('heroCursor', '#heroSend', 'heroApp');
+          heroTyping.innerText = '';
+          heroBlink.style.display = 'none';
+          document.getElementById('heroInput').classList.remove('focused');
+          const userMsg = document.createElement('div');
+          userMsg.className = 'msg user';
+          userMsg.innerHTML = `<div class="bubble">${s.q}</div>`;
+          heroFeed.insertBefore(userMsg, heroThinking);
+          heroThinking.style.display = 'flex';
+          heroFeed.scrollTop = heroFeed.scrollHeight;
+          await sleep(1600);
+          heroThinking.style.display = 'none';
+          const aiMsg = document.createElement('div');
+          aiMsg.className = 'msg ai';
+          let srcHtml = '';
+          s.src.forEach(src => srcHtml += `<div class="src-chip"><svg viewBox="0 0 24 24" class="icon" style="width:12px;height:12px;color:var(--primary);"><circle cx="12" cy="12" r="10"></circle></svg>${src}</div>`);
+          aiMsg.innerHTML = `<div class="bubble">${s.a}<div class="sources">${srcHtml}</div></div>`;
+          heroFeed.insertBefore(aiMsg, heroThinking);
+          heroFeed.scrollTop = heroFeed.scrollHeight;
+          await moveCursor('heroCursor', '.src-chip', 'heroApp');
+          await sleep(3500);
+          idx = (idx + 1) % chatScenario.length;
+        }
+      }
+
+      /* Builder Logic */
+      const resFeed = document.getElementById('resFeed');
+      const resThinking = document.getElementById('resThinking');
+      const resTyping = document.getElementById('resTypingText');
+      const resBlink = document.getElementById('resBlink');
+      const resTitle = document.getElementById('resTitle');
+      const resIcon = document.getElementById('resIcon');
+
+      const builderScenarios = [
+        {
+          modelId: '#opt-gpt4', brainId: '#opt-finance', title: 'Finance Agent', icon: '💰',
+          toolsHtml: `
+            <div class="b-card" id="opt-netsuite"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div><h4>NetSuite</h4></div>
+            <div class="b-card" id="opt-xero"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h4>Xero</h4></div>
+            <div class="b-card" id="opt-stripe"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div><h4>Stripe</h4></div>
+            <div class="b-card" id="opt-qb"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div><h4>QuickBooks</h4></div>
+            <div class="b-card" id="opt-sap"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><h4>SAP</h4></div>
+            <div class="b-card" id="opt-expensify"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div><h4>Expensify</h4></div>
+          `,
+          toolsToClick: ['#opt-netsuite', '#opt-xero'],
+          q1: "Show me the Q3 burn rate.", a1: "Based on <strong>Q3 Report</strong>, burn rate is down 12%.",
+          src: "NetSuite"
+        },
+        {
+          modelId: '#opt-claude', brainId: '#opt-sales', title: 'Sales Agent', icon: '🚀',
+          toolsHtml: `
+            <div class="b-card" id="opt-sf"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></div><h4>Salesforce</h4></div>
+            <div class="b-card" id="opt-hubspot"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line></svg></div><h4>HubSpot</h4></div>
+            <div class="b-card" id="opt-gong"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><h4>Gong</h4></div>
+            <div class="b-card" id="opt-outreach"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><h4>Outreach</h4></div>
+            <div class="b-card" id="opt-linkedin"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></div><h4>LinkedIn</h4></div>
+            <div class="b-card" id="opt-zoom"><div class="icon"><svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></div><h4>ZoomInfo</h4></div>
+          `,
+          toolsToClick: ['#opt-sf', '#opt-gong'],
+          q1: "Status of BigCorp?", a1: "BigCorp deal is in <strong>legal review</strong>.",
+          src: "Salesforce"
+        }
+      ];
+
+      async function runBuilderLoop() {
+        let bIdx = 0;
+        while(true) {
+          const s = builderScenarios[bIdx];
+          document.querySelectorAll('.b-step').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.b-panel').forEach(p => p.classList.remove('active'));
+          document.querySelectorAll('.b-card').forEach(c => c.classList.remove('selected'));
+          resFeed.innerHTML = ''; resFeed.appendChild(resThinking); resThinking.style.display='none'; resTyping.innerText=''; resBlink.style.display='none';
+          
+          document.getElementById('tab-1').classList.add('active');
+          document.getElementById('panel-1').classList.add('active');
+          await sleep(800);
+          await moveCursor('builderCursor', s.modelId, 'builderApp');
+          await clickElement('builderCursor', s.modelId);
+          
+          document.getElementById('panel-1').classList.remove('active'); document.getElementById('panel-2').classList.add('active');
+          document.getElementById('tab-1').classList.remove('active'); document.getElementById('tab-2').classList.add('active');
+          await sleep(500);
+          await moveCursor('builderCursor', s.brainId, 'builderApp');
+          await clickElement('builderCursor', s.brainId);
+
+          document.getElementById('panel-2').classList.remove('active'); document.getElementById('panel-3').classList.add('active');
+          document.getElementById('tab-2').classList.remove('active'); document.getElementById('tab-3').classList.add('active');
+          document.getElementById('tools-grid').innerHTML = s.toolsHtml;
+          await sleep(500);
+          for (const tId of s.toolsToClick) {
+            await moveCursor('builderCursor', tId, 'builderApp');
+            await clickElement('builderCursor', tId);
+          }
+          await moveCursor('builderCursor', '#launchBtn', 'builderApp');
+          await clickElement('builderCursor', '#launchBtn');
+
+          document.getElementById('panel-3').classList.remove('active'); document.getElementById('panel-4').classList.add('active');
+          document.getElementById('tab-3').classList.remove('active'); document.getElementById('tab-4').classList.add('active');
+          
+          resTitle.innerText = s.title; 
+          
+          await sleep(800);
+          
+          await moveCursor('builderCursor', '#resTypingText', 'builderApp', -50);
+          resBlink.style.display = 'block';
+          for(let char of s.q1) { resTyping.innerText += char; await sleep(30); }
+          await sleep(300);
+          resTyping.innerText = ''; resBlink.style.display = 'none';
+          
+          const uMsg = document.createElement('div'); uMsg.className = 'msg user'; uMsg.innerHTML = `<div class="bubble">${s.q1}</div>`;
+          resFeed.insertBefore(uMsg, resThinking);
+          resThinking.style.display = 'flex'; resFeed.scrollTop = resFeed.scrollHeight;
+          await sleep(1000);
+          resThinking.style.display = 'none';
+          
+          const aMsg = document.createElement('div'); aMsg.className = 'msg ai';
+          const srcDiv = `<div class="sources"><div class="src-chip"><svg viewBox="0 0 24 24" class="icon" style="width:12px;height:12px;color:var(--primary);"><circle cx="12" cy="12" r="10"></circle></svg>${s.src}</div></div>`;
+          aMsg.innerHTML = `<div class="bubble">${s.a1}${srcDiv}</div>`;
+          resFeed.insertBefore(aMsg, resThinking); resFeed.scrollTop = resFeed.scrollHeight;
+
+          await sleep(3000);
+          bIdx = (bIdx + 1) % builderScenarios.length;
+        }
+      }
+
+      window.onload = () => { runHeroLoop(); setTimeout(runBuilderLoop, 1500); };
+    </script>
+  </body>
+</html>
