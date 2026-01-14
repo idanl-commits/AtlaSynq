@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AtlaSynq</title>
+  
+  <meta property="og:title" content="Privacy Policy — AtlaSynq">
+  <meta property="og:description" content="AtlaSynq Privacy Policy and Data Governance.">
+ <meta property="og:image" content="https://www.atlasynq.com/atlasynq-logo.png">
+  <meta property="og:url" content="https://www.atlasynq.com/privacy.html">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M16 2L2 9L16 16L30 9L16 2Z' fill='%232563EB'/%3E%3Cpath d='M16 30L30 23L16 16L2 23L16 30Z' fill='%231D4ED8'/%3E%3Cpath d='M2 16L16 23L30 16' stroke='%2360A5FA' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* VARIABLES (Matching Index) */
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+    
+    body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: var(--bg);
+        color: var(--text); 
+        line-height: 1.7; 
+        overflow-x: hidden;
+        /* Subtle Grid Background */
+        background-size: 32px 32px;
+        background-image:
+          linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    }
+
+    /* Ambient Glows */
+    .ambient-glow {
+        position: fixed;
+        width: 600px; height: 600px;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.35;
+        z-index: -1;
+        pointer-events: none;
+    }
+    .glow-1 { top: -150px; left: -150px; background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(255,255,255,0) 70%); }
+    .glow-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255,255,255,0) 70%); }
+
+    /* Header */
+    header {
+        position: sticky; top: 0; z-index: 100;
+        background: rgba(255,255,255,0.75); 
+        backdrop-filter: blur(16px); 
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6); 
+        padding: 0;
+    }
+
+    .nav-container {
+        max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
+        height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+
+    /* Logo Styles - Exact match to index.html */
+    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; }
+    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+    
+    .back-link { 
+        font-size: 0.9rem; color: var(--text-muted); text-decoration: none; font-weight: 600; 
+        padding: 8px 16px; border-radius: 6px; transition: 0.2s; border: 1px solid transparent;
+        font-family: 'Inter', sans-serif;
+    }
+    .back-link:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+
+    /* Main Layout */
+    .legal-wrapper {
+        max-width: 1000px; margin: 0 auto; padding: 60px 24px 100px;
+        display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start;
+    }
+
+    /* Sidebar */
+    .toc { position: sticky; top: 100px; }
+    .toc-title { text-transform: uppercase; font-size: 0.7rem; font-weight: 700; color: #94a3b8; letter-spacing: 0.05em; margin-bottom: 1rem; font-family: 'JetBrains Mono', monospace; }
+    .toc ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .toc a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: 0.2s; display: block; padding: 4px 0; }
+    .toc a:hover { color: var(--primary); transform: translateX(2px); }
+
+    /* Content Typography */
+    .content h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: var(--text); }
+    .last-updated { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 3rem; background: #F1F5F9; display: inline-block; padding: 4px 8px; border-radius: 4px; }
+    
+    .content h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; padding-bottom: 10px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .content h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; margin: 1.5rem 0 0.5rem; font-weight: 700; color: var(--text); }
+    .content p, .content li { color: #475569; font-size: 1rem; margin-bottom: 1rem; }
+    .content ul { padding-left: 20px; margin-bottom: 1.5rem; }
+    .content li { margin-bottom: 0.5rem; }
+
+    /* Highlight Box */
+    .highlight-box {
+        background: #F8FAFC;
+        border: 1px solid #DBEAFE;
+        border-left: 4px solid var(--primary);
+        border-radius: 6px;
+        padding: 20px;
+        margin: 24px 0;
+    }
+    .highlight-box strong { color: var(--primary); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+
+    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+    @media(max-width: 800px) {
+        .legal-wrapper { grid-template-columns: 1fr; gap: 30px; padding-top: 30px; }
+        .toc { display: none; }
+        h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Atla<span style="color: var(--primary);">Synq</span></span>
+      </a>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <div class="legal-wrapper">
+    <aside class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <ul>
+        <li><a href="#intro">1. Introduction</a></li>
+        <li><a href="#collection">2. Data Collection</a></li>
+        <li><a href="#ai-governance">3. AI & Data Governance</a></li>
+        <li><a href="#security">4. Security Measures</a></li>
+        <li><a href="#sharing">5. Data Sharing</a></li>
+        <li><a href="#contact">6. Contact Us</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h1>Privacy Policy</h1>
+      <span class="last-updated">Last Updated: January 15, 2026</span>
+
+      <section id="intro">
+        <p>AtlaSynq Inc. ("we," "our," or "us") provides a unified intelligence layer for enterprise data (the "Service"). We are committed to protecting the privacy and security of your proprietary data. This Privacy Policy describes how we collect, use, and disclose information.</p>
+        <p>By using our Service, you agree to the collection and use of information in accordance with this policy. This policy applies to our website, platform, and all related services.</p>
+      </section>
+
+      <section id="collection">
+        <h2>2. Data Collection & Usage</h2>
+        <h3>2.1 Customer Data</h3>
+        <p>We process data from your integrated tools (e.g., Salesforce, Slack, Jira) solely to provide answers to your queries. This data is processed in real-time and is typically not stored persistently unless required for specific features enabled by you.</p>
+        
+        <h3>2.2 Usage Data</h3>
+        <p>We collect anonymized telemetry data regarding how users interact with the platform (e.g., number of queries, response latency) to improve system performance and reliability.</p>
+      </section>
+
+      <section id="ai-governance">
+        <h2>3. AI & Data Governance</h2>
+        <div class="highlight-box">
+            <strong>Strict Zero-Training Policy:</strong> We do not train, fine-tune, or improve our foundation models using your proprietary data. Your business data remains yours.
+        </div>
+        <p>When you ask a question via AtlaSynq:</p>
+        <ul>
+            <li>Relevant context is retrieved securely from your connected tools.</li>
+            <li>This context is sent to the Large Language Model (LLM) provider via secure API.</li>
+            <li>We operate under zero-retention agreements where possible, minimizing the time your data exists on external servers.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2>4. Security Measures</h2>
+        <p>We take security seriously and implement industry-standard measures to protect your information.</p>
+        <ul>
+            <li><strong>Encryption:</strong> Data is encrypted in transit and at rest using standard security protocols.</li>
+            <li><strong>Access Control:</strong> Our system respects the permissions of the source platform. If a user does not have access to a file in the source system (e.g., Jira), the AI agent will not access it on their behalf.</li>
+            <li><strong>Cloud Infrastructure:</strong> Our services are hosted on top-tier cloud providers that maintain strict physical and digital security standards.</li>
+        </ul>
+      </section>
+
+      <section id="sharing">
+        <h2>5. Data Sharing</h2>
+        <p>We do not sell your personal data. We share data only with trusted third-party service providers necessary to operate the service (e.g., for hosting, analytics, or LLM processing), and we require them to maintain confidentiality.</p>
+      </section>
+
+      <section id="contact">
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact our team at:</p>
+        <p><strong>Email:</strong> privacy@atlasynq.com</p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      © 2026 AtlaSynq Inc. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
