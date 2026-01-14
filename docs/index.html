@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>AtlaSynq — The Governed AI Layer</title>
 
+  <meta property="og:title" content="AtlaSynq — The Governed AI Layer">
+  <meta property="og:description" content="Build secure, internal AI agents for every department. Connect sales, HR, and IT tools securely.">
+  <meta property="og:image" content="https://www.atlasynq.com/og-image.png">
+  <meta property="og:url" content="https://www.atlasynq.com">
+  <meta property="og:type" content="website">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -31,7 +37,7 @@
       --bg-alt: #f8fafc; 
       --text: #0f172a;
       --text-muted: #64748b;
-      --primary: #136fc5;
+      --primary: #2563eb;
       --primary-light: #eff6ff;
       --border: #e2e8f0;
       --success: #10b981;
@@ -531,7 +537,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <button class="btn btn-secondary">Log in</button>
-        <button class="btn btn-primary" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
       </div>
     </div>
   </header>
@@ -663,9 +669,9 @@
       
       <div class="layer-container">
         <div class="layer-center" id="hub-center">
-            <svg width="40" height="40" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-                <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+            <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+              <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
             </svg>
         </div>
         
@@ -1062,6 +1068,16 @@
 
   <script>
     const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    // CALENDLY LISTENER SCRIPT
+    window.addEventListener('message', function(e) {
+      if (e.data.event && e.data.event === 'calendly.event.scheduled') {
+        gtag('event', 'generate_lead', {
+          'event_category': 'Calendly',
+          'event_label': 'Meeting Scheduled'
+        });
+      }
+    });
 
     async function moveMouse(sel, conId, curId, x=0, y=0) {
       const el = document.querySelector(sel);
