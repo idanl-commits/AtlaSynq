@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>AtlaSynq — The Governed AI Layer</title>
   
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L2 9L16 16L30 9L16 2Z' fill='%232563EB'/%3E%3Cpath d='M16 30L30 23L16 16L2 23L16 30Z' fill='%231D4ED8'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,17 +94,20 @@
     .nav-links a:hover { color: var(--primary); }
 
     /* Hero */
-    .hero { padding: 6rem 0; position: relative; }
+    .hero { padding: 6rem 0 2rem 0; /* Reduced bottom padding */ position: relative; }
     .hero::after {
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none; z-index: -1;
     }
     .hero-content { 
-        position: relative; z-index: 2; text-align: center; margin-bottom: 4rem; 
+        position: relative; z-index: 2; text-align: center; margin-bottom: 1.5rem; /* Reduced margin to bring chat closer */
         display: flex; flex-direction: column; align-items: center;
     }
     
+    /* Adjusted text spacing in hero */
+    .hero p { max-width: 600px; margin: 1.5rem auto 2rem; text-align: center; }
+
     .window-frame {
       width: 100%; max-width: 1080px; height: 600px; margin: 0 auto;
       background: #ffffff; border: 1px solid var(--border); border-radius: 16px;
@@ -482,7 +487,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <button class="btn btn-secondary">Log in</button>
-        <button class="btn btn-primary">Book Demo</button>
+        <button class="btn btn-primary" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
       </div>
     </div>
   </header>
@@ -1008,6 +1013,8 @@
     </div>
     <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
   </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <script>
     const sleep = ms => new Promise(r => setTimeout(r, ms));
