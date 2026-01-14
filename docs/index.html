@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>AtlaSynq — The Governed AI Layer</title>
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L2 9L16 16L30 9L16 2Z' fill='%232563EB'/%3E%3Cpath d='M16 30L30 23L16 16L2 23L16 30Z' fill='%231D4ED8'/%3E%3C/svg%3E">
@@ -56,7 +56,7 @@
     .text-center { text-align: center; }
 
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
-    h1 { font-size: 3rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
+    h1 { font-size: 3.5rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
     h2 { font-size: 2.5rem; font-weight: 700; }
     h3 { font-size: 1.5rem; font-weight: 700; }
     p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
@@ -98,12 +98,10 @@
       background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none; z-index: -1;
     }
-    
     .hero-content { 
         position: relative; z-index: 2; text-align: center; margin-bottom: 4rem; 
         display: flex; flex-direction: column; align-items: center;
     }
-    .hero p { max-width: 600px; margin: 1.5rem auto 2.5rem; text-align: center; }
     
     .window-frame {
       width: 100%; max-width: 1080px; height: 600px; margin: 0 auto;
@@ -138,7 +136,6 @@
     .msg.user .bubble { background: #F1F5F9; color: var(--text); border-top-right-radius: 2px; }
     .msg.ai .bubble { background: white; border: 1px solid var(--border); border-top-left-radius: 2px; box-shadow: var(--shadow-sm); }
     
-    /* Chat Icon Style */
     .agent-avatar {
         width: 32px; height: 32px; 
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
@@ -400,33 +397,51 @@
       /* Navigation: Hide links on mobile */
       .nav-links { display: none; }
       
-      /* Stack all grids */
-      .compare-grid, .everything-grid, .impact-grid, .footer-grid, .grid-3 {
+      /* Stack grids */
+      .compare-grid, .everything-grid, .impact-grid, .grid-3 {
         display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
+      }
+      
+      /* FOOTER FIX FOR MOBILE - SIDE BY SIDE */
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+        text-align: left;
+        gap: 2rem 1rem;
+      }
+      .footer-grid > div:first-child {
+        grid-column: span 2; /* Logo takes full width on top */
+        text-align: center;
+        margin-bottom: 1rem;
       }
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
       
-      /* Sidebar Re-enabled and Resized for Mobile */
+      /* SIDEBAR FIX FOR MOBILE - SHOW AND COMPACT IT */
       .app-sidebar {
-        display: flex !important; /* Force display */
-        width: 35%; /* Use percentage so it fits */
-        min-width: 110px; /* But not too small */
-        padding: 12px 6px;
+        display: flex !important; /* Force Show */
+        width: 80px; /* Narrow width */
+        min-width: 80px;
+        padding: 12px 4px;
+        align-items: center;
       }
+      .sb-section-title { display: none; /* Hide title */ }
       .sb-item {
-        font-size: 0.75rem; /* Smaller text */
-        gap: 6px;
-        padding: 8px 6px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        flex-direction: column; /* Stack icon and text */
+        text-align: center;
+        font-size: 0.65rem; /* Tiny text */
+        gap: 4px;
+        padding: 8px 4px;
+        justify-content: center;
       }
-      .sb-item svg { width: 16px; height: 16px; }
-      .sb-section-title { font-size: 0.6rem; margin-left: 6px; }
+      .sb-item svg { width: 24px; height: 24px; margin: 0; }
 
-      .window-frame { height: 500px; /* Ensure height */ }
+      /* CHAT WINDOW FIX */
+      .window-frame { 
+          height: 500px; 
+          display: flex; /* Ensure flex layout */
+      }
       
       /* Animation Layer Scaling for Mobile */
       .layer-container { height: 280px; }
@@ -435,17 +450,14 @@
       .satellite { width: 36px; height: 36px; }
       .satellite svg { width: 18px; height: 18px; }
       
-      /* Bring satellites closer on mobile */
       .sat-1 { top: 15%; left: 15%; }
       .sat-2 { top: 20%; right: 10%; }
       .sat-3 { bottom: 15%; left: 10%; }
       .sat-4 { bottom: 10%; right: 15%; }
       
-      /* Deep Dive Rows */
       .dd-row, .dd-row:nth-child(even) { flex-direction: column; text-align: center; gap: 3rem; }
       .dd-list { align-items: center; text-align: left; }
       
-      /* Builder Mobile */
       .builder-ui { height: auto; min-height: 550px; }
       .b-content { padding: 20px; }
     }
