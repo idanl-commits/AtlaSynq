@@ -56,7 +56,7 @@
     .text-center { text-align: center; }
 
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
-    h1 { font-size: 3.5rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
+    h1 { font-size: 3rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
     h2 { font-size: 2.5rem; font-weight: 700; }
     h3 { font-size: 1.5rem; font-weight: 700; }
     p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
@@ -98,10 +98,12 @@
       background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none; z-index: -1;
     }
+    
     .hero-content { 
         position: relative; z-index: 2; text-align: center; margin-bottom: 4rem; 
         display: flex; flex-direction: column; align-items: center;
     }
+    .hero p { max-width: 600px; margin: 1.5rem auto 2.5rem; text-align: center; }
     
     .window-frame {
       width: 100%; max-width: 1080px; height: 600px; margin: 0 auto;
@@ -136,6 +138,7 @@
     .msg.user .bubble { background: #F1F5F9; color: var(--text); border-top-right-radius: 2px; }
     .msg.ai .bubble { background: white; border: 1px solid var(--border); border-top-left-radius: 2px; box-shadow: var(--shadow-sm); }
     
+    /* Chat Icon Style */
     .agent-avatar {
         width: 32px; height: 32px; 
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
@@ -404,8 +407,26 @@
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
-      .window-frame { height: 450px; }
-      .app-sidebar { display: none; /* Hide sidebar on mobile to save space */ }
+      
+      /* Sidebar Re-enabled and Resized for Mobile */
+      .app-sidebar {
+        display: flex !important; /* Force display */
+        width: 35%; /* Use percentage so it fits */
+        min-width: 110px; /* But not too small */
+        padding: 12px 6px;
+      }
+      .sb-item {
+        font-size: 0.75rem; /* Smaller text */
+        gap: 6px;
+        padding: 8px 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .sb-item svg { width: 16px; height: 16px; }
+      .sb-section-title { font-size: 0.6rem; margin-left: 6px; }
+
+      .window-frame { height: 500px; /* Ensure height */ }
       
       /* Animation Layer Scaling for Mobile */
       .layer-container { height: 280px; }
@@ -1304,7 +1325,4 @@
     };
   </script>
 </body>
-</html><!-- rebuild -->
-rebuild
-rebuild
-rebuild Tue Jan 13 22:44:49 IST 2026
+</html>
