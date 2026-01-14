@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>AtlaSynq — The Governed AI Layer</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JXPHR1VRHF');
+  </script>
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
@@ -22,7 +31,7 @@
       --bg-alt: #f8fafc; 
       --text: #0f172a;
       --text-muted: #64748b;
-      --primary: #2563eb;
+      --primary: #136fc5;
       --primary-light: #eff6ff;
       --border: #e2e8f0;
       --success: #10b981;
@@ -87,25 +96,26 @@
       border-bottom: 1px solid rgba(226, 232, 240, 0.8); 
     }
     .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    .logo svg { width: 32px; height: 32px; margin-right: 8px; }
-    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* LOGO STYLES */
+    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; }
+    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+    
     .nav-links { display: flex; gap: 2rem; }
     .nav-links a { font-weight: 500; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
     .nav-links a:hover { color: var(--primary); }
 
     /* Hero */
-    .hero { padding: 6rem 0 2rem 0; /* Reduced bottom padding */ position: relative; }
+    .hero { padding: 6rem 0 2rem 0; position: relative; }
     .hero::after {
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 65%);
       pointer-events: none; z-index: -1;
     }
     .hero-content { 
-        position: relative; z-index: 2; text-align: center; margin-bottom: 1.5rem; /* Reduced margin to bring chat closer */
+        position: relative; z-index: 2; text-align: center; margin-bottom: 1.5rem; 
         display: flex; flex-direction: column; align-items: center;
     }
-    
-    /* Adjusted text spacing in hero */
     .hero p { max-width: 600px; margin: 1.5rem auto 2rem; text-align: center; }
 
     .window-frame {
@@ -125,15 +135,15 @@
     .sb-item:hover { background: #e2e8f0; color: var(--text); }
     .sb-item.active { background: white; color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-color: var(--border); }
     
-    .app-main { flex: 1; display: flex; flex-direction: column; background: white; position: relative; }
+    .app-main { flex: 1; display: flex; flex-direction: column; background: white; position: relative; width: 100%; overflow: hidden; }
     .hero-zero { position: absolute; inset: 0; background: white; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.3s; }
     .hero-zero.hidden { opacity: 0; pointer-events: none; }
     .zero-icon { width: 56px; height: 56px; background: #F3F4F6; border-radius: 16px; display: grid; place-items: center; margin-bottom: 1rem; color: #9CA3AF; }
 
-    .chat-header { height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: rgba(255,255,255,0.95); }
+    .chat-header { height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: rgba(255,255,255,0.95); flex-shrink: 0; }
     .conf-badge { font-size: 0.7rem; background: #F3F4F6; padding: 4px 10px; border-radius: 4px; color: #6B7280; font-weight: 500; display: flex; align-items: center; gap: 6px; border: 1px solid #E5E7EB; font-family: 'JetBrains Mono', monospace; }
     
-    .chat-feed { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; }
+    .chat-feed { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; height: 100%; }
     .msg { display: flex; gap: 14px; max-width: 85%; opacity: 0; animation: fadeUp 0.3s forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .msg.user { align-self: flex-end; flex-direction: row-reverse; }
@@ -152,7 +162,7 @@
     .citations { display: flex; gap: 8px; margin-top: 8px; }
     .cite-tag { font-size: 0.7rem; background: #F8FAFC; border: 1px solid #E5E7EB; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-weight: 500; display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; }
 
-    .chat-input-area { padding: 20px; border-top: 1px solid var(--border); background: white; margin-top: auto; }
+    .chat-input-area { padding: 20px; border-top: 1px solid var(--border); background: white; margin-top: auto; flex-shrink: 0; }
     .chat-input-box { background: white; border: 1px solid var(--border); border-radius: 10px; height: 50px; display: flex; align-items: center; padding: 0 16px; position: relative; transition: 0.2s; }
     .chat-input-box.focused { border-color: var(--text); box-shadow: 0 0 0 3px var(--bg-alt); }
     #heroTyper, #resTyper { position: relative; z-index: 2; color: var(--text); font-weight: 500; white-space: pre-wrap; }
@@ -403,49 +413,83 @@
       .nav-links { display: none; }
       
       /* Stack grids */
-      .compare-grid, .everything-grid, .impact-grid, .grid-3 {
+      .compare-grid, .everything-grid, .impact-grid {
         display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
       }
+
+      /* FIX: Builder Grid - Force 2 Columns on Mobile */
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+      .b-card { padding: 16px 8px; }
+      .b-card h4 { font-size: 0.9rem; }
       
-      /* FOOTER FIX FOR MOBILE - SIDE BY SIDE */
+      /* FIX: Footer - 2 Columns on Mobile */
       .footer-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+        grid-template-columns: repeat(2, 1fr); 
         text-align: left;
         gap: 2rem 1rem;
       }
       .footer-grid > div:first-child {
-        grid-column: span 2; /* Logo takes full width on top */
+        grid-column: span 2; 
         text-align: center;
         margin-bottom: 1rem;
+        /* Flex to center the logo and text in mobile view specifically */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      /* Ensure logo in footer behaves */
+      .footer-grid .logo {
+          justify-content: center;
       }
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
       
-      /* SIDEBAR FIX FOR MOBILE - SHOW AND COMPACT IT */
+      /* FIX: Chat Layout on Mobile */
+      .window-frame { 
+          height: 500px; 
+          display: flex; 
+          flex-direction: row; /* Keep sidebar next to chat */
+      }
+
+      /* Sidebar - Show it, but narrow */
       .app-sidebar {
-        display: flex !important; /* Force Show */
-        width: 80px; /* Narrow width */
+        display: flex !important; 
+        width: 80px; 
         min-width: 80px;
         padding: 12px 4px;
         align-items: center;
       }
-      .sb-section-title { display: none; /* Hide title */ }
+      .sb-section-title { display: none; }
       .sb-item {
-        flex-direction: column; /* Stack icon and text */
+        flex-direction: column; 
         text-align: center;
-        font-size: 0.65rem; /* Tiny text */
+        font-size: 0.65rem; 
         gap: 4px;
         padding: 8px 4px;
         justify-content: center;
       }
       .sb-item svg { width: 24px; height: 24px; margin: 0; }
 
-      /* CHAT WINDOW FIX */
-      .window-frame { 
-          height: 500px; 
-          display: flex; /* Ensure flex layout */
+      /* Chat Main Area - Fix Stability */
+      .app-main {
+         flex: 1;
+         width: auto;
+         overflow: hidden; /* Contain chat */
+         display: flex;
+         flex-direction: column;
+      }
+      .chat-feed {
+        overflow-y: auto; /* Scroll messages only */
+        height: 100%;
+        flex: 1;
+      }
+      .chat-input-area {
+          flex-shrink: 0; /* Prevent input from squashing */
       }
       
       /* Animation Layer Scaling for Mobile */
@@ -473,12 +517,12 @@
   <header>
     <div class="container nav">
       <a href="#" class="logo">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
           <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
         </svg>
-        AtlaSynq
+        <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
         <a href="#product">Product</a>
@@ -997,13 +1041,13 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <a href="#" class="logo" style="margin-bottom:1rem;">
+        <a href="#" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
             <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
               <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
               <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
               <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
             </svg>
-            AtlaSynq
+            <span>Atla<span style="color: var(--primary);">Synq</span></span>
         </a>
         <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
       </div>
