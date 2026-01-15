@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service — AtlaSynq</title>
+
+    <link rel="canonical" href="https://www.atlasynq.com/terms/" />
+
+    <meta property="og:title" content="Terms of Service — AtlaSynq" />
+    <meta
+      property="og:description"
+      content="AtlaSynq Terms of Service and User Agreement."
+    />
+    <meta
+      property="og:image"
+      content="https://www.atlasynq.com/atlasynq-logo.png"
+    />
+    <meta property="og:url" content="https://www.atlasynq.com/terms/" />
+    <meta property="og:type" content="website" />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M16 2L2 9L16 16L30 9L16 2Z' fill='%232563EB'/%3E%3Cpath d='M16 30L30 23L16 16L2 23L16 30Z' fill='%231D4ED8'/%3E%3Cpath d='M2 16L16 23L30 16' stroke='%2360A5FA' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* VARIABLES */
+      :root {
+        --bg: #ffffff;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --primary: #2563eb;
+        --primary-light: #eff6ff;
+        --border: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+        background-size: 32px 32px;
+        background-image: linear-gradient(
+            to right,
+            rgba(226, 232, 240, 0.6) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(226, 232, 240, 0.6) 1px,
+            transparent 1px
+          );
+      }
+
+      /* Ambient Glows */
+      .ambient-glow {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.35;
+        z-index: -1;
+        pointer-events: none;
+      }
+      .glow-1 {
+        top: -150px;
+        left: -150px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.3) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+      }
+      .glow-2 {
+        bottom: -100px;
+        right: -100px;
+        background: radial-gradient(
+          circle,
+          rgba(168, 85, 247, 0.2) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        padding: 0;
+      }
+
+      .nav-container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* Logo Styles */
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        font-size: 1.3rem;
+        color: var(--text);
+        text-decoration: none;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        gap: 8px;
+      }
+      .logo svg {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+
+      .back-link {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: 0.2s;
+        border: 1px solid transparent;
+        font-family: "Inter", sans-serif;
+      }
+      .back-link:hover {
+        color: var(--text);
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /* Main Layout */
+      .legal-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 24px 100px;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      /* Sidebar */
+      .toc {
+        position: sticky;
+        top: 100px;
+      }
+      .toc-title {
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #94a3b8;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .toc ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .toc a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        transition: 0.2s;
+        display: block;
+        padding: 4px 0;
+      }
+      .toc a:hover {
+        color: var(--primary);
+        transform: translateX(2px);
+      }
+
+      /* Content Typography */
+      .content h1 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+      .last-updated {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: 3rem;
+        background: #f1f5f9;
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .content h2 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 3rem 0 1rem;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+      }
+      .content h3 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.1rem;
+        margin: 1.5rem 0 0.5rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .content p,
+      .content li {
+        color: #475569;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      .content ul {
+        padding-left: 20px;
+        margin-bottom: 1.5rem;
+      }
+      .content li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Highlight Box */
+      .highlight-box {
+        background: #f8fafc;
+        border: 1px solid #dbeafe;
+        border-left: 4px solid var(--primary);
+        border-radius: 6px;
+        padding: 20px;
+        margin: 24px 0;
+      }
+      .highlight-box strong {
+        color: var(--primary);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 700;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+        background: white;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 800px) {
+        .legal-wrapper {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding-top: 30px;
+        }
+        .toc {
+          display: none;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB" />
+            <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8" />
+            <path
+              d="M2 16L16 23L30 16"
+              stroke="#60A5FA"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span>Atla<span style="color: var(--primary)">Synq</span></span>
+        </a>
+        <a href="/" class="back-link">← Back to Home</a>
+      </div>
+    </header>
+
+    <div class="legal-wrapper">
+      <aside class="toc">
+        <div class="toc-title">Table of Contents</div>
+        <ul>
+          <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+          <li><a href="#service">2. Description of Service</a></li>
+          <li><a href="#account">3. User Accounts</a></li>
+          <li><a href="#usage">4. Acceptable Use</a></li>
+          <li><a href="#payment">5. Payment & Billing</a></li>
+          <li><a href="#intellectual">6. Intellectual Property</a></li>
+          <li><a href="#termination">7. Termination</a></li>
+          <li><a href="#liability">8. Limitation of Liability</a></li>
+          <li><a href="#changes">9. Changes to Terms</a></li>
+          <li><a href="#contact">10. Contact Us</a></li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <h1>Terms of Service</h1>
+        <span class="last-updated">Last Updated: January 15, 2026</span>
+
+        <section id="acceptance">
+          <h2>1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using AtlaSynq ("the Service"), you agree to be
+            bound by these Terms of Service ("Terms"). If you do not agree to
+            these Terms, you may not use the Service.
+          </p>
+          <p>
+            These Terms constitute a legally binding agreement between you and
+            AtlaSynq Inc. ("we," "our," or "us"). If you are using the Service
+            on behalf of an organization, you represent that you have the
+            authority to bind that organization to these Terms.
+          </p>
+        </section>
+
+        <section id="service">
+          <h2>2. Description of Service</h2>
+          <p>
+            AtlaSynq provides a unified intelligence layer that connects to your
+            existing business tools (such as Salesforce, Slack, Jira, and
+            others) to enable AI-powered querying and data synthesis across your
+            organization's knowledge base.
+          </p>
+          <div class="highlight-box">
+            <strong>Service Availability:</strong> We strive to maintain high
+            availability but do not guarantee uninterrupted access. The Service
+            may be unavailable due to maintenance, updates, or circumstances
+            beyond our control.
+          </div>
+        </section>
+
+        <section id="account">
+          <h2>3. User Accounts</h2>
+          <h3>3.1 Account Creation</h3>
+          <p>
+            To use the Service, you must create an account and provide accurate,
+            complete information. You are responsible for maintaining the
+            confidentiality of your account credentials.
+          </p>
+
+          <h3>3.2 Account Security</h3>
+          <p>
+            You are responsible for all activities that occur under your
+            account. You must immediately notify us of any unauthorized use of
+            your account or any other breach of security.
+          </p>
+        </section>
+
+        <section id="usage">
+          <h2>4. Acceptable Use</h2>
+          <p>You agree not to:</p>
+          <ul>
+            <li>
+              Use the Service for any illegal purpose or in violation of any
+              laws or regulations.
+            </li>
+            <li>
+              Attempt to gain unauthorized access to the Service or any related
+              systems or networks.
+            </li>
+            <li>
+              Interfere with or disrupt the integrity or performance of the
+              Service.
+            </li>
+            <li>
+              Use the Service to transmit any malicious code, viruses, or
+              harmful data.
+            </li>
+            <li>
+              Reverse engineer, decompile, or disassemble any part of the
+              Service.
+            </li>
+            <li>
+              Use the Service in a manner that violates the rights of others or
+              infringes on intellectual property.
+            </li>
+          </ul>
+        </section>
+
+        <section id="payment">
+          <h2>5. Payment & Billing</h2>
+          <h3>5.1 Subscription Fees</h3>
+          <p>
+            Access to the Service requires a paid subscription. Subscription
+            fees are billed in advance on a monthly or annual basis, as selected
+            during signup.
+          </p>
+
+          <h3>5.2 Payment Terms</h3>
+          <p>
+            You agree to pay all fees associated with your subscription. Fees
+            are non-refundable except as required by law or as explicitly stated
+            in our refund policy.
+          </p>
+
+          <h3>5.3 Price Changes</h3>
+          <p>
+            We reserve the right to modify subscription pricing. Price changes
+            will be communicated to you in advance and will apply to subsequent
+            billing cycles.
+          </p>
+        </section>
+
+        <section id="intellectual">
+          <h2>6. Intellectual Property</h2>
+          <p>
+            The Service, including its original content, features, and
+            functionality, is owned by AtlaSynq Inc. and is protected by
+            international copyright, trademark, and other intellectual property
+            laws.
+          </p>
+          <p>
+            You retain ownership of any data you provide to the Service. By
+            using the Service, you grant us a limited license to process your
+            data solely for the purpose of providing the Service.
+          </p>
+        </section>
+
+        <section id="termination">
+          <h2>7. Termination</h2>
+          <h3>7.1 Termination by You</h3>
+          <p>
+            You may cancel your subscription at any time through your account
+            settings. Cancellation will take effect at the end of your current
+            billing period.
+          </p>
+
+          <h3>7.2 Termination by Us</h3>
+          <p>
+            We may suspend or terminate your access to the Service immediately
+            if you violate these Terms or engage in fraudulent, abusive, or
+            illegal activity.
+          </p>
+        </section>
+
+        <section id="liability">
+          <h2>8. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by law, AtlaSynq Inc. shall not be
+            liable for any indirect, incidental, special, consequential, or
+            punitive damages, or any loss of profits or revenues, whether
+            incurred directly or indirectly, or any loss of data, use, goodwill,
+            or other intangible losses resulting from your use of the Service.
+          </p>
+          <div class="highlight-box">
+            <strong>Disclaimer:</strong> The Service is provided "as is" and "as
+            available" without warranties of any kind, either express or
+            implied, including but not limited to implied warranties of
+            merchantability, fitness for a particular purpose, or
+            non-infringement.
+          </div>
+        </section>
+
+        <section id="changes">
+          <h2>9. Changes to Terms</h2>
+          <p>
+            We reserve the right to modify these Terms at any time. We will
+            notify you of material changes by posting the updated Terms on our
+            website and updating the "Last Updated" date. Your continued use of
+            the Service after such changes constitutes acceptance of the
+            modified Terms.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>10. Contact Us</h2>
+          <p>
+            If you have any questions about these Terms of Service, please
+            contact us at:
+          </p>
+          <p><strong>Email:</strong> legal@atlasynq.com</p>
+          <p>
+            <strong>Address:</strong> AtlaSynq Inc., [Your Business Address]
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="container">© 2026 AtlaSynq Inc. All rights reserved.</div>
+    </footer>
+  </body>
+</html>
