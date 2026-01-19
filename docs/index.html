@@ -1326,21 +1326,20 @@
     }
 
     // --- BUILDER LOOP ---
-    // Using local images for everything to fix desktop/mobile mismatch
     const icons = {
-      // LLMs - Local Images
+      // LLMs - Local Images (Verified extensions)
       gpt: '<img src="images/gpt.jpeg" alt="GPT">',
       claude: '<img src="images/claude.png" alt="Claude">',
       gemini: '<img src="images/gemini.jpeg" alt="Gemini">',
       llama: '<img src="images/llama.png" alt="Llama">',
-      azure: '<img src="images/copilot.jpg" alt="Copilot">', // Mapped to Copilot logic
-      mistral: '<img src="images/perplexity.jpg" alt="Perplexity">', // Mapped to Perplexity logic
+      copilot: '<img src="images/copilot.jpg" alt="Copilot">',       // Replaces Azure
+      perplexity: '<img src="images/perplexity.jpg" alt="Perplexity">', // Replaces Mistral
 
-      // Tools - Local Images
+      // Tools - Local Images (Verified extensions)
       netsuite: '<img src="images/netsuite.png" alt="NetSuite">',
       stripe: '<img src="images/stripe.png" alt="Stripe">',
-      salesforce: '<img src="images/salesforce.jpg" alt="Salesforce">',
-      hubspot: '<img src="images/hubspot.jpeg" alt="HubSpot">',
+      salesforce: '<img src="images/salesforce.jpg" alt="Salesforce">', // .jpg
+      hubspot: '<img src="images/hubspot.jpg" alt="HubSpot">',       // .jpg
       jira: '<img src="images/jira.png" alt="Jira">',
       excel: '<img src="images/excel.jpg" alt="Excel">',
       quickbooks: '<img src="images/quickbooks.png" alt="QuickBooks">',
