@@ -212,13 +212,21 @@
     }
     
     .logo-item { 
-        display: flex; align-items: center; gap: 10px; 
+        display: flex; align-items: center; gap: 12px; 
         font-weight: 600; color: var(--text-muted); font-size: 1.1rem; 
-        filter: grayscale(100%); opacity: 0.7; 
         transition: 0.3s ease; 
         white-space: nowrap; 
+        background: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        border: 1px solid #f1f5f9;
     }
-    .logo-item:hover { filter: grayscale(0%); opacity: 1; transform: translateY(-2px); }
+    .logo-item:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .logo-item img {
+        height: 24px;
+        width: auto;
+    }
     
     @keyframes scroll-logos {
         0% { transform: translateX(0); }
@@ -691,53 +699,53 @@
       <div class="logos-wrapper">
         <div class="logos-track">
            <div class="logo-item">
-              <img src="images/slack.png" alt="Slack" style="height: 32px; width: auto;"> Slack
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack"> Slack
            </div>
            <div class="logo-item">
-              <img src="images/salesforce.jpg" alt="Salesforce" style="height: 32px; width: auto;"> Salesforce
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce"> Salesforce
            </div>
            <div class="logo-item">
-              <img src="images/github.png" alt="GitHub" style="height: 32px; width: auto;"> GitHub
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"> GitHub
            </div>
            <div class="logo-item">
-              <img src="images/notion.png" alt="Notion" style="height: 32px; width: auto;"> Notion
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion"> Notion
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.jpeg" alt="HubSpot" style="height: 32px; width: auto;"> HubSpot
+              <img src="https://cdn.worldvectorlogo.com/logos/hubspot.svg" alt="HubSpot"> HubSpot
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira" style="height: 32px; width: auto;"> Jira
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira"> Jira
            </div>
            <div class="logo-item">
-              <img src="images/drive.png" alt="Google Drive" style="height: 32px; width: auto;"> Drive
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo_%282020%29.svg" alt="Drive"> Drive
            </div>
            <div class="logo-item">
-              <img src="images/teams.jpg" alt="Microsoft Teams" style="height: 32px; width: auto;"> Teams
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="Teams"> Teams
            </div>
 
            <div class="logo-item">
-              <img src="images/slack.png" alt="Slack" style="height: 32px; width: auto;"> Slack
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack"> Slack
         </div>
            <div class="logo-item">
-              <img src="images/salesforce.jpg" alt="Salesforce" style="height: 32px; width: auto;"> Salesforce
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce"> Salesforce
            </div>
            <div class="logo-item">
-              <img src="images/github.png" alt="GitHub" style="height: 32px; width: auto;"> GitHub
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"> GitHub
            </div>
            <div class="logo-item">
-              <img src="images/notion.png" alt="Notion" style="height: 32px; width: auto;"> Notion
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="Notion"> Notion
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.jpeg" alt="HubSpot" style="height: 32px; width: auto;"> HubSpot
+              <img src="https://cdn.worldvectorlogo.com/logos/hubspot.svg" alt="HubSpot"> HubSpot
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira" style="height: 32px; width: auto;"> Jira
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira"> Jira
            </div>
            <div class="logo-item">
-              <img src="images/drive.png" alt="Google Drive" style="height: 32px; width: auto;"> Drive
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo_%282020%29.svg" alt="Drive"> Drive
            </div>
            <div class="logo-item">
-              <img src="images/teams.jpg" alt="Microsoft Teams" style="height: 32px; width: auto;"> Teams
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="Teams"> Teams
            </div>
         </div>
       </div>
