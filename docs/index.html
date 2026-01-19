@@ -178,11 +178,13 @@
     
     .agent-avatar {
         width: 32px; height: 32px; 
-        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        background: white;
         border-radius: 8px; display: grid; place-items: center; 
         color: white; flex-shrink: 0; 
         box-shadow: 0 2px 4px rgba(37,99,235,0.2);
+        overflow: hidden;
     }
+    .agent-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
     .citations { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
     .cite-tag { font-size: 0.7rem; background: #F8FAFC; border: 1px solid #E5E7EB; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-weight: 500; display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; }
@@ -390,8 +392,8 @@
     .b-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
     .b-card.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
     
-    /* FIX: Ensure builder card images are sized correctly */
-    .b-card img { height: 44px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 12px; }
+    /* FIX: Ensure builder card images and SVGs are sized correctly */
+    .b-card img, .b-card svg { height: 44px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 12px; }
 
     .auto-badge {
       position: absolute; top: -10px; right: -10px; background: var(--success); color: white;
@@ -720,10 +722,10 @@
               <img src="images/notion.png" alt="Notion"> Notion
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.jpeg" alt="HubSpot"> HubSpot
+              <img src="images/hubspot.jpg" alt="HubSpot"> HubSpot
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira"> Jira
+              <img src="images/jira.jpeg" alt="Jira"> Jira
            </div>
            <div class="logo-item">
               <img src="images/drive.png" alt="Drive"> Drive
@@ -745,10 +747,10 @@
               <img src="images/notion.png" alt="Notion"> Notion
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.jpeg" alt="HubSpot"> HubSpot
+              <img src="images/hubspot.jpg" alt="HubSpot"> HubSpot
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira"> Jira
+              <img src="images/jira.jpeg" alt="Jira"> Jira
            </div>
            <div class="logo-item">
               <img src="images/drive.png" alt="Drive"> Drive
@@ -781,7 +783,7 @@
              <img src="images/slack.png" alt="Slack">
         </div>
         <div class="satellite sat-2" id="sat-2">
-            <img src="images/jira.png" alt="Jira">
+            <img src="images/jira.jpeg" alt="Jira">
         </div>
         <div class="satellite sat-3" id="sat-3">
              <img src="images/salesforce.jpg" alt="Salesforce">
@@ -831,7 +833,7 @@
             </div>
             
             <div class="node-tag" style="top: 20%; left: 15%; animation-delay:0s;"><img src="images/netsuite.png" alt="NetSuite"> NetSuite</div>
-            <div class="node-tag" style="top: 15%; right: 15%; animation-delay:1s;"><img src="images/jira.png" alt="Jira"> Jira</div>
+            <div class="node-tag" style="top: 15%; right: 15%; animation-delay:1s;"><img src="images/jira.jpeg" alt="Jira"> Jira</div>
             <div class="node-tag" style="bottom: 25%; right: 20%; animation-delay:2s;"><img src="images/salesforce.jpg" alt="Salesforce"> Salesforce</div>
             <div class="node-tag" style="bottom: 30%; left: 20%; animation-delay:1.5s;"><img src="images/slack.png" alt="Slack"> Slack</div>
             <div class="node-tag" style="top: 45%; right: 10%; border-style:dashed; color:var(--primary); border-color:var(--primary);">+ Custom API</div>
@@ -920,7 +922,7 @@
               <div style="font-weight:600; margin-bottom:12px; font-size:1.05rem;">Sales Team Agent</div>
               <ul class="approval-list">
                 <li><img src="images/salesforce.jpg" style="width:16px; margin-right:6px;"> Salesforce (Read/Write)</li>
-                <li><img src="images/hubspot.jpeg" style="width:16px; margin-right:6px;"> HubSpot (Read Only)</li>
+                <li><img src="images/hubspot.jpg" style="width:16px; margin-right:6px;"> HubSpot (Read Only)</li>
                 <li><img src="images/notion.png" style="width:16px; margin-right:6px;"> Notion (Read Only)</li>
               </ul>
               <div class="approval-actions">
@@ -1332,15 +1334,15 @@
       claude: '<img src="images/claude.png" alt="Claude">',
       gemini: '<img src="images/gemini.jpeg" alt="Gemini">',
       llama: '<img src="images/llama.png" alt="Llama">',
-      copilot: '<img src="images/copilot.jpg" alt="Copilot">',       // Replaces Azure
+      copilot: '<img src="images/copilot.jpg" alt="Copilot">',        // Replaces Azure
       perplexity: '<img src="images/perplexity.jpg" alt="Perplexity">', // Replaces Mistral
 
       // Tools - Local Images (Verified extensions)
       netsuite: '<img src="images/netsuite.png" alt="NetSuite">',
       stripe: '<img src="images/stripe.png" alt="Stripe">',
       salesforce: '<img src="images/salesforce.jpg" alt="Salesforce">', // .jpg
-      hubspot: '<img src="images/hubspot.jpg" alt="HubSpot">',       // .jpg
-      jira: '<img src="images/jira.png" alt="Jira">',
+      hubspot: '<img src="images/hubspot.jpg" alt="HubSpot">',        // .jpg
+      jira: '<img src="images/jira.jpeg" alt="Jira">',
       excel: '<img src="images/excel.jpg" alt="Excel">',
       quickbooks: '<img src="images/quickbooks.png" alt="QuickBooks">',
       gong: '<img src="images/gong.png" alt="Gong">',
@@ -1478,12 +1480,7 @@
         document.getElementById('resChatFeed').innerHTML += `
             <div class="msg ai">
               <div class="agent-avatar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-                    <path d="M12 22a2 2 0 0 1 2-2v-2a2 2 0 0 1-2-2 2 2 0 0 1-2 2v2a2 2 0 0 1 2 2z"/>
-                    <rect x="4" y="8" width="16" height="8" rx="2"/>
-                    <path d="M9 12h.01"/><path d="M15 12h.01"/>
-                </svg>
+                <img src="images/gpt.jpeg" alt="GPT">
               </div>
               <div style="flex:1">
                   <div class="bubble">${s.a}</div>
