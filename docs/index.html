@@ -394,7 +394,13 @@
     .b-card.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
     
     /* FIX: Ensure builder card images and SVGs are sized correctly */
-    .b-card img, .b-card svg { height: 48px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 12px; }
+    .b-card img, .b-card svg { 
+        height: 48px; 
+        width: auto; 
+        max-width: 100%; 
+        object-fit: contain; 
+        margin-bottom: 12px; 
+    }
 
     .auto-badge {
       position: absolute; top: -10px; right: -10px; background: var(--success); color: white;
@@ -1339,14 +1345,14 @@
 
       // Tools - Local Images (Verified extensions)
       netsuite: '<img src="images/netsuite.png" alt="NetSuite">',
-      stripe: '<img src="images/stripe.png" alt="Stripe">', // Ensure this is converted to png!
-      salesforce: '<img src="images/salesforce.png" alt="Salesforce">', 
-      hubspot: '<img src="images/hubspot.png" alt="HubSpot">',        
+      stripe: '<img src="images/stripe.png" alt="Stripe">',
+      salesforce: '<img src="images/salesforce.png" alt="Salesforce">',
+      hubspot: '<img src="images/hubspot.png" alt="HubSpot">',
       jira: '<img src="images/jira.png" alt="Jira">',
-      excel: '<img src="images/excel.png" alt="Excel">', // Ensure converted to png!
+      excel: '<img src="images/excel.png" alt="Excel">',
       quickbooks: '<img src="images/quickbooks.png" alt="QuickBooks">',
       gong: '<img src="images/gong.png" alt="Gong">',
-      linkedin: '<img src="images/linkedin.png" alt="LinkedIn">', // Ensure converted to png!
+      linkedin: '<img src="images/linkedin.png" alt="LinkedIn">',
       
       // UI Icons (Keep as SVG)
       plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>'
