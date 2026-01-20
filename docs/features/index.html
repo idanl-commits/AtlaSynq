@@ -1073,6 +1073,42 @@
       .b-card h4 {
         font-size: 0.8rem;
       }
+
+      /* Features page specific mobile fixes */
+      /* Bento grid - ensure all cards stack */
+      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"],
+      .section-everything > .container > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Feature cards - full width on mobile */
+      .feature-card-bento {
+        grid-column: span 1 !important;
+      }
+
+      /* Workflow section - stack steps vertically */
+      .workflow-section > .container > div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        align-items: center !important;
+      }
+
+      /* Flow arrows - rotate to point down */
+      .workflow-section .flow-arrow {
+        transform: rotate(90deg) !important;
+        margin: 1rem 0 !important;
+      }
+
+      /* Neural network background - hide on mobile for performance */
+      .neural-network-bg {
+        display: none !important;
+      }
+
+      /* Hero animations - reduce on mobile */
+      .hero [style*="animation"] {
+        animation-duration: 1.5s !important;
+      }
     }
   </style>
 </head>

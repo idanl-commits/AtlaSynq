@@ -1015,6 +1015,44 @@
       .section-everything > .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
         grid-template-columns: 1fr !important;
       }
+
+      /* Hero split layout - stack on mobile */
+      .hero > .container > div[style*="grid-template-columns: 1fr 1fr"],
+      .hero > .container > div[style*="display: grid"][style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      /* Manifesto section cards - stack */
+      .section-everything [style*="display: flex"][style*="gap"] {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Scale down SVGs in cards */
+      .section-everything svg {
+        max-width: 200px !important;
+        height: auto !important;
+      }
+
+      /* Button groups - full width on mobile */
+      .hero .btn,
+      .section-everything .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+
+      /* How it Works / Why AtlaSynq sections - stack */
+      .section-everything > .container > div[style*="display: grid"][style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      /* Calendly widget - ensure it's responsive */
+      .calendly-inline-widget {
+        min-width: 100% !important;
+        height: 600px !important;
+      }
     }
   </style>
 </head>

@@ -1210,6 +1210,38 @@
       .b-card h4 {
         font-size: 0.8rem;
       }
+
+      /* Security page specific mobile fixes */
+      /* Security cards - stack on mobile */
+      .section-everything > .container > div[style*="grid-template-columns: repeat(2, 1fr)"],
+      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Stats grid - stack */
+      .section-everything > .container > div[style*="display: grid"][style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Security cards with horizontal layout - stack */
+      .section-everything [style*="display: flex"][style*="align-items: center"] {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1rem !important;
+      }
+
+      /* Scale down hero SVG */
+      .hero svg {
+        max-width: 250px !important;
+        height: auto !important;
+      }
+
+      /* Shield animation - reduce on mobile */
+      .hero [style*="animation"] {
+        animation-duration: 2s !important;
+      }
     }
   </style>
 </head>

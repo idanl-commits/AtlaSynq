@@ -1287,6 +1287,43 @@
       .b-card h4 {
         font-size: 0.8rem;
       }
+
+      /* Careers page specific mobile fixes */
+      /* Values grid - stack on mobile */
+      .section-everything > .container > div[style*="grid-template-columns: repeat(2, 1fr)"],
+      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Glassmorphism cards - full width */
+      .section-everything [style*="backdrop-filter"] {
+        width: 100% !important;
+      }
+
+      /* Hero SVG - scale down */
+      .hero svg,
+      .hero [style*="position: absolute"] svg {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Status badge - center on mobile */
+      .hero [style*="background"][style*="padding"] {
+        display: inline-block !important;
+        margin: 1rem auto !important;
+      }
+
+      /* Button groups - stack */
+      .hero [style*="display: flex"][style*="gap"] {
+        flex-direction: column !important;
+        width: 100% !important;
+      }
+
+      .hero .btn {
+        width: 100% !important;
+        margin: 0.5rem 0 !important;
+      }
     }
   </style>
 </head>
