@@ -102,12 +102,19 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif;}
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
     .btn-primary { 
-      background: #0f172a; color: white; border: 1px solid rgba(0,0,0,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.1);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: none;
     }
-    .btn-primary:hover { transform: translateY(-1px); background: #1e293b; }
+    .btn-primary:hover { 
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      border: none;
+    }
     .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
     .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
 
@@ -127,15 +134,16 @@
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
-    /* Header Links */
+    /* Header Nav Links - Make Black & Bold */
     .nav-links a, .nav-link {
+        font-weight: 600; /* Bolder */
+        color: #0f172a;   /* Dark/Black */
         text-decoration: none;
-        color: var(--text-muted);
-        font-weight: 500;
-        transition: color 0.2s ease;
+        font-size: 0.95rem;
+        transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary);
+        color: var(--primary); /* Blue on hover */
     }
 
     /* Hero */
@@ -686,20 +694,314 @@
       .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
     }
 
-    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
-    /* Footer Links */
-    .footer-link {
+    /* Footer Global Styling - Black & Clickable */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+        background: white;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* Footer Links - Make Black, Aligned & Clickable */
+    .footer-grid h4 {
+        color: #000000; /* Pure Black Headers */
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    .footer-grid a, .footer-grid p {
+        color: #1e293b; /* Very dark text for links */
+        font-weight: 500;
         text-decoration: none;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: block;
+        cursor: pointer; /* Force Hand Cursor */
         transition: all 0.2s ease;
     }
-    .footer-link:hover {
+    .footer-grid a:hover {
         color: var(--primary);
         transform: translateX(2px);
+        font-weight: 600;
+    }
+
+    /* =========================================
+       SECURITY PAGE ANIMATIONS
+    ========================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-15px) rotate(2deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3));
+      }
+      50% {
+        filter: drop-shadow(0 0 15px rgba(37, 99, 235, 0.6));
+      }
+    }
+
+    @keyframes lockRotate {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-5deg);
+      }
+      75% {
+        transform: rotate(5deg);
+      }
+    }
+
+    @keyframes scanLine {
+      0% {
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        stroke-dashoffset: -40;
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes dataFlow {
+      0% {
+        transform: translateX(-10px);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(10px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes cardLift {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 40px 40px;
+      }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% {
+        r: 4;
+        opacity: 0.6;
+      }
+      50% {
+        r: 6;
+        opacity: 1;
+      }
+    }
+
+    @keyframes shieldPulse {
+      0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
+    }
+
+    /* Hero Animations */
+    .hero-content {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hero svg {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero svg path[fill="url(#shieldGrad)"] {
+      animation: shieldPulse 3s ease-in-out infinite;
+    }
+
+    .hero svg circle {
+      animation: nodePulse 2s ease-in-out infinite;
+    }
+
+    .hero svg circle:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .hero svg circle:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .hero svg circle:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    .hero svg rect[fill="#2563eb"] {
+      animation: lockRotate 3s ease-in-out infinite;
+    }
+
+    /* Animated Grid Background */
+    .hero > div[style*="Security Grid Background"] {
+      animation: gridMove 20s linear infinite;
+    }
+
+    /* Card Animations */
+    .stat-card {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+    }
+
+    .stat-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .stat-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .stat-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15), 0 0 0 2px rgba(37, 99, 235, 0.2);
+      border-color: rgba(37, 99, 235, 0.4);
+    }
+
+    .stat-card:hover svg {
+      animation: pulseGlow 1.5s ease-in-out infinite;
+      transform: scale(1.1);
+    }
+
+    /* Icon Animations */
+    .stat-card svg circle[opacity="0.3"] {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .stat-card svg path[stroke="#60a5fa"] {
+      stroke-dasharray: 5, 5;
+      animation: scanLine 3s linear infinite;
+    }
+
+    /* Floating elements */
+    .stat-card > div[style*="position: absolute"] {
+      animation: cardLift 4s ease-in-out infinite;
+    }
+
+    .stat-card:nth-child(2) > div[style*="position: absolute"] {
+      animation-delay: 1s;
+    }
+
+    .stat-card:nth-child(3) > div[style*="position: absolute"] {
+      animation-delay: 2s;
+    }
+
+    /* Icon Element Animations */
+    .icon-animate .outer-ring {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .icon-animate .clock-hand {
+      animation: lockRotate 4s ease-in-out infinite;
+      transform-origin: 12px 12px;
+    }
+
+    .icon-animate .scan-beam {
+      stroke-dasharray: 5, 5;
+      animation: scanLine 2s linear infinite;
+    }
+
+    .icon-animate .center-pulse {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .icon-animate .radial-lines {
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .icon-animate .card-base {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .icon-animate .divider-line {
+      stroke-dasharray: 3, 3;
+      animation: scanLine 2.5s linear infinite;
+    }
+
+    .icon-animate .text-lines {
+      animation: dataFlow 3s ease-in-out infinite;
+    }
+
+    .icon-animate .header-box {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .icon-animate .badge-pulse {
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    .icon-animate .doc-base {
+      animation: pulse 3.5s ease-in-out infinite;
+    }
+
+    .icon-animate .doc-corner {
+      animation: fadeInUp 1s ease-in-out infinite;
+    }
+
+    .icon-animate .doc-line {
+      stroke-dasharray: 4, 4;
+      animation: scanLine 2s linear infinite;
+    }
+
+    .icon-animate .doc-badge {
+      animation: pulse 2s ease-in-out infinite;
     }
 
     /* =========================================
@@ -729,28 +1031,33 @@
       .b-card h4 { font-size: 0.9rem; }
       
       /* FIX: Footer - 2 Columns on Mobile */
+      /* Mobile responsive fix for footer */
       .footer-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); 
-        text-align: left;
         gap: 2rem 1rem;
       }
       .footer-grid > div:first-child {
         grid-column: span 2; 
         text-align: center;
-        margin-bottom: 1rem;
-        /* Flex to center the logo and text in mobile view specifically */
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      /* Ensure logo in footer behaves */
-      .footer-grid .logo {
-          justify-content: center;
-      }
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
+      
+      /* Stack hero content on mobile */
+      .hero > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      
+      /* Scale down hero SVG on mobile */
+      .hero svg {
+        max-width: 300px;
+        margin: 2rem auto 0;
+      }
       
       /* Button improvements for mobile */
       .btn {
@@ -913,7 +1220,7 @@
 
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="../index.html" class="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
@@ -922,9 +1229,9 @@
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
-        <a href="product.html" class="nav-link">Product</a>
-        <a href="governance.html" class="nav-link">Governance</a>
-        <a href="integrations.html" class="nav-link">Integrations</a>
+        <a href="../index.html#product" class="nav-link">Product</a>
+        <a href="../index.html#governance" class="nav-link">Governance</a>
+        <a href="../index.html#integrations" class="nav-link">Integrations</a>
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
@@ -933,36 +1240,224 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" style="position: relative; overflow: hidden; background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);">
+    <!-- Security Grid Background -->
+    <div style="position: absolute; inset: 0; opacity: 0.03; background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(37, 99, 235, 0.1) 39px, rgba(37, 99, 235, 0.1) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(37, 99, 235, 0.1) 39px, rgba(37, 99, 235, 0.1) 40px);
+      background-size: 40px 40px; pointer-events: none;"></div>
+    
     <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1;">
       <div class="hero-content">
-        <h1 class="text-gradient">Security First. Always.</h1>
-        <p>We treat your data with the same rigor as a banking institution.</p>
-        <a href="../" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Back to Home</a>
+          <h1 class="text-gradient" style="font-weight: 900; font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">Security First. Always.</h1>
+          <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 2rem; animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s backwards;">We treat your data with the same rigor as a banking institution.</p>
+        </div>
+        <!-- Abstract Shield/Lock SVG Illustration -->
+        <div style="position: relative; width: 100%; max-width: 400px; margin-left: auto;">
+          <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.7;">
+            <defs>
+              <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.9" />
+                <stop offset="50%" style="stop-color:#1d4ed8;stop-opacity:0.8" />
+                <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.7" />
+              </linearGradient>
+              <filter id="shieldGlow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <pattern id="meshPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="20" y2="0" stroke="#2563eb" stroke-width="0.5" opacity="0.2"/>
+                <line x1="0" y1="0" x2="0" y2="20" stroke="#2563eb" stroke-width="0.5" opacity="0.2"/>
+              </pattern>
+            </defs>
+            <!-- Shield Base -->
+            <path d="M200 50 L100 80 L100 200 Q100 280 200 350 Q300 280 300 200 L300 80 Z" 
+                  fill="url(#shieldGrad)" filter="url(#shieldGlow)" opacity="0.9"/>
+            <!-- Inner Shield Layer -->
+            <path d="M200 80 L130 100 L130 200 Q130 260 200 320 Q270 260 270 200 L270 100 Z" 
+                  fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+            <!-- Lock Mechanism (Animated) -->
+            <rect x="170" y="180" width="60" height="50" rx="4" fill="#ffffff" opacity="0.9" class="lock-box"/>
+            <circle cx="200" cy="200" r="12" fill="#2563eb" opacity="0.8" class="lock-circle"/>
+            <rect x="195" y="200" width="10" height="20" fill="#2563eb" opacity="0.8" class="lock-bar"/>
+            <!-- Geometric Security Lines (Animated) -->
+            <line x1="200" y1="50" x2="200" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.4" class="scan-line"/>
+            <line x1="150" y1="120" x2="250" y2="120" stroke="#60a5fa" stroke-width="1.5" opacity="0.3" class="scan-line" style="animation-delay: 0.5s;"/>
+            <line x1="150" y1="160" x2="250" y2="160" stroke="#60a5fa" stroke-width="1.5" opacity="0.3" class="scan-line" style="animation-delay: 1s;"/>
+            <!-- Corner Nodes (Animated) -->
+            <circle cx="120" cy="100" r="4" fill="#2563eb" opacity="0.6" class="pulse-node"/>
+            <circle cx="280" cy="100" r="4" fill="#2563eb" opacity="0.6" class="pulse-node" style="animation-delay: 0.3s;"/>
+            <circle cx="120" cy="250" r="4" fill="#2563eb" opacity="0.6" class="pulse-node" style="animation-delay: 0.6s;"/>
+            <circle cx="280" cy="250" r="4" fill="#2563eb" opacity="0.6" class="pulse-node" style="animation-delay: 0.9s;"/>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
 
   
-  <section class="section-impact">
+  <!-- Core Security Principles -->
+  <section class="section-impact" style="background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%); position: relative; padding: 6rem 0;">
+    <!-- Security Mesh Background -->
+    <div style="position: absolute; inset: 0; opacity: 0.02; background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 19px, rgba(37, 99, 235, 0.08) 19px, rgba(37, 99, 235, 0.08) 20px);
+      pointer-events: none;"></div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);">How We Protect Your Data</h2>
+        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">Every decision we made was driven by one principle: your data should never be at risk. Not in transit, not at rest, not ever.</p>
+      </div>
+
+      <div class="impact-grid" style="gap: 2.5rem;">
+        <!-- Zero-Retention Card -->
+        <div class="stat-card" style="background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(139, 92, 246, 0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+          <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+          <div style="text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 1;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; background: #f3e8ff; border-radius: 16px; display: flex; align-items: center; justify-content: center; border: 2px solid #c084fc;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-animate">
+                <circle cx="12" cy="12" r="10" class="outer-ring"/>
+                <path d="M12 6v6l4 2" class="clock-hand"/>
+                <circle cx="12" cy="12" r="2" fill="#8b5cf6" opacity="0.3" class="center-pulse"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-label" style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; text-align: center; position: relative; z-index: 1;">Zero-Retention Architecture</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); text-align: center; position: relative; z-index: 1;">We process queries in memory and discard them immediately. Your data never touches a persistent database.</p>
+        </div>
+
+        <!-- Strict RBAC Card -->
+        <div class="stat-card" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid rgba(51, 65, 85, 0.3); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.2); position: relative; overflow: hidden; transition: all 0.3s ease;">
+          <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(100, 116, 139, 0.15) 0%, transparent 70%); border-radius: 50%;"></div>
+          <div style="text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 1;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; background: #334155; border-radius: 16px; display: flex; align-items: center; justify-content: center; border: 2px solid #64748b;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-animate">
+                <rect x="3" y="5" width="18" height="14" rx="2" ry="2" class="card-base"/>
+                <line x1="3" y1="10" x2="21" y2="10" class="divider-line"/>
+                <circle cx="15" cy="13" r="1.5" fill="#cbd5e1" opacity="0.6" class="badge-pulse"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-label" style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem; text-align: center; position: relative; z-index: 1;">Automatic Permission Mirroring</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; text-align: center; position: relative; z-index: 1;">We read your existing RBAC from every system. If they can't see it in Salesforce, they can't see it here.</p>
+        </div>
+
+        <!-- Full Auditability Card -->
+        <div class="stat-card" style="background: linear-gradient(135deg, #ecfeff 0%, #ffffff 100%); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(6, 182, 212, 0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+          <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%); border-radius: 50%;"></div>
+          <div style="text-align: center; margin-bottom: 1.5rem; position: relative; z-index: 1;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; background: #cffafe; border-radius: 16px; display: flex; align-items: center; justify-content: center; border: 2px solid #67e8f9;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-animate">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" class="doc-base"/>
+                <polyline points="14 2 14 8 20 8" class="doc-corner"/>
+                <line x1="9" y1="15" x2="15" y2="15" class="doc-line" style="animation-delay: 0.2s;"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stat-label" style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem; text-align: center; position: relative; z-index: 1;">Complete Audit Trail</div>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); text-align: center; position: relative; z-index: 1;">Every query, tool access, and response is logged with timestamps and user IDs. Full visibility, always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Security Features -->
+  <section class="section-everything" style="padding: 6rem 0; background: white;">
     <div class="container">
-      <div class="impact-grid">
-        <div class="stat-card">
-          <span class="stat-val" style="font-size: 2rem;">Zero-Retention</span>
-          <div class="stat-label">Zero-Retention Architecture</div>
-          <p style="margin-top:12px; font-size:0.95rem;">We process requests in memory. Data never touches a persistent database.</p>
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);">Enterprise-Grade Security</h2>
+          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">We built security into every layer of our architecture, not as an afterthought.</p>
         </div>
 
-        <div class="stat-card">
-          <span class="stat-val" style="font-size: 2rem;">RBAC</span>
-          <div class="stat-label">Strict RBAC</div>
-          <p style="margin-top:12px; font-size:0.95rem;">We mirror your existing permissions. If a user can't see it in Salesforce, they can't see it here.</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Encryption Card -->
+          <div style="padding: 2rem; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); border-left: 4px solid #3b82f6; border-radius: 8px; border-top: 1px solid rgba(59, 130, 246, 0.3); border-right: 1px solid rgba(59, 130, 246, 0.3); border-bottom: 1px solid rgba(59, 130, 246, 0.3); box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2); transition: all 0.3s ease;">
+            <div style="display: flex; align-items: start; gap: 1.5rem;">
+              <div style="width: 48px; height: 48px; background: rgba(96, 165, 250, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(96, 165, 250, 0.3);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #ffffff; font-weight: 700;">Encryption at Rest & Transit</h3>
+                <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin: 0;">All data encrypted using industry-standard protocols. Even if intercepted, it remains unreadable.</p>
+              </div>
+            </div>
         </div>
 
-        <div class="stat-card">
-          <span class="stat-val" style="font-size: 2rem;">AES-256</span>
-          <div class="stat-label">Encryption at Rest & Transit</div>
-          <p style="margin-top:12px; font-size:0.95rem;">All data is encrypted using AES-256 and TLS 1.3 standards.</p>
+          <!-- On-Premise Option Card -->
+          <div style="padding: 2rem; background: linear-gradient(135deg, #334155 0%, #1e293b 100%); border-left: 4px solid #64748b; border-radius: 8px; border-top: 1px solid rgba(100, 116, 139, 0.3); border-right: 1px solid rgba(100, 116, 139, 0.3); border-bottom: 1px solid rgba(100, 116, 139, 0.3); box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2); transition: all 0.3s ease;">
+            <div style="display: flex; align-items: start; gap: 1.5rem;">
+              <div style="width: 48px; height: 48px; background: rgba(148, 163, 184, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(148, 163, 184, 0.3);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #ffffff; font-weight: 700;">On-Premise Deployment</h3>
+                <p style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin: 0;">Full VPC peering available. Your data never leaves your infrastructure.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- No Third-Party Access Card -->
+          <div style="padding: 2rem; background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%); border-left: 4px solid #a855f7; border-radius: 8px; border-top: 1px solid rgba(168, 85, 247, 0.3); border-right: 1px solid rgba(168, 85, 247, 0.3); border-bottom: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 4px 12px rgba(88, 28, 135, 0.2); transition: all 0.3s ease;">
+            <div style="display: flex; align-items: start; gap: 1.5rem;">
+              <div style="width: 48px; height: 48px; background: rgba(196, 181, 253, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(196, 181, 253, 0.3);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #ffffff; font-weight: 700;">No Third-Party Access</h3>
+                <p style="font-size: 0.95rem; color: #e9d5ff; line-height: 1.6; margin: 0;">We don't share your data with AI model providers. Your queries stay private.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regular Security Updates Card -->
+          <div style="padding: 2rem; background: linear-gradient(135deg, #7c2d12 0%, #9a3412 100%); border-left: 4px solid #ea580c; border-radius: 8px; border-top: 1px solid rgba(234, 88, 12, 0.3); border-right: 1px solid rgba(234, 88, 12, 0.3); border-bottom: 1px solid rgba(234, 88, 12, 0.3); box-shadow: 0 4px 12px rgba(124, 45, 18, 0.2); transition: all 0.3s ease;">
+            <div style="display: flex; align-items: start; gap: 1.5rem;">
+              <div style="width: 48px; height: 48px; background: rgba(254, 215, 170, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(254, 215, 170, 0.3);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fed7aa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #ffffff; font-weight: 700;">Continuous Monitoring</h3>
+                <p style="font-size: 0.95rem; color: #fed7aa; line-height: 1.6; margin: 0;">Infrastructure monitored 24/7. Security patches applied immediately.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text);">Built for Enterprises That Can't Compromise</h2>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 2.5rem;">We understand that when you're handling sensitive customer data, financial information, or proprietary knowledge, security isn't optional. That's why we built AtlaSynq from the ground up with security as the foundation, not an add-on.</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <div style="padding: 2rem; background: white; border-radius: 12px; border: 1px solid var(--border);">
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-family: 'JetBrains Mono';">0</div>
+            <div style="font-size: 1rem; color: var(--text-muted); font-weight: 600;">Data Retention</div>
+          </div>
+          <div style="padding: 2rem; background: white; border-radius: 12px; border: 1px solid var(--border);">
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; font-family: 'JetBrains Mono';">100%</div>
+            <div style="font-size: 1rem; color: var(--text-muted); font-weight: 600;">Permission Mirroring</div>
+          </div>
         </div>
       </div>
     </div>

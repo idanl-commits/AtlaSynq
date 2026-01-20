@@ -102,12 +102,19 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif;}
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
     .btn-primary { 
-      background: #0f172a; color: white; border: 1px solid rgba(0,0,0,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.1);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: none;
     }
-    .btn-primary:hover { transform: translateY(-1px); background: #1e293b; }
+    .btn-primary:hover { 
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      border: none;
+    }
     .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
     .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
 
@@ -127,15 +134,16 @@
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
-    /* Header Links */
+    /* Header Nav Links - Make Black & Bold */
     .nav-links a, .nav-link {
+        font-weight: 600; /* Bolder */
+        color: #0f172a;   /* Dark/Black */
         text-decoration: none;
-        color: var(--text-muted);
-        font-weight: 500;
-        transition: color 0.2s ease;
+        font-size: 0.95rem;
+        transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary);
+        color: var(--primary); /* Blue on hover */
     }
 
     /* Hero */
@@ -686,20 +694,398 @@
       .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
     }
 
-    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
-    /* Footer Links */
-    .footer-link {
+    /* Footer Global Styling - Black & Clickable */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+        background: white;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* Footer Links - Make Black, Aligned & Clickable */
+    .footer-grid h4 {
+        color: #000000; /* Pure Black Headers */
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    .footer-grid a, .footer-grid p {
+        color: #1e293b; /* Very dark text for links */
+        font-weight: 500;
         text-decoration: none;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: block;
+        cursor: pointer; /* Force Hand Cursor */
         transition: all 0.2s ease;
     }
-    .footer-link:hover {
+    .footer-grid a:hover {
         color: var(--primary);
         transform: translateX(2px);
+        font-weight: 600;
+    }
+
+    /* =========================================
+       CAREERS PAGE ANIMATIONS
+    ========================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% {
+        r: 8;
+        opacity: 0.4;
+      }
+      50% {
+        r: 12;
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes neuralFlow {
+      0% {
+        stroke-dashoffset: 0;
+        opacity: 0.2;
+      }
+      50% {
+        opacity: 0.6;
+      }
+      100% {
+        stroke-dashoffset: -30;
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes hubPulse {
+      0%, 100% {
+        r: 22;
+        opacity: 0.8;
+      }
+      50% {
+        r: 26;
+        opacity: 1;
+      }
+    }
+
+    @keyframes cardFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes iconGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.2));
+      }
+      50% {
+        filter: drop-shadow(0 0 15px rgba(37, 99, 235, 0.5));
+      }
+    }
+
+    @keyframes shieldCheck {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes networkPulse {
+      0%, 100% {
+        r: 2;
+        opacity: 0.5;
+      }
+      50% {
+        r: 4;
+        opacity: 1;
+      }
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 40px 40px;
+      }
+    }
+
+    /* Hero Animations */
+    .hero-content {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hero-content h1 {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hero-content p {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s backwards;
+    }
+
+    /* Neural Network Animations */
+    .hero svg {
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero svg path[stroke="#2563eb"],
+    .hero svg path[stroke="#60a5fa"] {
+      stroke-dasharray: 10, 10;
+      animation: neuralFlow 3s linear infinite;
+    }
+
+    .hero svg circle[fill="url(#nervousGrad)"] {
+      animation: nodePulse 3s ease-in-out infinite;
+    }
+
+    .hero svg circle[fill="#60a5fa"] {
+      animation: networkPulse 2s ease-in-out infinite;
+    }
+
+    .hero svg circle[fill="#60a5fa"]:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .hero svg circle[fill="#60a5fa"]:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .hero svg circle[fill="#60a5fa"]:nth-child(4) {
+      animation-delay: 0.9s;
+    }
+
+    .hero svg circle[fill="#93c5fd"] {
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .hero svg circle[fill="#93c5fd"]:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .hero svg circle[fill="#93c5fd"]:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .hero svg circle[fill="#93c5fd"]:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .hero svg circle[fill="#93c5fd"]:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    .hero svg circle[fill="#2563eb"][r="22"] {
+      animation: hubPulse 4s ease-in-out infinite;
+    }
+
+    .hero svg circle[fill="#60a5fa"][r="16"] {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero svg circle[fill="#93c5fd"][r="10"] {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero svg .neural-path {
+      stroke-dasharray: 10, 10;
+      animation: neuralFlow 3s linear infinite;
+    }
+
+    .hero svg .main-node {
+      animation: nodePulse 3s ease-in-out infinite;
+    }
+
+    .hero svg .secondary-node {
+      animation: networkPulse 2s ease-in-out infinite;
+    }
+
+    .hero svg .tertiary-node {
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .hero svg .hub-outer {
+      animation: hubPulse 4s ease-in-out infinite;
+    }
+
+    .hero svg .hub-middle {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero svg .hub-inner {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Animated Grid Background */
+    .hero > div[style*="Warm Grid Background"] {
+      animation: gridMove 25s linear infinite;
+    }
+
+    /* Card Animations */
+    .everything-card {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .everything-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .everything-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .everything-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .everything-card:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    .everything-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15), 0 0 0 2px rgba(37, 99, 235, 0.2);
+      border-color: rgba(37, 99, 235, 0.4);
+    }
+
+    .everything-card:hover > div > div > svg {
+      animation: iconGlow 1.5s ease-in-out infinite;
+      transform: scale(1.15);
+    }
+
+    /* Icon Container Animations */
+    .everything-card > div > div {
+      animation: cardFloat 4s ease-in-out infinite;
+    }
+
+    .everything-card:nth-child(2) > div > div {
+      animation-delay: 1s;
+    }
+
+    .everything-card:nth-child(3) > div > div {
+      animation-delay: 2s;
+    }
+
+    .everything-card:nth-child(4) > div > div {
+      animation-delay: 3s;
+    }
+
+    /* SVG Icon Animations */
+    .everything-card svg path[d*="M12 22s8-4"] {
+      animation: shieldCheck 2s ease-in-out infinite;
+      transform-origin: 12px 12px;
+    }
+
+    .everything-card svg circle[fill="none"] {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .everything-card svg line {
+      stroke-dasharray: 3, 3;
+      animation: neuralFlow 2.5s linear infinite;
+    }
+
+    /* Value Icon Animations */
+    .value-icon .shield-path {
+      animation: shieldCheck 2.5s ease-in-out infinite;
+      transform-origin: 12px 12px;
+    }
+
+    .value-icon .check-path {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .value-icon .center-node {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .value-icon .network-node {
+      animation: networkPulse 2s ease-in-out infinite;
+    }
+
+    .value-icon .connection-line {
+      stroke-dasharray: 3, 3;
+      animation: neuralFlow 2s linear infinite;
+    }
+
+    .value-icon .clock-face {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .value-icon .clock-hand {
+      animation: lockRotate 4s ease-in-out infinite;
+      transform-origin: 12px 12px;
+    }
+
+    .value-icon .balance-line {
+      stroke-dasharray: 4, 4;
+      animation: neuralFlow 2.5s linear infinite;
+    }
+
+    .value-icon .layer-top {
+      animation: fadeInUp 2s ease-in-out infinite;
+    }
+
+    .value-icon .layer-middle {
+      animation: fadeInUp 2s ease-in-out infinite 0.3s;
+    }
+
+    .value-icon .layer-bottom {
+      animation: fadeInUp 2s ease-in-out infinite 0.6s;
+    }
+
+    @keyframes lockRotate {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-10deg);
+      }
+      75% {
+        transform: rotate(10deg);
+      }
+    }
+
+    /* CTA Section Animation */
+    .section-everything > .container > div > div[style*="text-align: center; margin-top"] {
+      animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s backwards;
     }
 
     /* =========================================
@@ -729,28 +1115,26 @@
       .b-card h4 { font-size: 0.9rem; }
       
       /* FIX: Footer - 2 Columns on Mobile */
+      /* Mobile responsive fix for footer */
       .footer-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); 
-        text-align: left;
         gap: 2rem 1rem;
       }
       .footer-grid > div:first-child {
         grid-column: span 2; 
         text-align: center;
-        margin-bottom: 1rem;
-        /* Flex to center the logo and text in mobile view specifically */
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      /* Ensure logo in footer behaves */
-      .footer-grid .logo {
-          justify-content: center;
-      }
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
+      
+      /* Hide or scale down hero SVG illustration on mobile */
+      .hero > .container > div[style*="position: absolute"] {
+        display: none !important;
+      }
       
       /* Button improvements for mobile */
       .btn {
@@ -913,7 +1297,7 @@
 
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="../index.html" class="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
@@ -922,9 +1306,9 @@
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
-        <a href="product.html" class="nav-link">Product</a>
-        <a href="governance.html" class="nav-link">Governance</a>
-        <a href="integrations.html" class="nav-link">Integrations</a>
+        <a href="../index.html#product" class="nav-link">Product</a>
+        <a href="../index.html#governance" class="nav-link">Governance</a>
+        <a href="../index.html#integrations" class="nav-link">Integrations</a>
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
@@ -933,70 +1317,138 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" style="position: relative; overflow: hidden; background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);">
+    <!-- Warm Grid Background -->
+    <div style="position: absolute; inset: 0; opacity: 0.02; background-image: linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none;"></div>
+    
     <div class="container">
-      <div class="hero-content">
-        <h1 class="text-gradient">Join the Core.</h1>
-        <p>We are currently operating as a closed, high-performance unit.</p>
-        <a href="../" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Back to Home</a>
+      <div class="hero-content" style="position: relative; z-index: 2;">
+        <h1 class="text-gradient">Build Your Life's Work Here.</h1>
+        <p style="max-width: 700px; margin: 1.5rem auto;">AtlaSynq is a place for builders who care about craft, community, and solving hard problems together. We are building the Intelligence Layer, and we support each other along the way.</p>
+      </div>
+      <!-- Digital Nervous System SVG Illustration -->
+      <div style="position: absolute; top: 50%; right: 5%; transform: translateY(-50%); width: 450px; height: 450px; opacity: 0.5; z-index: 1; pointer-events: none;">
+        <svg width="100%" height="100%" viewBox="0 0 450 450" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="nervousGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.7" />
+              <stop offset="50%" style="stop-color:#60a5fa;stop-opacity:0.5" />
+              <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:0.3" />
+            </linearGradient>
+            <filter id="nervousGlow">
+              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Neural Network Connections (Animated) -->
+          <path d="M225 225 L150 150 M225 225 L300 150 M225 225 L150 300 M225 225 L300 300 M225 225 L100 225 M225 225 L350 225 M225 225 L225 100 M225 225 L225 350" 
+                stroke="#2563eb" stroke-width="1.5" opacity="0.25" fill="none" class="neural-path"/>
+          <path d="M150 150 L100 100 M300 150 L350 100 M150 300 L100 350 M300 300 L350 350" 
+                stroke="#60a5fa" stroke-width="1" opacity="0.2" fill="none" class="neural-path"/>
+          <!-- Interconnected Nodes (Animated) -->
+          <circle cx="150" cy="150" r="10" fill="url(#nervousGrad)" filter="url(#nervousGlow)" class="main-node"/>
+          <circle cx="300" cy="150" r="10" fill="url(#nervousGrad)" filter="url(#nervousGlow)" class="main-node"/>
+          <circle cx="150" cy="300" r="10" fill="url(#nervousGrad)" filter="url(#nervousGlow)" class="main-node"/>
+          <circle cx="300" cy="300" r="10" fill="url(#nervousGrad)" filter="url(#nervousGlow)" class="main-node"/>
+          <circle cx="100" cy="225" r="8" fill="#60a5fa" opacity="0.4" class="secondary-node"/>
+          <circle cx="350" cy="225" r="8" fill="#60a5fa" opacity="0.4" class="secondary-node"/>
+          <circle cx="225" cy="100" r="8" fill="#60a5fa" opacity="0.4" class="secondary-node"/>
+          <circle cx="225" cy="350" r="8" fill="#60a5fa" opacity="0.4" class="secondary-node"/>
+          <!-- Secondary Neural Nodes (Animated) -->
+          <circle cx="175" cy="175" r="6" fill="#93c5fd" opacity="0.5" class="tertiary-node"/>
+          <circle cx="275" cy="175" r="6" fill="#93c5fd" opacity="0.5" class="tertiary-node"/>
+          <circle cx="175" cy="275" r="6" fill="#93c5fd" opacity="0.5" class="tertiary-node"/>
+          <circle cx="275" cy="275" r="6" fill="#93c5fd" opacity="0.5" class="tertiary-node"/>
+          <!-- Central Hub (Brain) (Animated) -->
+          <circle cx="225" cy="225" r="22" fill="#2563eb" opacity="0.8" filter="url(#nervousGlow)" class="hub-outer"/>
+          <circle cx="225" cy="225" r="16" fill="#60a5fa" opacity="0.6" class="hub-middle"/>
+          <circle cx="225" cy="225" r="10" fill="#93c5fd" opacity="0.4" class="hub-inner"/>
+        </svg>
       </div>
     </div>
   </section>
 
   
-  <section class="section-everything">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <span style="background:#f1f5f9; padding:6px 12px; border-radius:99px; font-size:0.8rem; border:1px solid #e2e8f0; display: inline-block; margin-top: 1rem;">Status: No Open Positions</span>
-      </div>
-
-      <div style="max-width: 900px; margin: 0 auto;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Our DNA</h2>
-        <div class="everything-grid" style="grid-template-columns: repeat(2, 1fr);">
-          <div class="everything-card">
-            <div class="e-card-header">
-              <div class="e-icon" style="width: 40px; height: 40px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  <section class="section-everything" style="background: linear-gradient(to bottom, #fafbfc 0%, #ffffff 100%); position: relative;">
+    <!-- Warm Grid Background -->
+    <div style="position: absolute; inset: 0; opacity: 0.015; background-image: linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none;"></div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: #0f172a; font-weight: 700;">Our Values</h2>
+        <div class="everything-grid" style="grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+          <!-- Psychological Safety -->
+          <div class="everything-card" style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(96, 165, 250, 0.08) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(37, 99, 235, 0.15);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="value-icon">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" class="shield-path"/>
+                  <path d="M9 12l2 2 4-4" class="check-path"/>
+                </svg>
               </div>
-              <h4 class="e-title">Obsession with Quality</h4>
             </div>
-            <p class="e-text">We don't ship until it feels like magic.</p>
+            <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; color: #0f172a;">Psychological Safety</h4>
+            <p class="e-text" style="text-align: center; font-size: 0.95rem; line-height: 1.6;">We believe the best work happens when people feel safe to experiment, fail, and ask questions.</p>
           </div>
 
-          <div class="everything-card">
-            <div class="e-card-header">
-              <div class="e-icon" style="width: 40px; height: 40px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <!-- Shared Intelligence -->
+          <div class="everything-card" style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(96, 165, 250, 0.08) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(37, 99, 235, 0.15);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="value-icon">
+                  <circle cx="12" cy="12" r="3" class="center-node"/>
+                  <circle cx="5" cy="5" r="2" class="network-node" style="animation-delay: 0.1s;"/>
+                  <circle cx="19" cy="5" r="2" class="network-node" style="animation-delay: 0.2s;"/>
+                  <circle cx="5" cy="19" r="2" class="network-node" style="animation-delay: 0.3s;"/>
+                  <circle cx="19" cy="19" r="2" class="network-node" style="animation-delay: 0.4s;"/>
+                  <line x1="12" y1="9" x2="7" y2="7" class="connection-line"/>
+                  <line x1="12" y1="9" x2="17" y2="7" class="connection-line" style="animation-delay: 0.1s;"/>
+                  <line x1="12" y1="15" x2="7" y2="17" class="connection-line" style="animation-delay: 0.2s;"/>
+                  <line x1="12" y1="15" x2="17" y2="17" class="connection-line" style="animation-delay: 0.3s;"/>
+                </svg>
               </div>
-              <h4 class="e-title">Radical Autonomy</h4>
             </div>
-            <p class="e-text">We hire owners, not employees.</p>
+            <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; color: #0f172a;">Shared Intelligence</h4>
+            <p class="e-text" style="text-align: center; font-size: 0.95rem; line-height: 1.6;">We don't compete with each other. We share knowledge, lift each other up, and win as a team.</p>
           </div>
 
-          <div class="everything-card">
-            <div class="e-card-header">
-              <div class="e-icon" style="width: 40px; height: 40px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <!-- Sustainable Pace -->
+          <div class="everything-card" style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(96, 165, 250, 0.08) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(37, 99, 235, 0.15);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="value-icon">
+                  <circle cx="12" cy="12" r="10" class="clock-face"/>
+                  <polyline points="12 6 12 12 16 14" class="clock-hand"/>
+                  <path d="M8 12h8" class="balance-line"/>
+                </svg>
               </div>
-              <h4 class="e-title">First Principles</h4>
             </div>
-            <p class="e-text">We question every assumption.</p>
+            <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; color: #0f172a;">Sustainable Pace</h4>
+            <p class="e-text" style="text-align: center; font-size: 0.95rem; line-height: 1.6;">We are running a marathon, not a sprint. We respect work-life balance and deep focus time.</p>
           </div>
 
-          <div class="everything-card">
-            <div class="e-card-header">
-              <div class="e-icon" style="width: 40px; height: 40px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <!-- Craftsmanship -->
+          <div class="everything-card" style="background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+              <div style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(96, 165, 250, 0.08) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(37, 99, 235, 0.15);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="value-icon">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" class="layer-top"/>
+                  <path d="M2 17l10 5 10-5" class="layer-bottom"/>
+                  <path d="M2 12l10 5 10-5" class="layer-middle"/>
+                </svg>
               </div>
-              <h4 class="e-title">Deep Work</h4>
             </div>
-            <p class="e-text">We prioritize focus over meetings.</p>
+            <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; color: #0f172a;">Craftsmanship</h4>
+            <p class="e-text" style="text-align: center; font-size: 0.95rem; line-height: 1.6;">We take pride in what we build, not just how fast we ship it.</p>
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 4rem;">
-          <p style="font-size:1.05rem; line-height:1.8; margin-bottom: 1.5rem;">We open roles rarely. When we do, we look for the top 1%. Join the waitlist.</p>
-          <a href="mailto:careers@atlasynq.com?subject=Signal%20Interest%20—%20AtlaSynq" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Signal Interest</a>
+        <div style="text-align: center; margin-top: 5rem; padding: 3.5rem 2.5rem; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(226, 232, 240, 0.7); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.06);">
+          <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem; color: var(--text); max-width: 750px; margin-left: auto; margin-right: auto;">We are deliberate about how we grow our team to maintain our culture. If you are looking for a home where you can grow, learn, and build impactfully, we'd love to hear your story.</p>
+          <a href="mailto:careers@atlasynq.com?subject=Introduce%20Yourself%20—%20AtlaSynq" class="btn btn-primary" style="text-decoration:none; display:inline-block; padding: 16px 36px; font-size: 1rem; font-weight: 600; border-radius: 8px;">Say Hello</a>
         </div>
       </div>
     </div>

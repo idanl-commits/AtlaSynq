@@ -7,6 +7,16 @@
   
   <link rel="canonical" href="https://www.atlasynq.com/privacy/" />
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JXPHR1VRHF');
+  </script>
+  
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
   <meta property="og:title" content="Privacy Policy — AtlaSynq">
   <meta property="og:description" content="AtlaSynq Privacy Policy and Data Governance.">
   <meta property="og:image" content="https://www.atlasynq.com/atlasynq-logo.png">
@@ -25,6 +35,7 @@
     /* VARIABLES */
     :root {
       --bg: #ffffff;
+      --bg-alt: #f8fafc;
       --text: #0f172a;
       --text-muted: #64748b;
       --primary: #2563eb;
@@ -72,6 +83,104 @@
     .nav-container {
         max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
         height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .nav-links {
+        display: flex; gap: 2rem; align-items: center;
+    }
+
+    .nav-link {
+        font-weight: 600;
+        color: #0f172a;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+        color: var(--primary);
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+        background: var(--bg-alt);
+        border-color: var(--text);
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+        box-shadow: none;
+    }
+
+    .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        border: none;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .footer-grid h4 {
+        color: #0f172a;
+        font-weight: 700;
+        margin-bottom: 16px;
+        font-size: 1rem;
+    }
+
+    .footer-link {
+        color: #000000;
+        font-weight: 500;
+        text-decoration: none;
+        margin-bottom: 12px;
+        display: block;
+        cursor: pointer;
+        transition: color 0.2s ease, transform 0.2s ease;
+        opacity: 0.85;
+    }
+
+    .footer-link:hover {
+        color: var(--primary);
+        opacity: 1;
+        transform: translateX(2px);
+    }
+
+    @media(max-width: 900px) {
+        .nav-links { display: none; }
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 1rem;
+        }
+        .footer-grid > div:first-child {
+            grid-column: span 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     /* Logo Styles */
@@ -135,7 +244,7 @@
 
   <header>
     <div class="nav-container">
-      <a href="/" class="logo">
+      <a href="../index.html" class="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
@@ -143,7 +252,15 @@
         </svg>
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
-      <a href="/" class="back-link">← Back to Home</a>
+      <div class="nav-links">
+        <a href="../index.html#product" class="nav-link">Product</a>
+        <a href="../index.html#governance" class="nav-link">Governance</a>
+        <a href="../index.html#integrations" class="nav-link">Integrations</a>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
+        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+      </div>
     </div>
   </header>
 
@@ -215,10 +332,26 @@
   </div>
 
   <footer>
-    <div class="container">
-      © 2026 AtlaSynq Inc. All rights reserved.
+    <div class="nav-container footer-grid">
+      <div style="display: flex; flex-direction: column;">
+        <a href="../index.html" class="logo" style="margin-bottom:0.5rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+            <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+            <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span>Atla<span style="color: var(--primary);">Synq</span></span>
+        </a>
+        <p style="font-size:0.9rem; color: var(--text-muted); margin: 0; padding: 0; text-align: left; width: 100%;">The unified, governed intelligence layer.</p>
+      </div>
+      <div><h4>Product</h4><a href="../features/" class="footer-link">Features</a><a href="../security/" class="footer-link">Security</a></div>
+      <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a></div>
+      <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:#000000; font-weight:500; display:block; margin-bottom:12px; opacity:0.85; transition:color 0.2s ease;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:#000000; font-weight:500; display:block; opacity:0.85; transition:color 0.2s ease;">Terms of Service</a></div>
     </div>
+    <div class="nav-container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
   </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 </body>
 </html>

@@ -102,12 +102,19 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif;}
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
     .btn-primary { 
-      background: #0f172a; color: white; border: 1px solid rgba(0,0,0,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.1);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: none;
     }
-    .btn-primary:hover { transform: translateY(-1px); background: #1e293b; }
+    .btn-primary:hover { 
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      border: none;
+    }
     .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
     .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
 
@@ -127,15 +134,16 @@
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
-    /* Header Links */
+    /* Header Nav Links - Make Black & Bold */
     .nav-links a, .nav-link {
+        font-weight: 600; /* Bolder */
+        color: #0f172a;   /* Dark/Black */
         text-decoration: none;
-        color: var(--text-muted);
-        font-weight: 500;
-        transition: color 0.2s ease;
+        font-size: 0.95rem;
+        transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary);
+        color: var(--primary); /* Blue on hover */
     }
 
     /* Hero */
@@ -325,6 +333,88 @@
         stroke-width: 2;
         stroke-dasharray: 6, 6;
         animation: dash-flow 0.8s linear infinite;
+    }
+
+    /* Additional animations for About page */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes dashFlow {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        100% {
+            stroke-dashoffset: -20;
+        }
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        100% {
+            transform: translateX(100px) translateY(100px);
+        }
+    }
+
+    /* Hover effects for cards */
+    .section-everything [style*="border-radius: 12px"]:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1) !important;
+        border-color: var(--primary) !important;
+    }
+
+    /* Responsive styles for About page */
+    @media(max-width: 900px) {
+        .section-everything [style*="grid-template-columns: repeat(3, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+        }
+        
+        .section-everything [style*="grid-template-columns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+        }
+
+        .section-everything [style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+        }
+
+        h2[style*="font-size: 3rem"] {
+            font-size: 2rem !important;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem !important;
+        }
+
+        .hero p {
+            font-size: 1.1rem !important;
+        }
+
+        .layer-container {
+            height: 300px !important;
+        }
     }
 
     /* Deep Dive */
@@ -686,20 +776,40 @@
       .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
     }
 
-    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
-    /* Footer Links */
-    .footer-link {
+    /* Footer Global Styling - Black & Clickable */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+        background: white;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* Footer Links - Make Black, Aligned & Clickable */
+    .footer-grid h4 {
+        color: #000000; /* Pure Black Headers */
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    .footer-grid a, .footer-grid p {
+        color: #1e293b; /* Very dark text for links */
+        font-weight: 500;
         text-decoration: none;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: block;
+        cursor: pointer; /* Force Hand Cursor */
         transition: all 0.2s ease;
     }
-    .footer-link:hover {
+    .footer-grid a:hover {
         color: var(--primary);
         transform: translateX(2px);
+        font-weight: 600;
     }
 
     /* =========================================
@@ -729,24 +839,17 @@
       .b-card h4 { font-size: 0.9rem; }
       
       /* FIX: Footer - 2 Columns on Mobile */
+      /* Mobile responsive fix for footer */
       .footer-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); 
-        text-align: left;
         gap: 2rem 1rem;
       }
       .footer-grid > div:first-child {
         grid-column: span 2; 
         text-align: center;
-        margin-bottom: 1rem;
-        /* Flex to center the logo and text in mobile view specifically */
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-      /* Ensure logo in footer behaves */
-      .footer-grid .logo {
-          justify-content: center;
       }
       
       /* Hero Adjustments */
@@ -922,7 +1025,7 @@
 
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="../index.html" class="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
@@ -931,9 +1034,9 @@
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
-        <a href="product.html" class="nav-link">Product</a>
-        <a href="governance.html" class="nav-link">Governance</a>
-        <a href="integrations.html" class="nav-link">Integrations</a>
+        <a href="../index.html#product" class="nav-link">Product</a>
+        <a href="../index.html#governance" class="nav-link">Governance</a>
+        <a href="../index.html#integrations" class="nav-link">Integrations</a>
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
@@ -942,69 +1045,259 @@
     </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" style="position: relative; overflow: hidden;">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="text-gradient">The Operating System for Intelligence.</h1>
-        <p>The modern stack is fragmented. We are the glue.</p>
-        <a href="../" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Back to Home</a>
+      <div class="hero-content" style="animation: fadeInUp 0.8s ease-out;">
+        <h1 class="text-gradient">Stop Building Patchwork AI.<br>Start Building Your Intelligence Layer.</h1>
+        <p style="font-size: 1.25rem; max-width: 700px; margin: 1.5rem auto;">AtlaSynq connects your entire enterprise stack—Slack, Salesforce, Jira, Drive, and more—into one secure, governed AI interface. Build department-specific agents that know exactly what they can access and what they can't.</p>
+        <div style="margin-top: 2.5rem;">
+          <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" style="margin-right: 1rem;">Book a Demo</button>
+          <a href="../index.html#product" class="btn btn-secondary" style="text-decoration: none;">See How It Works</a>
+        </div>
+      </div>
+    </div>
+    <!-- Animated background pattern -->
+    <div style="position: absolute; inset: 0; z-index: -1; opacity: 0.3;">
+      <div style="position: absolute; top: 10%; left: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%); border-radius: 50%; animation: pulse 4s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: 10%; right: 10%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%); border-radius: 50%; animation: pulse 3s ease-in-out infinite 1s;"></div>
+    </div>
+  </section>
+
+  <!-- What is AtlaSynq? -->
+  <section class="section-everything" style="padding: 6rem 0; background: white;">
+    <div class="container">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">What is AtlaSynq?</h2>
+          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">The unified intelligence layer that connects all your enterprise tools into one secure, AI-powered interface.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem;">
+          <div style="text-align: left;">
+            <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--text);">Your Enterprise Data, Unified</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem;">Your company uses dozens of tools: Slack for communication, Salesforce for CRM, Jira for project management, Google Drive for documents. Each holds critical information, but they're siloed—making it impossible to get a complete answer.</p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem;"><strong style="color: var(--text);">AtlaSynq changes that.</strong> We connect all your tools into one intelligent layer. Ask a question, and our AI searches across every connected system—respecting permissions, maintaining security, and delivering answers in seconds.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem;">
+              <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-muted);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Connect 50+ enterprise tools in minutes</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-muted);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Build department-specific AI agents (Sales, HR, IT, Finance)</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-muted);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Zero data retention—your data never touches our servers</span>
+              </li>
+              <li style="display: flex; align-items: start; gap: 12px; margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-muted);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Full audit logs for compliance and governance</span>
+              </li>
+            </ul>
+          </div>
+          <div style="position: relative;">
+            <div class="layer-container" style="max-width: 500px; height: 400px; margin: 0 auto;">
+              <div class="layer-center" style="width: 80px; height: 80px; animation: float 6s ease-in-out infinite;">
+                <svg width="40" height="40" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+                  <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+                  <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="satellite sat-1" style="width: 70px; height: 70px; animation: float 5s ease-in-out infinite 0.5s;">
+                <img src="../images/slack.png" alt="Slack" style="width: 45px; height: 45px;">
+              </div>
+              <div class="satellite sat-2" style="width: 70px; height: 70px; animation: float 5.5s ease-in-out infinite 1s;">
+                <img src="../images/jira.png" alt="Jira" style="width: 45px; height: 45px;">
+              </div>
+              <div class="satellite sat-3" style="width: 70px; height: 70px; animation: float 4.5s ease-in-out infinite 1.5s;">
+                <img src="../images/salesforce.png" alt="Salesforce" style="width: 45px; height: 45px;">
+              </div>
+              <div class="satellite sat-4" style="width: 70px; height: 70px; animation: float 5.2s ease-in-out infinite 2s;">
+                <img src="../images/drive.png" alt="Google Drive" style="width: 45px; height: 45px;">
+              </div>
+              <svg class="animated-lines-svg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
+                <line id="line-1" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 4" style="animation: dashFlow 3s linear infinite;"></line>
+                <line id="line-2" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 4" style="animation: dashFlow 3s linear infinite 0.5s;"></line>
+                <line id="line-3" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 4" style="animation: dashFlow 3s linear infinite 1s;"></line>
+                <line id="line-4" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 4" style="animation: dashFlow 3s linear infinite 1.5s;"></line>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  
-  <section class="section-everything" style="padding: 4rem 0;">
+  <!-- How It Works -->
+  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(to bottom, var(--bg-alt), white);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem;">
-        <div style="text-align: left;">
-          <p style="font-size:1.15rem; line-height:1.8; color: var(--text-muted);">We founded AtlaSynq to solve the 'Fragmented Truth' problem. Companies are drowning in SaaS sprawl. We are building the unified layer that brings it all together.</p>
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">The AtlaSynq Difference</h2>
+          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">Unlike generic AI assistants, we automatically mirror your permissions and search across all tools simultaneously—no manual configuration required.</p>
         </div>
-        <div style="position: relative;">
-          <div class="layer-container" style="max-width: 500px; height: 300px;">
-  <div class="layer-center" style="width: 72px; height: 72px;">
-    <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
-      <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-      <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
-      <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <div class="satellite sat-1" style="width: 64px; height: 64px;">
-    <img src="../images/slack.png" alt="Slack" style="width: 40px; height: 40px;">
-  </div>
-  <div class="satellite sat-2" style="width: 64px; height: 64px;">
-    <img src="../images/jira.png" alt="Jira" style="width: 40px; height: 40px;">
-  </div>
-  <div class="satellite sat-3" style="width: 64px; height: 64px;">
-    <img src="../images/salesforce.png" alt="Salesforce" style="width: 40px; height: 40px;">
-  </div>
-  <div class="satellite sat-4" style="width: 64px; height: 64px;">
-    <img src="../images/drive.png" alt="Google Drive" style="width: 40px; height: 40px;">
-  </div>
-  <svg class="animated-lines-svg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
-    <line id="line-1" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#CBD5E1" stroke-width="1"/>
-    <line id="line-2" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#CBD5E1" stroke-width="1"/>
-    <line id="line-3" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#CBD5E1" stroke-width="1"/>
-    <line id="line-4" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#CBD5E1" stroke-width="1"/>
-  </svg>
-</div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 4rem;">
+          <div style="text-align: left; padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out;">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, rgba(37,99,235,0.05), transparent); border-radius: 0 16px 0 100px;"></div>
+            <div style="width: 72px; height: 72px; margin-bottom: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 12px rgba(37,99,235,0.15);">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: pulse 2s ease-in-out infinite;">
+                <circle cx="12" cy="12" r="10" opacity="0.3"></circle>
+                <circle cx="12" cy="12" r="6" opacity="0.5"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+                <line x1="12" y1="2" x2="12" y2="6" stroke-width="2.5"></line>
+                <line x1="12" y1="18" x2="12" y2="22" stroke-width="2.5"></line>
+                <line x1="2" y1="12" x2="6" y2="12" stroke-width="2.5"></line>
+                <line x1="18" y1="12" x2="22" y2="12" stroke-width="2.5"></line>
+              </svg>
+            </div>
+            <div style="display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem; font-family: 'JetBrains Mono'; letter-spacing: 0.5px;">STEP 1</div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">We Mirror Your Permissions</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">Connect 50+ tools. We automatically read your existing RBAC—if they can't see it in Salesforce, they can't see it here.</p>
+            <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin: 0;">Zero configuration. Your security model, preserved.</p>
+          </div>
+
+          <div style="text-align: left; padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out 0.2s; animation-fill-mode: both;">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, rgba(37,99,235,0.05), transparent); border-radius: 0 16px 0 100px;"></div>
+            <div style="width: 72px; height: 72px; margin-bottom: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 12px rgba(37,99,235,0.15);">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" style="animation: pulse 2s ease-in-out infinite 0.3s;"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1" style="animation: pulse 2s ease-in-out infinite 0.6s;"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1" style="animation: pulse 2s ease-in-out infinite 0.9s;"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1" style="animation: pulse 2s ease-in-out infinite 1.2s;"></rect>
+                <circle cx="8.5" cy="6.5" r="1.5" fill="var(--primary)" opacity="0.6"></circle>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="var(--primary)" opacity="0.6"></circle>
+                <circle cx="8.5" cy="17.5" r="1.5" fill="var(--primary)" opacity="0.6"></circle>
+                <circle cx="17.5" cy="17.5" r="1.5" fill="var(--primary)" opacity="0.6"></circle>
+              </svg>
+            </div>
+            <div style="display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem; font-family: 'JetBrains Mono'; letter-spacing: 0.5px;">STEP 2</div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Choose Your Department Agent</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">Pick Sales, HR, IT, or Finance. We show you the most popular tools for that role—you choose what to connect.</p>
+            <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin: 0;">Smart recommendations, your control. Build it your way.</p>
+          </div>
+
+          <div style="text-align: left; padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out 0.4s; animation-fill-mode: both;">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(135deg, rgba(37,99,235,0.05), transparent); border-radius: 0 16px 0 100px;"></div>
+            <div style="width: 72px; height: 72px; margin-bottom: 1.5rem; background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 12px rgba(37,99,235,0.15);">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" opacity="0.2"></circle>
+                <path d="m21 21-4.35-4.35" stroke-width="2.5"></path>
+                <circle cx="11" cy="11" r="3" fill="var(--primary)" opacity="0.3" style="animation: pulse 2s ease-in-out infinite;"></circle>
+                <line x1="11" y1="8" x2="11" y2="14" stroke-width="2.5" style="animation: pulse 2s ease-in-out infinite 0.5s;"></line>
+                <line x1="8" y1="11" x2="14" y2="11" stroke-width="2.5" style="animation: pulse 2s ease-in-out infinite 0.5s;"></line>
+              </svg>
+            </div>
+            <div style="display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1rem; font-family: 'JetBrains Mono'; letter-spacing: 0.5px;">STEP 3</div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Universal Search Across All Tools</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem;">Ask one question and we search across all your tools simultaneously—Salesforce, Slack, Jira, Drive, and more.</p>
+            <p style="font-size: 0.9rem; color: var(--primary); font-weight: 600; margin: 0;">One answer, multiple sources. Zero switching between apps.</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div style="max-width: 1000px; margin: 0 auto;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Our Core Beliefs</h2>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-          <div style="padding: 2rem; border-radius: 8px; border: 1px solid var(--border); background: white; text-align: center;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Speed is a Feature</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">We optimize for response time, not just accuracy. Every millisecond counts.</p>
+  <!-- Why AtlaSynq? -->
+  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(to bottom, white, #f8fafc);">
+    <div class="container">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 4rem;">
+          <h2 style="font-size: 3rem; margin-bottom: 1rem;">We're Not Another Chatbot</h2>
+          <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">We're the intelligence layer that connects your entire stack while maintaining the security and governance your enterprise demands.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem;">
+          <div style="padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(37,99,235,0.08), transparent); border-radius: 50%;"></div>
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; box-shadow: 0 4px 16px rgba(245,158,11,0.2);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" opacity="0.9"></path>
+                <path d="M9 12l2 2 4-4" stroke-width="3" stroke="#f59e0b"></path>
+                <circle cx="12" cy="12" r="10" fill="none" stroke-dasharray="2 2" opacity="0.3" style="animation: spin 8s linear infinite;"></circle>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Zero-Retention by Design</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Unlike competitors who store your data for "improvement," AtlaSynq processes queries in memory and discards everything immediately. Your data never touches a persistent database.</p>
+            <p style="font-size: 0.95rem; color: var(--text); font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">We don't train on your data, we don't cache it, and we don't log it. It's gone the moment the response is delivered.</p>
           </div>
-          <div style="padding: 2rem; border-radius: 8px; border: 1px solid var(--border); background: white; text-align: center;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Privacy is Non-Negotiable</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">Your data stays yours. Zero retention means zero risk.</p>
+
+          <div style="padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out 0.1s; animation-fill-mode: both;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(37,99,235,0.08), transparent); border-radius: 50%;"></div>
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; box-shadow: 0 4px 16px rgba(37,99,235,0.2);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="var(--primary)" opacity="0.1"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2.5"></path>
+                <circle cx="12" cy="16" r="1" fill="var(--primary)" style="animation: pulse 2s ease-in-out infinite;"></circle>
+                <path d="M12 16v2" stroke-width="2"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Automatic Permission Mirroring</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">We read your existing RBAC from Salesforce, Jira, Slack, and every connected tool. No manual configuration.</p>
+            <p style="font-size: 0.95rem; color: var(--text); font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">If a Sales rep can't see a Finance record in Salesforce, they can't see it in AtlaSynq—even if they ask. The AI respects your existing security model automatically.</p>
           </div>
-          <div style="padding: 2rem; border-radius: 8px; border: 1px solid var(--border); background: white; text-align: center;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Human-Centric AI</h3>
-            <p style="font-size: 0.95rem; color: var(--text-muted);">AI should augment human intelligence, not replace human judgment.</p>
+
+          <div style="padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out 0.2s; animation-fill-mode: both;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(37,99,235,0.08), transparent); border-radius: 50%;"></div>
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #dcfce7, #bbf7d0); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; box-shadow: 0 4px 16px rgba(16,185,129,0.2);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" fill="none" opacity="0.2"></circle>
+                <path d="m21 21-4.35-4.35" stroke-width="2.5"></path>
+                <circle cx="11" cy="11" r="3" fill="#10b981" opacity="0.3" style="animation: pulse 1.5s ease-in-out infinite;"></circle>
+                <path d="M8 11l2 2 4-4" stroke-width="2.5" stroke="#10b981" style="animation: fadeInUp 0.5s ease-out;"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Universal Search, Not Siloed Queries</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Ask "What's blocking the Acme Corp deal?" and AtlaSynq searches Salesforce opportunities, Slack threads, Jira tickets, and Drive documents in parallel—returning one unified answer with citations.</p>
+            <p style="font-size: 0.95rem; color: var(--text); font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">No switching between tools. No copy-pasting. One question, one complete answer.</p>
           </div>
+
+          <div style="padding: 2.5rem; background: white; border-radius: 16px; border: 2px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease-out 0.3s; animation-fill-mode: both;">
+            <div style="position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(37,99,235,0.08), transparent); border-radius: 50%;"></div>
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #fce7f3, #fbcfe8); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; box-shadow: 0 4px 16px rgba(236,72,153,0.2);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" opacity="0.1"></path>
+                <polyline points="14 2 14 8 20 8" stroke-width="2.5"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13" stroke-width="2.5">
+                  <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="16" y1="17" x2="8" y2="17" stroke-width="2.5">
+                  <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <circle cx="10" cy="9" r="1" fill="#ec4899" style="animation: pulse 2s ease-in-out infinite;"></circle>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--text); font-weight: 700;">Complete Audit Trail</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); line-height: 1.7;">Every query, every tool accessed, every permission checked, every response delivered—all logged with timestamps and user IDs.</p>
+            <p style="font-size: 0.95rem; color: var(--text); font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">Perfect for compliance reviews and security investigations. Know exactly who asked what, when, and what they got back.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%); color: white; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; opacity: 0.1;">
+      <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(255,255,255,0.05) 50px, rgba(255,255,255,0.05) 100px); animation: slide 20s linear infinite;"></div>
+    </div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem; color: white;">Ready to Transform Your Enterprise?</h2>
+        <p style="font-size: 1.25rem; margin-bottom: 2.5rem; color: rgba(255,255,255,0.9); line-height: 1.6;">Join forward-thinking companies that are building their intelligence layer with AtlaSynq. See how it works in a 30-minute demo.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" style="padding: 16px 32px; font-size: 1.1rem;">Book a Demo</button>
+          <a href="../index.html#product" class="btn" style="background: transparent; color: white; font-weight: 600; padding: 16px 32px; border-radius: 8px; border: 2px solid white; cursor: pointer; font-size: 1.1rem; text-decoration: none; transition: all 0.3s ease; display: inline-block;">Learn More</a>
         </div>
       </div>
     </div>
@@ -1034,7 +1327,7 @@
   <script>
     // --- CONNECTED LINES ANIMATION LOOP ---
     function updateLines() {
-      const hub = document.getElementById('hub-center');
+      const hub = document.querySelector('.layer-center');
       const container = document.querySelector('.layer-container');
       
       if (!hub || !container) return;
@@ -1047,14 +1340,14 @@
       const hubY = hubRect.top - containerRect.top + (hubRect.height / 2);
 
       const connections = [
-        { sat: 'sat-1', line: 'line-1' },
-        { sat: 'sat-2', line: 'line-2' },
-        { sat: 'sat-3', line: 'line-3' },
-        { sat: 'sat-4', line: 'line-4' }
+        { sat: '.sat-1', line: 'line-1' },
+        { sat: '.sat-2', line: 'line-2' },
+        { sat: '.sat-3', line: 'line-3' },
+        { sat: '.sat-4', line: 'line-4' }
       ];
 
       connections.forEach(conn => {
-        const satEl = document.getElementById(conn.sat);
+        const satEl = container.querySelector(conn.sat);
         const lineEl = document.getElementById(conn.line);
 
         if (satEl && lineEl) {
@@ -1077,6 +1370,8 @@
       updateLines();
     });
   </script>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
 </body>
 </html>

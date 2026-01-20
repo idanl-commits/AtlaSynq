@@ -102,12 +102,19 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif;}
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
     .btn-primary { 
-      background: #0f172a; color: white; border: 1px solid rgba(0,0,0,0.1);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.1);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: none;
     }
-    .btn-primary:hover { transform: translateY(-1px); background: #1e293b; }
+    .btn-primary:hover { 
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      border: none;
+    }
     .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
     .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
 
@@ -127,15 +134,16 @@
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
-    /* Header Links */
+    /* Header Nav Links - Make Black & Bold */
     .nav-links a, .nav-link {
+        font-weight: 600; /* Bolder */
+        color: #0f172a;   /* Dark/Black */
         text-decoration: none;
-        color: var(--text-muted);
-        font-weight: 500;
-        transition: color 0.2s ease;
+        font-size: 0.95rem;
+        transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary);
+        color: var(--primary); /* Blue on hover */
     }
 
     /* Hero */
@@ -686,20 +694,166 @@
       .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
     }
 
-    footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
-    /* Footer Links */
-    .footer-link {
+    /* Footer Global Styling - Black & Clickable */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+        background: white;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    /* Footer Links - Make Black, Aligned & Clickable */
+    .footer-grid h4 {
+        color: #000000; /* Pure Black Headers */
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    .footer-grid a, .footer-grid p {
+        color: #1e293b; /* Very dark text for links */
+        font-weight: 500;
         text-decoration: none;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: block;
+        cursor: pointer; /* Force Hand Cursor */
         transition: all 0.2s ease;
     }
-    .footer-link:hover {
+    .footer-grid a:hover {
         color: var(--primary);
         transform: translateX(2px);
+        font-weight: 600;
+    }
+
+    /* =========================================
+       FEATURES PAGE ANIMATIONS
+    ========================================= */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes scanBeam {
+      0% {
+        opacity: 0.3;
+        transform: rotate(0deg);
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0.3;
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulseDot {
+      0%, 100% {
+        opacity: 0.4;
+        r: 4;
+      }
+      50% {
+        opacity: 1;
+        r: 6;
+      }
+    }
+
+    @keyframes switchMove {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+    }
+
+    @keyframes lockPulse {
+      0%, 100% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes flowLine {
+      0% {
+        stroke-dashoffset: 0;
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        stroke-dashoffset: -20;
+        opacity: 0.3;
+      }
+    }
+
+    /* Neural Network Animations */
+    .pulse-node {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .pulse-line {
+      stroke-dasharray: 5, 5;
+      animation: flowLine 2s linear infinite;
+    }
+
+    /* Feature Card Hover Effects */
+    .feature-card-bento:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.1);
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    /* SVG Animations */
+    .search-scan .scan-beam {
+      animation: scanBeam 2s ease-in-out infinite;
+      transform-origin: 50% 50%;
+    }
+
+    .brain-pulse .pulse-dot {
+      animation: pulseDot 1.5s ease-in-out infinite;
+    }
+
+    .switch-animate .arrow-left {
+      animation: switchMove 2s ease-in-out infinite;
+    }
+    .switch-animate .arrow-right {
+      animation: switchMove 2s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .shield-lock .lock-animate {
+      animation: lockPulse 2s ease-in-out infinite;
+    }
+
+    /* Flow Arrow Animation */
+    .flow-arrow .flow-line {
+      stroke-dasharray: 10, 5;
+      animation: flowLine 2s linear infinite;
     }
 
     /* =========================================
@@ -720,6 +874,24 @@
         display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
       }
 
+      /* Bento Grid - Stack on mobile */
+      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: 1fr !important;
+      }
+      .feature-card-bento {
+        grid-column: span 1 !important;
+      }
+
+      /* Workflow - Stack on mobile */
+      .workflow-section > .container > div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
+      .workflow-section .flow-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+      }
+
       /* FIX: Builder Grid - Force 2 Columns on Mobile */
       .grid-3 {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -729,28 +901,26 @@
       .b-card h4 { font-size: 0.9rem; }
       
       /* FIX: Footer - 2 Columns on Mobile */
+      /* Mobile responsive fix for footer */
       .footer-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); 
-        text-align: left;
         gap: 2rem 1rem;
       }
       .footer-grid > div:first-child {
         grid-column: span 2; 
         text-align: center;
-        margin-bottom: 1rem;
-        /* Flex to center the logo and text in mobile view specifically */
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      /* Ensure logo in footer behaves */
-      .footer-grid .logo {
-          justify-content: center;
-      }
       
       /* Hero Adjustments */
-      .hero { padding: 4rem 0; }
+      .hero { padding: 4rem 0; min-height: 400px !important; }
+      
+      /* Hide neural network on mobile */
+      .neural-network-bg {
+        display: none !important;
+      }
       
       /* Button improvements for mobile */
       .btn {
@@ -913,7 +1083,7 @@
 
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="../index.html" class="logo">
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
           <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
@@ -922,9 +1092,9 @@
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
-        <a href="product.html" class="nav-link">Product</a>
-        <a href="governance.html" class="nav-link">Governance</a>
-        <a href="integrations.html" class="nav-link">Integrations</a>
+        <a href="../index.html#product" class="nav-link">Product</a>
+        <a href="../index.html#governance" class="nav-link">Governance</a>
+        <a href="../index.html#integrations" class="nav-link">Integrations</a>
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
@@ -933,66 +1103,222 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="text-gradient">The Brain of Your Enterprise.</h1>
-        <p>Stop building patchwork AI. AtlaSynq orchestrates your entire stack.</p>
-        <a href="../" class="btn btn-primary" style="text-decoration:none; display:inline-block;">Back to Home</a>
+  <section class="hero" style="position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: center; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);">
+    <!-- Neural Network Background Animation -->
+    <div class="neural-network-bg" style="position: absolute; inset: 0; opacity: 0.4; z-index: 0; pointer-events: none;">
+      <svg width="100%" height="100%" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.6" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.3" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Animated Connection Lines -->
+        <line x1="200" y1="150" x2="400" y2="200" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="400" y1="200" x2="600" y2="180" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="600" y1="180" x2="800" y2="220" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="200" y1="300" x2="400" y2="350" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
+        <line x1="400" y1="350" x2="600" y2="380" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
+        <line x1="600" y1="380" x2="800" y2="400" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
+        <!-- Nodes -->
+        <circle cx="200" cy="150" r="6" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
+        <circle cx="400" cy="200" r="8" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
+        <circle cx="600" cy="180" r="6" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
+        <circle cx="800" cy="220" r="7" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
+        <circle cx="200" cy="300" r="5" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
+        <circle cx="400" cy="350" r="6" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
+        <circle cx="600" cy="380" r="5" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
+        <circle cx="800" cy="400" r="6" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
+      </svg>
+    </div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="hero-content" style="animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+        <h1 class="text-gradient" style="font-weight: 800;">The Brain of Your Enterprise.</h1>
+        <p style="font-size: 1.2rem; margin-top: 1.5rem;">Stop building patchwork AI. AtlaSynq orchestrates your entire stack.</p>
       </div>
     </div>
   </section>
 
   
-  <section class="section-everything">
+  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);">
     <div class="container">
-      <div class="everything-grid">
-        <div class="everything-card" style="background: linear-gradient(to bottom right, #ffffff, #f8fafc);">
-          <div style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="11" cy="11" r="8"/>
-  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-</svg>
+      <!-- Bento Grid Layout -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+        <!-- Universal Search - Spans 2 columns -->
+        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="search-scan">
+                <defs>
+                  <linearGradient id="searchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="url(#searchGrad)" stroke-width="3" opacity="0.3"/>
+                <circle cx="50" cy="50" r="20" fill="none" stroke="url(#searchGrad)" stroke-width="2.5" opacity="0.5"/>
+                <line x1="70" y1="70" x2="85" y2="85" stroke="url(#searchGrad)" stroke-width="3" stroke-linecap="round"/>
+                <!-- Scanning beam -->
+                <line x1="50" y1="50" x2="80" y2="50" stroke="#2563eb" stroke-width="2" opacity="0.6" class="scan-beam"/>
+              </svg>
+            </div>
           </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem;">Universal Search</h4>
-          <p class="e-text" style="text-align: center;">Query across Jira, Slack, and Drive simultaneously—one prompt, one governed answer.</p>
+          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Universal Search</h4>
+          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">Query across Jira, Slack, and Drive simultaneously—one prompt, one governed answer.</p>
         </div>
 
-        <div class="everything-card" style="background: linear-gradient(to bottom right, #ffffff, #f8fafc);">
-          <div style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-  <line x1="12" y1="19" x2="12" y2="22"/>
-  <line x1="8" y1="22" x2="16" y2="22"/>
-</svg>
+        <!-- Context Awareness -->
+        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="brain-pulse">
+                <defs>
+                  <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                  </linearGradient>
+                </defs>
+                <!-- Brain shape -->
+                <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="url(#brainGrad)" opacity="0.2"/>
+                <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="none" stroke="url(#brainGrad)" stroke-width="2.5"/>
+                <!-- Pulsing nodes -->
+                <circle cx="40" cy="45" r="4" fill="#2563eb" class="pulse-dot"/>
+                <circle cx="60" cy="45" r="4" fill="#2563eb" class="pulse-dot" style="animation-delay: 0.3s"/>
+                <circle cx="50" cy="60" r="4" fill="#60a5fa" class="pulse-dot" style="animation-delay: 0.6s"/>
+              </svg>
+            </div>
           </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem;">Context Awareness</h4>
-          <p class="e-text" style="text-align: center;">The AI knows who you are, what you're working on, and what you're allowed to see—automatically.</p>
+          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Context Awareness</h4>
+          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">The AI knows who you are, what you're working on, and what you're allowed to see—automatically.</p>
         </div>
 
-        <div class="everything-card" style="background: linear-gradient(to bottom right, #ffffff, #f8fafc);">
-          <div style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-  <path d="M9 12l2 2 4-4"/>
-</svg>
+        <!-- Model Agnostic -->
+        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="switch-animate">
+                <defs>
+                  <linearGradient id="switchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                  </linearGradient>
+                </defs>
+                <!-- Exchange arrows -->
+                <path d="M30 30 L50 30 L45 20 M50 30 L45 40" stroke="url(#switchGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" class="arrow-left"/>
+                <path d="M70 70 L50 70 L55 60 M50 70 L55 80" stroke="url(#switchGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" class="arrow-right"/>
+                <!-- Central circle -->
+                <circle cx="50" cy="50" r="15" fill="url(#switchGrad)" opacity="0.2"/>
+                <circle cx="50" cy="50" r="12" fill="none" stroke="url(#switchGrad)" stroke-width="2.5"/>
+              </svg>
+            </div>
           </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem;">Audit Logs</h4>
-          <p class="e-text" style="text-align: center;">Complete visibility into every query, response, and data access. Compliance built-in.</p>
+          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Model Agnostic</h4>
+          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">Swap between GPT-4o and Claude 3.5 instantly without rewriting workflows or losing guardrails.</p>
         </div>
 
-        <div class="everything-card" style="background: linear-gradient(to bottom right, #ffffff, #f8fafc);">
-          <div style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <polyline points="17 1 21 5 17 9"/>
-  <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-  <polyline points="7 23 3 19 7 15"/>
-  <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
-</svg>
+        <!-- Zero-Retention -->
+        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="shield-lock">
+                <defs>
+                  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
+                  </linearGradient>
+                </defs>
+                <!-- Shield -->
+                <path d="M50 20 L30 30 L30 50 Q30 65 50 75 Q70 65 70 50 L70 30 Z" fill="url(#shieldGrad)" opacity="0.2"/>
+                <path d="M50 20 L30 30 L30 50 Q30 65 50 75 Q70 65 70 50 L70 30 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="3"/>
+                <!-- Lock -->
+                <rect x="40" y="50" width="20" height="18" rx="2" fill="url(#shieldGrad)" opacity="0.8" class="lock-animate"/>
+                <circle cx="50" cy="50" r="6" fill="url(#shieldGrad)" opacity="0.9"/>
+              </svg>
+            </div>
           </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem;">Model Agnostic</h4>
-          <p class="e-text" style="text-align: center;">Swap between GPT-4o and Claude 3.5 instantly without rewriting workflows or losing guardrails.</p>
+          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Zero-Retention</h4>
+          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">We process data to respond, we don't store it. Your systems remain the source of truth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Workflow Section -->
+  <section class="workflow-section" style="padding: 6rem 0; background: white; position: relative; overflow: hidden;">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem; font-weight: 700; color: #0f172a;">The Workflow</h2>
+      <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative;">
+        <!-- Step 1 -->
+        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Connect Apps</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Link your existing tools</p>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div style="flex: 0 0 100px; position: relative; z-index: 1;">
+          <svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" class="flow-arrow">
+            <defs>
+              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#2563eb;stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.3" />
+              </linearGradient>
+            </defs>
+            <line x1="10" y1="20" x2="70" y2="20" stroke="url(#arrowGrad)" stroke-width="2" class="flow-line"/>
+            <path d="M70 20 L85 10 M70 20 L85 30" stroke="url(#arrowGrad)" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+              <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+              <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Index Metadata</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">We map your data structure</p>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div style="flex: 0 0 100px; position: relative; z-index: 1;">
+          <svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" class="flow-arrow">
+            <line x1="10" y1="20" x2="70" y2="20" stroke="url(#arrowGrad)" stroke-width="2" class="flow-line"/>
+            <path d="M70 20 L85 10 M70 20 L85 30" stroke="url(#arrowGrad)" stroke-width="2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <path d="M13 8H7"/>
+              <path d="M17 12H7"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Governed Response</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">AI answers with permissions</p>
         </div>
       </div>
     </div>
