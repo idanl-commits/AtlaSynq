@@ -603,9 +603,12 @@
     @media(max-width: 900px) {
       h1 { font-size: 2.2rem; }
       h2 { font-size: 2rem; }
+      p { font-size: 1rem; }
       
       /* Navigation: Hide links on mobile */
       .nav-links { display: none; }
+      .nav { height: 64px; }
+      .logo { font-size: 1.1rem; }
       
       /* Stack grids */
       .compare-grid, .everything-grid, .impact-grid {
@@ -643,6 +646,17 @@
       
       /* Hero Adjustments */
       .hero { padding: 4rem 0; }
+      
+      /* Button improvements for mobile */
+      .btn {
+        padding: 14px 24px; /* Larger touch targets */
+        font-size: 1rem;
+        min-height: 44px; /* iOS recommended touch target */
+      }
+      
+      /* Section spacing adjustments */
+      .section { padding: 4rem 0; }
+      .section-layer { padding: 4rem 0 3rem; }
       
       /* FIX: Chat Layout on Mobile */
       .window-frame { 
@@ -687,23 +701,103 @@
           flex-shrink: 0; /* Prevent input from squashing */
       }
       
+      /* Logo Strip - Scale down for mobile */
+      .logo-item img {
+        height: 40px !important; /* Reduced from 56px */
+      }
+      .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] {
+        height: 56px !important; /* Reduced from 96px */
+      }
+      
+      /* Builder Cards - Scale down images for mobile */
+      .b-card img, .b-card svg {
+        height: 48px !important; /* Reduced from 72px */
+        margin-bottom: 12px;
+      }
+      
       /* Animation Layer Scaling for Mobile */
       .layer-container { height: 280px; }
-      .layer-center { width: 64px; height: 64px; }
-      .layer-center svg { width: 32px; height: 32px; }
-      .satellite { width: 36px; height: 36px; }
-      .satellite svg { width: 18px; height: 18px; }
+      .hub-icon {
+        width: 72px !important; /* Reduced from 110px */
+        height: 72px !important;
+      }
+      .hub-icon svg {
+        width: 40px !important; /* Reduced from 56px */
+        height: 40px !important;
+      }
+      .satellite {
+        width: 56px !important; /* Reduced from 88px */
+        height: 56px !important;
+      }
+      .satellite img {
+        width: 36px !important; /* Reduced from 56px */
+        height: 36px !important;
+      }
       
       .sat-1 { top: 15%; left: 15%; }
       .sat-2 { top: 20%; right: 10%; }
       .sat-3 { bottom: 15%; left: 10%; }
       .sat-4 { bottom: 10%; right: 15%; }
       
+      /* Node Tags - Scale down for mobile */
+      .node-tag img {
+        width: 28px !important; /* Reduced from 36px */
+        height: 28px !important;
+      }
+      .node-tag img[alt="Salesforce"], .node-tag img[src*="salesforce"],
+      .node-tag img[alt="Jira"], .node-tag img[src*="jira"] {
+        width: 36px !important; /* Reduced from 48px */
+        height: 36px !important;
+      }
+      .node-tag img[alt="NetSuite"], .node-tag img[src*="netsuite"],
+      .node-tag img[alt="Slack"], .node-tag img[src*="slack"] {
+        width: 44px !important; /* Reduced from 60px */
+        height: 44px !important;
+      }
+      
+      /* Container padding adjustments */
+      .container { padding: 0 1rem; }
+      .logos-strip { padding: 2rem 0; }
+      .logo-item { padding: 8px 16px; }
+      
       .dd-row, .dd-row:nth-child(even) { flex-direction: column; text-align: center; gap: 3rem; }
       .dd-list { align-items: center; text-align: left; }
       
       .builder-ui { height: auto; min-height: 550px; }
       .b-content { padding: 20px; }
+    }
+    
+    /* Additional mobile adjustments for very small screens */
+    @media(max-width: 480px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.6rem; }
+      h3 { font-size: 1.2rem; }
+      
+      .hero { padding: 3rem 0 1.5rem; }
+      .window-frame { height: 400px; }
+      
+      /* Even smaller logos on very small screens */
+      .logo-item img {
+        height: 32px !important;
+      }
+      .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] {
+        height: 44px !important;
+      }
+      
+      .b-card img, .b-card svg {
+        height: 40px !important;
+      }
+      
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px;
+      }
+      .b-card {
+        padding: 12px 6px;
+      }
+      .b-card h4 {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
