@@ -22,7 +22,7 @@
     gtag('js', new Date());
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-   
+  
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -57,6 +57,8 @@
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    
+    html { scroll-behavior: smooth; }
     
     body { 
         font-family: 'Inter', sans-serif; 
@@ -125,8 +127,16 @@
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-weight: 500; color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
-    .nav-links a:hover { color: var(--primary); }
+    /* Header Links */
+    .nav-links a, .nav-link {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+    .nav-links a:hover, .nav-link:hover {
+        color: var(--primary);
+    }
 
     /* Hero */
     .hero { padding: 6rem 0 2rem 0; position: relative; }
@@ -229,7 +239,7 @@
     .b-card.selected img {
         mix-blend-mode: normal; 
     }
-
+    
     .logos-wrapper {
         width: 100%;
         overflow: hidden;
@@ -413,6 +423,82 @@
     .btn-deny { background: #FEF2F2; color: var(--danger); border: 1px solid #FEE2E2; }
     .btn-approve { background: #ECFDF5; color: var(--success); border: 1px solid #D1FAE5; animation: pulse-green 2s infinite; }
     @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+    
+    /* Careers Modal */
+    .careers-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .careers-modal-overlay.active {
+      display: flex;
+    }
+    .careers-modal {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .careers-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .careers-modal-header h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+    .careers-modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .careers-modal-close:hover {
+      color: var(--text);
+    }
+    .careers-modal-content {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .careers-modal-content h4 {
+      color: var(--text);
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .careers-modal-content p {
+      margin-bottom: 16px;
+    }
+    .careers-modal-content a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .careers-modal-content a:hover {
+      text-decoration: underline;
+    }
 
     .blueprint::before, .blueprint::after {
       content: '+'; position: absolute; color: #cbd5e1;
@@ -601,11 +687,53 @@
     }
 
     footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+    .footer-grid { 
+        display: grid; 
+        grid-template-columns: 2fr 1fr 1fr 1fr; 
+        gap: 2rem;
+        align-items: start; /* Ensure perfect top alignment for columns */
+    }
+    /* Footer Headers */
+    .footer-grid h4 {
+        color: #0f172a; /* Dark text for headers */
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+    /* Footer Links - Black & Clickable */
+    .footer-grid a, .footer-grid p {
+        color: #000000; /* Pure black/Very dark for links to show clickability */
+        font-weight: 500;
+        text-decoration: none;
+        margin-bottom: 12px;
+        display: block;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        opacity: 0.9;
+    }
+    .footer-grid a:hover {
+        color: var(--primary);
+        opacity: 1;
+    }
+    /* Footer Links (legacy class for compatibility) */
+    .footer-link {
+        text-decoration: none;
+        color: #000000; /* Pure black/Very dark for links to show clickability */
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-bottom: 12px;
+        display: block;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        opacity: 0.9;
+    }
+    .footer-link:hover {
+        color: var(--primary);
+        opacity: 1;
+    }
 
     /* =========================================
        RESPONSIVE DESIGN (MOBILE ADAPTATION)
-     ========================================= */
+    ========================================= */
     @media(max-width: 900px) {
       h1 { font-size: 2.2rem; }
       h2 { font-size: 2rem; }
@@ -823,9 +951,9 @@
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
-        <a href="#product">Product</a>
-        <a href="#governance">Governance</a>
-        <a href="#integrations">Integrations</a>
+        <a href="product.html" class="nav-link">Product</a>
+        <a href="governance.html" class="nav-link">Governance</a>
+        <a href="integrations.html" class="nav-link">Integrations</a>
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
@@ -885,7 +1013,7 @@
     </div>
   </section>
 
-  <section class="logos-strip">
+  <section class="logos-strip" id="integrations">
     <div class="container">
       <div class="logos-label">INTEGRATE TOOLS YOU ACTUALLY USE</div>
       <div class="logos-wrapper">
@@ -917,7 +1045,7 @@
 
            <div class="logo-item">
               <img src="images/slack.png" alt="Slack">
-           </div>
+        </div>
            <div class="logo-item">
               <img src="images/salesforce.png" alt="Salesforce">
            </div>
@@ -983,7 +1111,7 @@
     </div>
   </section>
 
-  <section class="section-deep-dive">
+  <section class="section-deep-dive" id="governance">
     <div class="container">
       
       <div class="dd-row">
@@ -1342,8 +1470,8 @@
         </a>
         <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
       </div>
-      <div><h4>Product</h4><p>Features</p><p>Security</p></div>
-      <div><h4>Company</h4><p>About</p><p>Careers</p></div>
+      <div><h4>Product</h4><a href="features/" class="footer-link">Features</a><a href="security/" class="footer-link">Security</a></div>
+      <div><h4>Company</h4><a href="about/" class="footer-link">About</a><a href="careers/" class="footer-link">Careers</a></div>
       <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:inherit; display:block; margin-bottom:8px;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:inherit; display:block;">Terms of Service</a></div>
     </div>
     <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
@@ -1719,6 +1847,36 @@
       requestAnimationFrame(updateLines);
     }
 
+    // Careers Modal Function
+    function openModal(event) {
+      event.preventDefault();
+      const modal = document.getElementById('careersModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('careersModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+    
+    // Close modal when clicking overlay
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('careersModal');
+      if (modal) {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      }
+    });
+
     window.onload = () => {
       // Start Lines Animation
       updateLines();
@@ -1728,5 +1886,33 @@
       setTimeout(runBuilder, 2500);
     };
   </script>
+  
+  <!-- Careers Modal -->
+  <div class="careers-modal-overlay" id="careersModal">
+    <div class="careers-modal">
+      <div class="careers-modal-header">
+        <h3>Join the AtlaSynq Team</h3>
+        <button class="careers-modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      </div>
+      <div class="careers-modal-content">
+        <p>We're building the future of governed AI infrastructure. If you're passionate about creating secure, scalable solutions that empower enterprises, we'd love to hear from you.</p>
+        
+        <h4>Open Positions</h4>
+        <p>We're always looking for talented individuals to join our team. Current openings include:</p>
+        <ul style="margin-left: 20px; margin-bottom: 16px;">
+          <li>Senior Full-Stack Engineers</li>
+          <li>AI/ML Engineers</li>
+          <li>Security Engineers</li>
+          <li>Product Designers</li>
+          <li>DevOps Engineers</li>
+        </ul>
+        
+        <h4>How to Apply</h4>
+        <p>Send your resume and a brief note about why you're interested in AtlaSynq to <a href="mailto:careers@atlasynq.com">careers@atlasynq.com</a>.</p>
+        
+        <p style="margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">We're an equal opportunity employer committed to diversity and inclusion.</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
