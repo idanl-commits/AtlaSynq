@@ -248,115 +248,221 @@
         background: rgba(0, 0, 0, 0.05);
       }
 
-      /* Main Layout */
-      .legal-wrapper {
-        max-width: 1000px;
+      /* =========================================================
+         Legal Pages (Makeover)
+      ========================================================= */
+      .legal-hero {
+        padding: 5rem 0 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .legal-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 20% 10%,
+            rgba(37, 99, 235, 0.12),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 80% 0%,
+            rgba(168, 85, 247, 0.1),
+            transparent 55%
+          );
+        pointer-events: none;
+      }
+      .legal-hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1140px;
         margin: 0 auto;
-        padding: 60px 24px 100px;
+        padding: 0 1.5rem;
         display: grid;
-        grid-template-columns: 240px 1fr;
-        gap: 60px;
-        align-items: start;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: center;
       }
-
-      /* Sidebar */
-      .toc {
-        position: sticky;
-        top: 100px;
-      }
-      .toc-title {
-        text-transform: uppercase;
-        font-size: 0.7rem;
-        font-weight: 700;
-        color: #94a3b8;
-        letter-spacing: 0.05em;
-        margin-bottom: 1rem;
-        font-family: "JetBrains Mono", monospace;
-      }
-      .toc ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .toc a {
-        text-decoration: none;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        transition: 0.2s;
-        display: block;
-        padding: 4px 0;
-      }
-      .toc a:hover {
-        color: var(--primary);
-        transform: translateX(2px);
-      }
-
-      /* Content Typography */
-      .content h1 {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 2.5rem;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        margin-bottom: 0.5rem;
-        color: var(--text);
-      }
-      .last-updated {
-        font-family: "JetBrains Mono", monospace;
+      .legal-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(226, 232, 240, 0.9);
         font-size: 0.8rem;
+        color: #334155;
+        font-weight: 600;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .legal-title {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 3rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 1rem 0 0.75rem;
+        color: var(--text);
+      }
+      .legal-subtitle {
+        max-width: 780px;
         color: var(--text-muted);
-        display: block;
-        margin-bottom: 3rem;
-        background: #f1f5f9;
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .legal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 1.25rem;
+        color: #475569;
+        font-size: 0.9rem;
+      }
+      .meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .hero-illustration {
+        width: 220px;
+        height: 220px;
+        border-radius: 24px;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        background: radial-gradient(
+            circle at 30% 30%,
+            rgba(37, 99, 235, 0.16),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 70% 65%,
+            rgba(168, 85, 247, 0.14),
+            transparent 60%
+          ),
+          rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 24px 50px -20px rgba(15, 23, 42, 0.25);
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-illustration svg {
+        width: 120px;
+        height: 120px;
+      }
+      .hero-illustration::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background: conic-gradient(
+          from 180deg,
+          rgba(37, 99, 235, 0),
+          rgba(37, 99, 235, 0.14),
+          rgba(168, 85, 247, 0.12),
+          rgba(37, 99, 235, 0)
+        );
+        animation: spin 14s linear infinite;
+        opacity: 0.65;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
       }
 
-      .content h2 {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin: 3rem 0 1rem;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border);
-        color: var(--text);
+      /* Main Layout (single-column, no left menu) */
+      .legal-wrapper {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 20px 24px 100px;
+        display: block;
       }
-      .content h3 {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.1rem;
-        margin: 1.5rem 0 0.5rem;
-        font-weight: 700;
-        color: var(--text);
+
+      /* (Removed) Jump links */
+
+      /* Content */
+      .content {
+        min-width: 0;
       }
+      .legal-card {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        border-radius: 18px;
+        padding: 22px 22px;
+        box-shadow: 0 20px 48px -28px rgba(15, 23, 42, 0.18);
+        margin-bottom: 16px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text);
+        margin: 0 0 12px;
+        letter-spacing: -0.02em;
+      }
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.14),
+          rgba(168, 85, 247, 0.1)
+        );
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+      .section-icon svg {
+        width: 20px;
+        height: 20px;
+        stroke: #1e40af;
+      }
+
       .content p,
       .content li {
         color: #475569;
         font-size: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 12px;
+        line-height: 1.75;
       }
       .content ul {
         padding-left: 20px;
-        margin-bottom: 1.5rem;
-      }
-      .content li {
-        margin-bottom: 0.5rem;
+        margin: 10px 0 0;
       }
 
-      /* Highlight Box */
       .highlight-box {
-        background: #f8fafc;
-        border: 1px solid #dbeafe;
+        background: linear-gradient(
+          180deg,
+          rgba(239, 246, 255, 0.9),
+          rgba(255, 255, 255, 0.9)
+        );
+        border: 1px solid rgba(37, 99, 235, 0.22);
         border-left: 4px solid var(--primary);
-        border-radius: 6px;
-        padding: 20px;
-        margin: 24px 0;
+        border-radius: 14px;
+        padding: 16px;
+        margin: 16px 0;
       }
       .highlight-box strong {
         color: var(--primary);
         font-family: "Plus Jakarta Sans", sans-serif;
-        font-weight: 700;
+        font-weight: 800;
       }
 
       footer {
@@ -400,50 +506,20 @@
         }
       }
 
-      @media (max-width: 800px) {
-        .legal-wrapper {
-          grid-template-columns: 1fr;
-          gap: 20px;
-          padding-top: 24px;
-        }
-
-        /* Keep the same "sidebar" experience on mobile by moving TOC above content */
-        .toc {
-          display: block;
-          position: static;
-          top: auto;
-          background: rgba(255, 255, 255, 0.85);
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          padding: 16px;
-        }
-        .toc-title { margin-bottom: 10px; }
-        .toc ul {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 6px;
-        }
-        .toc a {
-          padding: 10px 10px;
-          border-radius: 8px;
-          background: #f8fafc;
-          border: 1px solid rgba(226, 232, 240, 0.9);
-        }
-        .toc a:hover { transform: none; }
-
-        h1 {
-          font-size: 2rem;
-        }
-        .content { padding: 0; }
-        .content h2 { font-size: 1.3rem; }
-        .content h3 { font-size: 1rem; }
-        .content p, .content li { font-size: 0.95rem; }
-
-        /* Prevent any horizontal scrolling from long words/URLs */
-        .content, .content * { overflow-wrap: anywhere; }
+      @media (max-width: 900px) {
+        .legal-hero-inner { grid-template-columns: 1fr; }
+        .hero-illustration { width: 180px; height: 180px; justify-self: start; }
+        .legal-wrapper { padding-top: 10px; }
       }
 
       @media (max-width: 480px) {
+        .legal-hero { padding: 4rem 0 1.5rem; }
+        .legal-title { font-size: 2.25rem; }
+        .legal-subtitle { font-size: 1rem; }
+        .legal-wrapper { padding-left: 16px; padding-right: 16px; }
+        .legal-card { padding: 18px; }
+        .content, .content * { overflow-wrap: anywhere; }
+
         .nav-container { padding: 0 1rem; }
         header .nav-container > div[style*="display:flex"] {
           width: 100%;
@@ -452,8 +528,6 @@
           align-items: stretch;
         }
         .btn { width: 100%; margin: 0.25rem 0; }
-        .content h1 { font-size: 1.8rem; }
-        .content h2 { font-size: 1.2rem; }
         .highlight-box { padding: 16px; }
       }
     </style>
@@ -489,201 +563,190 @@
       </div>
     </header>
 
+    <section class="legal-hero">
+      <div class="legal-hero-inner">
+        <div>
+          <div class="legal-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
+            </svg>
+            Terms & User Agreement
+          </div>
+          <div class="legal-title">Terms of Service</div>
+          <p class="legal-subtitle">The rules for using AtlaSynq—what you can do, what you can’t, and how we handle account, billing, and platform integrity.</p>
+          <div class="legal-meta">
+            <span class="meta-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+              Last Updated: January 15, 2026
+            </span>
+            
+          </div>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
+            <path d="M8.5 12.5l2.5 2.5L16 10" opacity="0.9"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
     <div class="legal-wrapper">
-      <aside class="toc">
-        <div class="toc-title">Table of Contents</div>
-        <ul>
-          <li><a href="#acceptance">1. Acceptance of Terms</a></li>
-          <li><a href="#service">2. Description of Service</a></li>
-          <li><a href="#account">3. User Accounts</a></li>
-          <li><a href="#usage">4. Acceptable Use</a></li>
-          <li><a href="#payment">5. Payment & Billing</a></li>
-          <li><a href="#intellectual">6. Intellectual Property</a></li>
-          <li><a href="#termination">7. Termination</a></li>
-          <li><a href="#liability">8. Limitation of Liability</a></li>
-          <li><a href="#changes">9. Changes to Terms</a></li>
-          <li><a href="#contact">10. Contact Us</a></li>
-        </ul>
-      </aside>
-
-      <main class="content">
-        <h1>Terms of Service</h1>
-        <span class="last-updated">Last Updated: January 15, 2026</span>
-
-        <section id="acceptance">
-          <h2>1. Acceptance of Terms</h2>
-          <p>
-            By accessing or using AtlaSynq ("the Service"), you agree to be
-            bound by these Terms of Service ("Terms"). If you do not agree to
-            these Terms, you may not use the Service.
-          </p>
-          <p>
-            These Terms constitute a legally binding agreement between you and
-            AtlaSynq Inc. ("we," "our," or "us"). If you are using the Service
-            on behalf of an organization, you represent that you have the
-            authority to bind that organization to these Terms.
-          </p>
+      <main class="content" aria-label="Terms of Service">
+        <section id="acceptance" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
+              </svg>
+            </span>
+            1. Acceptance of Terms
+          </div>
+          <p>By accessing or using AtlaSynq (“the Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree, you may not use the Service.</p>
+          <p>If you use the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
         </section>
 
-        <section id="service">
-          <h2>2. Description of Service</h2>
-          <p>
-            AtlaSynq provides a unified intelligence layer that connects to your
-            existing business tools (such as Salesforce, Slack, Jira, and
-            others) to enable AI-powered querying and data synthesis across your
-            organization's knowledge base.
-          </p>
+        <section id="service" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 18h10"></path>
+              </svg>
+            </span>
+            2. Description of Service
+          </div>
+          <p>AtlaSynq provides a unified intelligence layer that connects to your existing business tools to enable AI-powered querying and synthesis across your organization’s knowledge base.</p>
           <div class="highlight-box">
-            <strong>Service Availability:</strong> We strive to maintain high
-            availability but do not guarantee uninterrupted access. The Service
-            may be unavailable due to maintenance, updates, or circumstances
-            beyond our control.
+            <strong>Service availability:</strong> We strive for high availability but do not guarantee uninterrupted access. Maintenance, updates, or external circumstances may cause downtime.
           </div>
         </section>
 
-        <section id="account">
-          <h2>3. User Accounts</h2>
-          <h3>3.1 Account Creation</h3>
-          <p>
-            To use the Service, you must create an account and provide accurate,
-            complete information. You are responsible for maintaining the
-            confidentiality of your account credentials.
-          </p>
-
-          <h3>3.2 Account Security</h3>
-          <p>
-            You are responsible for all activities that occur under your
-            account. You must immediately notify us of any unauthorized use of
-            your account or any other breach of security.
-          </p>
+        <section id="account" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"></path>
+                <path d="M3 22a9 9 0 0 1 18 0"></path>
+              </svg>
+            </span>
+            3. User Accounts
+          </div>
+          <p><strong>Account creation:</strong> You must create an account and provide accurate, complete information. You are responsible for maintaining credential confidentiality.</p>
+          <p><strong>Account security:</strong> You are responsible for activities under your account and must promptly notify us of unauthorized use or security breaches.</p>
         </section>
 
-        <section id="usage">
-          <h2>4. Acceptable Use</h2>
+        <section id="usage" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l8 4v6c0 6-8 10-8 10S4 18 4 12V6l8-4z"></path>
+              </svg>
+            </span>
+            4. Acceptable Use
+          </div>
           <p>You agree not to:</p>
           <ul>
-            <li>
-              Use the Service for any illegal purpose or in violation of any
-              laws or regulations.
-            </li>
-            <li>
-              Attempt to gain unauthorized access to the Service or any related
-              systems or networks.
-            </li>
-            <li>
-              Interfere with or disrupt the integrity or performance of the
-              Service.
-            </li>
-            <li>
-              Use the Service to transmit any malicious code, viruses, or
-              harmful data.
-            </li>
-            <li>
-              Reverse engineer, decompile, or disassemble any part of the
-              Service.
-            </li>
-            <li>
-              Use the Service in a manner that violates the rights of others or
-              infringes on intellectual property.
-            </li>
+            <li>Use the Service for illegal purposes or in violation of laws.</li>
+            <li>Attempt unauthorized access to the Service or related systems.</li>
+            <li>Interfere with integrity or performance of the Service.</li>
+            <li>Transmit malicious code, viruses, or harmful data.</li>
+            <li>Reverse engineer or decompile any part of the Service.</li>
+            <li>Violate others’ rights or infringe intellectual property.</li>
           </ul>
         </section>
 
-        <section id="payment">
-          <h2>5. Payment & Billing</h2>
-          <h3>5.1 Subscription Fees</h3>
-          <p>
-            Access to the Service requires a paid subscription. Subscription
-            fees are billed in advance on a monthly or annual basis, as selected
-            during signup.
-          </p>
-
-          <h3>5.2 Payment Terms</h3>
-          <p>
-            You agree to pay all fees associated with your subscription. Fees
-            are non-refundable except as required by law or as explicitly stated
-            in our refund policy.
-          </p>
-
-          <h3>5.3 Price Changes</h3>
-          <p>
-            We reserve the right to modify subscription pricing. Price changes
-            will be communicated to you in advance and will apply to subsequent
-            billing cycles.
-          </p>
+        <section id="payment" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 8H3"></path>
+                <path d="M7 12h2"></path>
+                <path d="M3 6h18v12H3z"></path>
+              </svg>
+            </span>
+            5. Payment & Billing
+          </div>
+          <p><strong>Subscription fees:</strong> Access requires a paid subscription billed in advance (monthly or annual), as selected during signup.</p>
+          <p><strong>Payment terms:</strong> You agree to pay all applicable fees. Fees are non-refundable except where required by law or explicitly stated.</p>
+          <p><strong>Price changes:</strong> We may modify pricing with advance notice; changes apply to future billing cycles.</p>
         </section>
 
-        <section id="intellectual">
-          <h2>6. Intellectual Property</h2>
-          <p>
-            The Service, including its original content, features, and
-            functionality, is owned by AtlaSynq Inc. and is protected by
-            international copyright, trademark, and other intellectual property
-            laws.
-          </p>
-          <p>
-            You retain ownership of any data you provide to the Service. By
-            using the Service, you grant us a limited license to process your
-            data solely for the purpose of providing the Service.
-          </p>
+        <section id="intellectual" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </span>
+            6. Intellectual Property
+          </div>
+          <p>The Service and its features are owned by AtlaSynq Inc. and protected by applicable intellectual property laws.</p>
+          <p>You retain ownership of data you provide. You grant us a limited license to process it solely to provide the Service.</p>
         </section>
 
-        <section id="termination">
-          <h2>7. Termination</h2>
-          <h3>7.1 Termination by You</h3>
-          <p>
-            You may cancel your subscription at any time through your account
-            settings. Cancellation will take effect at the end of your current
-            billing period.
-          </p>
-
-          <h3>7.2 Termination by Us</h3>
-          <p>
-            We may suspend or terminate your access to the Service immediately
-            if you violate these Terms or engage in fraudulent, abusive, or
-            illegal activity.
-          </p>
+        <section id="termination" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 12H6"></path>
+                <path d="M14 12h8"></path>
+                <path d="M12 2a10 10 0 1 0 10 10"></path>
+              </svg>
+            </span>
+            7. Termination
+          </div>
+          <p><strong>By you:</strong> You may cancel at any time through your account settings. Cancellation takes effect at the end of the current billing period.</p>
+          <p><strong>By us:</strong> We may suspend or terminate access if you violate these Terms or engage in fraudulent, abusive, or illegal activity.</p>
         </section>
 
-        <section id="liability">
-          <h2>8. Limitation of Liability</h2>
-          <p>
-            To the maximum extent permitted by law, AtlaSynq Inc. shall not be
-            liable for any indirect, incidental, special, consequential, or
-            punitive damages, or any loss of profits or revenues, whether
-            incurred directly or indirectly, or any loss of data, use, goodwill,
-            or other intangible losses resulting from your use of the Service.
-          </p>
+        <section id="liability" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 9v4"></path>
+                <path d="M12 17h.01"></path>
+                <path d="M10.3 4.3L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"></path>
+              </svg>
+            </span>
+            8. Limitation of Liability
+          </div>
+          <p>To the maximum extent permitted by law, AtlaSynq Inc. is not liable for indirect, incidental, special, consequential, or punitive damages, or loss of profits, revenues, data, use, goodwill, or other intangible losses resulting from your use of the Service.</p>
           <div class="highlight-box">
-            <strong>Disclaimer:</strong> The Service is provided "as is" and "as
-            available" without warranties of any kind, either express or
-            implied, including but not limited to implied warranties of
-            merchantability, fitness for a particular purpose, or
-            non-infringement.
+            <strong>Disclaimer:</strong> The Service is provided “as is” and “as available” without warranties of any kind, express or implied.
           </div>
         </section>
 
-        <section id="changes">
-          <h2>9. Changes to Terms</h2>
-          <p>
-            We reserve the right to modify these Terms at any time. We will
-            notify you of material changes by posting the updated Terms on our
-            website and updating the "Last Updated" date. Your continued use of
-            the Service after such changes constitutes acceptance of the
-            modified Terms.
-          </p>
+        <section id="changes" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 12a9 9 0 1 1-3-6.7"></path>
+                <path d="M21 3v7h-7"></path>
+              </svg>
+            </span>
+            9. Changes to Terms
+          </div>
+          <p>We may modify these Terms at any time. We will post updates on our website and update the “Last Updated” date. Continued use after changes constitutes acceptance of the updated Terms.</p>
         </section>
 
-        <section id="contact">
-          <h2>10. Contact Us</h2>
-          <p>
-            If you have any questions about these Terms of Service, please
-            contact us at:
-          </p>
-          <p><strong>Email:</strong> legal@atlasynq.com</p>
-          <p>
-            <strong>Address:</strong> AtlaSynq Inc., [Your Business Address]
-          </p>
+        <section id="contact" class="legal-card">
+          <div class="section-title">
+            <span class="section-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+              </svg>
+            </span>
+            10. Contact Us
+          </div>
+          <p>If you have any questions about these Terms, contact:</p>
+          <p><strong>Email:</strong> [remove]</p>
+          <p><strong>Address:</strong> AtlaSynq Inc., [Your Business Address]</p>
         </section>
       </main>
     </div>
