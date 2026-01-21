@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const CANONICAL_URL = "https://www.atlasynq.com/terms/";
+      const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
+      const PAGE_TITLE = "Terms of Service — AtlaSynq";
+      const PAGE_DESCRIPTION = "AtlaSynq Terms of Service and User Agreement.";
+    </script>
     <title>Terms of Service — AtlaSynq</title>
     <meta name="description" content="AtlaSynq Terms of Service and User Agreement.">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AtlaSynq","url":"https://www.atlasynq.com","logo":"https://www.atlasynq.com/images/atlasynq-logo.png","description":"The Governed AI Layer for Enterprise."}</script>
-
     <link rel="canonical" href="https://www.atlasynq.com/terms/" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="robots" content="index,follow">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
     <script>
@@ -58,6 +62,41 @@
     <meta name="twitter:title" content="Terms of Service — AtlaSynq">
     <meta name="twitter:description" content="AtlaSynq Terms of Service and User Agreement.">
     <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@id": "https://www.atlasynq.com/#org",
+          "@type": "Organization",
+          "name": "AtlaSynq",
+          "url": "https://www.atlasynq.com/",
+          "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
+        },
+        {
+          "@id": "https://www.atlasynq.com/#website",
+          "@type": "WebSite",
+          "url": "https://www.atlasynq.com/",
+          "name": "AtlaSynq",
+          "publisher": {
+            "@id": "https://www.atlasynq.com/#org"
+          }
+        },
+        {
+          "@id": "https://www.atlasynq.com/terms/#webpage",
+          "@type": "WebPage",
+          "url": "https://www.atlasynq.com/terms/",
+          "name": "Terms of Service — AtlaSynq",
+          "isPartOf": {
+            "@id": "https://www.atlasynq.com/#website"
+          },
+          "about": {
+            "@id": "https://www.atlasynq.com/#org"
+          }
+        }
+      ]
+    }
+    </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.svg" />

@@ -3,21 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const CANONICAL_URL = "https://www.atlasynq.com/login/";
+      const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
+      const PAGE_TITLE = "Login — AtlaSynq";
+      const PAGE_DESCRIPTION = "Sign in to your AtlaSynq account";
+    </script>
     <title>Login — AtlaSynq</title>
     <meta name="description" content="Sign in to your AtlaSynq account">
     <link rel="canonical" href="https://www.atlasynq.com/login/" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AtlaSynq","url":"https://www.atlasynq.com","logo":"https://www.atlasynq.com/images/atlasynq-logo.png","description":"The Governed AI Layer for Enterprise."}</script>
-
+    <meta name="robots" content="index,follow">
     <meta property="og:title" content="Login — AtlaSynq">
     <meta property="og:description" content="Sign in to your AtlaSynq account">
     <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
     <meta property="og:url" content="https://www.atlasynq.com/login/">
     <meta property="og:type" content="website">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Login — AtlaSynq">
     <meta name="twitter:description" content="Sign in to your AtlaSynq account">
     <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@id": "https://www.atlasynq.com/#org",
+          "@type": "Organization",
+          "name": "AtlaSynq",
+          "url": "https://www.atlasynq.com/",
+          "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
+        },
+        {
+          "@id": "https://www.atlasynq.com/#website",
+          "@type": "WebSite",
+          "url": "https://www.atlasynq.com/",
+          "name": "AtlaSynq",
+          "publisher": {
+            "@id": "https://www.atlasynq.com/#org"
+          }
+        },
+        {
+          "@id": "https://www.atlasynq.com/login/#webpage",
+          "@type": "WebPage",
+          "url": "https://www.atlasynq.com/login/",
+          "name": "Login — AtlaSynq",
+          "isPartOf": {
+            "@id": "https://www.atlasynq.com/#website"
+          },
+          "about": {
+            "@id": "https://www.atlasynq.com/#org"
+          }
+        }
+      ]
+    }
+    </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
     <script>
