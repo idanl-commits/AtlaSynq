@@ -260,16 +260,10 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(
-            circle at 20% 10%,
-            rgba(37, 99, 235, 0.12),
-            transparent 45%
-          ),
-          radial-gradient(
-            circle at 80% 0%,
-            rgba(168, 85, 247, 0.1),
-            transparent 55%
-          );
+        background:
+          radial-gradient(circle at 12% 12%, rgba(37,99,235,0.10), transparent 45%),
+          radial-gradient(circle at 88% 8%, rgba(59,130,246,0.10), transparent 55%),
+          linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,250,252,0.85));
         pointer-events: none;
       }
       .legal-hero-inner {
@@ -337,20 +331,13 @@
         height: 220px;
         border-radius: 24px;
         border: 1px solid rgba(226, 232, 240, 0.9);
-        background: radial-gradient(
-            circle at 30% 30%,
-            rgba(37, 99, 235, 0.16),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at 70% 65%,
-            rgba(168, 85, 247, 0.14),
-            transparent 60%
-          ),
-          rgba(255, 255, 255, 0.75);
+        background:
+          radial-gradient(circle at 25% 25%, rgba(37,99,235,0.14), transparent 55%),
+          radial-gradient(circle at 75% 70%, rgba(14,165,233,0.12), transparent 60%),
+          rgba(255, 255, 255, 0.82);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 24px 50px -20px rgba(15, 23, 42, 0.25);
+        box-shadow: 0 28px 70px -30px rgba(15, 23, 42, 0.35);
         display: grid;
         place-items: center;
         position: relative;
@@ -359,11 +346,14 @@
       .hero-illustration svg {
         width: 120px;
         height: 120px;
+        position: relative;
+        z-index: 2;
       }
       .hero-illustration::before {
         content: "";
         position: absolute;
         inset: -40%;
+        z-index: 1;
         background: conic-gradient(
           from 180deg,
           rgba(37, 99, 235, 0),
@@ -378,6 +368,51 @@
         to {
           transform: rotate(360deg);
         }
+      }
+
+      /* Subtle motion (alive, premium) */
+      @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      @keyframes shimmer { 0% { transform: translateX(-30%) rotate(12deg); opacity: 0; } 20% { opacity: .55; } 100% { transform: translateX(130%) rotate(12deg); opacity: 0; } }
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes pagePulse { 0%,100% { opacity: .45; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-1px); } }
+
+      .legal-badge, .legal-title, .legal-subtitle, .legal-meta { animation: fadeUp .7s ease both; }
+      .legal-title { animation-delay: .05s; }
+      .legal-subtitle { animation-delay: .12s; }
+      .legal-meta { animation-delay: .18s; }
+
+      .hero-illustration { animation: floaty 6s ease-in-out infinite; }
+      .hero-illustration::after {
+        content:"";
+        position:absolute;
+        inset:-40%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+        transform: rotate(12deg);
+        animation: shimmer 5.5s ease-in-out infinite;
+        z-index: 1;
+        pointer-events: none;
+        mix-blend-mode: soft-light;
+      }
+
+      .legal-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+      .legal-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(37,99,235,0.25);
+        box-shadow: 0 26px 70px -40px rgba(15,23,42,0.35);
+      }
+      .section-icon svg { transition: transform .25s ease; }
+      .legal-card:hover .section-icon svg { transform: rotate(-6deg) scale(1.06); }
+
+      /* SVG micro-animations */
+      .doc-line { stroke-dasharray: 14 6; animation: pagePulse 1.9s ease-in-out infinite; }
+      .doc-line.l2 { animation-delay: .35s; }
+      .doc-line.l3 { animation-delay: .7s; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-illustration, .hero-illustration::before, .hero-illustration::after,
+        .legal-badge, .legal-title, .legal-subtitle, .legal-meta,
+        .doc-line { animation: none !important; }
+        .legal-card, .section-icon svg { transition: none !important; }
       }
 
       /* Main Layout (single-column, no left menu) */
@@ -491,15 +526,19 @@
 
         /* Footer */
         .footer-grid {
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 2rem 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 1.25rem;
         }
         .footer-grid > div:first-child {
             grid-column: span 2;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
+        .footer-grid > div:not(:first-child) { min-width: 0; }
+        .footer-grid h4 { text-align: left; }
 
         /* Buttons */
         .btn {
@@ -517,14 +556,19 @@
         .legal-card { padding: 18px; }
         .content, .content * { overflow-wrap: anywhere; }
 
-        .nav-container { padding: 0 1rem; }
+        .nav-container { padding: 0 1rem; height: auto; }
         header .nav-container > div[style*="display:flex"] {
-          width: 100%;
-          flex-direction: column !important;
-          gap: 8px !important;
-          align-items: stretch;
+          flex-wrap: wrap !important;
+          justify-content: flex-end;
+          gap: 10px !important;
         }
-        .btn { width: 100%; margin: 0.25rem 0; }
+        .btn {
+          margin: 0;
+          padding: 10px 14px;
+          font-size: 0.9rem;
+          min-height: 42px;
+          white-space: nowrap;
+        }
         .highlight-box { padding: 16px; }
       }
     </style>
@@ -565,7 +609,8 @@
         <div>
           <div class="legal-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
             </svg>
             Terms & User Agreement
           </div>
@@ -583,9 +628,13 @@
           </div>
         </div>
         <div class="hero-illustration" aria-hidden="true">
+          <!-- Animated document mark -->
           <svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
-            <path d="M8.5 12.5l2.5 2.5L16 10" opacity="0.9"></path>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <path d="M14 2v6h6"></path>
+            <path class="doc-line" d="M8 13h8"></path>
+            <path class="doc-line l2" d="M8 16h7"></path>
+            <path class="doc-line l3" d="M8 19h5"></path>
           </svg>
         </div>
       </div>
@@ -597,7 +646,8 @@
           <div class="section-title">
             <span class="section-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 1l3 5 6 .9-4.3 4.2 1 6-5.7-3-5.7 3 1-6L3 6.9 9 6l3-5z"></path>
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
               </svg>
             </span>
             1. Acceptance of Terms
