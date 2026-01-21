@@ -980,17 +980,14 @@
       .builder-ui { height: auto; min-height: 550px; }
       .b-content { padding: 20px; }
 
-      /* About page: robust stacking for inline grids/flex used in sections */
+      /* About page: keep same design, just stack multi-column grids (avoid heavy catch-all layout changes) */
       .hero [style*="grid-template-columns"],
       .section-everything [style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
+        gap: 2rem !important;
       }
 
-      .hero [style*="display:flex"][style*="gap"],
-      .section-everything [style*="display:flex"][style*="gap"] {
-        flex-direction: column !important;
-      }
-
+      /* Prevent media from overflowing while preserving layout */
       .hero svg,
       .section-everything svg,
       .section-everything img {
@@ -998,10 +995,16 @@
         height: auto !important;
       }
 
-      /* Button rows: stack for touch */
-      .hero .btn,
-      .section-everything .btn {
+      /* Only stack the main hero CTA row (don’t force every button full-width) */
+      .hero .hero-content > div[style*="margin-top"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        align-items: center !important;
+      }
+      .hero .hero-content > div[style*="margin-top"] .btn {
         width: 100%;
+        max-width: 420px;
       }
 
       /* Fix: inline margin-right on hero CTA causes horizontal overflow on mobile */
@@ -1026,8 +1029,10 @@
         width: 36px !important;
         height: 36px !important;
       }
+      /* Keep the same “network” feel on mobile, just hide lines to prevent any overflow/jank */
       .section-everything .animated-lines-svg {
-        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
     }
     
@@ -1061,53 +1066,6 @@
       }
       .b-card h4 {
         font-size: 0.8rem;
-      }
-
-      /* Split layout responsive */
-      .section-everything > .container > div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-      .section-everything > .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
-        grid-template-columns: 1fr !important;
-      }
-
-      /* Hero split layout - stack on mobile */
-      .hero > .container > div[style*="grid-template-columns: 1fr 1fr"],
-      .hero > .container > div[style*="display: grid"][style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-
-      /* Manifesto section cards - stack */
-      .section-everything [style*="display: flex"][style*="gap"] {
-        flex-direction: column !important;
-        gap: 1.5rem !important;
-      }
-
-      /* Scale down SVGs in cards */
-      .section-everything svg {
-        max-width: 200px !important;
-        height: auto !important;
-      }
-
-      /* Button groups - full width on mobile */
-      .hero .btn,
-      .section-everything .btn {
-        width: 100%;
-        margin: 0.5rem 0;
-      }
-
-      /* How it Works / Why AtlaSynq sections - stack */
-      .section-everything > .container > div[style*="display: grid"][style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-
-      /* Calendly widget - ensure it's responsive */
-      .calendly-inline-widget {
-        min-width: 100% !important;
-        height: 600px !important;
       }
     }
   </style>
