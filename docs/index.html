@@ -702,12 +702,19 @@
       display: flex; justify-content: center; align-items: center; gap: 2rem;
       z-index: 9000; /* Lower than modal */
       transform: translateY(100%); 
-      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s, visibility 0.3s;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
       /* iPhone Safe Area */
       padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
     }
     .cookie-banner.visible { transform: translateY(0); }
+    .cookie-banner[data-dismissed="true"],
+    .cookie-banner[style*="display: none"] {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      transform: translateY(100%) !important;
+    }
     
     .cookie-content { max-width: 600px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
     .cookie-content strong { color: var(--text); display: block; margin-bottom: 4px; }
@@ -1762,50 +1769,63 @@
       <div>We use cookies to improve your experience and analyze traffic. By clicking "Accept", you consent to our use of cookies.</div>
     </div>
     <div class="cookie-buttons">
-      <button class="btn-cookie-decline" onclick="handleCookies('declined')">Decline</button>
-      <button class="btn-cookie-accept" onclick="handleCookies('accepted')">Accept</button>
+      <button class="btn-cookie-decline">Decline</button>
+      <button class="btn-cookie-accept">Accept</button>
     </div>
   </div>
 
   <script>
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-    // Cookie Logic - Hide banner when clicking any button inside
-    function handleCookies(decision) {
-      const cookieBanner = document.getElementById('cookieBanner');
-      if (cookieBanner) {
-        cookieBanner.style.setProperty('display', 'none', 'important');
-        cookieBanner.classList.remove('visible');
+    // Global Cookie Banner Logic
+    (function() {
+      // Check localStorage on page load - hide banner immediately if consent exists
+      if (localStorage.getItem('cookieConsent')) {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (cookieBanner) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        }
       }
-      localStorage.setItem('cookieConsent', decision);
-      if (decision === 'accepted') {
-        // Here you would trigger analytics if strictly compliant
-        console.log('Cookies accepted');
-      }
-    }
-    
-    // Auto-hide cookie banner on any button click inside it
-    document.addEventListener('DOMContentLoaded', function() {
-      const cookieBanner = document.getElementById('cookieBanner');
-      if (cookieBanner) {
+
+      // Initialize on DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (!cookieBanner) return;
+
+        // Hide immediately if consent already exists
+        if (localStorage.getItem('cookieConsent')) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+          return;
+        }
+
+        // Attach click handlers to Accept/Decline buttons
         const buttons = cookieBanner.querySelectorAll('button');
         buttons.forEach(function(btn) {
-          btn.addEventListener('click', function() {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Save preference to localStorage
+            localStorage.setItem('cookieConsent', 'true');
+            
+            // Hide banner immediately
+            cookieBanner.style.display = 'none';
             cookieBanner.style.setProperty('display', 'none', 'important');
-            cookieBanner.classList.remove('visible');
+            
+            return false;
           });
         });
-      }
-    });
 
-    // Show banner if not decided yet
-    window.addEventListener('load', () => {
-       // FOR TESTING: Removed localStorage check to ALWAYS show banner
-       // In production, uncomment the if statement below
-       // if(!localStorage.getItem('cookieConsent')) {
-         setTimeout(() => document.getElementById('cookieBanner').classList.add('visible'), 1500);
-       // }
-    });
+        // Show banner after a short delay if no consent exists
+        setTimeout(function() {
+          if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+            cookieBanner.classList.add('visible');
+          }
+        }, 1500);
+      });
+    })();
 
     // CALENDLY LISTENER SCRIPT
     window.addEventListener('message', function(e) {

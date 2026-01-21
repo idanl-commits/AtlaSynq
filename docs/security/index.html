@@ -1987,5 +1987,69 @@
       }
     });
   </script>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+      <div style="font-weight:700; margin-bottom:4px; color:var(--text);">We value your privacy</div>
+      <div>We use cookies to improve your experience and analyze traffic. By clicking "Accept", you consent to our use of cookies.</div>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn-cookie-decline">Decline</button>
+      <button class="btn-cookie-accept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // Global Cookie Banner Logic
+    (function() {
+      // Check localStorage on page load - hide banner immediately if consent exists
+      if (localStorage.getItem('cookieConsent')) {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (cookieBanner) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        }
+      }
+
+      // Initialize on DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (!cookieBanner) return;
+
+        // Hide immediately if consent already exists
+        if (localStorage.getItem('cookieConsent')) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+          return;
+        }
+
+        // Attach click handlers to Accept/Decline buttons
+        const buttons = cookieBanner.querySelectorAll('button');
+        buttons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Save preference to localStorage
+            localStorage.setItem('cookieConsent', 'true');
+            
+            // Hide banner immediately
+            cookieBanner.style.display = 'none';
+            cookieBanner.style.setProperty('display', 'none', 'important');
+            
+            return false;
+          });
+        });
+
+        // Show banner after a short delay if no consent exists
+        setTimeout(function() {
+          if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+            cookieBanner.classList.add('visible');
+          }
+        }, 1500);
+      });
+    })();
+  </script>
 </body>
 </html>

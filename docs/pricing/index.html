@@ -722,10 +722,10 @@
     /* Pricing Split Layout */
     .pricing-split-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
       align-items: start;
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       position: relative;
       z-index: 10;
@@ -831,21 +831,27 @@
       font-weight: 500;
     }
 
-    /* Pricing Form Wrapper - Glassmorphism */
+    /* Pricing Form Wrapper - Glassmorphism - Enhanced */
     .pricing-form-wrapper {
       position: relative;
-      padding: 3rem 2.5rem;
-      background: rgba(255, 255, 255, 0.85);
+      padding: 5rem 4rem;
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 32px;
+      border: 2px solid rgba(255, 255, 255, 0.95);
       box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset,
-        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+        0 30px 100px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.7) inset,
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 8px 32px rgba(37, 99, 235, 0.08);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       text-align: left;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
     }
 
     .pricing-form-wrapper::before {
@@ -953,7 +959,52 @@
       }
     }
 
-    /* Enhanced Form Inputs */
+    /* Enhanced Form Inputs - For Embedded Form */
+    #pricing-embedded-form input,
+    #pricing-embedded-form select {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    #pricing-embedded-form input:hover,
+    #pricing-embedded-form select:hover {
+      border-color: rgba(37, 99, 235, 0.5) !important;
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+
+    #pricing-embedded-form input:focus,
+    #pricing-embedded-form select:focus {
+      outline: none;
+      border-color: var(--primary) !important;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 
+        0 0 0 4px rgba(37, 99, 235, 0.1),
+        0 8px 20px rgba(37, 99, 235, 0.15);
+      transform: translateY(-2px);
+    }
+
+    #pricing-embedded-form select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23334155' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      padding-right: 45px;
+    }
+
+    #pricing-embedded-form select option {
+      color: var(--text);
+      background: white;
+      padding: 12px;
+    }
+
+    /* Legacy form styles for compatibility */
     #pricing-form input,
     #pricing-form select {
       background: rgba(255, 255, 255, 0.9);
@@ -1012,8 +1063,8 @@
     #pricing-success-message {
       display: none;
       text-align: center;
-      padding: 2rem 0;
-      min-height: 300px;
+      padding: 3rem 2rem;
+      min-height: 400px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -1021,6 +1072,9 @@
     #pricing-success-message[style*="display: flex"],
     #pricing-success-message[style*="display:block"] {
       display: flex !important;
+    }
+    #pricing-success-message svg {
+      filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));
     }
     form input::placeholder {
       color: var(--text-muted);
@@ -1157,13 +1211,15 @@
 
       .pricing-form-wrapper {
         order: 1;
-        padding: 2rem 1.5rem;
+        padding: 3rem 2rem;
+        min-height: auto;
       }
 
       #form-container form {
         max-width: 100% !important;
       }
-      #form-container form > div[style*="grid-template-columns"] {
+      #form-container form > div[style*="grid-template-columns"],
+      #pricing-form-inputs > div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
       }
       #success-message {
@@ -1615,8 +1671,8 @@
 
         <!-- Right Side - Form -->
         <div id="form-container" class="pricing-form-wrapper" style="animation: fadeInUp 0.8s ease-out 0.6s both;">
-          <h1 class="text-gradient" style="margin-bottom: 1rem; font-size: 2.5rem; text-align: left;">Request Your Quote</h1>
-          <p style="margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out 0.2s both; color: var(--text-muted);">
+          <h1 class="text-gradient" style="margin-bottom: 1.5rem; font-size: 3rem; text-align: left; line-height: 1.2; font-weight: 800;">Request Your Quote</h1>
+          <p style="margin-bottom: 2.5rem; animation: fadeInUp 0.8s ease-out 0.2s both; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
             We tailor our pricing to your organization's scale and security needs.
           </p>
 
@@ -1628,42 +1684,64 @@
           <input type="hidden" name="debug" value="1">
 
           <!-- Form Inputs Container -->
-          <div id="pricing-form-inputs">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div id="pricing-form-inputs" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
               <div>
-                <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
               </div>
               <div>
-                <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
               </div>
             </div>
 
             <div>
-              <input type="email" name="email" placeholder="Work Email" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              <input type="email" name="email" placeholder="Work Email" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
               <div>
-                <input type="text" name="company" placeholder="Company Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <input type="text" name="company" placeholder="Company Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
               </div>
               <div>
-                <input type="text" name="description" placeholder="Message (Optional)" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+                <select name="company_size" id="company_size" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s; background: white; color: var(--text); cursor: pointer;">
+                  <option value="" disabled selected>Company Size</option>
+                  <option value="1-10">1-10 employees</option>
+                  <option value="11-50">11-50 employees</option>
+                  <option value="51-200">51-200 employees</option>
+                  <option value="201-500">201-500 employees</option>
+                  <option value="501-1000">501-1,000 employees</option>
+                  <option value="1001-5000">1,001-5,000 employees</option>
+                  <option value="5000+">5,000+ employees</option>
+                </select>
               </div>
             </div>
 
-            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1rem;">Request Quote</button>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <div>
+                <input type="text" name="title" placeholder="Job Title" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
+              </div>
+              <div>
+                <input type="tel" name="phone" placeholder="Phone Number (Optional)" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
+              </div>
+            </div>
+
+            <div>
+              <input type="text" name="description" placeholder="Message (Optional)" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 18px 24px; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.2s;">Request Quote</button>
             <p id="form-status" style="margin-top: 10px; text-align: center; font-size: 0.9rem; color: var(--danger); display: none;"></p>
           </div>
 
           <!-- Success Message (Hidden by default) -->
-          <div id="pricing-success-message" style="display: none; text-align: center; padding: 2rem 0; min-height: 300px;">
-            <div style="width: 80px; height: 80px; margin-bottom: 1.5rem;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <div id="pricing-success-message" style="display: none; text-align: center; padding: 3rem 2rem; min-height: 400px;">
+            <div style="width: 100px; height: 100px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
+              <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));">
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Thank You!</h3>
-            <p style="color: var(--text-muted); font-size: 1rem; max-width: 400px; margin: 0 auto;">We've received your request.</p>
+            <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);">Thank You!</h3>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 450px; margin: 0 auto; line-height: 1.6;">We've received your request.</p>
           </div>
         </form>
       </div>
@@ -1700,6 +1778,9 @@
           formspreeData.append('lastName', formData.get('last_name') || '');
           formspreeData.append('email', formData.get('email') || '');
           formspreeData.append('company', formData.get('company') || '');
+          formspreeData.append('companySize', formData.get('company_size') || '');
+          formspreeData.append('jobTitle', formData.get('title') || '');
+          formspreeData.append('phone', formData.get('phone') || '');
           formspreeData.append('description', formData.get('description') || '');
           
           fetch('https://formspree.io/f/xzddovbl', {
@@ -1752,32 +1833,63 @@
       <div>We use cookies to improve your experience and analyze traffic. By clicking "Accept", you consent to our use of cookies.</div>
     </div>
     <div class="cookie-buttons">
-      <button class="btn-cookie-decline" onclick="handleCookies('declined')">Decline</button>
-      <button class="btn-cookie-accept" onclick="handleCookies('accepted')">Accept</button>
+      <button class="btn-cookie-decline">Decline</button>
+      <button class="btn-cookie-accept">Accept</button>
     </div>
   </div>
 
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <script>
-    // Cookie Logic
-    function handleCookies(decision) {
-      document.getElementById('cookieBanner').classList.remove('visible');
-      localStorage.setItem('cookieConsent', decision);
-      if (decision === 'accepted') {
-        // Here you would trigger analytics if strictly compliant
-        console.log('Cookies accepted');
+    // Global Cookie Banner Logic
+    (function() {
+      // Check localStorage on page load - hide banner immediately if consent exists
+      if (localStorage.getItem('cookieConsent')) {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (cookieBanner) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+        }
       }
-    }
 
-    // Show banner if not decided yet
-    window.addEventListener('load', () => {
-       // FOR TESTING: Removed localStorage check to ALWAYS show banner
-       // In production, uncomment the if statement below
-       // if(!localStorage.getItem('cookieConsent')) {
-         setTimeout(() => document.getElementById('cookieBanner').classList.add('visible'), 1500);
-       // }
-    });
+      // Initialize on DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.querySelector('.cookie-banner');
+        if (!cookieBanner) return;
+
+        // Hide immediately if consent already exists
+        if (localStorage.getItem('cookieConsent')) {
+          cookieBanner.style.display = 'none';
+          cookieBanner.style.setProperty('display', 'none', 'important');
+          return;
+        }
+
+        // Attach click handlers to Accept/Decline buttons
+        const buttons = cookieBanner.querySelectorAll('button');
+        buttons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Save preference to localStorage
+            localStorage.setItem('cookieConsent', 'true');
+            
+            // Hide banner immediately
+            cookieBanner.style.display = 'none';
+            cookieBanner.style.setProperty('display', 'none', 'important');
+            
+            return false;
+          });
+        });
+
+        // Show banner after a short delay if no consent exists
+        setTimeout(function() {
+          if (!localStorage.getItem('cookieConsent') && cookieBanner) {
+            cookieBanner.classList.add('visible');
+          }
+        }, 1500);
+      });
+    })();
 
     // CALENDLY LISTENER SCRIPT
     window.addEventListener('message', function(e) {
