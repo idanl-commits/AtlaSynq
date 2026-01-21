@@ -57,40 +57,39 @@
   <meta name="twitter:description" content="AtlaSynq Privacy Policy and Data Governance.">
   <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@id": "https://www.atlasynq.com/#org",
-        "@type": "Organization",
-        "name": "AtlaSynq",
-        "url": "https://www.atlasynq.com/",
-        "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.atlasynq.com/#organization",
+      "name": "AtlaSynq",
+      "url": "https://www.atlasynq.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.atlasynq.com/images/atlasynq-logo.png",
+        "caption": "AtlaSynq Logo"
       },
-      {
-        "@id": "https://www.atlasynq.com/#website",
-        "@type": "WebSite",
-        "url": "https://www.atlasynq.com/",
-        "name": "AtlaSynq",
-        "publisher": {
-          "@id": "https://www.atlasynq.com/#org"
-        }
-      },
-      {
-        "@id": "https://www.atlasynq.com/privacy/#webpage",
-        "@type": "WebPage",
-        "url": "https://www.atlasynq.com/privacy/",
-        "name": "Privacy Policy — AtlaSynq",
-        "isPartOf": {
-          "@id": "https://www.atlasynq.com/#website"
-        },
-        "about": {
-          "@id": "https://www.atlasynq.com/#org"
-        }
+      "description": "Build secure, internal AI agents for every department.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "idanl@atlasynq.com",
+        "contactType": "sales",
+        "areaServed": "Worldwide"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.atlasynq.com/#website",
+      "url": "https://www.atlasynq.com/",
+      "name": "AtlaSynq",
+      "publisher": {
+        "@id": "https://www.atlasynq.com/#organization"
+      }
+    }
+  ]
+}
+</script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.svg">
