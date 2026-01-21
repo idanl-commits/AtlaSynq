@@ -824,6 +824,12 @@
       .nav-links { display: none; }
       .nav { height: 64px; }
       .logo { font-size: 1.1rem; }
+
+      /* Mobile: ensure header buttons wrap instead of overflowing */
+      header .nav > div[style*="display:flex"] {
+        flex-wrap: wrap !important;
+        justify-content: flex-end;
+      }
       
       /* Stack grids */
       .compare-grid, .everything-grid, .impact-grid {
@@ -973,6 +979,30 @@
       
       .builder-ui { height: auto; min-height: 550px; }
       .b-content { padding: 20px; }
+
+      /* About page: robust stacking for inline grids/flex used in sections */
+      .hero [style*="grid-template-columns"],
+      .section-everything [style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero [style*="display:flex"][style*="gap"],
+      .section-everything [style*="display:flex"][style*="gap"] {
+        flex-direction: column !important;
+      }
+
+      .hero svg,
+      .section-everything svg,
+      .section-everything img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Button rows: stack for touch */
+      .hero .btn,
+      .section-everything .btn {
+        width: 100%;
+      }
     }
     
     /* Additional mobile adjustments for very small screens */

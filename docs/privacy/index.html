@@ -168,21 +168,6 @@
         transform: translateX(2px);
     }
 
-    @media(max-width: 900px) {
-        .nav-links { display: none; }
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem 1rem;
-        }
-        .footer-grid > div:first-child {
-            grid-column: span 2;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-
     /* Logo Styles */
     .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; }
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
@@ -235,6 +220,12 @@
         .nav-links { display: none; }
         .nav-container { height: 64px; padding: 0 1rem; }
         .logo { font-size: 1.1rem; }
+
+        /* Make header action buttons wrap instead of overflowing */
+        header .nav-container > div[style*="display:flex"] {
+            flex-wrap: wrap !important;
+            justify-content: flex-end;
+        }
         
         /* Footer - 2 columns on mobile */
         .footer-grid {
@@ -269,6 +260,12 @@
 
     @media(max-width: 480px) {
         .nav-container { padding: 0 1rem; }
+        header .nav-container > div[style*="display:flex"] {
+            width: 100%;
+            flex-direction: column !important;
+            gap: 8px !important;
+            align-items: stretch;
+        }
         .btn { width: 100%; margin: 0.25rem 0; }
         .content h1 { font-size: 1.8rem; }
         .content h2 { font-size: 1.2rem; }
