@@ -865,15 +865,40 @@
           <a href="/features/" class="nav-link">Features</a>
           <a href="/security/" class="nav-link">Security</a>
           <a href="/#product" class="nav-link">Product</a>
-          <a href="/#governance" class="nav-link">Governance</a>
+          <a href="/about/" class="nav-link">About</a>
           <a href="/#integrations" class="nav-link">Integrations</a>
         </div>
-        <div style="display:flex; gap:10px;">
+        <div class="header-actions" style="display:flex; gap:10px;">
           <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
           <button class="btn btn-primary">Book Demo</button>
         </div>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
+        <nav class="mobile-nav">
+          <a href="/pricing/" class="mobile-nav-link">Pricing</a>
+          <a href="/features/" class="mobile-nav-link">Features</a>
+          <a href="/security/" class="mobile-nav-link">Security</a>
+          <a href="/#product" class="mobile-nav-link">Product</a>
+          <a href="/about/" class="mobile-nav-link">About</a>
+          <a href="/#integrations" class="mobile-nav-link">Integrations</a>
+        </nav>
+        <div class="mobile-menu-actions">
+          <a href="/login/" class="btn btn-secondary" style="text-decoration:none; width: 100%; text-align: center; margin-bottom: 12px;">Log in</a>
+          <button class="btn btn-primary" style="width: 100%;">Book Demo</button>
+        </div>
+      </div>
+    </div>
 
     <section class="legal-hero">
       <div class="legal-hero-inner">

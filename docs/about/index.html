@@ -188,6 +188,126 @@
         color: var(--primary); /* Blue on hover */
     }
 
+    /* Hamburger Menu Button (Hidden on Desktop) */
+    .hamburger-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .hamburger-menu-btn span {
+      width: 100%;
+      height: 3px;
+      background: #0f172a;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .mobile-menu-content {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 85%;
+      max-width: 400px;
+      height: 100%;
+      background: white;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-overlay.active .mobile-menu-content {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #0f172a;
+      cursor: pointer;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .mobile-nav-link {
+      padding: 1rem 1rem;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav-link:hover {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+
+    .mobile-menu-actions {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
     /* Hero */
     .hero { padding: 6rem 0 2rem 0; position: relative; }
     .hero::after {
@@ -862,8 +982,10 @@
       h2 { font-size: 2rem; }
       p { font-size: 1rem; }
       
-      /* Navigation: Hide links on mobile */
-      .nav-links { display: none; }
+      /* Navigation: Hide links and buttons on mobile */
+      .nav-links { display: none !important; }
+      .header-actions { display: none !important; }
+      .hamburger-menu-btn { display: flex !important; }
       .nav { height: 64px; }
       .logo { font-size: 1.1rem; }
 
@@ -1323,15 +1445,40 @@
         <a href="/features/" class="nav-link">Features</a>
         <a href="/security/" class="nav-link">Security</a>
         <a href="/#product" class="nav-link">Product</a>
-        <a href="/#governance" class="nav-link">Governance</a>
+        <a href="/about/" class="nav-link">About</a>
         <a href="/#integrations" class="nav-link">Integrations</a>
       </div>
-      <div style="display:flex; gap:10px;">
+      <div class="header-actions" style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
         <button class="btn btn-primary">Book Demo</button>
       </div>
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
+      <nav class="mobile-nav">
+        <a href="/pricing/" class="mobile-nav-link">Pricing</a>
+        <a href="/features/" class="mobile-nav-link">Features</a>
+        <a href="/security/" class="mobile-nav-link">Security</a>
+        <a href="/#product" class="mobile-nav-link">Product</a>
+        <a href="/about/" class="mobile-nav-link">About</a>
+        <a href="/#integrations" class="mobile-nav-link">Integrations</a>
+      </nav>
+      <div class="mobile-menu-actions">
+        <a href="/login/" class="btn btn-secondary" style="text-decoration:none; width: 100%; text-align: center; margin-bottom: 12px;">Log in</a>
+        <button class="btn btn-primary" style="width: 100%;">Book Demo</button>
+      </div>
+    </div>
+  </div>
 
   <section class="hero" style="position: relative; overflow: hidden;">
     <div class="container">
@@ -1606,7 +1753,7 @@
         <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
       </div>
       <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
-      <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a></div>
+      <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
       <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:inherit; display:block; margin-bottom:8px;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:inherit; display:block;">Terms of Service</a></div>
     </div>
     <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
@@ -1766,6 +1913,48 @@
         }
       }, 300);
     }
+
+    // Mobile Menu Toggle
+    (function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMobileMenu() {
+        if (hamburgerBtn) hamburgerBtn.classList.add('active');
+        if (mobileMenu) mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenuFunc() {
+        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMobileMenu);
+      }
+
+      if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+      }
+
+      // Close menu when clicking on a link
+      mobileNavLinks.forEach(function(link) {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
+
+      // Close menu when clicking outside
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            closeMobileMenuFunc();
+          }
+        });
+      }
+    })();
 
     // Split Behavior Script - Runs on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function() {
