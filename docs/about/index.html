@@ -1003,6 +1003,32 @@
       .section-everything .btn {
         width: 100%;
       }
+
+      /* Fix: inline margin-right on hero CTA causes horizontal overflow on mobile */
+      .hero button[style*="margin-right"] {
+        margin-right: 0 !important;
+      }
+
+      /* Fix: hub/satellites visual was sized for desktop (400px tall) */
+      .section-everything .layer-container {
+        max-width: 320px !important;
+        height: 320px !important;
+      }
+      .section-everything .layer-center {
+        width: 70px !important;
+        height: 70px !important;
+      }
+      .section-everything .satellite {
+        width: 56px !important;
+        height: 56px !important;
+      }
+      .section-everything .satellite img {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .section-everything .animated-lines-svg {
+        display: none !important;
+      }
     }
     
     /* Additional mobile adjustments for very small screens */
