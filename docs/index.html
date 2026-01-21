@@ -30,6 +30,28 @@
   </script>
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script>
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.svg">
@@ -51,6 +73,9 @@
       --border: #e2e8f0;
       --success: #10b981;
       --danger: #ef4444;
+      --dot-orange: #fb923c;
+      --dot-green: #22c55e;
+      --dot-blue: #3b82f6;
       
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -278,7 +303,7 @@
         padding: 12px 24px;
     }
     /* Only Drive needs a gap */
-    .logo-item:has(img[alt="Drive"]) { gap: 12px; }
+    .logo-item.logo-drive { gap: 12px; }
 
     .logo-item img {
         height: 56px; /* Increased for better visibility */
@@ -955,7 +980,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); return window.__openCalendly('https://calendly.com/idanl-atlasynq/30min');">Book Demo</button>
       </div>
     </div>
   </header>
@@ -1034,7 +1059,7 @@
            <div class="logo-item">
               <img src="images/jira.png" alt="Jira">
            </div>
-           <div class="logo-item">
+           <div class="logo-item logo-drive">
               <img src="images/drive.png" alt="Drive"> Drive
            </div>
            <div class="logo-item">
@@ -1043,7 +1068,7 @@
 
            <div class="logo-item">
               <img src="images/slack.png" alt="Slack">
-        </div>
+           </div>
            <div class="logo-item">
               <img src="images/salesforce.png" alt="Salesforce">
            </div>
@@ -1059,7 +1084,7 @@
            <div class="logo-item">
               <img src="images/jira.png" alt="Jira">
            </div>
-           <div class="logo-item">
+           <div class="logo-item logo-drive">
               <img src="images/drive.png" alt="Drive"> Drive
            </div>
            <div class="logo-item">

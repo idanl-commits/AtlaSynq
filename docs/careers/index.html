@@ -3,29 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>AtlaSynq — The Governed AI Layer</title>
-  <meta name="description" content="Build secure, internal AI agents for every department. Connect sales, HR, and IT tools securely.">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AtlaSynq",
-    "url": "https://www.atlasynq.com",
-    "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
-  }
-  </script>
+  <title>Careers — AtlaSynq</title>
+  <meta name="description" content="Join AtlaSynq and build the future of governed AI infrastructure. We're looking for talented engineers who care about craft and community.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AtlaSynq","url":"https://www.atlasynq.com","logo":"https://www.atlasynq.com/images/atlasynq-logo.png","description":"The Governed AI Layer for Enterprise."}</script>
 
-  <link rel="canonical" href="https://www.atlasynq.com" />
+  <link rel="canonical" href="https://www.atlasynq.com/careers/" />
 
-  <meta property="og:title" content="AtlaSynq — The Governed AI Layer">
-  <meta property="og:description" content="Build secure, internal AI agents for every department. Connect sales, HR, and IT tools securely.">
+  <meta property="og:title" content="Careers — AtlaSynq">
+  <meta property="og:description" content="Join AtlaSynq and build the future of governed AI infrastructure. We're looking for talented engineers who care about craft and community.">
   <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-  <meta property="og:url" content="https://www.atlasynq.com">
+  <meta property="og:url" content="https://www.atlasynq.com/careers/">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AtlaSynq — The Governed AI Layer">
-  <meta name="twitter:description" content="Build secure, internal AI agents for every department.">
+  <meta name="twitter:title" content="Careers — AtlaSynq">
+  <meta name="twitter:description" content="Join AtlaSynq and build the future of governed AI infrastructure. We're looking for talented engineers who care about craft and community.">
   <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -39,6 +31,28 @@
   </script>
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script>
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.svg">
@@ -287,7 +301,7 @@
         padding: 12px 24px;
     }
     /* Only Drive needs a gap */
-    .logo-item:has(img[alt="Drive"]) { gap: 12px; }
+    .logo-item.logo-drive { gap: 12px; }
 
     .logo-item img {
         height: 56px; /* Increased for better visibility */
@@ -1364,7 +1378,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); return window.__openCalendly('https://calendly.com/idanl-atlasynq/30min');">Book Demo</button>
       </div>
     </div>
   </header>

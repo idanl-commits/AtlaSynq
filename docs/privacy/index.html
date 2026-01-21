@@ -5,17 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — AtlaSynq</title>
   <meta name="description" content="AtlaSynq Privacy Policy and Data Governance.">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AtlaSynq",
-    "url": "https://www.atlasynq.com",
-    "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AtlaSynq","url":"https://www.atlasynq.com","logo":"https://www.atlasynq.com/images/atlasynq-logo.png","description":"The Governed AI Layer for Enterprise."}</script>
   
   <link rel="canonical" href="https://www.atlasynq.com/privacy/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
@@ -26,6 +19,28 @@
   </script>
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script>
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
 
   <meta property="og:title" content="Privacy Policy — AtlaSynq">
   <meta property="og:description" content="AtlaSynq Privacy Policy and Data Governance.">
@@ -497,7 +512,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); return window.__openCalendly('https://calendly.com/idanl-atlasynq/30min');">Book Demo</button>
       </div>
     </div>
   </header>
