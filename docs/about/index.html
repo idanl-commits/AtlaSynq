@@ -1110,6 +1110,197 @@
         font-size: 0.8rem;
       }
     }
+    /* Quote Modal - Smart Lead Flow */
+    #quoteModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    #quoteModal.active {
+      display: flex;
+    }
+
+    .quote-modal-container {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: modalFadeIn 0.3s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .quote-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #64748b;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .quote-modal-close:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .quote-modal-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .quote-modal-subtitle {
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .quote-form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .quote-form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    .quote-form-group input,
+    .quote-form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.2s;
+      box-sizing: border-box;
+    }
+
+    .quote-form-group input:focus,
+    .quote-form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .quote-form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .quote-submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .quote-submit-btn:hover:not(:disabled) {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .quote-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .quote-success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .quote-success-message.active {
+      display: block;
+    }
+
+    .quote-success-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: #2563eb;
+    }
+
+    .quote-success-message h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .quote-success-message p {
+      color: #64748b;
+      font-size: 1rem;
+    }
+
+    .quote-form-fields {
+      transition: opacity 0.3s;
+    }
+
+    .quote-form-fields.hidden {
+      display: none;
+    }
+
+    @media(max-width: 768px) {
+      .quote-modal-container {
+        padding: 1.5rem;
+        width: 95%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1470,5 +1661,193 @@
 
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
+  <!-- Quote Modal -->
+  <div id="quoteModal">
+    <div class="quote-modal-container">
+      <button class="quote-modal-close" onclick="closeQuoteModal()" aria-label="Close">×</button>
+      
+      <div class="quote-form-fields" id="quoteFormFields">
+        <h2 class="quote-modal-title">Request a Quote</h2>
+        <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
+        
+        <form id="quoteForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe">
+          <input type="hidden" name="oid" value="00D9k000001jUUP">
+          <input type="hidden" name="retURL" value="https://www.atlasynq.com">
+          <input type="hidden" name="lead_source" value="Web">
+          
+          <div class="quote-form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" name="first_name" id="first_name" required>
+          </div>
+          
+          <div class="quote-form-group">
+            <label for="last_name">Last Name *</label>
+            <input type="text" name="last_name" id="last_name" required>
+          </div>
+          
+          <div class="quote-form-group">
+            <label for="email">Work Email *</label>
+            <input type="email" name="email" id="email" required>
+          </div>
+          
+          <div class="quote-form-group">
+            <label for="company">Company</label>
+            <input type="text" name="company" id="company">
+          </div>
+          
+          <div class="quote-form-group">
+            <label for="description">Message</label>
+            <textarea name="description" id="description" placeholder="Tell us about your requirements..."></textarea>
+          </div>
+          
+          <button type="submit" class="quote-submit-btn" id="quoteSubmitBtn">Request Quote</button>
+        </form>
+      </div>
+      
+      <div class="quote-success-message" id="quoteSuccessMessage">
+        <div class="quote-success-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 id="successTitle">Thank you!</h3>
+        <p id="successMessage">We've received your request and will email you shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden iframe for Salesforce form submission -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    // Smart Lead Flow - Track submission type
+    let submissionType = null;
+
+    // Quote Modal Functions
+    function openQuoteModal(type) {
+      const modal = document.getElementById('quoteModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      submissionType = type || 'stay';
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
+      }
+    }
+
+    function closeQuoteModal() {
+      const modal = document.getElementById('quoteModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      submissionType = null;
+      
+      setTimeout(() => {
+        const form = document.getElementById('quoteForm');
+        const formFields = document.getElementById('quoteFormFields');
+        const successMessage = document.getElementById('quoteSuccessMessage');
+        const submitBtn = document.getElementById('quoteSubmitBtn');
+        const successTitle = document.getElementById('successTitle');
+        const successMessageText = document.getElementById('successMessage');
+        
+        if (form) form.reset();
+        if (formFields) formFields.classList.remove('hidden');
+        if (successMessage) successMessage.classList.remove('active');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Quote';
+        }
+        if (successTitle) successTitle.textContent = 'Thank you!';
+        if (successMessageText) successMessageText.textContent = 'We\'ve received your request and will email you shortly.';
+      }, 300);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('quoteForm');
+      const submitBtn = document.getElementById('quoteSubmitBtn');
+      const formFields = document.getElementById('quoteFormFields');
+      const successMessage = document.getElementById('quoteSuccessMessage');
+      const successTitle = document.getElementById('successTitle');
+      const successMessageText = document.getElementById('successMessage');
+      
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+          
+          setTimeout(function() {
+            formFields.classList.add('hidden');
+            successMessage.classList.add('active');
+            
+            if (submissionType === 'calendly') {
+              successTitle.textContent = 'Redirecting to calendar...';
+              successMessageText.textContent = '';
+              setTimeout(function() {
+                window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
+              }, 1500);
+            } else {
+              successTitle.textContent = 'Thank you!';
+              successMessageText.textContent = 'We will be in touch shortly.';
+              setTimeout(function() {
+                closeQuoteModal();
+              }, 3000);
+            }
+          }, 1500);
+        });
+      }
+
+      const allButtons = document.querySelectorAll('button, a');
+      allButtons.forEach(function(btn) {
+        const btnText = btn.textContent.trim();
+        const existingOnclick = btn.getAttribute('onclick');
+        
+        if (btnText.includes('Book Demo')) {
+          if (existingOnclick && existingOnclick.includes('openQuoteModal')) {
+            return;
+          }
+          if (existingOnclick) {
+            btn.removeAttribute('onclick');
+          }
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openQuoteModal('calendly');
+            return false;
+          }, true);
+        }
+        
+        if (btnText.includes('Get Quote') || btnText.includes('Contact Sales') || btnText.includes('Request Quote')) {
+          if (existingOnclick && existingOnclick.includes('openQuoteModal')) {
+            return;
+          }
+          if (existingOnclick) {
+            btn.removeAttribute('onclick');
+          }
+          btn.addEventListener('click', function(e) {
+            if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
+              e.preventDefault();
+              e.stopPropagation();
+              openQuoteModal('stay');
+              return false;
+            }
+          }, true);
+        }
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('quoteModal');
+      if (e.target === modal) {
+        closeQuoteModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('quoteModal');
+        if (modal && modal.classList.contains('active')) {
+          closeQuoteModal();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
