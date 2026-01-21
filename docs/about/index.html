@@ -1666,14 +1666,15 @@
     <div class="quote-modal-container">
       <button class="quote-modal-close" onclick="closeQuoteModal()" aria-label="Close">×</button>
       
-      <div class="quote-form-fields" id="quoteFormFields">
+      <!-- Form Step -->
+      <div id="formStep">
         <h2 class="quote-modal-title">Request a Quote</h2>
         <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
         
         <form id="quoteForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe">
           <input type="hidden" name="oid" value="00D9k000001jUUP">
           <input type="hidden" name="retURL" value="https://www.atlasynq.com">
-          <input type="hidden" name="lead_source" value="Web">
+          <input type="hidden" name="debug" value="1">
           
           <div class="quote-form-group">
             <label for="first_name">First Name *</label>
@@ -1686,32 +1687,32 @@
           </div>
           
           <div class="quote-form-group">
-            <label for="email">Work Email *</label>
+            <label for="email">Email *</label>
             <input type="email" name="email" id="email" required>
           </div>
           
           <div class="quote-form-group">
-            <label for="company">Company</label>
-            <input type="text" name="company" id="company">
+            <label for="company">Company *</label>
+            <input type="text" name="company" id="company" required>
           </div>
           
           <div class="quote-form-group">
-            <label for="description">Message</label>
-            <textarea name="description" id="description" placeholder="Tell us about your requirements..."></textarea>
+            <label for="description">Message *</label>
+            <textarea name="description" id="description" placeholder="Tell us about your requirements..." required></textarea>
           </div>
           
-          <button type="submit" class="quote-submit-btn" id="quoteSubmitBtn">Request Quote</button>
+          <button type="submit" class="quote-submit-btn" id="leadSubmitBtn">Request Quote</button>
         </form>
       </div>
       
-      <div class="quote-success-message" id="quoteSuccessMessage">
-        <div class="quote-success-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Success Step -->
+      <div id="successStep" class="quote-success-container" style="display: none;">
+        <div class="quote-success-icon-large">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h3 id="successTitle">Thank you!</h3>
-        <p id="successMessage">We've received your request and will email you shortly.</p>
+        <h3 class="quote-success-title">Thank you! Request Received.</h3>
       </div>
     </div>
   </div>
@@ -1720,15 +1721,33 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
-    // Smart Lead Flow - Track submission type
-    let submissionType = null;
+    // Smart Lead Flow - Global Detection Script
+    let isCalendar = false;
 
     // Quote Modal Functions
-    function openQuoteModal(type) {
+    function openQuoteModal(calendarMode) {
       const modal = document.getElementById('quoteModal');
+      const formStep = document.getElementById('formStep');
+      const successStep = document.getElementById('successStep');
+      const submitBtn = document.getElementById('leadSubmitBtn');
+      
+      if (!modal || !formStep || !successStep || !submitBtn) return;
+      
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      submissionType = type || 'stay';
+      isCalendar = calendarMode || false;
+      
+      // Reset UI state
+      formStep.style.display = 'block';
+      successStep.style.display = 'none';
+      
+      // Update button text based on mode
+      if (isCalendar) {
+        submitBtn.textContent = 'Book Demo';
+      } else {
+        submitBtn.textContent = 'Request Quote';
+      }
+      
       if (typeof gtag !== 'undefined') {
         gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
       }
@@ -1736,96 +1755,99 @@
 
     function closeQuoteModal() {
       const modal = document.getElementById('quoteModal');
+      if (!modal) return;
+      
       modal.classList.remove('active');
       document.body.style.overflow = '';
-      submissionType = null;
+      isCalendar = false;
       
+      // Reset form after a delay
       setTimeout(() => {
         const form = document.getElementById('quoteForm');
-        const formFields = document.getElementById('quoteFormFields');
-        const successMessage = document.getElementById('quoteSuccessMessage');
-        const submitBtn = document.getElementById('quoteSubmitBtn');
-        const successTitle = document.getElementById('successTitle');
-        const successMessageText = document.getElementById('successMessage');
+        const formStep = document.getElementById('formStep');
+        const successStep = document.getElementById('successStep');
+        const submitBtn = document.getElementById('leadSubmitBtn');
         
         if (form) form.reset();
-        if (formFields) formFields.classList.remove('hidden');
-        if (successMessage) successMessage.classList.remove('active');
+        if (formStep) formStep.style.display = 'block';
+        if (successStep) successStep.style.display = 'none';
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Request Quote';
         }
-        if (successTitle) successTitle.textContent = 'Thank you!';
-        if (successMessageText) successMessageText.textContent = 'We\'ve received your request and will email you shortly.';
       }, 300);
     }
 
+    // Smart Detection Script - Runs on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('quoteForm');
-      const submitBtn = document.getElementById('quoteSubmitBtn');
-      const formFields = document.getElementById('quoteFormFields');
-      const successMessage = document.getElementById('quoteSuccessMessage');
-      const successTitle = document.getElementById('successTitle');
-      const successMessageText = document.getElementById('successMessage');
+      const formStep = document.getElementById('formStep');
+      const successStep = document.getElementById('successStep');
+      const submitBtn = document.getElementById('leadSubmitBtn');
       
+      // Handle form submission
       if (form) {
         form.addEventListener('submit', function(e) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
+          // Do NOT prevent default - let it post to iframe
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+          }
           
-          setTimeout(function() {
-            formFields.classList.add('hidden');
-            successMessage.classList.add('active');
-            
-            if (submissionType === 'calendly') {
-              successTitle.textContent = 'Redirecting to calendar...';
-              successMessageText.textContent = '';
+          // Immediately hide form and show success
+          if (formStep) formStep.style.display = 'none';
+          if (successStep) successStep.style.display = 'block';
+          
+          // Routing Logic
+          if (isCalendar === true) {
+            // Wait 1.5s, show redirect message, then go to Calendly
+            setTimeout(function() {
+              const successTitle = successStep.querySelector('.quote-success-title');
+              if (successTitle) {
+                successTitle.textContent = 'Redirecting to calendar...';
+              }
+              
               setTimeout(function() {
                 window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-              }, 1500);
-            } else {
-              successTitle.textContent = 'Thank you!';
-              successMessageText.textContent = 'We will be in touch shortly.';
-              setTimeout(function() {
-                closeQuoteModal();
-              }, 3000);
-            }
-          }, 1500);
+              }, 500);
+            }, 1500);
+          } else {
+            // Wait 3s, then close modal
+            setTimeout(function() {
+              closeQuoteModal();
+            }, 3000);
+          }
         });
       }
 
+      // Smart Detection: Find ALL buttons and links by TEXT content
       const allButtons = document.querySelectorAll('button, a');
       allButtons.forEach(function(btn) {
-        const btnText = btn.textContent.trim();
-        const existingOnclick = btn.getAttribute('onclick');
+        const btnText = btn.textContent.trim().toLowerCase();
         
-        if (btnText.includes('Book Demo')) {
-          if (existingOnclick && existingOnclick.includes('openQuoteModal')) {
-            return;
-          }
-          if (existingOnclick) {
-            btn.removeAttribute('onclick');
-          }
+        // Clean up: Remove old event listeners and onclick handlers
+        if (btn.getAttribute('onclick')) {
+          btn.removeAttribute('onclick');
+        }
+        
+        // CASE A: Calendar Flow - Text includes "Book Demo" (case-insensitive)
+        if (btnText.includes('book demo')) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            openQuoteModal('calendly');
+            openQuoteModal(true); // Set isCalendar = true
             return false;
           }, true);
         }
         
-        if (btnText.includes('Get Quote') || btnText.includes('Contact Sales') || btnText.includes('Request Quote')) {
-          if (existingOnclick && existingOnclick.includes('openQuoteModal')) {
-            return;
-          }
-          if (existingOnclick) {
-            btn.removeAttribute('onclick');
-          }
+        // CASE B: Quote Flow - Text includes "Request Quote" OR "Contact Sales"
+        if (btnText.includes('request quote') || btnText.includes('contact sales')) {
           btn.addEventListener('click', function(e) {
+            // Only handle if it's a button or a link without a real href
             if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
               e.preventDefault();
               e.stopPropagation();
-              openQuoteModal('stay');
+              openQuoteModal(false); // Set isCalendar = false
               return false;
             }
           }, true);
