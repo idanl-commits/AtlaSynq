@@ -215,6 +215,14 @@
         transform: translateX(2px);
       }
 
+      /* Footer layout fix: nav-container is used in footer but has header height (72px) */
+      footer .nav-container {
+        height: auto;
+      }
+      footer .nav-container.text-center {
+        display: block;
+      }
+
       /* Logo Styles */
       .logo {
         display: flex;
