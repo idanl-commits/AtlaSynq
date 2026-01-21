@@ -349,18 +349,21 @@
     footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; background: white; color: var(--text-muted); font-size: 0.9rem; }
 
     @media(max-width: 900px) {
-        /* Navigation: Hide links on mobile */
+        /* Header */
         .nav-links { display: none; }
         .nav-container { height: 64px; padding: 0 1rem; }
         .logo { font-size: 1.1rem; }
-
-        /* Make header action buttons wrap instead of overflowing */
         header .nav-container > div[style*="display:flex"] {
             flex-wrap: wrap !important;
             justify-content: flex-end;
         }
-        
-        /* Footer - 2 columns on mobile */
+
+        /* Hero + content */
+        .legal-hero-inner { grid-template-columns: 1fr; }
+        .hero-illustration { width: 180px; height: 180px; justify-self: start; }
+        .legal-wrapper { padding-top: 10px; }
+
+        /* Footer */
         .footer-grid {
             grid-template-columns: repeat(2, 1fr); 
             gap: 2rem 1rem;
@@ -371,19 +374,13 @@
             flex-direction: column;
             align-items: flex-start;
         }
-        
-        /* Button improvements for mobile */
+
+        /* Buttons */
         .btn {
             padding: 12px 18px;
             font-size: 0.9rem;
             min-height: 44px;
         }
-    }
-
-    @media(max-width: 900px) {
-        .legal-hero-inner { grid-template-columns: 1fr; }
-        .hero-illustration { width: 180px; height: 180px; justify-self: start; }
-        .legal-wrapper { padding-top: 10px; }
     }
 
     @media(max-width: 480px) {
@@ -393,9 +390,7 @@
         .legal-wrapper { padding-left: 16px; padding-right: 16px; }
         .legal-card { padding: 18px; }
         .content, .content * { overflow-wrap: anywhere; }
-    }
 
-    @media(max-width: 480px) {
         .nav-container { padding: 0 1rem; }
         header .nav-container > div[style*="display:flex"] {
             width: 100%;
@@ -404,8 +399,6 @@
             align-items: stretch;
         }
         .btn { width: 100%; margin: 0.25rem 0; }
-        .content h1 { font-size: 1.8rem; }
-        .content h2 { font-size: 1.2rem; }
         .highlight-box { padding: 16px; }
     }
   </style>
