@@ -1794,6 +1794,27 @@
         });
       }
 
+      // Helper function to open Calendly
+      function openCalendlyPopup() {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+        } else {
+          // Fallback: Wait for Calendly to load
+          let attempts = 0;
+          const checkCalendly = setInterval(function() {
+            attempts++;
+            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+              clearInterval(checkCalendly);
+              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+            } else if (attempts > 20) {
+              clearInterval(checkCalendly);
+              // Final fallback: redirect to Calendly
+              window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
+            }
+          }, 100);
+        }
+      }
+
       // Split Detection: Find ALL buttons and links by TEXT content
       const allButtons = document.querySelectorAll('button, a');
       allButtons.forEach(function(btn) {
@@ -1804,33 +1825,19 @@
           btn.removeAttribute('onclick');
         }
         
-        // CASE A: "Book Demo" - Open Calendly Popup Widget directly
-        if (btnText.includes('book demo')) {
+        // CASE A: "Book Demo" or "Book a Demo" - Open Calendly Popup Widget directly
+        if (btnText.includes('book demo') || btnText.includes('book a demo')) {
+          // Remove href if it's a link to prevent navigation
+          if (btn.tagName === 'A' && btn.href) {
+            btn.href = '#';
+          }
+          
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
-            // Open Calendly popup widget
-            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-            } else {
-              // Fallback: Wait for Calendly to load
-              let attempts = 0;
-              const checkCalendly = setInterval(function() {
-                attempts++;
-                if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-                  clearInterval(checkCalendly);
-                  window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-                } else if (attempts > 20) {
-                  clearInterval(checkCalendly);
-                  // Final fallback: redirect to Calendly
-                  window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-                }
-              }, 100);
-            }
-            
+            openCalendlyPopup();
             return false;
-          }, true);
+          });
         }
         
         // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
