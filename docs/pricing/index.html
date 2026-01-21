@@ -1007,6 +1007,21 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px var(--primary-light);
     }
+
+    /* Pricing Success Message */
+    #pricing-success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+      min-height: 300px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    #pricing-success-message[style*="display: flex"],
+    #pricing-success-message[style*="display:block"] {
+      display: flex !important;
+    }
     form input::placeholder {
       color: var(--text-muted);
       opacity: 0.7;
@@ -1419,7 +1434,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <a href="../login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); return window.__openCalendly('https://calendly.com/idanl-atlasynq/30min');">Book Demo</button>
+        <button class="btn btn-primary">Book Demo</button>
       </div>
     </div>
   </header>
@@ -1605,110 +1620,110 @@
             We tailor our pricing to your organization's scale and security needs.
           </p>
 
-          <form id="pricing-form" action="https://formspree.io/f/xzddovbl" method="POST" style="display: flex; flex-direction: column; gap: 16px; animation: fadeInUp 0.8s ease-out 0.4s both;">
+          <form id="pricing-embedded-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe" style="display: flex; flex-direction: column; gap: 16px; animation: fadeInUp 0.8s ease-out 0.4s both;">
           
-          <input type="hidden" name="_next" value="https://www.atlasynq.com/">
+          <!-- Salesforce Hidden Fields -->
+          <input type="hidden" name="oid" value="00D9k000001jUUP">
+          <input type="hidden" name="retURL" value="https://www.atlasynq.com">
+          <input type="hidden" name="debug" value="1">
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div>
-              <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+          <!-- Form Inputs Container -->
+          <div id="pricing-form-inputs">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
+              <div>
+                <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
             </div>
+
             <div>
-              <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              <input type="email" name="email" placeholder="Work Email" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
             </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <input type="text" name="company" placeholder="Company Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
+              <div>
+                <input type="text" name="description" placeholder="Message (Optional)" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1rem;">Request Quote</button>
+            <p id="form-status" style="margin-top: 10px; text-align: center; font-size: 0.9rem; color: var(--danger); display: none;"></p>
           </div>
 
-          <div>
-            <input type="email" name="email" placeholder="Work Email" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
+          <!-- Success Message (Hidden by default) -->
+          <div id="pricing-success-message" style="display: none; text-align: center; padding: 2rem 0; min-height: 300px;">
+            <div style="width: 80px; height: 80px; margin-bottom: 1.5rem;">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Thank You!</h3>
+            <p style="color: var(--text-muted); font-size: 1rem; max-width: 400px; margin: 0 auto;">We've received your request.</p>
           </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div>
-              <input type="text" name="company" placeholder="Company Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-            </div>
-            <div>
-              <select name="companySize" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; background: white; color: var(--text-muted);">
-                <option value="" disabled selected>Company Size</option>
-                <option value="1-10">1-10 employees</option>
-                <option value="11-50">11-50 employees</option>
-                <option value="51-200">51-200 employees</option>
-                <option value="201-500">201-500 employees</option>
-                <option value="500+">500+ employees</option>
-              </select>
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div>
-              <input type="text" name="role" placeholder="Job Title" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-            </div>
-            <div>
-              <input type="tel" name="phone" placeholder="Phone (Optional)" style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit;">
-            </div>
-          </div>
-
-          <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1rem;">Request Quote</button>
-          <p id="form-status" style="margin-top: 10px; text-align: center; font-size: 0.9rem; color: var(--danger); display: none;"></p>
         </form>
-
-        <div id="success-message" style="display: none; flex-direction: column; align-items: center; justify-content: center; animation: fadeInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); text-align: center;">
-          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-light), rgba(168, 85, 247, 0.1)); color: var(--primary); border-radius: 50%; display: grid; place-items: center; margin-bottom: 1.5rem; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2); animation: success-pulse 2s ease-in-out infinite;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="animation: checkmark-draw 0.6s ease-out 0.3s both;"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h2 style="margin-bottom: 1rem; background: linear-gradient(135deg, #2563eb, #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Request Received</h2>
-          <p style="max-width: 400px; color: var(--text-muted); font-size: 1.1rem; margin: 0 auto;">Thank you! Our sales team has received your details and will reach out to you shortly.</p>
-          <a href="/" class="btn btn-secondary" style="margin-top: 2rem; text-decoration: none;">Back to Home</a>
-        </div>
       </div>
 
     </div>
   </section>
 
+  <!-- Hidden iframe for Salesforce form submission -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
   <script>
-    const form = document.getElementById("pricing-form");
-    
-    async function handleSubmit(event) {
-      event.preventDefault();
-      const status = document.getElementById("form-status");
-      const btn = document.getElementById("submit-btn");
-      const container = document.getElementById("form-container");
-      const success = document.getElementById("success-message");
-      const data = new FormData(event.target);
-
-      btn.disabled = true;
-      btn.innerText = "Sending...";
-
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          container.style.display = "none";
-          success.style.display = "flex";
-          form.reset();
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerText = data["errors"].map(error => error["message"]).join(", ");
-            } else {
-              status.innerText = "Oops! There was a problem submitting your form";
-            }
-            status.style.display = "block";
-            btn.disabled = false;
-            btn.innerText = "Request Quote";
-          })
-        }
-      }).catch(error => {
-        status.innerText = "Oops! There was a problem submitting your form";
-        status.style.display = "block";
-        btn.disabled = false;
-        btn.innerText = "Request Quote";
-      });
-    }
-    form.addEventListener("submit", handleSubmit);
+    // Dual Dispatch Form Handler for Pricing Page
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('pricing-embedded-form');
+      const formInputs = document.getElementById('pricing-form-inputs');
+      const successMessage = document.getElementById('pricing-success-message');
+      const submitBtn = document.getElementById('submit-btn');
+      
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Do NOT prevent default - let it post to Salesforce iframe
+          
+          // Step 1: Disable button and show loading state
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+          }
+          
+          // Step 2: Immediately send to Formspree in background
+          const formData = new FormData(this);
+          // Map Salesforce field names to Formspree format
+          const formspreeData = new FormData();
+          formspreeData.append('firstName', formData.get('first_name') || '');
+          formspreeData.append('lastName', formData.get('last_name') || '');
+          formspreeData.append('email', formData.get('email') || '');
+          formspreeData.append('company', formData.get('company') || '');
+          formspreeData.append('description', formData.get('description') || '');
+          
+          fetch('https://formspree.io/f/xzddovbl', {
+            method: 'POST',
+            body: formspreeData,
+            headers: { 'Accept': 'application/json' }
+          }).catch(function(error) {
+            // Silently handle Formspree errors - don't block user experience
+            console.log('Formspree submission error (non-blocking):', error);
+          });
+          
+          // Step 3: Immediately swap UI (hide inputs, show success)
+          if (formInputs) formInputs.style.display = 'none';
+          if (successMessage) {
+            successMessage.style.display = 'flex';
+            successMessage.style.flexDirection = 'column';
+            successMessage.style.alignItems = 'center';
+            successMessage.style.justifyContent = 'center';
+          }
+          
+          // No redirect, no modal - just inline content swap
+        });
+      }
+    });
   </script>
 
   <footer>
@@ -1835,11 +1850,8 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
-    // Smart Lead Flow - Global Detection Script
-    let isCalendar = false;
-
     // Quote Modal Functions
-    function openQuoteModal(calendarMode) {
+    function openQuoteModal() {
       const modal = document.getElementById('quoteModal');
       const formStep = document.getElementById('formStep');
       const successStep = document.getElementById('successStep');
@@ -1849,18 +1861,11 @@
       
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      isCalendar = calendarMode || false;
       
       // Reset UI state
       formStep.style.display = 'block';
       successStep.style.display = 'none';
-      
-      // Update button text based on mode
-      if (isCalendar) {
-        submitBtn.textContent = 'Book Demo';
-      } else {
-        submitBtn.textContent = 'Request Quote';
-      }
+      submitBtn.textContent = 'Request Quote';
       
       if (typeof gtag !== 'undefined') {
         gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
@@ -1873,7 +1878,6 @@
       
       modal.classList.remove('active');
       document.body.style.overflow = '';
-      isCalendar = false;
       
       // Reset form after a delay
       setTimeout(() => {
@@ -1892,14 +1896,14 @@
       }, 300);
     }
 
-    // Smart Detection Script - Runs on DOMContentLoaded
+    // Split Behavior Script - Runs on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('quoteForm');
       const formStep = document.getElementById('formStep');
       const successStep = document.getElementById('successStep');
       const submitBtn = document.getElementById('leadSubmitBtn');
       
-      // Handle form submission
+      // Handle form submission (Quote Modal only)
       if (form) {
         form.addEventListener('submit', function(e) {
           // Do NOT prevent default - let it post to iframe
@@ -1912,29 +1916,14 @@
           if (formStep) formStep.style.display = 'none';
           if (successStep) successStep.style.display = 'block';
           
-          // Routing Logic
-          if (isCalendar === true) {
-            // Wait 1.5s, show redirect message, then go to Calendly
-            setTimeout(function() {
-              const successTitle = successStep.querySelector('.quote-success-title');
-              if (successTitle) {
-                successTitle.textContent = 'Redirecting to calendar...';
-              }
-              
-              setTimeout(function() {
-                window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-              }, 500);
-            }, 1500);
-          } else {
-            // Wait 3s, then close modal
-            setTimeout(function() {
-              closeQuoteModal();
-            }, 3000);
-          }
+          // Wait 3s, then close modal
+          setTimeout(function() {
+            closeQuoteModal();
+          }, 3000);
         });
       }
 
-      // Smart Detection: Find ALL buttons and links by TEXT content
+      // Split Detection: Find ALL buttons and links by TEXT content
       const allButtons = document.querySelectorAll('button, a');
       allButtons.forEach(function(btn) {
         const btnText = btn.textContent.trim().toLowerCase();
@@ -1944,24 +1933,45 @@
           btn.removeAttribute('onclick');
         }
         
-        // CASE A: Calendar Flow - Text includes "Book Demo" (case-insensitive)
+        // CASE A: "Book Demo" - Open Calendly Popup Widget directly
         if (btnText.includes('book demo')) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            openQuoteModal(true); // Set isCalendar = true
+            
+            // Open Calendly popup widget
+            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+            } else {
+              // Fallback: Wait for Calendly to load
+              let attempts = 0;
+              const checkCalendly = setInterval(function() {
+                attempts++;
+                if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+                  clearInterval(checkCalendly);
+                  window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+                } else if (attempts > 20) {
+                  clearInterval(checkCalendly);
+                  // Final fallback: redirect to Calendly
+                  window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
+                }
+              }, 100);
+            }
+            
             return false;
           }, true);
         }
         
-        // CASE B: Quote Flow - Text includes "Request Quote" OR "Contact Sales"
-        if (btnText.includes('request quote') || btnText.includes('contact sales')) {
+        // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
+        // BUT: Skip if button is inside the pricing embedded form (it has its own handler)
+        if ((btnText.includes('request quote') || btnText.includes('contact sales')) && 
+            !btn.closest('#pricing-embedded-form')) {
           btn.addEventListener('click', function(e) {
             // Only handle if it's a button or a link without a real href
             if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
               e.preventDefault();
               e.stopPropagation();
-              openQuoteModal(false); // Set isCalendar = false
+              openQuoteModal();
               return false;
             }
           }, true);

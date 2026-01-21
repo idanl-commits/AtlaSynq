@@ -1533,7 +1533,7 @@
       </div>
       <div style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary" onclick="gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'}); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;">Book Demo</button>
+        <button class="btn btn-primary">Book Demo</button>
       </div>
     </div>
   </header>
@@ -1844,11 +1844,8 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
-    // Smart Lead Flow - Global Detection Script
-    let isCalendar = false;
-
     // Quote Modal Functions
-    function openQuoteModal(calendarMode) {
+    function openQuoteModal() {
       const modal = document.getElementById('quoteModal');
       const formStep = document.getElementById('formStep');
       const successStep = document.getElementById('successStep');
@@ -1858,18 +1855,11 @@
       
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      isCalendar = calendarMode || false;
       
       // Reset UI state
       formStep.style.display = 'block';
       successStep.style.display = 'none';
-      
-      // Update button text based on mode
-      if (isCalendar) {
-        submitBtn.textContent = 'Book Demo';
-      } else {
-        submitBtn.textContent = 'Request Quote';
-      }
+      submitBtn.textContent = 'Request Quote';
       
       if (typeof gtag !== 'undefined') {
         gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
@@ -1882,7 +1872,6 @@
       
       modal.classList.remove('active');
       document.body.style.overflow = '';
-      isCalendar = false;
       
       // Reset form after a delay
       setTimeout(() => {
@@ -1901,14 +1890,14 @@
       }, 300);
     }
 
-    // Smart Detection Script - Runs on DOMContentLoaded
+    // Split Behavior Script - Runs on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('quoteForm');
       const formStep = document.getElementById('formStep');
       const successStep = document.getElementById('successStep');
       const submitBtn = document.getElementById('leadSubmitBtn');
       
-      // Handle form submission
+      // Handle form submission (Quote Modal only)
       if (form) {
         form.addEventListener('submit', function(e) {
           // Do NOT prevent default - let it post to iframe
@@ -1921,29 +1910,14 @@
           if (formStep) formStep.style.display = 'none';
           if (successStep) successStep.style.display = 'block';
           
-          // Routing Logic
-          if (isCalendar === true) {
-            // Wait 1.5s, show redirect message, then go to Calendly
-            setTimeout(function() {
-              const successTitle = successStep.querySelector('.quote-success-title');
-              if (successTitle) {
-                successTitle.textContent = 'Redirecting to calendar...';
-              }
-              
-              setTimeout(function() {
-                window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-              }, 500);
-            }, 1500);
-          } else {
-            // Wait 3s, then close modal
-            setTimeout(function() {
-              closeQuoteModal();
-            }, 3000);
-          }
+          // Wait 3s, then close modal
+          setTimeout(function() {
+            closeQuoteModal();
+          }, 3000);
         });
       }
 
-      // Smart Detection: Find ALL buttons and links by TEXT content
+      // Split Detection: Find ALL buttons and links by TEXT content
       const allButtons = document.querySelectorAll('button, a');
       allButtons.forEach(function(btn) {
         const btnText = btn.textContent.trim().toLowerCase();
@@ -1953,24 +1927,43 @@
           btn.removeAttribute('onclick');
         }
         
-        // CASE A: Calendar Flow - Text includes "Book Demo" (case-insensitive)
+        // CASE A: "Book Demo" - Open Calendly Popup Widget directly
         if (btnText.includes('book demo')) {
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            openQuoteModal(true); // Set isCalendar = true
+            
+            // Open Calendly popup widget
+            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+            } else {
+              // Fallback: Wait for Calendly to load
+              let attempts = 0;
+              const checkCalendly = setInterval(function() {
+                attempts++;
+                if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+                  clearInterval(checkCalendly);
+                  window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
+                } else if (attempts > 20) {
+                  clearInterval(checkCalendly);
+                  // Final fallback: redirect to Calendly
+                  window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
+                }
+              }, 100);
+            }
+            
             return false;
           }, true);
         }
         
-        // CASE B: Quote Flow - Text includes "Request Quote" OR "Contact Sales"
+        // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
         if (btnText.includes('request quote') || btnText.includes('contact sales')) {
           btn.addEventListener('click', function(e) {
             // Only handle if it's a button or a link without a real href
             if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
               e.preventDefault();
               e.stopPropagation();
-              openQuoteModal(false); // Set isCalendar = false
+              openQuoteModal();
               return false;
             }
           }, true);
