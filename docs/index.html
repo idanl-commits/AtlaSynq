@@ -67,6 +67,28 @@
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script>
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="https://www.atlasynq.com/favicon.svg">
   <link rel="alternate icon" type="image/png" href="https://www.atlasynq.com/images/atlasynq-logo.png" sizes="96x96">
@@ -347,16 +369,31 @@
     }
     
     .mobile-menu-actions .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
+      background-size: 200% 200%;
+      animation: gradientFlow 4s ease infinite;
       color: white;
       border: none;
       box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
     }
-    
+    .mobile-menu-actions .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    .mobile-menu-actions .btn-primary:hover::before {
+      left: 100%;
+    }
     .mobile-menu-actions .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
     }
 
     /* Hero */
@@ -472,7 +509,7 @@
     .logos-track {
         display: flex;
         width: max-content;
-        gap: 4rem;
+        gap: 5rem;
         animation: scroll-logos 45s linear infinite;
     }
     
@@ -482,18 +519,53 @@
         transition: 0.3s ease; 
         white-space: nowrap; 
         background: transparent; 
-        padding: 12px 24px;
+        padding: 16px 32px;
     }
     /* Only Drive needs a gap */
     .logo-item.logo-drive { gap: 12px; }
+    
+    /* Gmail wrapper styling */
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .logo-wrapper span {
+        font-weight: 600;
+        color: #5f6368;
+        font-size: 24px;
+        font-family: sans-serif;
+    }
+    .logo-item.logo-gmail { gap: 0; }
+    .logo-item.logo-gmail img {
+        height: 28px;
+        width: auto;
+    }
 
     .logo-item img {
-        height: 56px; /* Increased for better visibility */
+        height: 60px; /* Normal size - bigger and vibrant */
         width: auto;
         object-fit: contain;
+        transition: transform 0.3s ease;
     }
     /* Make HubSpot image specifically larger for better readability */
     .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] { height: 96px; }
+    
+    /* Uniform height for text-based logos */
+    .logo-item img[alt="Zendesk"], .logo-item img[src*="zendesk"] { 
+        height: 60px;
+        border-radius: 4px;
+        mix-blend-mode: multiply;
+    }
+    .logo-item img[alt="Linear"], .logo-item img[src*="linear"] { 
+        height: 60px;
+    }
+    
+    /* Hover effects - scale only, no grayscale */
+    .logo-item.logo-gmail:hover .logo-wrapper span {
+        color: var(--primary);
+        transition: color 0.3s ease;
+    }
     
     @keyframes scroll-logos {
         0% { transform: translateX(0); }
@@ -1598,11 +1670,11 @@
         <a href="/security/" class="nav-link">Security</a>
         <a href="/#product" class="nav-link">Product</a>
         <a href="/about/" class="nav-link">About</a>
-        <a href="/#integrations" class="nav-link">Integrations</a>
+        <a href="/integrations/" class="nav-link">Integrations</a>
       </div>
       <div class="header-actions" style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <button class="btn btn-primary">Book Demo</button>
+        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -1623,11 +1695,11 @@
         <a href="/security/" class="mobile-nav-link">Security</a>
         <a href="/#product" class="mobile-nav-link">Product</a>
         <a href="/about/" class="mobile-nav-link">About</a>
-        <a href="/#integrations" class="mobile-nav-link">Integrations</a>
+        <a href="/integrations/" class="mobile-nav-link">Integrations</a>
       </nav>
       <div class="mobile-menu-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <button class="btn btn-primary">Book Demo</button>
+        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
       </div>
     </div>
   </div>
@@ -1646,18 +1718,343 @@
           <div class="sb-item"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg> Home</div>
           <div class="sb-section-title">DEPARTMENT AGENTS</div>
           <div class="sb-item" id="sb-sales">
-              <svg class="icon" style="color: var(--dot-orange);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                  <polyline points="17 6 23 6 23 12"></polyline>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="salesTargetOuter" cx="50%" cy="50%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:0.4" />
+                    <stop offset="70%" style="stop-color:#6366F1;stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#818CF8;stop-opacity:0.1" />
+                  </radialGradient>
+                  <radialGradient id="salesTargetMid" cx="50%" cy="50%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:0.5" />
+                    <stop offset="70%" style="stop-color:#6366F1;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#818CF8;stop-opacity:0.15" />
+                  </radialGradient>
+                  <radialGradient id="salesBullseye" cx="50%" cy="50%">
+                    <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#DC2626;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#B91C1C;stop-opacity:1" />
+                  </radialGradient>
+                  <linearGradient id="salesArrow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#F97316;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#EA580C;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#C2410C;stop-opacity:1" />
+                  </linearGradient>
+                  <radialGradient id="salesArrowShine" cx="30%" cy="30%">
+                    <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                  </radialGradient>
+                  <filter id="salesShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                    <feOffset dx="0" dy="3" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="salesGlow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Target Outer Ring with Depth -->
+                <circle cx="12" cy="12" r="9" fill="url(#salesTargetOuter)" filter="url(#salesShadow)"/>
+                <circle cx="12" cy="12" r="9" stroke="#4F46E5" stroke-width="0.8" fill="none" opacity="0.4"/>
+                <circle cx="12" cy="12" r="8.5" stroke="#6366F1" stroke-width="0.5" fill="none" opacity="0.3"/>
+                <!-- Target Middle Ring -->
+                <circle cx="12" cy="12" r="6.5" fill="url(#salesTargetMid)" filter="url(#salesShadow)"/>
+                <circle cx="12" cy="12" r="6.5" stroke="#4F46E5" stroke-width="0.8" fill="none" opacity="0.5"/>
+                <circle cx="12" cy="12" r="6" stroke="#6366F1" stroke-width="0.5" fill="none" opacity="0.4"/>
+                <!-- Bullseye with 3D Effect -->
+                <circle cx="12" cy="12" r="4" fill="url(#salesBullseye)" filter="url(#salesShadow)"/>
+                <circle cx="12" cy="12" r="3.5" fill="#DC2626" opacity="0.9"/>
+                <circle cx="12" cy="11.5" r="3" fill="url(#salesBullseye)" opacity="0.7"/>
+                <circle cx="12" cy="12" r="2" fill="#B91C1C" opacity="0.8"/>
+                <circle cx="12" cy="11.5" r="1.5" fill="#FFFFFF" opacity="0.9"/>
+                <!-- Arrow Shaft with 3D Effect -->
+                <line x1="3" y1="3" x2="10" y2="10" stroke="url(#salesArrow)" stroke-width="4" stroke-linecap="round" filter="url(#salesGlow)"/>
+                <line x1="3" y1="3" x2="10" y2="10" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+                <!-- Arrow Head with Realistic Shape -->
+                <path d="M 10 10 L 7.5 7.5 L 9.2 7.5 L 9.2 5.8 L 11.5 7.5 L 9.2 9.2 Z" fill="url(#salesArrow)" filter="url(#salesShadow)"/>
+                <path d="M 10 10 L 8.2 8.2 L 9.2 8.2 L 9.2 7.2 L 10.2 8.2 L 9.2 9.2 Z" fill="url(#salesArrowShine)"/>
+                <path d="M 9.5 9.5 L 8.5 8.5 L 9.2 8.5 L 9.2 8 L 9.7 8.5 L 9.2 9 Z" fill="#FFFFFF" opacity="0.6"/>
+                <!-- Impact Lines -->
+                <path d="M 11 8 L 13 6 M 14 9 L 16 7 M 11 16 L 13 18 M 14 15 L 16 17" stroke="#EF4444" stroke-width="2" stroke-linecap="round" opacity="0.7" filter="url(#salesGlow)"/>
+                <path d="M 10 7 L 12 5 M 15 10 L 17 8 M 10 17 L 12 19 M 15 14 L 17 16" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" opacity="0.5" filter="url(#salesGlow)"/>
               </svg> 
               Sales Agent
           </div>
           <div class="sb-item" id="sb-finance">
-              <svg class="icon" style="color: var(--dot-green);" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Finance Agent
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="sbFinanceDollar" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="sbFinanceChart" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
+                  </linearGradient>
+                  <radialGradient id="sbFinanceDollarShine" cx="50%" cy="30%">
+                    <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                  </radialGradient>
+                  <filter id="sbFinanceShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+                    <feOffset dx="0" dy="2" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.4"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Dollar Sign - Main Focus -->
+                <circle cx="12" cy="12" r="9" fill="url(#sbFinanceDollar)" opacity="0.1" filter="url(#sbFinanceShadow)"/>
+                <path d="M 12 3 L 12 21 M 9 6 Q 9 4 11 4 Q 13 4 13 6 Q 13 8 11 8 Q 9 8 9 10 Q 9 12 11 12 Q 13 12 13 14 Q 13 16 11 16 Q 9 16 9 18" 
+                      stroke="url(#sbFinanceDollar)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#sbFinanceShadow)"/>
+                <path d="M 12 3 L 12 21" stroke="url(#sbFinanceDollar)" stroke-width="3" stroke-linecap="round" filter="url(#sbFinanceShadow)"/>
+                <path d="M 12 3 L 12 21" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+                <!-- Growth Chart Bars -->
+                <rect x="2" y="18" width="2" height="3" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <rect x="5" y="15" width="2" height="6" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <rect x="8" y="12" width="2" height="9" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <rect x="11" y="9" width="2" height="12" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <rect x="14" y="6" width="2" height="15" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <rect x="17" y="4" width="2" height="17" rx="0.4" fill="url(#sbFinanceChart)" filter="url(#sbFinanceShadow)"/>
+                <!-- Upward Trend Arrow -->
+                <path d="M 17 4 L 20 1 M 20 1 L 19 1 L 19 2" stroke="url(#sbFinanceChart)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#sbFinanceShadow)"/>
+              </svg> Finance Agent
           </div>
           <div class="sb-item" id="sb-eng">
-              <svg class="icon" style="color: var(--dot-blue);" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"></polyline></svg> Engineering Agent
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="engGear1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#4338CA;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#3730A3;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="engGear2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
+                  </linearGradient>
+                  <radialGradient id="engGearShine" cx="35%" cy="35%">
+                    <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+                    <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:0.2" />
+                    <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                  </radialGradient>
+                  <linearGradient id="engMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#E2E8F0;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#CBD5E1;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#94A3B8;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="engChip" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#0891B2;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0E7490;stop-opacity:1" />
+                  </linearGradient>
+                  <filter id="engShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                    <feOffset dx="0" dy="3" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.5"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="engGlow">
+                    <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Left Gear Background Glow -->
+                <circle cx="8" cy="12" r="6.5" fill="url(#engGear1)" opacity="0.2" filter="url(#engShadow)"/>
+                <!-- Left Gear Outer Ring -->
+                <circle cx="8" cy="12" r="6" fill="url(#engGear1)" opacity="0.3" filter="url(#engShadow)"/>
+                <!-- Left Gear Teeth (8 teeth for realism) -->
+                <path d="M 8 5.5 L 8.6 4.2 L 10.2 3.8 L 9.2 2.8 L 9.5 1.2 L 8 1.8 L 6.5 1.2 L 6.8 2.8 L 5.8 3.8 L 7.4 4.2 Z" fill="url(#engGear1)" filter="url(#engShadow)"/>
+                <path d="M 8 18.5 L 8.6 19.8 L 10.2 20.2 L 9.2 21.2 L 9.5 22.8 L 8 22.2 L 6.5 22.8 L 6.8 21.2 L 5.8 20.2 L 7.4 19.8 Z" fill="url(#engGear1)" filter="url(#engShadow)"/>
+                <path d="M 2.5 12 L 3.8 11.4 L 4.2 9.8 L 3.2 10.8 L 1.6 10.5 L 2.2 12 L 1.6 13.5 L 3.2 13.2 L 4.2 14.2 L 3.8 12.6 Z" fill="url(#engGear1)" filter="url(#engShadow)"/>
+                <path d="M 13.5 12 L 12.2 11.4 L 11.8 9.8 L 12.8 10.8 L 14.4 10.5 L 13.8 12 L 14.4 13.5 L 12.8 13.2 L 11.8 14.2 L 12.2 12.6 Z" fill="url(#engGear1)" filter="url(#engShadow)"/>
+                <!-- Left Gear Inner Structure -->
+                <circle cx="8" cy="12" r="4" fill="url(#engGear1)" opacity="0.4" filter="url(#engShadow)"/>
+                <circle cx="8" cy="12" r="3.5" fill="url(#engGearShine)"/>
+                <circle cx="8" cy="12" r="3" fill="url(#engGear1)" opacity="0.3"/>
+                <!-- Left Gear Center Hub -->
+                <circle cx="8" cy="12" r="2.5" fill="url(#engMetal)" filter="url(#engShadow)"/>
+                <circle cx="8" cy="12" r="2" fill="url(#engGearShine)"/>
+                <circle cx="8" cy="12" r="1.2" fill="#FFFFFF" opacity="0.7"/>
+                <circle cx="8" cy="12" r="0.6" fill="#94A3B8" opacity="0.8"/>
+                <!-- Right Gear Background Glow -->
+                <circle cx="16" cy="12" r="6.5" fill="url(#engGear2)" opacity="0.2" filter="url(#engShadow)"/>
+                <!-- Right Gear Outer Ring -->
+                <circle cx="16" cy="12" r="6" fill="url(#engGear2)" opacity="0.3" filter="url(#engShadow)"/>
+                <!-- Right Gear Teeth -->
+                <path d="M 16 5.5 L 16.6 4.2 L 18.2 3.8 L 17.2 2.8 L 17.5 1.2 L 16 1.8 L 14.5 1.2 L 14.8 2.8 L 13.8 3.8 L 15.4 4.2 Z" fill="url(#engGear2)" filter="url(#engShadow)"/>
+                <path d="M 16 18.5 L 16.6 19.8 L 18.2 20.2 L 17.2 21.2 L 17.5 22.8 L 16 22.2 L 14.5 22.8 L 14.8 21.2 L 13.8 20.2 L 15.4 19.8 Z" fill="url(#engGear2)" filter="url(#engShadow)"/>
+                <path d="M 10.5 12 L 11.8 11.4 L 12.2 9.8 L 11.2 10.8 L 9.6 10.5 L 10.2 12 L 9.6 13.5 L 11.2 13.2 L 12.2 14.2 L 11.8 12.6 Z" fill="url(#engGear2)" filter="url(#engShadow)"/>
+                <path d="M 21.5 12 L 20.2 11.4 L 19.8 9.8 L 20.8 10.8 L 22.4 10.5 L 21.8 12 L 22.4 13.5 L 20.8 13.2 L 19.8 14.2 L 20.2 12.6 Z" fill="url(#engGear2)" filter="url(#engShadow)"/>
+                <!-- Right Gear Inner Structure -->
+                <circle cx="16" cy="12" r="4" fill="url(#engGear2)" opacity="0.4" filter="url(#engShadow)"/>
+                <circle cx="16" cy="12" r="3.5" fill="url(#engGearShine)"/>
+                <circle cx="16" cy="12" r="3" fill="url(#engGear2)" opacity="0.3"/>
+                <!-- Right Gear Center Hub -->
+                <circle cx="16" cy="12" r="2.5" fill="url(#engMetal)" filter="url(#engShadow)"/>
+                <circle cx="16" cy="12" r="2" fill="url(#engGearShine)"/>
+                <circle cx="16" cy="12" r="1.2" fill="#FFFFFF" opacity="0.7"/>
+                <circle cx="16" cy="12" r="0.6" fill="#94A3B8" opacity="0.8"/>
+                <!-- Microchip Circuit Board with Realistic Details -->
+                <rect x="10" y="4" width="4" height="2.5" rx="0.4" fill="url(#engChip)" opacity="0.95" filter="url(#engShadow)"/>
+                <rect x="10.2" y="4.2" width="3.6" height="2.1" rx="0.3" fill="url(#engChip)" opacity="0.8"/>
+                <rect x="10" y="7.8" width="4" height="2.5" rx="0.4" fill="url(#engChip)" opacity="0.95" filter="url(#engShadow)"/>
+                <rect x="10.2" y="8" width="3.6" height="2.1" rx="0.3" fill="url(#engChip)" opacity="0.8"/>
+                <rect x="10" y="11.5" width="4" height="2.5" rx="0.4" fill="url(#engChip)" opacity="0.95" filter="url(#engShadow)"/>
+                <rect x="10.2" y="11.7" width="3.6" height="2.1" rx="0.3" fill="url(#engChip)" opacity="0.8"/>
+                <rect x="10" y="15.2" width="4" height="2.5" rx="0.4" fill="url(#engChip)" opacity="0.95" filter="url(#engShadow)"/>
+                <rect x="10.2" y="15.4" width="3.6" height="2.1" rx="0.3" fill="url(#engChip)" opacity="0.8"/>
+                <rect x="10" y="18.8" width="4" height="2.5" rx="0.4" fill="url(#engChip)" opacity="0.95" filter="url(#engShadow)"/>
+                <rect x="10.2" y="19" width="3.6" height="2.1" rx="0.3" fill="url(#engChip)" opacity="0.8"/>
+                <!-- Circuit Connection Points with Glow -->
+                <circle cx="10" cy="5.25" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <circle cx="14" cy="5.25" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <circle cx="10" cy="9.05" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <circle cx="14" cy="9.05" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <circle cx="10" cy="12.75" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <circle cx="14" cy="12.75" r="1" fill="#FFFFFF" opacity="0.9" filter="url(#engGlow)"/>
+                <!-- Circuit Traces -->
+                <line x1="10" y1="5.25" x2="14" y2="5.25" stroke="#06B6D4" stroke-width="0.8" opacity="0.6"/>
+                <line x1="10" y1="9.05" x2="14" y2="9.05" stroke="#06B6D4" stroke-width="0.8" opacity="0.6"/>
+                <line x1="10" y1="12.75" x2="14" y2="12.75" stroke="#06B6D4" stroke-width="0.8" opacity="0.6"/>
+              </svg> Engineering Agent
           </div>
+          <!-- Additional Agent Icons (HR, Marketing, Legal) - Available for future use -->
+          <!--
+          <div class="sb-item" id="sb-hr">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="hrGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="hrGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="hrGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0D9488;stop-opacity:1" />
+                  </linearGradient>
+                  <filter id="hrShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+                    <feOffset dx="0" dy="2" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.3"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <circle cx="8" cy="10" r="3" fill="url(#hrGrad1)" filter="url(#hrShadow)"/>
+                <circle cx="16" cy="10" r="3" fill="url(#hrGrad2)" filter="url(#hrShadow)"/>
+                <circle cx="12" cy="18" r="3" fill="url(#hrGrad3)" filter="url(#hrShadow)"/>
+                <path d="M 8 13 Q 8 15 10 15 Q 12 15 12 13" stroke="url(#hrGrad1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M 12 13 Q 12 15 14 15 Q 16 15 16 13" stroke="url(#hrGrad2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M 8 13 Q 10 16 12 18 Q 14 16 16 13" stroke="url(#hrGrad3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <circle cx="12" cy="6" r="2.5" fill="url(#hrGrad1)" opacity="0.2"/>
+                <circle cx="12" cy="6" r="1.8" stroke="url(#hrGrad1)" stroke-width="1.5" fill="none"/>
+                <circle cx="12" cy="6" r="1" fill="url(#hrGrad1)"/>
+              </svg> HR Agent
+          </div>
+          <div class="sb-item" id="sb-marketing">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="marketingGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="marketingGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#FBBF24;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="marketingGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#F97316;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#EA580C;stop-opacity:1" />
+                  </linearGradient>
+                  <filter id="marketingShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+                    <feOffset dx="0" dy="2" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.3"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path d="M 6 18 Q 6 14 8 12 Q 10 10 12 10 Q 14 10 16 12 Q 18 14 18 18" stroke="url(#marketingGrad1)" stroke-width="2.5" fill="none" stroke-linecap="round" filter="url(#marketingShadow)"/>
+                <path d="M 6 18 Q 6 14 8 12 Q 10 10 12 10 Q 14 10 16 12 Q 18 14 18 18" stroke="url(#marketingGrad2)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6" transform="translate(0, 2)"/>
+                <path d="M 6 18 Q 6 14 8 12 Q 10 10 12 10 Q 14 10 16 12 Q 18 14 18 18" stroke="url(#marketingGrad3)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4" transform="translate(0, 4)"/>
+                <ellipse cx="12" cy="8" rx="4" ry="3" fill="url(#marketingGrad1)" opacity="0.15"/>
+                <path d="M 10 6 L 12 4 L 14 6 L 13 8 L 11 8 Z" fill="url(#marketingGrad2)" filter="url(#marketingShadow)"/>
+                <circle cx="12" cy="7" r="1.5" fill="url(#marketingGrad3)"/>
+                <path d="M 8 18 L 6 20 M 16 18 L 18 20" stroke="url(#marketingGrad2)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              </svg> Marketing Agent
+          </div>
+          <div class="sb-item" id="sb-legal">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="legalGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="legalGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#92400E;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#78350F;stop-opacity:1" />
+                  </linearGradient>
+                  <linearGradient id="legalGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+                  </linearGradient>
+                  <filter id="legalShadow">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+                    <feOffset dx="0" dy="2" result="offsetblur"/>
+                    <feComponentTransfer>
+                      <feFuncA type="linear" slope="0.3"/>
+                    </feComponentTransfer>
+                    <feMerge>
+                      <feMergeNode/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+                <line x1="12" y1="2" x2="12" y2="22" stroke="url(#legalGrad1)" stroke-width="2" stroke-linecap="round" filter="url(#legalShadow)"/>
+                <path d="M 6 8 L 12 2 L 18 8" fill="url(#legalGrad2)" filter="url(#legalShadow)"/>
+                <path d="M 6 8 L 12 2 L 18 8" fill="url(#legalGrad2)" opacity="0.6" transform="translate(0, 1)"/>
+                <ellipse cx="8" cy="12" rx="2.5" ry="4" fill="url(#legalGrad3)" filter="url(#legalShadow)"/>
+                <ellipse cx="16" cy="12" rx="2.5" ry="4" fill="url(#legalGrad3)" filter="url(#legalShadow)"/>
+                <line x1="5.5" y1="12" x2="18.5" y2="12" stroke="url(#legalGrad1)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+                <path d="M 6 16 L 12 20 L 18 16" fill="url(#legalGrad2)" filter="url(#legalShadow)"/>
+                <path d="M 6 16 L 12 20 L 18 16" fill="url(#legalGrad2)" opacity="0.6" transform="translate(0, -1)"/>
+              </svg> Legal Agent
+          </div>
+          -->
         </div>
         <div class="app-main">
           <div class="hero-zero" id="heroZero">
@@ -1712,6 +2109,18 @@
            <div class="logo-item">
               <img src="images/teams.png" alt="Teams">
            </div>
+           <div class="logo-item logo-gmail">
+              <div class="logo-wrapper">
+                <img src="images/gmail.jpg" alt="Gmail">
+                <span>Gmail</span>
+              </div>
+           </div>
+           <div class="logo-item">
+              <img src="images/zendesk.png" alt="Zendesk">
+           </div>
+           <div class="logo-item">
+              <img src="images/linear.png" alt="Linear">
+           </div>
 
            <div class="logo-item">
               <img src="images/slack.png" alt="Slack">
@@ -1733,6 +2142,18 @@
            </div>
            <div class="logo-item logo-drive">
               <img src="images/drive.png" alt="Drive"> Drive
+           </div>
+           <div class="logo-item logo-gmail">
+              <div class="logo-wrapper">
+                <img src="images/gmail.jpg" alt="Gmail">
+                <span>Gmail</span>
+              </div>
+           </div>
+           <div class="logo-item">
+              <img src="images/zendesk.png" alt="Zendesk">
+           </div>
+           <div class="logo-item">
+              <img src="images/linear.png" alt="Linear">
            </div>
            <div class="logo-item">
               <img src="images/teams.png" alt="Teams">
@@ -1964,12 +2385,340 @@
           <div class="step-view" id="step2">
             <h3 style="margin-bottom:20px;">Select Agent Role</h3>
             <div class="grid-3">
-              <div class="b-card" id="role-finance"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><h4>Finance</h4></div>
-              <div class="b-card" id="role-sales"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><h4>Sales</h4></div>
-              <div class="b-card" id="role-eng"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><h4>Engineering</h4></div>
-              <div class="b-card" id="role-hr"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><h4>HR</h4></div>
-              <div class="b-card" id="role-marketing"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/></svg><h4>Marketing</h4></div>
-              <div class="b-card" id="role-legal"><svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/></svg><h4>Legal</h4></div>
+              <div class="b-card" id="role-finance">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="financeGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="financeGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="financeCoinShine" cx="35%" cy="35%">
+                      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.8" />
+                      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                    </radialGradient>
+                    <filter id="financeShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Stack of Coins - Gold and Green -->
+                  <ellipse cx="12" cy="18" rx="5" ry="4.5" fill="url(#financeGold)" filter="url(#financeShadow)"/>
+                  <ellipse cx="12" cy="18" rx="4" ry="3.5" fill="url(#financeCoinShine)"/>
+                  <ellipse cx="12" cy="13" rx="5" ry="4.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <ellipse cx="12" cy="13" rx="4" ry="3.5" fill="url(#financeCoinShine)"/>
+                  <ellipse cx="12" cy="8" rx="5" ry="4.5" fill="url(#financeGold)" filter="url(#financeShadow)"/>
+                  <ellipse cx="12" cy="8" rx="4" ry="3.5" fill="url(#financeCoinShine)"/>
+                  <!-- Growth Chart with Green Bars -->
+                  <rect x="2" y="18" width="2.5" height="3" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <rect x="5.5" y="15" width="2.5" height="6" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <rect x="9" y="12" width="2.5" height="9" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <rect x="12.5" y="9" width="2.5" height="12" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <rect x="16" y="6" width="2.5" height="15" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <rect x="19.5" y="4" width="2.5" height="17" rx="0.5" fill="url(#financeGreen)" filter="url(#financeShadow)"/>
+                  <!-- Upward Arrow -->
+                  <path d="M 19.5 4 L 22 1.5 M 22 1.5 L 20.5 1.5 L 20.5 3" stroke="url(#financeGreen)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#financeShadow)"/>
+                </svg>
+                <h4>Finance</h4>
+              </div>
+              <div class="b-card" id="role-sales">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="salesBlue" cx="50%" cy="50%">
+                      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#1D4ED8;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+                    </radialGradient>
+                    <radialGradient id="salesRed" cx="50%" cy="50%">
+                      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#DC2626;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#B91C1C;stop-opacity:1" />
+                    </radialGradient>
+                    <linearGradient id="salesArrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#EF4444;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#DC2626;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#B91C1C;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="salesShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Target with Blue/Red Gradient -->
+                  <circle cx="12" cy="12" r="10" fill="url(#salesBlue)" opacity="0.2" filter="url(#salesShadow)"/>
+                  <circle cx="12" cy="12" r="10" stroke="url(#salesBlue)" stroke-width="2.5" fill="none"/>
+                  <circle cx="12" cy="12" r="7" fill="url(#salesBlue)" opacity="0.3" filter="url(#salesShadow)"/>
+                  <circle cx="12" cy="12" r="7" stroke="url(#salesBlue)" stroke-width="2" fill="none"/>
+                  <circle cx="12" cy="12" r="4.5" fill="url(#salesRed)" filter="url(#salesShadow)"/>
+                  <circle cx="12" cy="12" r="4.5" stroke="#DC2626" stroke-width="2" fill="none"/>
+                  <circle cx="12" cy="12" r="2.5" fill="#FFFFFF"/>
+                  <circle cx="12" cy="12" r="1.5" fill="url(#salesRed)"/>
+                  <!-- Red Arrow Pointing at Target -->
+                  <path d="M 3 3 L 10 10" stroke="url(#salesArrowGrad)" stroke-width="5" stroke-linecap="round" filter="url(#salesShadow)"/>
+                  <path d="M 10 10 L 6.5 6.5 L 8.5 6.5 L 8.5 4.5 L 11.5 6.5 L 8.5 8.5 Z" fill="url(#salesArrowGrad)" filter="url(#salesShadow)"/>
+                  <path d="M 10 10 L 7.5 7.5 L 8.5 7.5 L 8.5 6.5 L 9.5 7.5 L 8.5 8.5 Z" fill="#FFFFFF" opacity="0.7"/>
+                  <!-- Impact Lines -->
+                  <line x1="12" y1="2" x2="12" y2="4" stroke="url(#salesRed)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                  <line x1="20" y1="12" x2="22" y2="12" stroke="url(#salesRed)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                  <line x1="12" y1="20" x2="12" y2="22" stroke="url(#salesRed)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                  <line x1="2" y1="12" x2="4" y2="12" stroke="url(#salesRed)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                </svg>
+                <h4>Sales</h4>
+              </div>
+              <div class="b-card" id="role-eng">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="engPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="engCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#0891B2;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#0E7490;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="engShine" cx="35%" cy="35%">
+                      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.7" />
+                      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                    </radialGradient>
+                    <filter id="engShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Left Gear - Purple -->
+                  <circle cx="8" cy="12" r="6.5" fill="url(#engPurple)" opacity="0.3" filter="url(#engShadow)"/>
+                  <circle cx="8" cy="12" r="6.5" stroke="url(#engPurple)" stroke-width="2" fill="none"/>
+                  <rect x="7.5" y="4" width="1" height="3" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="7.5" y="17" width="1" height="3" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="4" y="11.5" width="3" height="1" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="13" y="11.5" width="3" height="1" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="5.5" y="5.5" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(-45 8 12)"/>
+                  <rect x="9.5" y="5.5" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(45 8 12)"/>
+                  <rect x="5.5" y="16" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(45 8 12)"/>
+                  <rect x="9.5" y="16" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(-45 8 12)"/>
+                  <circle cx="8" cy="12" r="3" fill="url(#engPurple)" opacity="0.6"/>
+                  <circle cx="8" cy="12" r="2.5" fill="url(#engShine)"/>
+                  <circle cx="8" cy="12" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+                  <!-- Right Gear - Purple -->
+                  <circle cx="16" cy="12" r="6.5" fill="url(#engPurple)" opacity="0.3" filter="url(#engShadow)"/>
+                  <circle cx="16" cy="12" r="6.5" stroke="url(#engPurple)" stroke-width="2" fill="none"/>
+                  <rect x="15.5" y="4" width="1" height="3" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="15.5" y="17" width="1" height="3" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="12" y="11.5" width="3" height="1" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="21" y="11.5" width="3" height="1" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)"/>
+                  <rect x="13.5" y="5.5" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(-45 16 12)"/>
+                  <rect x="17.5" y="5.5" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(45 16 12)"/>
+                  <rect x="13.5" y="16" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(45 16 12)"/>
+                  <rect x="17.5" y="16" width="1" height="2.5" rx="0.5" fill="url(#engPurple)" filter="url(#engShadow)" transform="rotate(-45 16 12)"/>
+                  <circle cx="16" cy="12" r="3" fill="url(#engPurple)" opacity="0.6"/>
+                  <circle cx="16" cy="12" r="2.5" fill="url(#engShine)"/>
+                  <circle cx="16" cy="12" r="1.5" fill="#FFFFFF" opacity="0.8"/>
+                  <!-- Microchip - Cyan -->
+                  <rect x="10" y="6" width="4" height="2" rx="0.4" fill="url(#engCyan)" filter="url(#engShadow)"/>
+                  <rect x="10" y="9" width="4" height="2" rx="0.4" fill="url(#engCyan)" filter="url(#engShadow)"/>
+                  <rect x="10" y="12" width="4" height="2" rx="0.4" fill="url(#engCyan)" filter="url(#engShadow)"/>
+                  <rect x="10" y="15" width="4" height="2" rx="0.4" fill="url(#engCyan)" filter="url(#engShadow)"/>
+                  <rect x="10" y="18" width="4" height="2" rx="0.4" fill="url(#engCyan)" filter="url(#engShadow)"/>
+                  <circle cx="10" cy="7" r="0.8" fill="url(#engCyan)"/>
+                  <circle cx="14" cy="7" r="0.8" fill="url(#engCyan)"/>
+                  <circle cx="10" cy="10" r="0.8" fill="url(#engCyan)"/>
+                  <circle cx="14" cy="10" r="0.8" fill="url(#engCyan)"/>
+                </svg>
+                <h4>Engineering</h4>
+              </div>
+              <div class="b-card" id="role-hr">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="hrTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#0D9488;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#0F766E;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="hrOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#F97316;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#EA580C;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#C2410C;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="hrShine" cx="40%" cy="30%">
+                      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.7" />
+                      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                    </radialGradient>
+                    <filter id="hrShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Left Person - Teal -->
+                  <circle cx="7" cy="7" r="2.5" fill="url(#hrTeal)" filter="url(#hrShadow)"/>
+                  <circle cx="7" cy="7" r="2" fill="url(#hrShine)"/>
+                  <path d="M 7 9.5 L 7 16 Q 7 18 5 18 Q 3 18 3 20" stroke="url(#hrTeal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 7 9.5 L 7 16 Q 7 18 9 18 Q 11 18 11 20" stroke="url(#hrTeal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 7 11 L 5 13 M 7 11 L 9 13" stroke="url(#hrTeal)" stroke-width="2.5" stroke-linecap="round" filter="url(#hrShadow)"/>
+                  <!-- Middle Person - Orange (Larger) -->
+                  <circle cx="12" cy="7" r="3" fill="url(#hrOrange)" filter="url(#hrShadow)"/>
+                  <circle cx="12" cy="7" r="2.5" fill="url(#hrShine)"/>
+                  <path d="M 12 10 L 12 17 Q 12 19 10 19 Q 8 19 8 21" stroke="url(#hrOrange)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 12 10 L 12 17 Q 12 19 14 19 Q 16 19 16 21" stroke="url(#hrOrange)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 12 12 L 10 14 M 12 12 L 14 14" stroke="url(#hrOrange)" stroke-width="3" stroke-linecap="round" filter="url(#hrShadow)"/>
+                  <!-- Right Person - Teal -->
+                  <circle cx="17" cy="7" r="2.5" fill="url(#hrTeal)" filter="url(#hrShadow)"/>
+                  <circle cx="17" cy="7" r="2" fill="url(#hrShine)"/>
+                  <path d="M 17 9.5 L 17 16 Q 17 18 15 18 Q 13 18 13 20" stroke="url(#hrTeal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 17 9.5 L 17 16 Q 17 18 19 18 Q 21 18 21 20" stroke="url(#hrTeal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#hrShadow)"/>
+                  <path d="M 17 11 L 15 13 M 17 11 L 19 13" stroke="url(#hrTeal)" stroke-width="2.5" stroke-linecap="round" filter="url(#hrShadow)"/>
+                  <!-- Connection Lines -->
+                  <path d="M 7 9.5 L 12 10 M 12 10 L 17 9.5" stroke="url(#hrOrange)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+                </svg>
+                <h4>HR</h4>
+              </div>
+              <div class="b-card" id="role-marketing">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="marketingYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#FCD34D;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="marketingPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#EC4899;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#DB2777;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#BE185D;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="marketingShine" cx="30%" cy="30%">
+                      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.8" />
+                      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                    </radialGradient>
+                    <filter id="marketingShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    <filter id="marketingGlow">
+                      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Megaphone Body - Yellow -->
+                  <path d="M 7 7 L 7 17 L 9 19 L 9 5 Z" fill="url(#marketingYellow)" filter="url(#marketingShadow)"/>
+                  <path d="M 7 7 L 7 17 L 9 19 L 9 5 Z" fill="url(#marketingShine)"/>
+                  <path d="M 9 5 L 9 19 L 21 15 L 21 9 Z" fill="url(#marketingYellow)" filter="url(#marketingShadow)"/>
+                  <path d="M 9 5 L 9 19 L 21 15 L 21 9 Z" fill="url(#marketingShine)"/>
+                  <!-- Megaphone Handle -->
+                  <rect x="5" y="10" width="2.5" height="4" rx="0.5" fill="url(#marketingYellow)" opacity="0.9" filter="url(#marketingShadow)"/>
+                  <rect x="5.2" y="10.5" width="2.1" height="3" rx="0.3" fill="url(#marketingShine)"/>
+                  <!-- Sound Waves - Pink/Yellow Gradient -->
+                  <path d="M 21 12 Q 22.5 10.5 24 12" stroke="url(#marketingPink)" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#marketingGlow)"/>
+                  <path d="M 21 12 Q 22.5 9 24 12" stroke="url(#marketingPink)" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.9" filter="url(#marketingGlow)"/>
+                  <path d="M 21 12 Q 22.5 7.5 24 12" stroke="url(#marketingYellow)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8" filter="url(#marketingGlow)"/>
+                  <path d="M 21 12 Q 22.5 6 24 12" stroke="url(#marketingPink)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6" filter="url(#marketingGlow)"/>
+                  <path d="M 21 12 Q 22.5 4.5 24 12" stroke="url(#marketingYellow)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4" filter="url(#marketingGlow)"/>
+                  <!-- Inner Detail -->
+                  <line x1="9" y1="7" x2="21" y2="9" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+                  <line x1="9" y1="17" x2="21" y2="15" stroke="#FFFFFF" stroke-width="1" opacity="0.4"/>
+                </svg>
+                <h4>Marketing</h4>
+              </div>
+              <div class="b-card" id="role-legal">
+                <svg class="icon" width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="legalNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#1E40AF;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#172554;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="legalBronze" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#D97706;stop-opacity:1" />
+                      <stop offset="50%" style="stop-color:#B45309;stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:#92400E;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="legalShine" cx="40%" cy="30%">
+                      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.7" />
+                      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+                    </radialGradient>
+                    <filter id="legalShadow">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="0" dy="3" result="offsetblur"/>
+                      <feComponentTransfer>
+                        <feFuncA type="linear" slope="0.5"/>
+                      </feComponentTransfer>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <!-- Central Pole - Navy -->
+                  <rect x="11.5" y="2" width="1.5" height="20" rx="0.5" fill="url(#legalNavy)" filter="url(#legalShadow)"/>
+                  <rect x="11.5" y="2" width="1.5" height="20" rx="0.5" fill="url(#legalShine)"/>
+                  <!-- Top Balance Bar - Bronze -->
+                  <rect x="4" y="4" width="16" height="2.5" rx="1" fill="url(#legalBronze)" filter="url(#legalShadow)"/>
+                  <rect x="4" y="4" width="16" height="2.5" rx="1" fill="url(#legalShine)"/>
+                  <!-- Left Scale Pan - Navy -->
+                  <ellipse cx="7" cy="13" rx="3.5" ry="4.5" fill="url(#legalNavy)" filter="url(#legalShadow)"/>
+                  <ellipse cx="7" cy="13" rx="3" ry="4" fill="url(#legalShine)"/>
+                  <ellipse cx="7" cy="12.5" rx="2.5" ry="3.5" fill="url(#legalNavy)" opacity="0.6"/>
+                  <!-- Left Chain - Bronze -->
+                  <line x1="7" y1="4" x2="7" y2="8.5" stroke="url(#legalBronze)" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="7" cy="6" r="1" fill="url(#legalBronze)"/>
+                  <!-- Right Scale Pan - Navy -->
+                  <ellipse cx="17" cy="13" rx="3.5" ry="4.5" fill="url(#legalNavy)" filter="url(#legalShadow)"/>
+                  <ellipse cx="17" cy="13" rx="3" ry="4" fill="url(#legalShine)"/>
+                  <ellipse cx="17" cy="12.5" rx="2.5" ry="3.5" fill="url(#legalNavy)" opacity="0.6"/>
+                  <!-- Right Chain - Bronze -->
+                  <line x1="17" y1="4" x2="17" y2="8.5" stroke="url(#legalBronze)" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="17" cy="6" r="1" fill="url(#legalBronze)"/>
+                  <!-- Balance Indicator -->
+                  <line x1="3.5" y1="13" x2="20.5" y2="13" stroke="url(#legalNavy)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                  <!-- Base - Bronze -->
+                  <rect x="8" y="20" width="8" height="2.5" rx="1" fill="url(#legalBronze)" filter="url(#legalShadow)"/>
+                  <rect x="8" y="20" width="8" height="2.5" rx="1" fill="url(#legalShine)"/>
+                </svg>
+                <h4>Legal</h4>
+              </div>
             </div>
           </div>
           <div class="step-view" id="step3">
@@ -2144,7 +2893,7 @@
       <div><h4>Company</h4><a href="about/" class="footer-link">About</a><a href="careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
       <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:inherit; display:block; margin-bottom:8px;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:inherit; display:block;">Terms of Service</a></div>
     </div>
-    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
+    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
   </footer>
 
   <div class="cookie-banner" id="cookieBanner">

@@ -107,15 +107,36 @@
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
+      background-size: 200% 200%;
+      animation: gradientFlow 4s ease infinite;
       color: white;
       border: none;
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes gradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+      border: none;
     }
 
     /* Hamburger Menu */
@@ -374,11 +395,11 @@
         <a href="/security/" class="nav-link">Security</a>
         <a href="/#product" class="nav-link">Product</a>
         <a href="/about/" class="nav-link">About</a>
-        <a href="/#integrations" class="nav-link">Integrations</a>
+        <a href="/integrations/" class="nav-link">Integrations</a>
       </div>
       <div class="header-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <button class="btn btn-primary" onclick="window.__openCalendly && window.__openCalendly('https://calendly.com/atlasynq/demo'); return false;">Book Demo</button>
+        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -399,11 +420,11 @@
         <a href="/security/" class="mobile-nav-link">Security</a>
         <a href="/#product" class="mobile-nav-link">Product</a>
         <a href="/about/" class="mobile-nav-link">About</a>
-        <a href="/#integrations" class="mobile-nav-link">Integrations</a>
+        <a href="/integrations/" class="mobile-nav-link">Integrations</a>
       </nav>
       <div class="mobile-menu-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <button class="btn btn-primary" onclick="closeMobileMenuFunc(); window.__openCalendly && window.__openCalendly('https://calendly.com/atlasynq/demo'); return false;">Book Demo</button>
+        <a href="https://calendly.com/idanl-atlasynq" onclick="closeMobileMenuFunc(); return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
       </div>
     </div>
   </div>
@@ -434,7 +455,7 @@
       <div><h4>Company</h4><a href="/about/" class="footer-link">About</a><a href="/careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
       <div><h4>Legal</h4><a href="/privacy/" class="footer-link">Privacy Policy</a><a href="/terms/" class="footer-link">Terms of Service</a></div>
     </div>
-    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
+    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
   </footer>
 
   <script>

@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script>
+    const CANONICAL_URL = "https://www.atlasynq.com/integrations/";
+    const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
+    const PAGE_TITLE = "Integrations — AtlaSynq";
+    const PAGE_DESCRIPTION = "Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.";
+  </script>
+  <title>Integrations — AtlaSynq</title>
+  <meta name="description" content="Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.">
+  <link rel="canonical" href="https://www.atlasynq.com/integrations/" />
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Integrations — AtlaSynq">
+  <meta property="og:description" content="Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta property="og:url" content="https://www.atlasynq.com/integrations/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Integrations — AtlaSynq">
+  <meta name="twitter:description" content="Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.">
+  <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JXPHR1VRHF');
+  </script>
+  
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script>
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="alternate icon" type="image/png" href="../images/atlasynq-logo.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="../images/atlasynq-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --primary-light: #eff6ff;
+      --secondary: #06b6d4;
+      --secondary-dark: #0891b2;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --success: #10b981;
+      --border: #e2e8f0;
+      --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
+    }
+
+    @keyframes colorPulse {
+      0%, 100% { 
+        filter: hue-rotate(0deg) saturate(1);
+      }
+      50% { 
+        filter: hue-rotate(10deg) saturate(1.1);
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { 
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+      }
+      50% { 
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: backgroundShift 20s ease-in-out infinite;
+    }
+
+    @keyframes backgroundShift {
+      0%, 100% { 
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      33% { 
+        transform: translate(-20px, -20px) scale(1.1);
+        opacity: 0.8;
+      }
+      66% { 
+        transform: translate(20px, 20px) scale(0.9);
+        opacity: 0.9;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(to right, #4F46E5, #06b6d4, #10b981) 1;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+      animation: headerGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes headerGlow {
+      0%, 100% { 
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+      }
+      50% { 
+        box-shadow: 0 4px 30px rgba(37, 99, 235, 0.15);
+      }
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      gap: 8px;
+    }
+    .logo svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    /* Header Nav Links - Make Black & Bold */
+    .nav-links a, .nav-link {
+        font-weight: 600; /* Bolder */
+        color: #0f172a;   /* Dark/Black */
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-link:hover {
+        color: var(--primary); /* Blue on hover */
+    }
+
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+      transition: width 0.3s;
+      z-index: -1;
+    }
+
+    .btn-secondary:hover::before {
+      width: 100%;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+      border-color: #2563EB;
+      color: #2563EB;
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #fef3c7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-30px, -40px) scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.25rem;
+      font-weight: 900;
+      margin-bottom: 1.25rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+
+    .hero .highlight {
+      color: #2563EB;
+      font-weight: 600;
+    }
+
+    .hero-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.75rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-logo-item {
+      width: 85px;
+      height: 85px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: logoFloat 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-logo-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .hero-logo-item:hover::before {
+      left: 100%;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero-logo-item:nth-child(1) { animation-delay: 0s; }
+    .hero-logo-item:nth-child(2) { animation-delay: 0.2s; }
+    .hero-logo-item:nth-child(3) { animation-delay: 0.4s; }
+    .hero-logo-item:nth-child(4) { animation-delay: 0.6s; }
+    .hero-logo-item:nth-child(5) { animation-delay: 0.8s; }
+    .hero-logo-item:nth-child(6) { animation-delay: 1s; }
+
+    .hero-logo-item:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
+      border-color: #2563EB;
+      background: linear-gradient(135deg, #eff6ff 0%, white 100%);
+    }
+
+    .hero-logo-item img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      transition: transform 0.4s;
+    }
+
+    .hero-logo-item:hover img {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Integrations Count Section */
+    .integrations-count-section {
+      padding: 5rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #fef3c7 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .integrations-count-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(37, 99, 235, 0.03) 50%, transparent 70%);
+      background-size: 200% 200%;
+      animation: shimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .integrations-count-section h2 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, var(--text) 0%, #2563EB 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradientShift 5s ease infinite;
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .integrations-count-section p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Integration Showcase */
+    .integration-showcase {
+      padding: 5rem 0;
+      background: linear-gradient(to bottom, white 0%, #f8fafc 100%);
+      position: relative;
+    }
+
+    .integration-showcase::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #2563EB, #06b6d4, transparent);
+      animation: lineFlow 4s ease-in-out infinite;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .showcase-item {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #2563EB, #06b6d4, #f59e0b);
+      background-size: 200% 100%;
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      border-radius: 16px 16px 0 0;
+      animation: gradientMove 3s ease infinite;
+    }
+
+    .showcase-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .showcase-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+      border-color: #2563EB;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    }
+
+    .showcase-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .showcase-item:hover .showcase-icon {
+      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .showcase-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: #2563EB;
+      stroke-width: 2;
+      transition: all 0.3s;
+    }
+
+    .showcase-item:hover .showcase-icon svg {
+      stroke: white;
+    }
+
+    .showcase-item h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+    }
+
+    .showcase-item p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Integrations Grid */
+    .integrations-section {
+      padding: 4rem 0 6rem;
+      background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .integrations-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2563EB, #06b6d4, transparent);
+      animation: lineFlow 3s ease-in-out infinite;
+    }
+
+    @keyframes lineFlow {
+      0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+      50% { opacity: 1; transform: scaleX(1); }
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, var(--text) 0%, #2563EB 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .section-title p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .integration-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      height: 100%;
+    }
+
+    .integration-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .integration-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2563EB, #06b6d4, #f59e0b);
+      background-size: 200% 100%;
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      animation: gradientMove 3s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .integration-card:hover::before {
+      opacity: 1;
+    }
+
+    .integration-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .integration-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.2);
+      border-color: #2563EB;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    }
+
+    .integration-card img {
+      height: 80px;
+      width: auto;
+      max-width: 160px;
+      margin-bottom: 1.25rem;
+      transition: all 0.4s;
+      filter: grayscale(0%);
+      position: relative;
+      z-index: 1;
+      object-fit: contain;
+    }
+
+    .integration-card:hover img {
+      transform: scale(1.15) rotate(5deg);
+      filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
+    }
+
+    .integration-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s;
+      margin-bottom: 0;
+      line-height: 1.4;
+      min-height: 2.8em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .integration-card:hover h3 {
+      color: #2563EB;
+      transform: scale(1.05);
+    }
+
+    /* Gmail wrapper */
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+      min-height: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-wrapper span {
+      font-weight: 600;
+      color: #5f6368;
+      font-size: 28px;
+      font-family: 'Inter', sans-serif;
+      transition: color 0.3s;
+    }
+
+    .integration-card-gmail img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    .integration-card-gmail:hover .logo-wrapper span {
+      color: #2563EB;
+    }
+
+    .integration-card img[alt="Zendesk"],
+    .integration-card img[src*="zendesk"] {
+      height: 60px;
+      max-width: 180px;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+
+    .integration-card img[alt="Linear"],
+    .integration-card img[src*="linear"] {
+      height: 80px;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+    /* Open API Card */
+    .integration-card-openapi {
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+      border: 2px solid #2563EB;
+    }
+
+    .integration-card-openapi::before {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    }
+
+    .openapi-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .openapi-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .integration-card-openapi:hover .openapi-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Features */
+    .features-section {
+      padding: 5rem 0;
+      background: linear-gradient(to bottom, var(--bg-alt) 0%, #ffffff 100%);
+      position: relative;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2.25rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, #2563EB, #06b6d4, #f59e0b);
+      background-size: 100% 200%;
+      transform: scaleY(0);
+      transition: transform 0.4s;
+      border-radius: 16px 0 0 16px;
+      animation: gradientMove 3s ease infinite;
+    }
+
+    .feature-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
+      border-color: #2563EB;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.4s;
+    }
+
+    .feature-card:hover .feature-icon {
+      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: #2563EB;
+      stroke-width: 2;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover .feature-icon svg {
+      stroke: white;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+      transition: all 0.4s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-card:hover h3 {
+      color: #2563EB;
+      transform: translateX(5px);
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s;
+    }
+
+    .feature-card:hover p {
+      color: var(--text);
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 5rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
+      background-size: 200% 200%;
+      animation: gradientFlow 8s ease infinite;
+      color: white;
+      border-radius: 20px;
+      margin: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 5s ease-in-out infinite;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.2;
+    }
+
+    .cta-section p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .btn-cta {
+      background: white;
+      color: #2563EB;
+      font-size: 1.05rem;
+      padding: 14px 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .btn-cta:hover {
+      background: #f8fafc;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-section h2,
+    .cta-section p {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Footer */
+    footer {
+      padding: 5rem 0 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 6rem;
+      background: var(--bg-alt);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+
+    .footer-link {
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      margin-bottom: 0.75rem;
+      transition: all 0.2s;
+    }
+
+    .footer-link:hover {
+      color: #2563EB;
+      transform: translateX(4px);
+    }
+
+    footer h4 {
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text);
+    }
+
+    /* Mobile Menu */
+    /* Hamburger Menu Button (Hidden on Desktop) */
+    .hamburger-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 28px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .hamburger-menu-btn span {
+      width: 100%;
+      height: 3px;
+      background: #0f172a;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .mobile-menu-content {
+      background: white;
+      width: 80%;
+      max-width: 400px;
+      height: 100%;
+      padding: 2rem;
+      position: relative;
+      overflow-y: auto;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu-overlay.active .mobile-menu-content {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .mobile-menu-close:hover {
+      background: var(--bg-alt);
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .mobile-nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      display: block;
+      font-size: 1rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-nav-link::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, #2563EB, #06b6d4);
+      transition: height 0.3s;
+      border-radius: 2px;
+    }
+
+    .mobile-nav-link:hover {
+      color: #2563EB;
+      padding-left: 1rem;
+    }
+
+    .mobile-nav-link:hover::before {
+      height: 60%;
+    }
+
+    .mobile-menu-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu-actions .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links,
+      .header-actions {
+        display: none !important;
+      }
+
+      .hamburger-menu-btn {
+        display: flex !important;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero-logos {
+        gap: 1.25rem;
+      }
+
+      .hero-logo-item {
+        width: 75px;
+        height: 75px;
+      }
+
+      .hero-logo-item img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .integrations-count-section h2 {
+        font-size: 2.25rem;
+      }
+
+      .integrations-count-section {
+        padding: 3.5rem 0;
+      }
+
+      .integrations-section {
+        padding: 3rem 0 4rem;
+      }
+
+      .integrations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .integration-card {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .integration-card img {
+        height: 56px;
+        margin-bottom: 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .integrations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .mobile-menu-content {
+        width: 85%;
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .mobile-menu-content {
+        width: 90%;
+        padding: 1.25rem;
+      }
+
+      .hamburger-menu-btn {
+        width: 32px;
+        height: 32px;
+      }
+
+      .mobile-nav-link {
+        font-size: 0.95rem;
+        padding: 0.875rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="../" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Atla<span style="color: var(--primary);">Synq</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="../pricing/" class="nav-link">Pricing</a>
+        <a href="../features/" class="nav-link">Features</a>
+        <a href="../security/" class="nav-link">Security</a>
+        <a href="../#product" class="nav-link">Product</a>
+        <a href="../about/" class="nav-link">About</a>
+        <a href="../integrations/" class="nav-link">Integrations</a>
+      </div>
+      <div class="header-actions" style="display:flex; gap:10px;">
+        <a href="../login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
+      </div>
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
+      <nav class="mobile-nav">
+        <a href="../pricing/" class="mobile-nav-link">Pricing</a>
+        <a href="../features/" class="mobile-nav-link">Features</a>
+        <a href="../security/" class="mobile-nav-link">Security</a>
+        <a href="../#product" class="mobile-nav-link">Product</a>
+        <a href="../about/" class="mobile-nav-link">About</a>
+        <a href="../integrations/" class="mobile-nav-link">Integrations</a>
+      </nav>
+      <div class="mobile-menu-actions">
+        <a href="../login/" class="btn btn-secondary">Log in</a>
+        <a href="#" onclick="closeMobileMenuFunc(); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary">Book Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Connect Your AI Agents<br>to Any Tool</h1>
+        <p>
+          Seamlessly integrate with <span class="highlight">100+ enterprise tools</span>.
+          <strong>Fully customizable</strong> workspaces with governed access and instant setup.
+        </p>
+        <div class="hero-logos">
+          <div class="hero-logo-item">
+            <img src="../images/salesforce.png" alt="Salesforce">
+          </div>
+          <div class="hero-logo-item">
+            <img src="../images/slack.png" alt="Slack">
+          </div>
+          <div class="hero-logo-item">
+            <img src="../images/github.jpg" alt="GitHub">
+          </div>
+          <div class="hero-logo-item">
+            <img src="../images/notion.png" alt="Notion">
+          </div>
+          <div class="hero-logo-item">
+            <img src="../images/jira.png" alt="Jira">
+          </div>
+          <div class="hero-logo-item">
+            <img src="../images/hubspot.png" alt="HubSpot">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="integrations-count-section">
+    <div class="container">
+      <h2>100+ Enterprise Integrations</h2>
+      <p>Connect to the tools your team already uses. One-click setup, governed access, and instant availability.</p>
+    </div>
+  </section>
+
+  <section class="integrations-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>All Available Integrations</h2>
+        <p>Browse our complete catalog of enterprise-ready integrations.</p>
+      </div>
+      <div class="integrations-grid">
+        <div class="integration-card">
+          <img src="../images/salesforce.png" alt="Salesforce">
+          <h3>Salesforce</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/slack.png" alt="Slack">
+          <h3>Slack</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/github.jpg" alt="GitHub">
+          <h3>GitHub</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/teams.png" alt="Teams">
+          <h3>Microsoft Teams</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/drive.png" alt="Drive">
+          <h3>Google Drive</h3>
+        </div>
+        <div class="integration-card integration-card-gmail">
+          <div class="logo-wrapper">
+            <img src="../images/gmail.jpg" alt="Gmail">
+            <span>Gmail</span>
+          </div>
+          <h3>Gmail</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/zendesk.png" alt="Zendesk">
+          <h3>Zendesk</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/linear.png" alt="Linear">
+          <h3>Linear</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/notion.png" alt="Notion">
+          <h3>Notion</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/hubspot.png" alt="HubSpot">
+          <h3>HubSpot</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/jira.png" alt="Jira">
+          <h3>Jira</h3>
+        </div>
+        <div class="integration-card">
+          <img src="../images/netsuite.png" alt="NetSuite">
+          <h3>NetSuite</h3>
+        </div>
+        <div class="integration-card integration-card-openapi">
+          <div class="openapi-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+              <circle cx="12" cy="12" r="2" fill="white"/>
+            </svg>
+          </div>
+          <h3>Open API</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="integration-showcase">
+    <div class="container">
+      <div class="section-title">
+        <h2>Seamless Integration Experience</h2>
+        <p>Connect your tools in minutes. Every integration is fully customizable to match your workflow and security requirements.</p>
+      </div>
+      
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <div class="showcase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>One-Click Setup</h3>
+          <p>OAuth authentication with instant connection. No complex configuration needed.</p>
+        </div>
+        
+        <div class="showcase-item">
+          <div class="showcase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Custom API Support</h3>
+          <p>Connect to any REST or GraphQL endpoint. Private APIs, custom auth, full control.</p>
+        </div>
+        
+        <div class="showcase-item">
+          <div class="showcase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Governed Access</h3>
+          <p>Fine-grained permissions. Control exactly what each agent can access and modify.</p>
+        </div>
+        
+        <div class="showcase-item">
+          <div class="showcase-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Real-Time Sync</h3>
+          <p>Changes reflect instantly. Your AI agents always have the latest data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Enterprise-Grade Integration Features</h2>
+        <p>Built for teams that need control, security, and <strong>full customization</strong>.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Governed Access Control</h3>
+          <p>Define exactly which tools each AI agent can access. Role-based permissions ensure sensitive data stays protected.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Custom API Connections</h3>
+          <p>Connect to any REST or GraphQL API. Private endpoints, custom authentication, and full control over data flow.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>Fully Customizable Workspaces</h3>
+          <p>Tailor every workspace to your department's needs. Custom workflows, tool combinations, and access patterns.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Instant Setup</h3>
+          <p>One-click OAuth connections. No complex configuration. Your integrations are ready in seconds, not days.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Real-Time Sync</h3>
+          <p>Changes in your tools are instantly available to your AI agents. No delays, no manual refreshes needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <h3>Audit & Compliance</h3>
+          <p>Complete audit trails for every API call. Track access, monitor usage, and maintain compliance effortlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Need a Custom Integration?</h2>
+        <p>We can connect your AI agents to any tool in your stack—public APIs, private endpoints, or custom-built solutions. <strong>Fully customizable</strong> to your needs.</p>
+        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-cta">Request Custom Integration</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+            <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+            <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span>Atla<span style="color: #2563EB;">Synq</span></span>
+        </a>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">The unified, governed intelligence layer for enterprise AI agents.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="../pricing/" class="footer-link">Pricing</a>
+        <a href="../features/" class="footer-link">Features</a>
+        <a href="../security/" class="footer-link">Security</a>
+        <a href="../integrations/" class="footer-link">Integrations</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../about/" class="footer-link">About</a>
+        <a href="../careers/" class="footer-link">Careers</a>
+        <a href="../#governance" class="footer-link">Governance</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="../privacy/" class="footer-link">Privacy Policy</a>
+        <a href="../terms/" class="footer-link">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted);">
+      © 2026 AtlaSynq Inc. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      hamburgerBtn.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenuFunc() {
+      mobileMenu.classList.remove('active');
+      hamburgerBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', openMobileMenu);
+    }
+    if (closeMobileMenu) {
+      closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+    }
+    
+    mobileMenu.addEventListener('click', function(e) {
+      if (e.target === mobileMenu) {
+        closeMobileMenuFunc();
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenuFunc);
+    });
+  </script>
+
+</body>
+</html>
