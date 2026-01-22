@@ -275,11 +275,13 @@
       max-width: 400px;
       height: 100%;
       padding: 2rem;
-      position: relative;
+      position: fixed;
+      top: 0;
+      right: 0;
       overflow-y: auto;
-      transform: translateX(-100%);
+      transform: translateX(100%);
       transition: transform 0.3s ease;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-menu-overlay.active .mobile-menu-content {
@@ -1639,6 +1641,21 @@
     
     /* Additional mobile adjustments for very small screens */
     @media(max-width: 480px) {
+      .mobile-menu-content {
+        width: 90%;
+        padding: 1.25rem;
+      }
+
+      .hamburger-menu-btn {
+        width: 32px;
+        height: 32px;
+      }
+
+      .mobile-nav-link {
+        font-size: 0.95rem;
+        padding: 0.875rem 0;
+      }
+
       h1 { font-size: 1.8rem; }
       h2 { font-size: 1.6rem; }
       h3 { font-size: 1.2rem; }
