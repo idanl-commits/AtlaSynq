@@ -1868,7 +1868,7 @@
                 <input type="text" name="title" placeholder="Job Title" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
               </div>
               <div>
-                <input type="tel" name="phone" placeholder="Phone Number (Optional)" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
+                <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
               </div>
             </div>
 
@@ -2239,6 +2239,15 @@
           btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+              mobileMenu.classList.remove('active');
+              if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+              document.body.style.overflow = '';
+            }
             
             // Open Calendly popup widget
             if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {

@@ -1924,6 +1924,15 @@
             e.preventDefault();
             e.stopPropagation();
             
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+              mobileMenu.classList.remove('active');
+              if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+            
             // Open Calendly popup widget
             if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
               window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });

@@ -1093,6 +1093,15 @@
             e.preventDefault();
             e.stopPropagation();
             
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+              mobileMenu.classList.remove('active');
+              if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+            
             // Open Calendly popup widget
             if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
               window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
@@ -1146,6 +1155,48 @@
         }
       }
     });
+
+    // Mobile Menu Toggle
+    (function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMobileMenu() {
+        if (hamburgerBtn) hamburgerBtn.classList.add('active');
+        if (mobileMenu) mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenuFunc() {
+        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMobileMenu);
+      }
+
+      if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+      }
+
+      // Close menu when clicking on a link
+      mobileNavLinks.forEach(function(link) {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
+
+      // Close menu when clicking outside
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            closeMobileMenuFunc();
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
