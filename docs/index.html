@@ -33,7 +33,7 @@
       "url": "https://www.atlasynq.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.atlasynq.com/images/atlasynq-logo.png",
+        "url": "https://www.atlasynq.com/images/icon.png",
         "caption": "AtlaSynq Logo"
       },
       "description": "Build secure, internal AI agents for every department.",
@@ -90,9 +90,9 @@
     };
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="https://www.atlasynq.com/favicon.svg">
-  <link rel="alternate icon" type="image/png" href="https://www.atlasynq.com/images/atlasynq-logo.png" sizes="96x96">
-  <link rel="apple-touch-icon" href="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,25 +265,21 @@
     }
 
     .mobile-menu-overlay.active {
-      display: flex;
+      display: block;
       opacity: 1;
     }
 
     .mobile-menu-content {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 85%;
+      background: white;
+      width: 80%;
       max-width: 400px;
       height: 100%;
-      background: white;
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      padding: 2rem 1.5rem;
+      padding: 2rem;
+      position: relative;
       overflow-y: auto;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-menu-overlay.active .mobile-menu-content {
@@ -291,41 +287,67 @@
     }
 
     .mobile-menu-close {
-      align-self: flex-end;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
       background: none;
       border: none;
       font-size: 2rem;
-      color: #0f172a;
       cursor: pointer;
-      padding: 0;
-      width: 40px;
-      height: 40px;
+      color: var(--text);
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .mobile-menu-close:hover {
+      background: var(--bg-alt);
     }
 
     .mobile-nav {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      flex: 1;
+      gap: 1rem;
+      margin-top: 3rem;
     }
 
     .mobile-nav-link {
-      padding: 1rem 1rem;
-      color: #0f172a;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      transition: all 0.2s;
+      color: var(--text);
+      font-weight: 500;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      display: block;
+      font-size: 1rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-nav-link::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, #2563EB, #06b6d4);
+      transition: height 0.3s;
+      border-radius: 2px;
     }
 
     .mobile-nav-link:hover {
-      background: #f1f5f9;
-      color: var(--primary);
+      color: #2563EB;
+      padding-left: 1rem;
+    }
+
+    .mobile-nav-link:hover::before {
+      height: 60%;
     }
 
     .mobile-menu-actions {
@@ -1685,7 +1707,6 @@
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobileMenu">
     <div class="mobile-menu-content">
       <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
@@ -1699,7 +1720,7 @@
       </nav>
       <div class="mobile-menu-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
+        <a href="#" onclick="closeMobileMenuFunc(); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary">Book Demo</a>
       </div>
     </div>
   </div>
@@ -2961,41 +2982,35 @@
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobileMenu = document.getElementById('mobileMenu');
       const closeMobileMenu = document.getElementById('closeMobileMenu');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
       function openMobileMenu() {
-        if (hamburgerBtn) hamburgerBtn.classList.add('active');
-        if (mobileMenu) mobileMenu.classList.add('active');
+        mobileMenu.classList.add('active');
+        hamburgerBtn.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
       function closeMobileMenuFunc() {
-        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-        if (mobileMenu) mobileMenu.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
         document.body.style.overflow = '';
       }
 
       if (hamburgerBtn) {
         hamburgerBtn.addEventListener('click', openMobileMenu);
       }
-
       if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
       }
-
-      // Close menu when clicking on a link
-      mobileNavLinks.forEach(function(link) {
-        link.addEventListener('click', closeMobileMenuFunc);
+      
+      mobileMenu.addEventListener('click', function(e) {
+        if (e.target === mobileMenu) {
+          closeMobileMenuFunc();
+        }
       });
 
-      // Close menu when clicking outside
-      if (mobileMenu) {
-        mobileMenu.addEventListener('click', function(e) {
-          if (e.target === mobileMenu) {
-            closeMobileMenuFunc();
-          }
-        });
-      }
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
     })();
 
     // Global Cookie Banner Logic - Granular Consent
