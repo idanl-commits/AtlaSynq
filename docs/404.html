@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found — AtlaSynq</title>
+  <meta name="description" content="Page not found">
+  <meta name="robots" content="noindex,nofollow">
+  
+  <link rel="icon" type="image/svg+xml" href="https://www.atlasynq.com/favicon.svg">
+  <link rel="alternate icon" type="image/png" href="https://www.atlasynq.com/images/atlasynq-logo.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="https://www.atlasynq.com/images/atlasynq-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* VARIABLES */
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc; 
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+    
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: var(--bg);
+      color: var(--text); 
+      line-height: 1.7; 
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.75); 
+      backdrop-filter: blur(16px); 
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.6); 
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
+    }
+
+    .nav {
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo { 
+      display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; 
+      color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; 
+    }
+    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex; gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+      border-color: var(--text);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger-menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+    }
+
+    .mobile-menu-content {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100%;
+      background: white;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active .mobile-menu-content {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 2rem;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+
+    .mobile-nav-link {
+      padding: 12px 0;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu-actions {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-menu-actions .btn {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin: 0;
+      min-height: 48px;
+    }
+
+    .mobile-menu-actions .btn-secondary {
+      background: white;
+      border: 2px solid var(--border);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .mobile-menu-actions .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+
+    @media(max-width: 900px) {
+      .nav-links, .header-actions {
+        display: none;
+      }
+      .hamburger-menu-btn {
+        display: flex;
+      }
+    }
+
+    /* 404 Content */
+    .error-section {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .error-content {
+      max-width: 600px;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: 800;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .error-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .error-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .error-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+
+    .error-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-alt);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .footer-grid h4 {
+      color: #0f172a;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .footer-link {
+      color: #000000;
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 12px;
+      display: block;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      opacity: 0.85;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+      opacity: 1;
+      transform: translateX(2px);
+    }
+
+    @media(max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .error-code {
+        font-size: 5rem;
+      }
+      .error-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Atla<span style="color: var(--primary);">Synq</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="/pricing/" class="nav-link">Pricing</a>
+        <a href="/features/" class="nav-link">Features</a>
+        <a href="/security/" class="nav-link">Security</a>
+        <a href="/#product" class="nav-link">Product</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/#integrations" class="nav-link">Integrations</a>
+      </div>
+      <div class="header-actions">
+        <a href="/login/" class="btn btn-secondary">Log in</a>
+        <button class="btn btn-primary" onclick="window.__openCalendly && window.__openCalendly('https://calendly.com/atlasynq/demo'); return false;">Book Demo</button>
+      </div>
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
+      <nav class="mobile-nav">
+        <a href="/pricing/" class="mobile-nav-link">Pricing</a>
+        <a href="/features/" class="mobile-nav-link">Features</a>
+        <a href="/security/" class="mobile-nav-link">Security</a>
+        <a href="/#product" class="mobile-nav-link">Product</a>
+        <a href="/about/" class="mobile-nav-link">About</a>
+        <a href="/#integrations" class="mobile-nav-link">Integrations</a>
+      </nav>
+      <div class="mobile-menu-actions">
+        <a href="/login/" class="btn btn-secondary">Log in</a>
+        <button class="btn btn-primary" onclick="closeMobileMenuFunc(); window.__openCalendly && window.__openCalendly('https://calendly.com/atlasynq/demo'); return false;">Book Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="error-section">
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-description">It seems you've ventured into uncharted territory.</p>
+      <a href="/" class="error-btn">Return to Home</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
+            <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
+            <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span>Atla<span style="color: var(--primary);">Synq</span></span>
+        </a>
+        <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
+      </div>
+      <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
+      <div><h4>Company</h4><a href="/about/" class="footer-link">About</a><a href="/careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
+      <div><h4>Legal</h4><a href="/privacy/" class="footer-link">Privacy Policy</a><a href="/terms/" class="footer-link">Terms of Service</a></div>
+    </div>
+    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc.</div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    (function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMobileMenu() {
+        if (hamburgerBtn) hamburgerBtn.classList.add('active');
+        if (mobileMenu) mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenuFunc() {
+        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMobileMenu);
+      }
+
+      if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+      }
+
+      mobileNavLinks.forEach(function(link) {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
+
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            closeMobileMenuFunc();
+          }
+        });
+      }
+    })();
+
+    // Calendly integration
+    window.__openCalendly = function(url) {
+      try {
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.Calendly.initPopupWidget({ url: url });
+          return false;
+        }
+      } catch (e) {}
+      var attempts = 0;
+      var t = window.setInterval(function() {
+        attempts++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          window.clearInterval(t);
+          window.Calendly.initPopupWidget({ url: url });
+        } else if (attempts >= 40) {
+          window.clearInterval(t);
+          window.location.href = url;
+        }
+      }, 50);
+      return false;
+    };
+  </script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</body>
+</html>
