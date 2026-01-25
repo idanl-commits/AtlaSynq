@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com/integrations/";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -56,9 +57,9 @@
     };
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="../images/icon.png">
-  <link rel="apple-touch-icon" href="../images/icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+  <link rel="apple-touch-icon" href="/images/icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,6 +221,24 @@
     }
     .nav-links a:hover, .nav-link:hover {
         color: var(--primary); /* Blue on hover */
+    }
+
+    /* Active Navigation State */
+    .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .nav-link.active::after, .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
     }
 
 
@@ -1354,22 +1373,22 @@
         </p>
         <div class="hero-logos">
           <div class="hero-logo-item">
-            <img src="../images/salesforce.png" alt="Salesforce">
+            <img src="/images/salesforce.png" alt="Salesforce" loading="lazy">
           </div>
           <div class="hero-logo-item">
-            <img src="../images/slack.png" alt="Slack">
+            <img src="/images/slack.png" alt="Slack" loading="lazy">
           </div>
           <div class="hero-logo-item">
-            <img src="../images/github.jpg" alt="GitHub">
+            <img src="/images/github.jpg" alt="GitHub" loading="lazy">
           </div>
           <div class="hero-logo-item">
-            <img src="../images/notion.png" alt="Notion">
+            <img src="/images/notion.png" alt="Notion" loading="lazy">
           </div>
           <div class="hero-logo-item">
-            <img src="../images/jira.png" alt="Jira">
+            <img src="/images/jira.png" alt="Jira" loading="lazy">
           </div>
           <div class="hero-logo-item">
-            <img src="../images/hubspot.png" alt="HubSpot">
+            <img src="/images/hubspot.png" alt="HubSpot" loading="lazy">
           </div>
         </div>
       </div>
@@ -1391,54 +1410,54 @@
       </div>
       <div class="integrations-grid">
         <div class="integration-card">
-          <img src="../images/salesforce.png" alt="Salesforce">
+          <img src="/images/salesforce.png" alt="Salesforce">
           <h3>Salesforce</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/slack.png" alt="Slack">
+          <img src="/images/slack.png" alt="Slack">
           <h3>Slack</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/github.jpg" alt="GitHub">
+          <img src="/images/github.jpg" alt="GitHub">
           <h3>GitHub</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/teams.png" alt="Teams">
+          <img src="/images/teams.png" alt="Teams" loading="lazy">
           <h3>Microsoft Teams</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/drive.png" alt="Drive">
+          <img src="/images/drive.png" alt="Drive" loading="lazy">
           <h3>Google Drive</h3>
         </div>
         <div class="integration-card integration-card-gmail">
           <div class="logo-wrapper">
-            <img src="../images/gmail.jpg" alt="Gmail">
+            <img src="/images/gmail.jpg" alt="Gmail" loading="lazy">
             <span>Gmail</span>
           </div>
           <h3>Gmail</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/zendesk.png" alt="Zendesk">
+          <img src="/images/zendesk.png" alt="Zendesk" loading="lazy">
           <h3>Zendesk</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/linear.png" alt="Linear">
+          <img src="/images/linear.png" alt="Linear" loading="lazy">
           <h3>Linear</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/notion.png" alt="Notion">
+          <img src="/images/notion.png" alt="Notion">
           <h3>Notion</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/hubspot.png" alt="HubSpot">
+          <img src="/images/hubspot.png" alt="HubSpot">
           <h3>HubSpot</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/jira.png" alt="Jira">
+          <img src="/images/jira.png" alt="Jira">
           <h3>Jira</h3>
         </div>
         <div class="integration-card">
-          <img src="../images/netsuite.png" alt="NetSuite">
+          <img src="/images/netsuite.png" alt="NetSuite" loading="lazy">
           <h3>NetSuite</h3>
         </div>
         <div class="integration-card integration-card-openapi">
@@ -1665,6 +1684,43 @@
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', closeMobileMenuFunc);
     });
+  </script>
+
+  <script>
+    // Active Navigation State
+    (function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
+      
+      // Normalize current path (remove trailing slash except for root)
+      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+      
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        
+        // Normalize link path
+        let linkPath = href;
+        if (href.startsWith('/')) {
+          linkPath = href;
+        } else if (href.startsWith('../')) {
+          // Convert relative paths to absolute
+          const segments = href.split('/').filter(s => s && s !== '..');
+          linkPath = '/' + segments[segments.length - 1];
+        } else {
+          return; // Skip other relative paths
+        }
+        
+        // Normalize link path (remove trailing slash except for root)
+        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
+        
+        // Check for exact match or if current path starts with link path
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
+          link.classList.add('active');
+        }
+      });
+    })();
   </script>
 
 </body>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
     <script>
       const CANONICAL_URL = "https://www.atlasynq.com/terms/";
       const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -97,9 +98,9 @@
 }
 </script>
 
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="../images/icon.png">
-    <link rel="apple-touch-icon" href="../images/icon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+    <link rel="apple-touch-icon" href="/images/icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -214,6 +215,24 @@
 
       .nav-link:hover {
         color: var(--primary);
+      }
+
+      /* Active Navigation State */
+      .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 700;
+        position: relative;
+      }
+
+      .nav-link.active::after, .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
       }
 
       .btn {
@@ -1613,5 +1632,44 @@
       link.addEventListener('click', closeMobileMenuFunc);
     });
   </script>
-  </body>
+
+  <script>
+  <script>
+    // Active Navigation State
+    (function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
+      
+      // Normalize current path (remove trailing slash except for root)
+      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+      
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        
+        // Normalize link path
+        let linkPath = href;
+        if (href.startsWith('/')) {
+          linkPath = href;
+        } else if (href.startsWith('../')) {
+          // Convert relative paths to absolute
+          const segments = href.split('/').filter(s => s && s !== '..');
+          linkPath = '/' + segments[segments.length - 1];
+        } else {
+          return; // Skip other relative paths
+        }
+        
+        // Normalize link path (remove trailing slash except for root)
+        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
+        
+        // Check for exact match or if current path starts with link path
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
+  </script>
+</body>
 </html>

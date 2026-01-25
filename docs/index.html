@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -11,7 +12,7 @@
   </script>
   <title>AtlaSynq — The Governed AI Layer</title>
   <meta name="description" content="Build secure, internal AI agents for every department. Connect sales, HR, and IT tools securely.">
-  <link rel="canonical" href="https://www.atlasynq.com" />
+  <link rel="canonical" href="https://www.atlasynq.com/" />
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="AtlaSynq — The Governed AI Layer">
   <meta property="og:description" content="Build secure, internal AI agents for every department. Connect sales, HR, and IT tools securely.">
@@ -90,9 +91,9 @@
     };
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="images/icon.png">
-  <link rel="apple-touch-icon" href="images/icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+  <link rel="apple-touch-icon" href="/images/icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,6 +213,24 @@
     }
     .nav-links a:hover, .nav-link:hover {
         color: var(--primary); /* Blue on hover */
+    }
+
+    /* Active Navigation State */
+    .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .nav-link.active::after, .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
     }
 
     /* Hamburger Menu Button (Hidden on Desktop) */
@@ -2124,77 +2143,77 @@
       <div class="logos-wrapper">
         <div class="logos-track">
            <div class="logo-item">
-              <img src="images/slack.png" alt="Slack">
+              <img src="/images/slack.png" alt="Slack" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/salesforce.png" alt="Salesforce">
+              <img src="/images/salesforce.png" alt="Salesforce" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/github.jpg" alt="GitHub">
+              <img src="/images/github.jpg" alt="GitHub" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/notion.png" alt="Notion">
+              <img src="/images/notion.png" alt="Notion" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.png" alt="HubSpot">
+              <img src="/images/hubspot.png" alt="HubSpot" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira">
+              <img src="/images/jira.png" alt="Jira" loading="lazy">
            </div>
            <div class="logo-item logo-drive">
-              <img src="images/drive.png" alt="Drive"> Drive
+              <img src="/images/drive.png" alt="Drive" loading="lazy"> Drive
            </div>
            <div class="logo-item">
-              <img src="images/teams.png" alt="Teams">
+              <img src="/images/teams.png" alt="Teams" loading="lazy">
            </div>
            <div class="logo-item logo-gmail">
               <div class="logo-wrapper">
-                <img src="images/gmail.jpg" alt="Gmail">
+                <img src="/images/gmail.jpg" alt="Gmail" loading="lazy">
                 <span>Gmail</span>
               </div>
            </div>
            <div class="logo-item">
-              <img src="images/zendesk.png" alt="Zendesk">
+              <img src="/images/zendesk.png" alt="Zendesk" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/linear.png" alt="Linear">
+              <img src="/images/linear.png" alt="Linear" loading="lazy">
            </div>
 
            <div class="logo-item">
-              <img src="images/slack.png" alt="Slack">
+              <img src="/images/slack.png" alt="Slack" loading="lazy">
         </div>
            <div class="logo-item">
-              <img src="images/salesforce.png" alt="Salesforce">
+              <img src="/images/salesforce.png" alt="Salesforce" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/github.jpg" alt="GitHub">
+              <img src="/images/github.jpg" alt="GitHub" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/notion.png" alt="Notion">
+              <img src="/images/notion.png" alt="Notion" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/hubspot.png" alt="HubSpot">
+              <img src="/images/hubspot.png" alt="HubSpot" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/jira.png" alt="Jira">
+              <img src="/images/jira.png" alt="Jira" loading="lazy">
            </div>
            <div class="logo-item logo-drive">
-              <img src="images/drive.png" alt="Drive"> Drive
+              <img src="/images/drive.png" alt="Drive" loading="lazy"> Drive
            </div>
            <div class="logo-item logo-gmail">
               <div class="logo-wrapper">
-                <img src="images/gmail.jpg" alt="Gmail">
+                <img src="/images/gmail.jpg" alt="Gmail" loading="lazy">
                 <span>Gmail</span>
               </div>
            </div>
            <div class="logo-item">
-              <img src="images/zendesk.png" alt="Zendesk">
+              <img src="/images/zendesk.png" alt="Zendesk" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/linear.png" alt="Linear">
+              <img src="/images/linear.png" alt="Linear" loading="lazy">
            </div>
            <div class="logo-item">
-              <img src="images/teams.png" alt="Teams">
+              <img src="/images/teams.png" alt="Teams" loading="lazy">
            </div>
         </div>
       </div>
@@ -2218,16 +2237,16 @@
         </div>
         
         <div class="satellite sat-1" id="sat-1">
-             <img src="images/slack.png" alt="Slack">
+             <img src="/images/slack.png" alt="Slack">
         </div>
         <div class="satellite sat-2" id="sat-2">
-            <img src="images/jira.png" alt="Jira">
+            <img src="/images/jira.png" alt="Jira">
         </div>
         <div class="satellite sat-3" id="sat-3">
-             <img src="images/salesforce.png" alt="Salesforce">
+             <img src="/images/salesforce.png" alt="Salesforce">
         </div>
         <div class="satellite sat-4" id="sat-4">
-             <img src="images/drive.png" alt="Google Drive">
+             <img src="/images/drive.png" alt="Google Drive">
         </div>
         
         <svg class="animated-lines-svg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
@@ -2270,10 +2289,10 @@
               </svg>
             </div>
             
-            <div class="node-tag" style="top: 20%; left: 15%; animation-delay:0s;"><img src="images/netsuite.png" alt="NetSuite"></div>
-            <div class="node-tag" style="top: 15%; right: 15%; animation-delay:1s;"><img src="images/jira.png" alt="Jira"></div>
-            <div class="node-tag" style="bottom: 25%; right: 20%; animation-delay:2s;"><img src="images/salesforce.png" alt="Salesforce"></div>
-            <div class="node-tag" style="bottom: 30%; left: 20%; animation-delay:1.5s;"><img src="images/slack.png" alt="Slack"></div>
+            <div class="node-tag" style="top: 20%; left: 15%; animation-delay:0s;"><img src="/images/netsuite.png" alt="NetSuite"></div>
+            <div class="node-tag" style="top: 15%; right: 15%; animation-delay:1s;"><img src="/images/jira.png" alt="Jira"></div>
+            <div class="node-tag" style="bottom: 25%; right: 20%; animation-delay:2s;"><img src="/images/salesforce.png" alt="Salesforce"></div>
+            <div class="node-tag" style="bottom: 30%; left: 20%; animation-delay:1.5s;"><img src="/images/slack.png" alt="Slack"></div>
             <div class="node-tag" style="top: 45%; right: 10%; border-style:dashed; color:var(--primary); border-color:var(--primary);">+ Custom API</div>
           </div>
         </div>
@@ -2359,9 +2378,9 @@
               </div>
               <div style="font-weight:600; margin-bottom:12px; font-size:1.05rem;">Sales Team Agent</div>
               <ul class="approval-list">
-                <li><img src="images/salesforce.png" alt="Salesforce"> Salesforce (Read/Write)</li>
-                <li><img src="images/hubspot.png" alt="HubSpot"> HubSpot (Read Only)</li>
-                <li><img src="images/notion.png" alt="Notion"> Notion (Read Only)</li>
+                <li><img src="/images/salesforce.png" alt="Salesforce"> Salesforce (Read/Write)</li>
+                <li><img src="/images/hubspot.png" alt="HubSpot"> HubSpot (Read Only)</li>
+                <li><img src="/images/notion.png" alt="Notion"> Notion (Read Only)</li>
               </ul>
               <div class="approval-actions">
                 <div class="approval-btn btn-deny">Deny</div>
@@ -2395,27 +2414,27 @@
             <h3 style="margin-bottom:20px;">Select Foundation Model</h3>
             <div class="grid-3">
               <div class="b-card" id="llm-gpt">
-                 <img src="images/gpt.png" alt="GPT-4o">
+                 <img src="/images/gpt.png" alt="GPT-4o" loading="lazy">
                  <h4>GPT-4o</h4>
               </div>
               <div class="b-card" id="llm-claude">
-                 <img src="images/claude.png" alt="Claude 3.5">
+                 <img src="/images/claude.png" alt="Claude 3.5" loading="lazy">
                  <h4>Claude 3.5</h4>
               </div>
               <div class="b-card" id="llm-gemini">
-                 <img src="images/gemini.png" alt="Gemini 1.5">
+                 <img src="/images/gemini.png" alt="Gemini 1.5" loading="lazy">
                  <h4>Gemini 1.5</h4>
               </div>
               <div class="b-card" id="llm-llama">
-                 <img src="images/llama.png" alt="Llama 3">
+                 <img src="/images/llama.png" alt="Llama 3" loading="lazy">
                  <h4>Llama 3</h4>
               </div>
               <div class="b-card" id="llm-copilot">
-                 <img src="images/copilot.png" alt="Copilot">
+                 <img src="/images/copilot.png" alt="Copilot" loading="lazy">
                  <h4>Copilot</h4>
               </div>
               <div class="b-card" id="llm-perplexity">
-                 <img src="images/pplx.png" alt="Perplexity">
+                 <img src="/images/pplx.png" alt="Perplexity" loading="lazy">
                  <h4>Perplexity</h4>
               </div>
             </div>
@@ -3018,12 +3037,12 @@
       if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
       }
-      
-      mobileMenu.addEventListener('click', function(e) {
-        if (e.target === mobileMenu) {
-          closeMobileMenuFunc();
-        }
-      });
+
+        mobileMenu.addEventListener('click', function(e) {
+          if (e.target === mobileMenu) {
+            closeMobileMenuFunc();
+          }
+        });
 
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', closeMobileMenuFunc);
@@ -3247,10 +3266,17 @@
       await sleep(400);
     }
 
+    // HTML Escaping Helper (XSS Prevention)
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
     async function typeText(el, text) {
         el.innerText = "";
         for (let char of text) {
-            el.innerHTML += char === ' ' ? '&nbsp;' : char;
+            el.innerHTML += char === ' ' ? '&nbsp;' : escapeHtml(char);
             await sleep(40);
         }
     }
@@ -3303,13 +3329,13 @@
         // 5. User Msg
         document.getElementById('heroTyper').innerText = "";
         document.getElementById('heroFeed').innerHTML += `
-          <div class="msg user"><div class="bubble">${s.q}</div></div>
+          <div class="msg user"><div class="bubble">${escapeHtml(s.q)}</div></div>
         `;
 
         await sleep(1200);
 
         // 6. AI Msg - WITH NEW BOT AVATAR (AtlaSynq Logo)
-        const tags = s.cites.map(c => `<div class="cite-tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/></svg>${c}</div>`).join('');
+        const tags = s.cites.map(c => `<div class="cite-tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/></svg>${escapeHtml(c)}</div>`).join('');
         document.getElementById('heroFeed').innerHTML += `
           <div class="msg ai">
             <div class="agent-avatar">
@@ -3320,7 +3346,7 @@
                 </svg>
             </div>
             <div style="flex:1;">
-               <div class="bubble">${s.a}</div>
+               <div class="bubble">${escapeHtml(s.a)}</div>
                <div class="citations">${tags}</div>
             </div>
           </div>`;
@@ -3334,23 +3360,23 @@
     // --- BUILDER LOOP ---
     const icons = {
       // LLMs - Local Images (Verified extensions)
-      gpt: '<img src="images/gpt.png" alt="GPT">',
-      claude: '<img src="images/claude.png" alt="Claude">',
-      gemini: '<img src="images/gemini.png" alt="Gemini">',
-      llama: '<img src="images/llama.png" alt="Llama">',
-      copilot: '<img src="images/copilot.png" alt="Copilot">',
-      perplexity: '<img src="images/pplx.png" alt="Perplexity">',
+      gpt: '<img src="/images/gpt.png" alt="GPT">',
+      claude: '<img src="/images/claude.png" alt="Claude">',
+      gemini: '<img src="/images/gemini.png" alt="Gemini">',
+      llama: '<img src="/images/llama.png" alt="Llama">',
+      copilot: '<img src="/images/copilot.png" alt="Copilot">',
+      perplexity: '<img src="/images/pplx.png" alt="Perplexity">',
 
       // Tools - Local Images (Verified extensions)
-      netsuite: '<img src="images/netsuite.png" alt="NetSuite">',
-      stripe: '<img src="images/stripe.jpg" alt="Stripe">', 
-      salesforce: '<img src="images/salesforce.png" alt="Salesforce">', 
-      hubspot: '<img src="images/hubspot.png" alt="HubSpot">',        
-      jira: '<img src="images/jira.png" alt="Jira">',
-      excel: '<img src="images/excel.png" alt="Excel">', 
-      quickbooks: '<img src="images/quickbooks.png" alt="QuickBooks">',
-      gong: '<img src="images/gong.png" alt="Gong">',
-      linkedin: '<img src="images/linkedin.png" alt="LinkedIn">',
+      netsuite: '<img src="/images/netsuite.png" alt="NetSuite">',
+      stripe: '<img src="/images/stripe.jpg" alt="Stripe">', 
+      salesforce: '<img src="/images/salesforce.png" alt="Salesforce">', 
+      hubspot: '<img src="/images/hubspot.png" alt="HubSpot">',        
+      jira: '<img src="/images/jira.png" alt="Jira">',
+      excel: '<img src="/images/excel.png" alt="Excel">', 
+      quickbooks: '<img src="/images/quickbooks.png" alt="QuickBooks">',
+      gong: '<img src="/images/gong.png" alt="Gong">',
+      linkedin: '<img src="/images/linkedin.png" alt="LinkedIn">',
       
       // UI Icons (Keep as SVG)
       plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>'
@@ -3475,12 +3501,12 @@
         await sleep(500);
         document.getElementById('cpInputBox').classList.remove('active');
         document.getElementById('resTyper').innerText = "";
-        document.getElementById('resChatFeed').innerHTML += `<div class="msg user"><div class="bubble">${s.q}</div></div>`;
+        document.getElementById('resChatFeed').innerHTML += `<div class="msg user"><div class="bubble">${escapeHtml(s.q)}</div></div>`;
         
         await sleep(1500);
         
         // Render Answer with Source Chip below - WITH NEW BOT AVATAR (AtlaSynq Logo)
-        const sourcesHtml = s.sources.map(src => `<span class="cite-tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/></svg>${src}</span>`).join('');
+        const sourcesHtml = s.sources.map(src => `<span class="cite-tag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/></svg>${escapeHtml(src)}</span>`).join('');
         document.getElementById('resChatFeed').innerHTML += `
             <div class="msg ai">
               <div class="agent-avatar">
@@ -3491,7 +3517,7 @@
                 </svg>
               </div>
               <div style="flex:1">
-                  <div class="bubble">${s.a}</div>
+                  <div class="bubble">${escapeHtml(s.a)}</div>
                   <div class="citations">${sourcesHtml}</div>
               </div>
             </div>`;
@@ -3908,6 +3934,43 @@
         }
       }
     });
+  </script>
+
+  <script>
+    // Active Navigation State
+    (function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
+      
+      // Normalize current path (remove trailing slash except for root)
+      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+      
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        
+        // Normalize link path
+        let linkPath = href;
+        if (href.startsWith('/')) {
+          linkPath = href;
+        } else if (href.startsWith('../')) {
+          // Convert relative paths to absolute
+          const segments = href.split('/').filter(s => s && s !== '..');
+          linkPath = '/' + segments[segments.length - 1];
+        } else {
+          return; // Skip other relative paths
+        }
+        
+        // Normalize link path (remove trailing slash except for root)
+        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
+        
+        // Check for exact match or if current path starts with link path
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
+          link.classList.add('active');
+        }
+      });
+    })();
   </script>
 </body>
 </html>

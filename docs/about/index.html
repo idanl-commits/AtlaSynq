@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com/about/";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -67,9 +68,9 @@
   
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="../images/icon.png">
-  <link rel="apple-touch-icon" href="../images/icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+  <link rel="apple-touch-icon" href="/images/icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,7 +146,7 @@
     }
 
     .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
-        .btn-primary { 
+    .btn-primary { 
       background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
       background-size: 200% 200%;
       animation: gradientFlow 4s ease infinite;
@@ -212,6 +213,24 @@
     }
     .nav-links a:hover, .nav-link:hover {
         color: var(--primary); /* Blue on hover */
+    }
+
+    /* Active Navigation State */
+    .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .nav-link.active::after, .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
     }
 
     /* Hamburger Menu Button (Hidden on Desktop) */
@@ -1827,16 +1846,16 @@
     </svg>
   </div>
               <div class="satellite sat-1" style="width: 70px; height: 70px; animation: float 5s ease-in-out infinite 0.5s;">
-                <img src="../images/slack.png" alt="Slack" style="width: 45px; height: 45px;">
+                <img src="/images/slack.png" alt="Slack" style="width: 45px; height: 45px;" loading="lazy">
   </div>
               <div class="satellite sat-2" style="width: 70px; height: 70px; animation: float 5.5s ease-in-out infinite 1s;">
-                <img src="../images/jira.png" alt="Jira" style="width: 45px; height: 45px;">
+                <img src="/images/jira.png" alt="Jira" style="width: 45px; height: 45px;" loading="lazy">
   </div>
               <div class="satellite sat-3" style="width: 70px; height: 70px; animation: float 4.5s ease-in-out infinite 1.5s;">
-                <img src="../images/salesforce.png" alt="Salesforce" style="width: 45px; height: 45px;">
+                <img src="/images/salesforce.png" alt="Salesforce" style="width: 45px; height: 45px;">
   </div>
               <div class="satellite sat-4" style="width: 70px; height: 70px; animation: float 5.2s ease-in-out infinite 2s;">
-                <img src="../images/drive.png" alt="Google Drive" style="width: 45px; height: 45px;">
+                <img src="/images/drive.png" alt="Google Drive" style="width: 45px; height: 45px;">
   </div>
   <svg class="animated-lines-svg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;">
                 <line id="line-1" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 4" style="animation: dashFlow 3s linear infinite;"></line>
@@ -2585,6 +2604,45 @@
         }, 1500);
       });
     })();
+  </script>
+
+  <script>
+  <script>
+    // Active Navigation State
+    (function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
+      
+      // Normalize current path (remove trailing slash except for root)
+      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+      
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+        
+        // Normalize link path
+        let linkPath = href;
+        if (href.startsWith('/')) {
+          linkPath = href;
+        } else if (href.startsWith('../')) {
+          // Convert relative paths to absolute
+          const segments = href.split('/').filter(s => s && s !== '..');
+          linkPath = '/' + segments[segments.length - 1];
+        } else {
+          return; // Skip other relative paths
+        }
+        
+        // Normalize link path (remove trailing slash except for root)
+        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
+        
+        // Check for exact match or if current path starts with link path
+        if (normalizedCurrentPath === normalizedLinkPath || 
+            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
   </script>
 </body>
 </html>
