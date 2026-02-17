@@ -1,0 +1,54 @@
+# AtlaSynq Staging — Same stack as dev, different env
+# Run from repo root: docker compose -f docker-compose.yml -f infra/docker/compose.staging.yml up -d
+# Requires: infra/env/staging.env (copy from infra/env/staging.env.example)
+
+services:
+  governance-engine:
+    env_file:
+      - ./infra/env/staging.env
+    environment:
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-https://staging.atlasynq.io}
+      APP_VERSION: staging
+
+  slack-listener:
+    env_file:
+      - ./infra/env/staging.env
+
+  worker:
+    env_file:
+      - ./infra/env/staging.env
+
+  librechat:
+    env_file:
+      - ./infra/env/staging.env
+    environment:
+      DOMAIN_CLIENT: ${STAGING_CLIENT_URL:-https://staging.atlasynq.io}
+      DOMAIN_SERVER: ${STAGING_SERVER_URL:-https://staging.atlasynq.io}
+
+  mcp-brave:
+    env_file:
+      - ./infra/env/staging.env
+
+  mcp-salesforce:
+    env_file:
+      - ./infra/env/staging.env
+
+  mcp-slack:
+    env_file:
+      - ./infra/env/staging.env
+
+  mcp-cognism:
+    env_file:
+      - ./infra/env/staging.env
+
+  mcp-jira:
+    env_file:
+      - ./infra/env/staging.env
+
+  mcp-google-workspace:
+    env_file:
+      - ./infra/env/staging.env
+
+  control-plane-api:
+    env_file:
+      - ./infra/env/staging.env
