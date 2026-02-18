@@ -1,0 +1,10 @@
+# Use this as .gitignore AFTER removing private content
+# Rename: mv .gitignore.website-only .gitignore
+
+.DS_Store
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+node_modules/
