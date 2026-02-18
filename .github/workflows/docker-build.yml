@@ -12,6 +12,7 @@ on:
     paths:
       - "platform/**"
       - "docker-compose.yml"
+      - ".github/workflows/docker-build.yml"
 
 jobs:
   build-and-scan:
@@ -90,6 +91,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Create platform .env for validation
+        run: mkdir -p platform && touch platform/.env
 
       - name: Validate docker-compose.yml
         run: docker compose config --quiet
