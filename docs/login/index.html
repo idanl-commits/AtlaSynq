@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.atlasynq.com http://localhost:8100 http://127.0.0.1:8100 https://www.googletagmanager.com https://www.google-analytics.com wss: https:;">
+    <!-- connect-src *: marketing page must call https://api.atlasynq.com (cross-origin). A tight CSP was blocking fetch() and showed only "Network error". -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src *;">
     <script>
       const CANONICAL_URL = "https://www.atlasynq.com/login/";
       const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -697,8 +698,18 @@
 
       // Login form — control-plane API
       (function() {
-        // Safe default: same-origin for dev, api.atlasynq.com for production
-        const CP_BASE = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? 'https://api.atlasynq.com' : (location.origin || location.protocol + '//' + location.host);
+        // Production marketing: control-plane API. Allow ?cp_api= override for staging/debug.
+        var _cpOverride = (function () {
+          try {
+            var p = new URLSearchParams(location.search).get('cp_api');
+            if (p && /^https?:\/\//i.test(p)) return p.replace(/\/$/, '');
+          } catch (e) {}
+          return null;
+        })();
+        const CP_BASE = _cpOverride
+          || ((location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com')
+            ? 'https://api.atlasynq.com'
+            : (location.origin || location.protocol + '//' + location.host));
         /** App host is chat-only; marketing site hosts login. */
         function atlasynqMarketingLoginUrl() {
           var h = location.hostname;
@@ -1057,6 +1068,8 @@
                 _loginStage('Signing in...');
                 const rCpM = await fetch(CP_BASE + '/api/cp/login', {
                   method: 'POST',
+                  mode: 'cors',
+                  credentials: 'omit',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ email, password }),
                 });
@@ -1195,8 +1208,14 @@
               setMsg(errMsg, 'error');
             } catch (err) {
               _removeLoginOv();
-              traceMark('auth_submit_network_error');
-              setMsg('Network error. Please try again.', 'error');
+              traceMark('auth_submit_network_error', { msg: err && err.message });
+              try { console.error('[login]', err); } catch (e) {}
+              var em = (err && err.message) ? String(err.message) : '';
+              var userMsg = 'Unable to reach the sign-in service. Please try again.';
+              if (/Failed to fetch|NetworkError|Load failed/i.test(em)) {
+                userMsg = 'Cannot reach api.atlasynq.com (network or browser blocking). If this persists, confirm the API is up and CORS allows ' + (location.origin || 'this site') + '.';
+              }
+              setMsg(userMsg, 'error');
             } finally {
               _loginSubmitting = false;
               submitBtn.disabled = false;

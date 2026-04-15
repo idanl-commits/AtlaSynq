@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.atlasynq.com http://localhost:8100 http://127.0.0.1:8100 https://www.googletagmanager.com https://www.google-analytics.com wss: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src *;">
     <script>
       const CANONICAL_URL = "https://www.atlasynq.com/signup/";
       const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -811,7 +811,17 @@
 
       // Signup form — control-plane API
       (function() {
-        const CP_BASE = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? 'https://api.atlasynq.com' : '';
+        var _cpOverride = (function () {
+          try {
+            var p = new URLSearchParams(location.search).get('cp_api');
+            if (p && /^https?:\/\//i.test(p)) return p.replace(/\/$/, '');
+          } catch (e) {}
+          return null;
+        })();
+        const CP_BASE = _cpOverride
+          || ((location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com')
+            ? 'https://api.atlasynq.com'
+            : (location.origin || location.protocol + '//' + location.host));
         function ssoNextQuery() {
           var n = new URLSearchParams(location.search).get('next') || '/onboarding.html';
           if (!n.startsWith('/') || n.indexOf('//') !== -1) n = '/onboarding.html';
@@ -891,6 +901,8 @@
             try {
               const r = await fetch(CP_BASE + '/api/cp/signup', {
                 method: 'POST',
+                mode: 'cors',
+                credentials: 'omit',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ full_name: fullName, email, password }),
               });
