@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Email — AtlaSynq</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --primary: #2563eb; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; }
+      * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f8fafc;
+        color: var(--text);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .verify-card {
+        background: white;
+        width: 100%;
+        max-width: 440px;
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        text-align: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--text);
+        text-decoration: none;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        gap: 8px;
+        margin-bottom: 2rem;
+      }
+      h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; font-family: "Plus Jakarta Sans"; }
+      p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+      .input-group { text-align: left; margin-bottom: 1rem; }
+      label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; }
+      input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: 0.2s;
+      }
+      input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+      .btn-verify {
+        width: 100%;
+        background: var(--primary);
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: 0.2s;
+      }
+      .btn-verify:hover { background: #1d4ed8; }
+      .btn-verify:disabled { opacity: 0.6; cursor: not-allowed; }
+      #verifyMsg {
+        padding: 0.65rem 0.85rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: none;
+        text-align: left;
+      }
+      #verifyMsg.error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; display: block; }
+      #verifyMsg.success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; display: block; }
+      .back-link { display: block; margin-top: 24px; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; }
+      .back-link:hover { color: var(--primary); }
+      a { color: var(--primary); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      @media(max-width: 480px) { body { padding: 1rem; } .verify-card { padding: 30px 24px; } }
+    </style>
+  </head>
+  <body>
+    <div class="verify-card">
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB" />
+          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8" />
+          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round" />
+        </svg>
+        <span>Atla<span style="color: var(--primary)">Synq</span></span>
+      </a>
+      <h1>Verify your email</h1>
+      <p>Enter the 6-digit code we sent to your email</p>
+      <div id="verifyMsg" role="alert"></div>
+      <form id="verifyForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@company.com" required />
+        </div>
+        <div class="input-group">
+          <label for="code">Verification code</label>
+          <input type="text" id="code" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required />
+        </div>
+        <button type="submit" class="btn-verify" id="submitBtn">Verify</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted)">
+        Didn't receive a code? <a href="#" id="resendLink">Resend</a>
+      </p>
+      <p id="devHint" style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); background: #f8fafc; padding: 0.75rem; border-radius: 8px; display: none;">
+        <strong>Local demo:</strong> Codes are not emailed. Check the console: <code>docker logs atlasynq-control-plane-api 2>&1 | tail -20</code>
+      </p>
+      <a href="/login/" class="back-link">← Back to login</a>
+    </div>
+    <script>
+      (function() {
+        var CP_BASE = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? 'https://api.atlasynq.com' : '';
+        var params = new URLSearchParams(location.search);
+        var emailParam = params.get('email');
+        var doResend = params.get('resend') === '1';
+        var msgEl = document.getElementById('verifyMsg');
+        var form = document.getElementById('verifyForm');
+        var emailInput = document.getElementById('email');
+        var codeInput = document.getElementById('code');
+        var submitBtn = document.getElementById('submitBtn');
+        var resendLink = document.getElementById('resendLink');
+        var devHint = document.getElementById('devHint');
+        if (emailParam) {
+          emailInput.value = emailParam;
+          emailInput.readOnly = true;
+        }
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '0.0.0.0') {
+          if (devHint) devHint.style.display = 'block';
+        }
+        function setMsg(text, type) {
+          msgEl.textContent = text || '';
+          msgEl.className = type || '';
+          msgEl.style.display = text ? 'block' : 'none';
+        }
+        resendLink.href = '?email=' + encodeURIComponent(emailInput.value || '') + '&resend=1';
+        if (doResend && emailParam) {
+          fetch(CP_BASE + '/api/cp/resend-verification', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailParam }),
+          }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.status === 'resent') setMsg('Verification code resent.', 'success');
+            else setMsg(data.detail || 'Failed to resend', 'error');
+          }).catch(function() { setMsg('Network error.', 'error'); });
+        }
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var email = emailInput.value.trim();
+          var code = codeInput.value.trim();
+          setMsg('');
+          submitBtn.disabled = true;
+          try {
+            var r = await fetch(CP_BASE + '/api/cp/verify-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email, code: code }),
+            });
+            var data = await r.json().catch(function() { return {}; });
+            if (r.ok && data.access_token) {
+              localStorage.setItem('cp_token', data.access_token);
+              var next = new URLSearchParams(location.search).get('next') || '/onboarding.html';
+              if (next === '/' || next === '') {
+                fetch(CP_BASE + '/api/cp/sso/librechat', {
+                  method: 'POST',
+                  headers: { 'Authorization': 'Bearer ' + data.access_token },
+                }).then(function(r) { return r.json(); }).then(function(sso) {
+                  if (sso.redirect_url) window.location.href = sso.redirect_url;
+                  else window.location.href = '/onboarding.html';
+                }).catch(function() { window.location.href = '/onboarding.html'; });
+                return;
+              }
+              window.location.href = next;
+              return;
+            }
+            setMsg(data.detail || 'Invalid or expired code', 'error');
+          } catch (err) {
+            setMsg('Network error.', 'error');
+          } finally {
+            submitBtn.disabled = false;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

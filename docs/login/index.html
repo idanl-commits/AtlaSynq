@@ -181,6 +181,52 @@
         color: var(--primary);
       }
 
+      #loginMsg {
+        padding: 0.65rem 0.85rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        display: none;
+        text-align: left;
+      }
+      #loginMsg.error {
+        background: #fef2f2;
+        color: #dc2626;
+        border: 1px solid #fecaca;
+        display: block;
+      }
+      #loginMsg.info {
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+        display: block;
+      }
+      .oauth-btns {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .btn-oauth {
+        flex: 1;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: white;
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: 0.2s;
+      }
+      .btn-oauth:hover {
+        border-color: var(--primary);
+        background: #f8fafc;
+      }
+      #loggedIn { display: none; }
+      #loggedIn.show { display: block; }
+
       /* Mobile Responsive */
       @media(max-width: 480px) {
         body {
@@ -412,20 +458,30 @@
       <h1>Welcome back</h1>
       <p>Please enter your details to sign in.</p>
 
-      <form
-        onsubmit="event.preventDefault(); alert('This creates a secure environment in the full version.');"
-      >
+      <div id="loginMsg" role="alert"></div>
+      <div id="loggedIn">
+        <p style="margin-bottom: 1rem;">Signed in as <strong id="userDisplay"></strong></p>
+        <button type="button" id="btnLaunch" class="btn-login" style="width:100%;">Launch AtlaSynq →</button>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;"><a href="/" style="color: var(--primary);">Open chat directly</a> if Launch fails</p>
+        <button type="button" id="btnSignOut" class="btn-login" style="width:100%;margin-top:0.5rem;background:#f3f4f6;color:#374151;">Sign out</button>
+      </div>
+      <form id="loginForm" method="post" action="#" novalidate onsubmit="return false;">
         <div class="input-group">
-          <label>Email</label>
-          <input type="email" placeholder="name@company.com" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@company.com" required autocomplete="email" />
         </div>
         <div class="input-group">
-          <label>Password</label>
-          <input type="password" placeholder="••••••••" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" />
         </div>
-        <button class="btn-login">Sign in</button>
+        <button type="button" class="btn-login" id="submitBtn">Sign in</button>
+        <div class="oauth-btns">
+          <a href="#" id="btnGoogle" class="btn-oauth">Google</a>
+          <a href="#" id="btnMicrosoft" class="btn-oauth">Microsoft</a>
+        </div>
       </form>
 
+      <p style="text-align:center;margin:8px 0 4px;font-size:13px;color:#6b7280;">Don't have an account? <a href="/signup.html" style="color:#0d9488;font-weight:600;text-decoration:none;border-bottom:1px solid #0d9488;">Create account</a></p>
       <a href="/" class="back-link">← Back to website</a>
     </div>
 
@@ -455,8 +511,8 @@
             </div>
             
             <div class="quote-form-group">
-              <label for="email">Email *</label>
-              <input type="email" name="email" id="email" required>
+              <label for="quote_email">Email *</label>
+              <input type="email" name="email" id="quote_email" required>
             </div>
             
             <div class="quote-form-group">
@@ -631,6 +687,486 @@
           }
         }
       });
+
+      // Login form — control-plane API
+      (function() {
+        // Safe default: same-origin for dev, api.atlasynq.com for production
+        const CP_BASE = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? 'https://api.atlasynq.com' : (location.origin || location.protocol + '//' + location.host);
+        /** App host is chat-only; marketing site hosts login. */
+        function atlasynqMarketingLoginUrl() {
+          var h = location.hostname;
+          if (h === 'app.atlasynq.com') return 'https://www.atlasynq.com/login/';
+          if (h === 'www.atlasynq.com' || h === 'atlasynq.com') return '/login/';
+          return '/login.html';
+        }
+        const msgEl = document.getElementById('loginMsg');
+        const form = document.getElementById('loginForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loggedIn = document.getElementById('loggedIn');
+        const userDisplay = document.getElementById('userDisplay');
+        const btnGoogle = document.getElementById('btnGoogle');
+        const btnMicrosoft = document.getElementById('btnMicrosoft');
+
+        function setMsg(text, type) {
+          if (!msgEl) return;
+          msgEl.textContent = text || '';
+          msgEl.className = type || '';
+          msgEl.style.display = text ? 'block' : 'none';
+        }
+
+        function getDetail(data) {
+          if (typeof data.detail === 'string') return data.detail;
+          if (Array.isArray(data.detail) && data.detail[0] && data.detail[0].msg) return data.detail[0].msg;
+          return 'Request failed';
+        }
+
+        function getCookie(name) {
+          var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
+          return m ? decodeURIComponent(m[1]) : null;
+        }
+
+        function traceMark(name, extra) {
+          var now = Date.now();
+          window.__ATLASYNQ_TIMINGS__ = window.__ATLASYNQ_TIMINGS__ || [];
+          window.__ATLASYNQ_TIMINGS__.push({ name: name, t: now, extra: extra || null });
+          try { console.info('[AtlaSynq/timing]', name, extra || ''); } catch (e) {}
+        }
+
+        /** LibreChat origin — tenant cookies must be set here, not on control-plane-web (different port = different origin). */
+        function librechatOriginForBridge() {
+          if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return 'http://localhost:3080';
+          return location.origin;
+        }
+
+        /** When redirected from PlugZap (no AtlaSynq cookies), sync from LibreChat session if user is already logged in. */
+        async function trySyncFromLibreChatSession() {
+          var next = new URLSearchParams(location.search).get('next');
+          if (!next || !next.startsWith('/')) return false;
+          if (getCookie('atlasynq_user_id') || getCookie('atlasynq_user_email')) {
+            window.location.href = next;
+            return true;
+          }
+          try {
+            var headers = {};
+            var lcToken = localStorage.getItem('token') || localStorage.getItem('librechat_token');
+            if (lcToken) headers['Authorization'] = 'Bearer ' + lcToken;
+            var r = await fetch('/api/user', { credentials: 'include', headers: headers });
+            if (!r.ok) return false;
+            var data = await r.json().catch(function() { return {}; });
+            var user = data.user || data;
+            var email = (user.email || user.username || '').trim();
+            if (!email) return false;
+            document.cookie = 'atlasynq_user_email=' + encodeURIComponent(email) + ';path=/;max-age=7200;samesite=lax';
+            window.location.href = next;
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        async function redirectToLibreChat(token, fallbackUrl, showLoggedInOnFail) {
+          try {
+            const apiUrl = (CP_BASE || location.origin || '') + '/api/cp/sso/librechat';
+            const r = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Authorization': 'Bearer ' + token },
+            });
+            const data = await r.json().catch(function() { return {}; });
+            if (r.ok && data.redirect_url) {
+              var me = null;
+              var wl0 = null;
+              try {
+                var mr = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + token } });
+                if (mr.ok) me = await mr.json();
+                var wr = await fetch(CP_BASE + '/api/cp/workspaces', { headers: { Authorization: 'Bearer ' + token } });
+                if (wr.ok) { var wl = await wr.json(); wl0 = wl && wl[0]; }
+              } catch (e) { console.warn('[login] me/workspaces for tenant bridge', e); }
+              var lcBase = librechatOriginForBridge();
+              var payload = {
+                token: token,
+                org_id: wl0 && wl0.org_id ? wl0.org_id : null,
+                workspace_id: wl0 && wl0.id ? wl0.id : null,
+                user_id: me && me.id ? me.id : null,
+                email: me && me.email ? me.email : null,
+                next: data.redirect_url
+              };
+              var bridgeUrl = lcBase + '/atlasynq-tenant-bridge.html#' + encodeURIComponent(JSON.stringify(payload));
+              console.log('[login] tenant bridge (LibreChat origin) org_id=', payload.org_id, 'workspace_id=', payload.workspace_id, 'next=', payload.next);
+              window.location.replace(bridgeUrl);
+              setTimeout(function() {
+                var ov = document.getElementById('_loginOverlay');
+                if (ov && !document.hidden) {
+                  var stage = document.getElementById('_loginStage');
+                  if (stage) {
+                    stage.innerHTML = 'Redirect blocked? <a href="' + bridgeUrl + '" style="color:#60a5fa;font-weight:600">Click here to continue</a>';
+                  }
+                }
+              }, 2000);
+              return;
+            }
+            if (r.status === 401) {
+              localStorage.removeItem('cp_token');
+              localStorage.removeItem('atlasynq_token');
+              window.location.href = atlasynqMarketingLoginUrl();
+              return;
+            }
+            var ovEl = document.getElementById('_loginOverlay');
+            if (ovEl) ovEl.remove();
+            var errText = (data.detail || data.message || 'Launch failed') + '. ';
+            if (showLoggedInOnFail && form && loggedIn && userDisplay) {
+              form.style.display = 'none';
+              if (btnGoogle) btnGoogle.style.display = 'none';
+              if (btnMicrosoft) btnMicrosoft.style.display = 'none';
+              userDisplay.textContent = document.getElementById('email').value.trim() || 'User';
+              loggedIn.classList.add('show');
+              loggedIn.style.display = 'block';
+            }
+            setMsg(errText + 'Click Launch AtlaSynq to retry, or use the link below to open chat.', 'error');
+          } catch (e) {
+            var ovEl = document.getElementById('_loginOverlay');
+            if (ovEl) ovEl.remove();
+            var errText = 'Network error: ' + (e.message || 'Ensure services are running');
+            if (showLoggedInOnFail && form && loggedIn && userDisplay) {
+              form.style.display = 'none';
+              if (btnGoogle) btnGoogle.style.display = 'none';
+              if (btnMicrosoft) btnMicrosoft.style.display = 'none';
+              userDisplay.textContent = document.getElementById('email').value.trim() || 'User';
+              loggedIn.classList.add('show');
+              loggedIn.style.display = 'block';
+            }
+            setMsg(errText + '. Click Launch AtlaSynq to retry.', 'error');
+          }
+        }
+
+        function normalizeNextPath(raw) {
+          if (!raw) return '/onboarding.html';
+          var p = String(raw).trim();
+          if (p.indexOf('//') !== -1) return '/onboarding.html';
+          return p.startsWith('/') ? p : '/' + p;
+        }
+
+        function finishOAuthFromSignupPopup(dest) {
+          try {
+            if (!window.opener || window.opener.closed) return false;
+            if (sessionStorage.getItem('atlasynq_oauth_from_popup') !== '1') return false;
+            sessionStorage.removeItem('atlasynq_oauth_from_popup');
+            window.opener.location.href = dest;
+            try { window.opener.focus(); } catch (e) {}
+            window.close();
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        async function handleExchangeCode(code) {
+          try {
+            const r = await fetch(CP_BASE + '/api/cp/oauth/exchange', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ exchange_code: code }),
+            });
+            const data = await r.json().catch(function() { return {}; });
+            if (r.ok && data.access_token) {
+              localStorage.setItem('cp_token', data.access_token);
+              localStorage.setItem('atlasynq_token', data.access_token);
+              try {
+                var meRes = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + data.access_token } });
+                if (meRes.ok) {
+                  var me = await meRes.json();
+                  if (me && me.id && me.id !== 'default_user') {
+                    /* atlasynq_* cookies are set on LibreChat origin via redirectToLibreChat → /atlasynq-tenant-bridge.html */
+                  }
+                }
+              } catch (e) {}
+              var nextPathRaw = new URLSearchParams(location.search).get('next');
+              var dest = normalizeNextPath(nextPathRaw);
+              if (dest.indexOf('onboarding') >= 0) {
+                if (finishOAuthFromSignupPopup(dest)) return true;
+                window.location.href = dest;
+                return true;
+              }
+              await redirectToLibreChat(data.access_token, '/onboarding.html');
+              return true;
+            }
+            setMsg(getDetail(data), 'error');
+          } catch (err) {
+            setMsg('Network error. Please try again.', 'error');
+          }
+          return false;
+        }
+
+        async function showMeAndSuccess() {
+          var token = localStorage.getItem('cp_token') || localStorage.getItem('atlasynq_token');
+          if (!token || !form || !loggedIn) return;
+          // Migrate: if we have atlasynq_token but no cp_token, copy (CP login sets both; legacy sessions may have only atlasynq_token)
+          if (!localStorage.getItem('cp_token') && localStorage.getItem('atlasynq_token')) {
+            try {
+              var p = (localStorage.getItem('atlasynq_token') || '').split('.')[1];
+              if (p) {
+                var pl = JSON.parse(atob(p.replace(/-/g, '+').replace(/_/g, '/')));
+                if (pl && pl.sub && pl.sub !== 'default_user') {
+                  localStorage.setItem('cp_token', localStorage.getItem('atlasynq_token'));
+                }
+              }
+            } catch (e) {}
+          }
+          token = localStorage.getItem('cp_token') || token;
+          try {
+            const r = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + token } });
+            if (r.ok) {
+              const user = await r.json();
+              if (userDisplay) userDisplay.textContent = user.email || user.full_name || 'User';
+              // Auto-launch: skip "Launch AtlaSynq" click — go straight to LibreChat
+              var dest = new URLSearchParams(location.search).get('next');
+              if (dest && dest.startsWith('/')) {
+                redirectToLibreChat(token, dest);
+              } else {
+                redirectToLibreChat(token, '/c/new');
+              }
+              return;
+            }
+          } catch (e) {}
+          // No valid session — show form (or logged-in UI as fallback if redirect fails)
+          form.style.display = '';
+          if (btnGoogle) btnGoogle.style.display = '';
+          if (btnMicrosoft) btnMicrosoft.style.display = '';
+          if (loggedIn) loggedIn.classList.remove('show');
+        }
+
+        var params = new URLSearchParams(location.search);
+        var exchangeCode = params.get('exchange_code');
+        var msgParam = params.get('msg');
+        var nextParam = params.get('next');
+        if (exchangeCode) {
+          handleExchangeCode(exchangeCode);
+        } else if (nextParam && nextParam.startsWith('/')) {
+          // PlugZap redirected here (no AtlaSynq cookies) – try to sync from LibreChat session first
+          trySyncFromLibreChatSession().then(function(synced) {
+            if (!synced) {
+              showMeAndSuccess().then(function() {
+                if (msgParam === 'session_expired') {
+                  setMsg('Your chat session expired. Sign in below, or click Launch AtlaSynq if you are already signed in.', 'info');
+                }
+              });
+            }
+          });
+        } else {
+          showMeAndSuccess().then(function() {
+            if (msgParam === 'session_expired') {
+              setMsg('Your chat session expired. Sign in below, or click Launch AtlaSynq if you are already signed in.', 'info');
+            }
+            // Auto-submit when credentials are pre-filled (browser autofill) — call doLogin directly
+            // (never use form.requestSubmit() — it can trigger native GET submit and leak credentials to URL)
+            function tryAutoSubmit() {
+              if (!form || form.style.display === 'none' || document.getElementById('_loginOverlay')) return;
+              var em = form ? form.querySelector('input[name="email"]') : null;
+              var pw = form ? form.querySelector('input[name="password"]') : null;
+              if (em && pw && (em.value || '').trim().length > 0 && (pw.value || '').length > 0 && typeof doLogin === 'function') {
+                doLogin();
+              }
+            }
+            setTimeout(tryAutoSubmit, 400);
+            setTimeout(tryAutoSubmit, 1200);
+          });
+        }
+
+        if (btnGoogle) {
+          btnGoogle.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = CP_BASE + '/api/cp/oauth/google/public-start';
+          });
+        }
+        if (btnMicrosoft) {
+          btnMicrosoft.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = CP_BASE + '/api/cp/oauth/microsoft/start';
+          });
+        }
+        var btnLaunch = document.getElementById('btnLaunch');
+        if (btnLaunch) {
+          btnLaunch.addEventListener('click', function() {
+            var token = localStorage.getItem('cp_token') || localStorage.getItem('atlasynq_token');
+            if (token) redirectToLibreChat(token, '/onboarding.html');
+          });
+        }
+        var btnSignOut = document.getElementById('btnSignOut');
+        if (btnSignOut) {
+          btnSignOut.addEventListener('click', function() {
+            localStorage.removeItem('cp_token');
+            localStorage.removeItem('atlasynq_token');
+            location.reload();
+          });
+        }
+
+        var _loginSubmitting = false;
+        async function doLogin() {
+          if (_loginSubmitting) return;
+          var emailEl = form ? form.querySelector('input[name="email"]') : null;
+          var passwordEl = form ? form.querySelector('input[name="password"]') : null;
+          if (!form || !submitBtn || !emailEl || !passwordEl) {
+            setMsg('Form fields not found. Please refresh the page.', 'error');
+            return;
+          }
+          const email = (emailEl.value || '').trim();
+          const password = passwordEl.value || '';
+          if (!email || !password) {
+            setMsg('Please enter email and password.', 'error');
+            return;
+          }
+          _loginSubmitting = true;
+          traceMark('auth_submit_start');
+          setMsg('');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Signing in…';
+
+          // Show branded loading overlay immediately
+            var _ov = document.createElement('div');
+            _ov.id = '_loginOverlay';
+            _ov.style.cssText = 'position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:Inter,system-ui,sans-serif';
+            _ov.innerHTML = '<img src="/assets/images/atlasynq-logo.png" style="width:56px;height:56px;border-radius:12px;animation:_lp 2s ease-in-out infinite" onerror="this.style.display=\'none\'"><style>@keyframes _lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:0.8}}</style><h2 style="margin-top:1rem;font-size:1.3rem;font-weight:700">Signing you in...</h2><p style="color:#94a3b8;font-size:0.88rem;margin-top:0.4rem" id="_loginStage">Connecting to AtlaSynq</p>';
+            document.body.appendChild(_ov);
+            function _loginStage(t) { var el = document.getElementById('_loginStage'); if (el) el.textContent = t; }
+            function _removeLoginOv() { var el = document.getElementById('_loginOverlay'); if (el) el.remove(); }
+
+            try {
+              _loginStage('Authenticating...');
+              traceMark('librechat_login_request_start');
+              // Direct LibreChat login — fast, no SSO round-trip, preserves chat history
+              const r = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ email, password }),
+              });
+              const data = await r.json().catch(function() { return {}; });
+              traceMark('librechat_login_response', { ok: !!r.ok, status: r.status });
+              // LibreChat may return token in body OR set session via cookies only — treat 200 as success
+              if (r.ok) {
+                traceMark('librechat_login_success');
+                _loginStage('Launching AtlaSynq...');
+                var next = new URLSearchParams(location.search).get('next');
+                var dest = (next && next.startsWith('/')) ? next : '/c/new';
+                var needsCpBootstrap = dest.indexOf('/onboarding') === 0 || dest.indexOf('/integrations') === 0;
+                var domain = location.hostname === 'localhost' ? 'localhost' : '';
+                var syncCpIdentity = async function() {
+                  try {
+                    _loginStage('Syncing AtlaSynq account...');
+                    traceMark('cp_bootstrap_start', { dest: dest });
+                    var r2Lc = await fetch(CP_BASE + '/api/cp/login', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ email, password }),
+                    });
+                    var data2Lc = await r2Lc.json().catch(function() { return {}; });
+                    if (r2Lc.ok && data2Lc.access_token) {
+                      localStorage.setItem('cp_token', data2Lc.access_token);
+                      localStorage.setItem('atlasynq_token', data2Lc.access_token);
+                      try {
+                        await fetch(CP_BASE + '/api/cp/sso/store-librechat-secret-from-login', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + data2Lc.access_token },
+                          body: JSON.stringify({ password: password }),
+                        });
+                      } catch (e2) {}
+                    }
+                  } catch (e) {
+                    console.warn('[login] cp bootstrap non-blocking failure', e);
+                  } finally {
+                    if (!getCookie('atlasynq_user_id') && !getCookie('atlasynq_user_email')) {
+                      document.cookie = 'atlasynq_user_email=' + encodeURIComponent(email) + ';path=/;max-age=7200;samesite=lax' + (domain ? ';domain=' + domain : '');
+                    }
+                    traceMark('cp_bootstrap_end');
+                  }
+                };
+                if (!needsCpBootstrap) {
+                  // Critical UX fix: do not block chat redirect on control-plane bootstrap.
+                  // Bootstrap runs in the background and should never delay first chat render.
+                  syncCpIdentity();
+                  traceMark('redirect_to_chat', { dest: dest });
+                  window.location.replace(dest);
+                  return;
+                }
+                await Promise.race([
+                  syncCpIdentity(),
+                  new Promise(function(resolve) { setTimeout(resolve, 1200); }),
+                ]);
+                traceMark('redirect_with_cp_bootstrap', { dest: dest });
+                window.location.replace(dest);
+                return;
+              }
+              // Fallback: try control-plane SSO for users who don't have a LibreChat password
+              _loginStage('Setting up your session...');
+              traceMark('cp_login_fallback_start');
+              const r2Cp = await fetch(CP_BASE + '/api/cp/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+              });
+              const data2Cp = await r2Cp.json().catch(function() { return {}; });
+              traceMark('cp_login_fallback_response', { ok: !!r2Cp.ok, status: r2Cp.status });
+              if (r2Cp.ok && data2Cp.access_token) {
+                localStorage.setItem('cp_token', data2Cp.access_token);
+                localStorage.setItem('atlasynq_token', data2Cp.access_token);
+                try {
+                  var meRes = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + data2Cp.access_token } });
+                  if (meRes.ok) {
+                    var me = await meRes.json();
+                    if (me && me.id && me.id !== 'default_user') {
+                      /* tenant cookies: redirectToLibreChat uses /atlasynq-tenant-bridge.html on :3080 */
+                    }
+                  }
+                } catch (e) {}
+                var next = new URLSearchParams(location.search).get('next');
+                if (next && next.startsWith('/') && next.indexOf('onboarding') >= 0) {
+                  window.location.href = next;
+                  return;
+                }
+                _loginStage('Launching AtlaSynq...');
+                await redirectToLibreChat(data2Cp.access_token, '/onboarding.html', true);
+                return;
+              }
+              if (r2Cp.ok && data2Cp.status === 'verification_required') {
+                const next = new URLSearchParams(location.search).get('next') || '/';
+                window.location.href = '/verify.html?email=' + encodeURIComponent(email) + '&next=' + encodeURIComponent(next);
+                return;
+              }
+              // Show the most specific error
+              const errMsg = (data.message && !data.message.includes('Internal')) ? data.message
+                           : getDetail(data2Cp) || 'Incorrect email or password.';
+              _removeLoginOv();
+              traceMark('auth_submit_error');
+              setMsg(errMsg, 'error');
+            } catch (err) {
+              _removeLoginOv();
+              traceMark('auth_submit_network_error');
+              setMsg('Network error. Please try again.', 'error');
+            } finally {
+              _loginSubmitting = false;
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Sign in';
+            }
+        }
+
+        if (form && submitBtn) {
+          form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            await doLogin();
+          });
+          form.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              e.stopPropagation();
+              doLogin();
+            }
+          });
+          submitBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            await doLogin();
+          });
+        }
+      })();
     </script>
   </body>
 </html>
