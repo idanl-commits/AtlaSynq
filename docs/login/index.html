@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.atlasynq.com http://localhost:8100 http://127.0.0.1:8100 https://www.googletagmanager.com https://www.google-analytics.com wss: https:;">
     <script>
       const CANONICAL_URL = "https://www.atlasynq.com/login/";
       const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -208,6 +208,10 @@
       }
       .btn-oauth {
         flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
         padding: 10px 12px;
         border: 1px solid var(--border);
         border-radius: 8px;
@@ -219,6 +223,9 @@
         text-decoration: none;
         text-align: center;
         transition: 0.2s;
+      }
+      .btn-oauth svg {
+        flex-shrink: 0;
       }
       .btn-oauth:hover {
         border-color: var(--primary);
@@ -476,12 +483,12 @@
         </div>
         <button type="button" class="btn-login" id="submitBtn">Sign in</button>
         <div class="oauth-btns">
-          <a href="#" id="btnGoogle" class="btn-oauth">Google</a>
-          <a href="#" id="btnMicrosoft" class="btn-oauth">Microsoft</a>
+          <a href="#" id="btnGoogle" class="btn-oauth" aria-label="Continue with Google"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.712c-.18-.54-.282-1.117-.282-1.712s.102-1.172.282-1.712V4.956H.957C.348 6.175 0 7.55 0 9s.348 2.825.957 4.044l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.956L3.964 7.288C4.672 5.163 6.656 3.58 9 3.58z"/></svg>Google</a>
+          <a href="#" id="btnMicrosoft" class="btn-oauth" aria-label="Continue with Microsoft"><svg width="18" height="18" viewBox="0 0 21 21" aria-hidden="true"><path fill="#f25022" d="M1 1h9v9H1z"/><path fill="#00a4ef" d="M11 1h9v9h-9z"/><path fill="#7fba00" d="M1 11h9v9H1z"/><path fill="#ffb900" d="M11 11h9v9h-9z"/></svg>Microsoft</a>
         </div>
       </form>
 
-      <p style="text-align:center;margin:8px 0 4px;font-size:13px;color:#6b7280;">Don't have an account? <a href="/signup.html" style="color:#0d9488;font-weight:600;text-decoration:none;border-bottom:1px solid #0d9488;">Create account</a></p>
+      <p style="text-align:center;margin:8px 0 4px;font-size:13px;color:#6b7280;">Don't have an account? <a href="/signup/" style="color:#0d9488;font-weight:600;text-decoration:none;border-bottom:1px solid #0d9488;">Create account</a></p>
       <a href="/" class="back-link">← Back to website</a>
     </div>
 
@@ -720,6 +727,14 @@
           return 'Request failed';
         }
 
+        function verifyPageUrl(email, nextPath) {
+          var h = location.hostname;
+          if (h === 'www.atlasynq.com' || h === 'atlasynq.com') {
+            return '/verify/?email=' + encodeURIComponent(email) + '&next=' + encodeURIComponent(nextPath);
+          }
+          return '/verify.html?email=' + encodeURIComponent(email) + '&next=' + encodeURIComponent(nextPath);
+        }
+
         function getCookie(name) {
           var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
           return m ? decodeURIComponent(m[1]) : null;
@@ -735,6 +750,8 @@
         /** LibreChat origin — tenant cookies must be set here, not on control-plane-web (different port = different origin). */
         function librechatOriginForBridge() {
           if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return 'http://localhost:3080';
+          var h = location.hostname;
+          if (h === 'www.atlasynq.com' || h === 'atlasynq.com') return 'https://app.atlasynq.com';
           return location.origin;
         }
 
@@ -1032,7 +1049,46 @@
             try {
               _loginStage('Authenticating...');
               traceMark('librechat_login_request_start');
-              // Direct LibreChat login — fast, no SSO round-trip, preserves chat history
+              var _hostLogin = location.hostname || '';
+              var _marketingSite = _hostLogin === 'www.atlasynq.com' || _hostLogin === 'atlasynq.com';
+              // GitHub Pages has no /api/auth/* — use control-plane API only, then bridge to app.atlasynq.com
+              if (_marketingSite) {
+                traceMark('marketing_static_cp_login');
+                _loginStage('Signing in...');
+                const rCpM = await fetch(CP_BASE + '/api/cp/login', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email, password }),
+                });
+                const dataCpM = await rCpM.json().catch(function() { return {}; });
+                traceMark('cp_login_marketing', { ok: !!rCpM.ok, status: rCpM.status });
+                if (rCpM.ok && dataCpM.access_token) {
+                  localStorage.setItem('cp_token', dataCpM.access_token);
+                  localStorage.setItem('atlasynq_token', dataCpM.access_token);
+                  try {
+                    var meRm = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + dataCpM.access_token } });
+                    if (meRm.ok) { await meRm.json(); }
+                  } catch (eM) {}
+                  var nextM = new URLSearchParams(location.search).get('next');
+                  if (nextM && nextM.startsWith('/') && nextM.indexOf('onboarding') >= 0) {
+                    window.location.href = nextM;
+                    return;
+                  }
+                  _loginStage('Launching AtlaSynq...');
+                  await redirectToLibreChat(dataCpM.access_token, '/onboarding.html', true);
+                  return;
+                }
+                if (rCpM.ok && dataCpM.status === 'verification_required') {
+                  var nextV = new URLSearchParams(location.search).get('next') || '/';
+                  window.location.href = verifyPageUrl(email, nextV);
+                  return;
+                }
+                _removeLoginOv();
+                traceMark('auth_submit_error');
+                setMsg(getDetail(dataCpM) || 'Incorrect email or password.', 'error');
+                return;
+              }
+              // Direct LibreChat login — fast, no SSO round-trip, preserves chat history (nginx / same origin as app)
               const r = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1128,7 +1184,7 @@
               }
               if (r2Cp.ok && data2Cp.status === 'verification_required') {
                 const next = new URLSearchParams(location.search).get('next') || '/';
-                window.location.href = '/verify.html?email=' + encodeURIComponent(email) + '&next=' + encodeURIComponent(next);
+                window.location.href = verifyPageUrl(email, next);
                 return;
               }
               // Show the most specific error
