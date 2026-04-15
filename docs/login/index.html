@@ -797,6 +797,8 @@
             const apiUrl = (CP_BASE || location.origin || '') + '/api/cp/sso/librechat';
             const r = await fetch(apiUrl, {
               method: 'POST',
+              mode: 'cors',
+              credentials: 'omit',
               headers: { 'Authorization': 'Bearer ' + token },
             });
             const data = await r.json().catch(function() { return {}; });
@@ -804,9 +806,9 @@
               var me = null;
               var wl0 = null;
               try {
-                var mr = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + token } });
+                var mr = await fetch(CP_BASE + '/api/cp/me', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + token } });
                 if (mr.ok) me = await mr.json();
-                var wr = await fetch(CP_BASE + '/api/cp/workspaces', { headers: { Authorization: 'Bearer ' + token } });
+                var wr = await fetch(CP_BASE + '/api/cp/workspaces', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + token } });
                 if (wr.ok) { var wl = await wr.json(); wl0 = wl && wl[0]; }
               } catch (e) { console.warn('[login] me/workspaces for tenant bridge', e); }
               var lcBase = librechatOriginForBridge();
@@ -891,6 +893,8 @@
           try {
             const r = await fetch(CP_BASE + '/api/cp/oauth/exchange', {
               method: 'POST',
+              mode: 'cors',
+              credentials: 'omit',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ exchange_code: code }),
             });
@@ -899,7 +903,7 @@
               localStorage.setItem('cp_token', data.access_token);
               localStorage.setItem('atlasynq_token', data.access_token);
               try {
-                var meRes = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + data.access_token } });
+                var meRes = await fetch(CP_BASE + '/api/cp/me', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + data.access_token } });
                 if (meRes.ok) {
                   var me = await meRes.json();
                   if (me && me.id && me.id !== 'default_user') {
@@ -941,7 +945,7 @@
           }
           token = localStorage.getItem('cp_token') || token;
           try {
-            const r = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + token } });
+            const r = await fetch(CP_BASE + '/api/cp/me', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + token } });
             if (r.ok) {
               const user = await r.json();
               if (userDisplay) userDisplay.textContent = user.email || user.full_name || 'User';
@@ -1079,7 +1083,7 @@
                   localStorage.setItem('cp_token', dataCpM.access_token);
                   localStorage.setItem('atlasynq_token', dataCpM.access_token);
                   try {
-                    var meRm = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + dataCpM.access_token } });
+                    var meRm = await fetch(CP_BASE + '/api/cp/me', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + dataCpM.access_token } });
                     if (meRm.ok) { await meRm.json(); }
                   } catch (eM) {}
                   var nextM = new URLSearchParams(location.search).get('next');
@@ -1124,6 +1128,8 @@
                     traceMark('cp_bootstrap_start', { dest: dest });
                     var r2Lc = await fetch(CP_BASE + '/api/cp/login', {
                       method: 'POST',
+                      mode: 'cors',
+                      credentials: 'omit',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ email, password }),
                     });
@@ -1134,6 +1140,8 @@
                       try {
                         await fetch(CP_BASE + '/api/cp/sso/store-librechat-secret-from-login', {
                           method: 'POST',
+                          mode: 'cors',
+                          credentials: 'omit',
                           headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + data2Lc.access_token },
                           body: JSON.stringify({ password: password }),
                         });
@@ -1169,6 +1177,8 @@
               traceMark('cp_login_fallback_start');
               const r2Cp = await fetch(CP_BASE + '/api/cp/login', {
                 method: 'POST',
+                mode: 'cors',
+                credentials: 'omit',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
               });
@@ -1178,7 +1188,7 @@
                 localStorage.setItem('cp_token', data2Cp.access_token);
                 localStorage.setItem('atlasynq_token', data2Cp.access_token);
                 try {
-                  var meRes = await fetch(CP_BASE + '/api/cp/me', { headers: { Authorization: 'Bearer ' + data2Cp.access_token } });
+                  var meRes = await fetch(CP_BASE + '/api/cp/me', { mode: 'cors', credentials: 'omit', headers: { Authorization: 'Bearer ' + data2Cp.access_token } });
                   if (meRes.ok) {
                     var me = await meRes.json();
                     if (me && me.id && me.id !== 'default_user') {
