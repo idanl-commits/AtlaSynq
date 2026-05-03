@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com/integrations/";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -32,30 +31,6 @@
     gtag('config', 'G-JXPHR1VRHF');
   </script>
   
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script>
-    window.__openCalendly = function(url) {
-      try {
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.Calendly.initPopupWidget({ url: url });
-          return false;
-        }
-      } catch (e) {}
-      var attempts = 0;
-      var t = window.setInterval(function() {
-        attempts++;
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.clearInterval(t);
-          window.Calendly.initPopupWidget({ url: url });
-        } else if (attempts >= 40) {
-          window.clearInterval(t);
-          window.location.href = url;
-        }
-      }, 50);
-      return false;
-    };
-  </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
@@ -240,7 +215,6 @@
         background: var(--primary);
         border-radius: 1px;
     }
-
 
     .btn {
       padding: 10px 20px;
@@ -1334,7 +1308,7 @@
       </div>
       <div class="header-actions" style="display:flex; gap:10px;">
         <a href="../login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -1358,7 +1332,7 @@
       </nav>
       <div class="mobile-menu-actions">
         <a href="../login/" class="btn btn-secondary">Log in</a>
-        <a href="#" onclick="closeMobileMenuFunc(); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary">Book Demo</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenuFunc();" class="btn btn-primary">Book Demo</a>
       </div>
     </div>
   </div>
@@ -1607,7 +1581,7 @@
       <div class="cta-content">
         <h2>Need a Custom Integration?</h2>
         <p>We can connect your AI agents to any tool in your stack—public APIs, private endpoints, or custom-built solutions. <strong>Fully customizable</strong> to your needs.</p>
-        <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-cta">Request Custom Integration</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-cta">Request Custom Integration</a>
       </div>
     </div>
   </section>
@@ -1648,8 +1622,6 @@
       © 2026 AtlaSynq Inc. All rights reserved.
     </div>
   </footer>
-
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <script>
     const hamburgerBtn = document.getElementById('hamburgerBtn');

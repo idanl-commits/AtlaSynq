@@ -166,15 +166,15 @@
             var data = await r.json().catch(function() { return {}; });
             if (r.ok && data.access_token) {
               localStorage.setItem('cp_token', data.access_token);
-              var next = new URLSearchParams(location.search).get('next') || '/onboarding.html';
+              var next = new URLSearchParams(location.search).get('next') || '/onboarding/';
               if (next === '/' || next === '') {
                 fetch(CP_BASE + '/api/cp/sso/librechat', {
                   method: 'POST',
                   headers: { 'Authorization': 'Bearer ' + data.access_token },
                 }).then(function(r) { return r.json(); }).then(function(sso) {
                   if (sso.redirect_url) window.location.href = sso.redirect_url;
-                  else window.location.href = '/onboarding.html';
-                }).catch(function() { window.location.href = '/onboarding.html'; });
+                  else window.location.href = '/onboarding/';
+                }).catch(function() { window.location.href = '/onboarding/'; });
                 return;
               }
               window.location.href = next;

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <title>404 - Page Not Found — AtlaSynq</title>
   <meta name="description" content="Page not found">
   <meta name="robots" content="noindex, follow">
@@ -462,7 +461,7 @@
       </div>
       <div class="header-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -487,7 +486,7 @@
       </nav>
       <div class="mobile-menu-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="closeMobileMenuFunc(); return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" onclick="closeMobileMenuFunc();" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
       </div>
     </div>
   </div>
@@ -561,30 +560,6 @@
         });
       }
     })();
-
-    // Calendly integration
-    window.__openCalendly = function(url) {
-      try {
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.Calendly.initPopupWidget({ url: url });
-          return false;
-        }
-      } catch (e) {}
-      var attempts = 0;
-      var t = window.setInterval(function() {
-        attempts++;
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.clearInterval(t);
-          window.Calendly.initPopupWidget({ url: url });
-        } else if (attempts >= 40) {
-          window.clearInterval(t);
-          window.location.href = url;
-        }
-      }, 50);
-      return false;
-    };
   </script>
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>

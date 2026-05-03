@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <!-- connect-src *: pricing form POSTs to api.atlasynq.com -->
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com/pricing/";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -66,29 +66,6 @@
     gtag('config', 'G-JXPHR1VRHF');
   </script>
   
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script>
-    window.__openCalendly = function(url) {
-      try {
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.Calendly.initPopupWidget({ url: url });
-          return false;
-        }
-      } catch (e) {}
-      var attempts = 0;
-      var t = window.setInterval(function() {
-        attempts++;
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.clearInterval(t);
-          window.Calendly.initPopupWidget({ url: url });
-        } else if (attempts >= 40) {
-          window.clearInterval(t);
-          window.location.href = url;
-        }
-      }, 50);
-      return false;
-    };
-  </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
@@ -1903,7 +1880,7 @@
       </div>
       <div class="header-actions" style="display:flex; gap:10px;">
         <a href="../login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -1928,7 +1905,7 @@
       </nav>
       <div class="mobile-menu-actions">
         <a href="../login/" class="btn btn-secondary">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
       </div>
     </div>
   </div>
@@ -2114,17 +2091,13 @@
             We tailor our pricing to your organization's scale and security needs.
           </p>
 
-          <form id="pricing-embedded-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe" style="display: flex; flex-direction: column; gap: 16px; animation: fadeInUp 0.8s ease-out 0.4s both;">
-          
-          <!-- Salesforce Hidden Fields -->
-          <input type="hidden" name="oid" value="00D9k000001jUUP">
-          <input type="hidden" name="retURL" value="https://www.atlasynq.com">
-          <input type="hidden" name="debug" value="1">
-          
+          <form id="pricing-embedded-form" method="post" autocomplete="off" style="display: flex; flex-direction: column; gap: 16px; animation: fadeInUp 0.8s ease-out 0.4s both;">
+
           <!-- Lead Attribution - Hidden UTM Tracking -->
           <input type="hidden" name="utm_source" id="utm_source">
           <input type="hidden" name="utm_medium" id="utm_medium">
           <input type="hidden" name="utm_campaign" id="utm_campaign">
+          <input type="text" name="company_website" id="pricing_hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" value="" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
 
           <!-- Form Inputs Container -->
           <div id="pricing-form-inputs" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
@@ -2203,9 +2176,6 @@
 
     </div>
   </section>
-
-  <!-- Hidden iframe for Salesforce form submission -->
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
     // Mobile Menu Toggle
@@ -2303,57 +2273,194 @@
       });
     })();
 
-    // Dual Dispatch Form Handler for Pricing Page
+    function atlasynqCpPublicBase() {
+      try {
+        var p = new URLSearchParams(location.search || '').get('cp_api');
+        if (p && /^https?:\/\//i.test(p)) return p.replace(/\/$/, '');
+      } catch (e0) {}
+      var h = location.hostname;
+      if (h === 'www.atlasynq.com' || h === 'atlasynq.com') return 'https://api.atlasynq.com';
+      return (location.origin || '').replace(/\/$/, '');
+    }
+
+    function postPricingLead(payload) {
+      return fetch(atlasynqCpPublicBase() + '/api/cp/public/pricing-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) return Promise.reject(new Error('bad status'));
+        return r.json();
+      });
+    }
+
+    /** Mirror to Formspree xzddovbl; fire-and-forget. */
+    var ATL_FORMSPREE_PRICING = 'https://formspree.io/f/xzddovbl';
+
+    function postFormspreePricingMirrored(payload) {
+      try {
+        if ((payload.company_website || '').toString().trim()) return;
+        var data = new FormData();
+        data.append('email', payload.email || '');
+        data.append('firstName', payload.first_name || '');
+        data.append('lastName', payload.last_name || '');
+        data.append('company', payload.company || '');
+        data.append('companySize', payload.company_size || '');
+        data.append('jobTitle', payload.title || '');
+        data.append('phone', payload.phone || '');
+        data.append('leadSource', payload.lead_source || '');
+        data.append('description', payload.description || '');
+        data.append('utm_source', payload.utm_source || '');
+        data.append('utm_medium', payload.utm_medium || '');
+        data.append('utm_campaign', payload.utm_campaign || '');
+        data.append('_subject', 'AtlaSynq pricing inquiry');
+        fetch(ATL_FORMSPREE_PRICING, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' }
+        }).catch(function () {});
+      } catch (eSp) {}
+    }
+
+    /** Salesforce Web-to-Lead mirror (pricing org). Fire-and-forget; does not block UI. */
+    var ATL_SF_WEBTO_ACTION = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
+    var ATL_SF_OID = '00D9k000001jUUP';
+    var ATL_SF_RETURL = 'https://www.atlasynq.com';
+
+    function postSalesforceWebToLeadMirrored(payload, pairs) {
+      try {
+        if ((payload.company_website || '').toString().trim()) return;
+        var iframeName = 'sf_web_to_lead_iframe';
+        var iframe = document.getElementById(iframeName);
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = iframeName;
+          iframe.name = iframeName;
+          iframe.title = 'Salesforce Web-to-Lead';
+          iframe.setAttribute('aria-hidden', 'true');
+          iframe.style.cssText = 'display:none;width:0;height:0;border:0;';
+          document.body.appendChild(iframe);
+        }
+
+        function add(inp, name, val) {
+          var s = val == null ? '' : String(val).trim();
+          if (!s) return;
+          var el = document.createElement('input');
+          el.type = 'hidden';
+          el.name = name;
+          el.value = s.slice(0, 32000);
+          inp.appendChild(el);
+        }
+
+        var f = document.createElement('form');
+        f.method = 'POST';
+        f.action = ATL_SF_WEBTO_ACTION;
+        f.target = iframeName;
+        f.style.display = 'none';
+        f.setAttribute('novalidate', '');
+
+        add(f, 'oid', ATL_SF_OID);
+        add(f, 'retURL', ATL_SF_RETURL);
+
+        var i;
+        for (i = 0; i < pairs.length; i++) {
+          add(f, pairs[i].name, pairs[i].value);
+        }
+
+        document.body.appendChild(f);
+        f.submit();
+        setTimeout(function () {
+          if (f.parentNode) f.parentNode.removeChild(f);
+        }, 2500);
+      } catch (eSf) {}
+    }
+
+    // Pricing hero form → control-plane (emails PRICING_LEAD_NOTIFY_EMAIL via Resend)
     document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('pricing-embedded-form');
-      const formInputs = document.getElementById('pricing-form-inputs');
-      const successMessage = document.getElementById('pricing-success-message');
-      const submitBtn = document.getElementById('submit-btn');
-      
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          // Do NOT prevent default - let it post to Salesforce iframe
-          
-          // Step 1: Disable button and show loading state
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-          }
-          
-          // Step 2: Immediately send to Formspree in background
-          const formData = new FormData(this);
-          // Map Salesforce field names to Formspree format
-          const formspreeData = new FormData();
-          formspreeData.append('firstName', formData.get('first_name') || '');
-          formspreeData.append('lastName', formData.get('last_name') || '');
-          formspreeData.append('email', formData.get('email') || '');
-          formspreeData.append('company', formData.get('company') || '');
-          formspreeData.append('companySize', formData.get('company_size') || '');
-          formspreeData.append('jobTitle', formData.get('title') || '');
-          formspreeData.append('phone', formData.get('phone') || '');
-          formspreeData.append('description', formData.get('description') || '');
-          
-          fetch('https://formspree.io/f/xzddovbl', {
-            method: 'POST',
-            body: formspreeData,
-            headers: { 'Accept': 'application/json' }
-          }).catch(function(error) {
-            // Silently handle Formspree errors - don't block user experience
-            console.log('Formspree submission error (non-blocking):', error);
+      var form = document.getElementById('pricing-embedded-form');
+      var formInputs = document.getElementById('pricing-form-inputs');
+      var successMessage = document.getElementById('pricing-success-message');
+      var submitBtn = document.getElementById('submit-btn');
+      var statusEl = document.getElementById('form-status');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (statusEl) {
+          statusEl.style.display = 'none';
+          statusEl.textContent = '';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        var fd = new FormData(form);
+        var utmSrc = document.getElementById('utm_source');
+        var utmMed = document.getElementById('utm_medium');
+        var utmCamp = document.getElementById('utm_campaign');
+        var leadSel = document.getElementById('lead_source');
+
+        var payload = {
+          email: (fd.get('email') || '').toString().trim(),
+          company_website: (fd.get('company_website') || '').toString(),
+          first_name: (fd.get('first_name') || '').toString().trim() || null,
+          last_name: (fd.get('last_name') || '').toString().trim() || null,
+          company: (fd.get('company') || '').toString().trim() || null,
+          company_size: (fd.get('company_size') || '').toString().trim() || null,
+          title: (fd.get('title') || '').toString().trim() || null,
+          phone: (fd.get('phone') || '').toString().trim() || null,
+          lead_source: leadSel && leadSel.value ? leadSel.value : null,
+          description: (fd.get('description') || '').toString().trim() || null,
+          utm_source: utmSrc && utmSrc.value ? utmSrc.value : null,
+          utm_medium: utmMed && utmMed.value ? utmMed.value : null,
+          utm_campaign: utmCamp && utmCamp.value ? utmCamp.value : null
+        };
+
+        var sfPairs = [
+          { name: 'first_name', value: (fd.get('first_name') || '').toString() },
+          { name: 'last_name', value: (fd.get('last_name') || '').toString() },
+          { name: 'email', value: (fd.get('email') || '').toString() },
+          { name: 'company', value: (fd.get('company') || '').toString() },
+          { name: 'company_size', value: (fd.get('company_size') || '').toString() },
+          { name: 'title', value: (fd.get('title') || '').toString() },
+          { name: 'phone', value: (fd.get('phone') || '').toString() },
+          { name: 'lead_source', value: leadSel && leadSel.value ? leadSel.value : '' },
+          { name: 'description', value: (fd.get('description') || '').toString() }
+        ];
+        postSalesforceWebToLeadMirrored(payload, sfPairs);
+
+        postFormspreePricingMirrored(payload);
+        postPricingLead(payload)
+          .then(function () {
+            if (formInputs) formInputs.style.display = 'none';
+            if (successMessage) {
+              successMessage.style.display = 'flex';
+              successMessage.style.flexDirection = 'column';
+              successMessage.style.alignItems = 'center';
+              successMessage.style.justifyContent = 'center';
+            }
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'generate_lead', { send_to: 'G-JXPHR1VRHF' });
+            }
+          })
+          .catch(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Request Quote';
+            }
+            if (statusEl) {
+              statusEl.style.display = 'block';
+              statusEl.style.color = 'var(--danger)';
+              statusEl.textContent =
+                'Could not send right now. Please try again or email idanl@atlasynq.com.';
+            }
           });
-          
-          // Step 3: Immediately swap UI (hide inputs, show success)
-          if (formInputs) formInputs.style.display = 'none';
-          if (successMessage) {
-            successMessage.style.display = 'flex';
-            successMessage.style.flexDirection = 'column';
-            successMessage.style.alignItems = 'center';
-            successMessage.style.justifyContent = 'center';
-          }
-          
-          // No redirect, no modal - just inline content swap
-        });
-      }
+      });
     });
   </script>
 
@@ -2433,8 +2540,6 @@
       </div>
     </div>
   </div>
-
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <script>
     // Global Cookie Banner Logic - Granular Consent
@@ -2614,14 +2719,6 @@
         }, 1500);
       });
     })();
-
-    // CALENDLY LISTENER SCRIPT
-    window.addEventListener('message', function(e) {
-      if (e.data.event && e.data.event === 'calendly.event.scheduled') {
-        gtag('event', 'generate_lead', {
-          'event_category': 'Calendly',
-          'event_label': 'Meeting Scheduled'
-        });
       }
     });
   </script>
@@ -2636,11 +2733,8 @@
         <h2 class="quote-modal-title">Request a Quote</h2>
         <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
         
-        <form id="quoteForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe">
-          <input type="hidden" name="oid" value="00D9k000001jUUP">
-          <input type="hidden" name="retURL" value="https://www.atlasynq.com">
-          <input type="hidden" name="debug" value="1">
-          
+        <form id="quoteForm" method="post" autocomplete="off">
+          <input type="text" name="company_website" id="modal_hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" value="" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
           <div class="quote-form-group">
             <label for="first_name">First Name *</label>
             <input type="text" name="first_name" id="first_name" required>
@@ -2681,9 +2775,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Hidden iframe for Salesforce form submission -->
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
     // Quote Modal Functions
@@ -2742,20 +2833,55 @@
       // Handle form submission (Quote Modal only)
       if (form) {
         form.addEventListener('submit', function(e) {
-          // Do NOT prevent default - let it post to iframe
+          e.preventDefault();
           if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
           }
-          
-          // Immediately hide form and show success
-          if (formStep) formStep.style.display = 'none';
-          if (successStep) successStep.style.display = 'block';
-          
-          // Wait 3s, then close modal
-          setTimeout(function() {
-            closeQuoteModal();
-          }, 3000);
+
+          var fd = new FormData(form);
+          var payload = {
+            email: (fd.get('email') || '').toString().trim(),
+            company_website: (fd.get('company_website') || '').toString(),
+            first_name: (fd.get('first_name') || '').toString().trim() || null,
+            last_name: (fd.get('last_name') || '').toString().trim() || null,
+            company: (fd.get('company') || '').toString().trim() || null,
+            description: (fd.get('description') || '').toString().trim() || null,
+            lead_source: 'pricing_modal_request_quote'
+          };
+
+          var sfPairsModal = [
+            { name: 'first_name', value: (fd.get('first_name') || '').toString() },
+            { name: 'last_name', value: (fd.get('last_name') || '').toString() },
+            { name: 'email', value: (fd.get('email') || '').toString() },
+            { name: 'company', value: (fd.get('company') || '').toString() },
+            { name: 'description', value: (fd.get('description') || '').toString() },
+            { name: 'lead_source', value: 'pricing_modal_request_quote' }
+          ];
+          postSalesforceWebToLeadMirrored(payload, sfPairsModal);
+
+          postFormspreePricingMirrored(payload);
+          postPricingLead(payload)
+            .then(function () {
+              if (formStep) formStep.style.display = 'none';
+              if (successStep) successStep.style.display = 'block';
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', { send_to: 'G-JXPHR1VRHF' });
+              }
+              setTimeout(function () {
+                closeQuoteModal();
+              }, 2500);
+            })
+            .catch(function () {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Quote';
+              }
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', { description: 'pricing_modal_quote_failed' });
+              }
+              window.alert('Could not send. Please try again or email idanl@atlasynq.com.');
+            });
         });
       }
 
@@ -2769,43 +2895,6 @@
           btn.removeAttribute('onclick');
         }
         
-        // CASE A: "Book Demo" - Open Calendly Popup Widget directly
-        if (btnText.includes('book demo')) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobileMenu');
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-              mobileMenu.classList.remove('active');
-              if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-            
-            // Open Calendly popup widget
-            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-            } else {
-              // Fallback: Wait for Calendly to load
-              let attempts = 0;
-              const checkCalendly = setInterval(function() {
-                attempts++;
-                if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-                  clearInterval(checkCalendly);
-                  window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-                } else if (attempts > 20) {
-                  clearInterval(checkCalendly);
-                  // Final fallback: redirect to Calendly
-                  window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-                }
-              }, 100);
-            }
-            
-            return false;
-          }, true);
-        }
         
         // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
         // BUT: Skip if button is inside the pricing embedded form (it has its own handler)

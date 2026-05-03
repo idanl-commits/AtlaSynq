@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
   <script>
     const CANONICAL_URL = "https://www.atlasynq.com";
     const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -66,30 +65,6 @@
     gtag('config', 'G-JXPHR1VRHF');
   </script>
   
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script>
-    window.__openCalendly = function(url) {
-      try {
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.Calendly.initPopupWidget({ url: url });
-          return false;
-        }
-      } catch (e) {}
-      var attempts = 0;
-      var t = window.setInterval(function() {
-        attempts++;
-        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-          window.clearInterval(t);
-          window.Calendly.initPopupWidget({ url: url });
-        } else if (attempts >= 40) {
-          window.clearInterval(t);
-          window.location.href = url;
-        }
-      }, 50);
-      return false;
-    };
-  </script>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
@@ -1732,7 +1707,7 @@
       </div>
       <div class="header-actions" style="display:flex; gap:10px;">
         <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq" onclick="return window.__openCalendly('https://calendly.com/idanl-atlasynq');" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
       </div>
       <!-- Hamburger Menu Button (Mobile Only) -->
       <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
@@ -1756,7 +1731,7 @@
       </nav>
       <div class="mobile-menu-actions">
         <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a href="#" onclick="closeMobileMenuFunc(); Calendly.initPopupWidget({url: 'https://calendly.com/idanl-atlasynq/30min'});return false;" class="btn btn-primary">Book Demo</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" onclick="closeMobileMenuFunc();" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Demo</a>
       </div>
     </div>
   </div>
@@ -3226,14 +3201,6 @@
         }, 1500);
       });
     })();
-
-    // CALENDLY LISTENER SCRIPT
-    window.addEventListener('message', function(e) {
-      if (e.data.event && e.data.event === 'calendly.event.scheduled') {
-        gtag('event', 'generate_lead', {
-          'event_category': 'Calendly',
-          'event_label': 'Meeting Scheduled'
-        });
       }
     });
 
@@ -3864,43 +3831,6 @@
           btn.removeAttribute('onclick');
         }
         
-        // CASE A: "Book Demo" - Open Calendly Popup Widget directly
-        if (btnText.includes('book demo')) {
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobileMenu');
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-              mobileMenu.classList.remove('active');
-              if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-            
-            // Open Calendly popup widget
-            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-              window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-            } else {
-              // Fallback: Wait for Calendly to load
-              let attempts = 0;
-              const checkCalendly = setInterval(function() {
-                attempts++;
-                if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-                  clearInterval(checkCalendly);
-                  window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-                } else if (attempts > 20) {
-                  clearInterval(checkCalendly);
-                  // Final fallback: redirect to Calendly
-                  window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-                }
-              }, 100);
-            }
-            
-            return false;
-          }, true);
-        }
         
         // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
         if (btnText.includes('request quote') || btnText.includes('contact sales')) {

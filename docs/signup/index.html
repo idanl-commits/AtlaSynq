@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src *;">
     <script>
       const CANONICAL_URL = "https://www.atlasynq.com/signup/";
       const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
@@ -749,34 +748,6 @@
             btn.removeAttribute('onclick');
           }
           
-          // CASE A: "Book Demo" - Open Calendly Popup Widget directly
-          if (btnText.includes('book demo')) {
-            btn.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              
-              // Open Calendly popup widget
-              if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-                window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-              } else {
-                // Fallback: Wait for Calendly to load
-                let attempts = 0;
-                const checkCalendly = setInterval(function() {
-                  attempts++;
-                  if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
-                    clearInterval(checkCalendly);
-                    window.Calendly.initPopupWidget({ url: 'https://calendly.com/idanl-atlasynq/30min' });
-                  } else if (attempts > 20) {
-                    clearInterval(checkCalendly);
-                    // Final fallback: redirect to Calendly
-                    window.location.href = 'https://calendly.com/idanl-atlasynq/30min';
-                  }
-                }, 100);
-              }
-              
-              return false;
-            }, true);
-          }
           
           // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
           if (btnText.includes('request quote') || btnText.includes('contact sales')) {
@@ -823,8 +794,8 @@
             ? 'https://api.atlasynq.com'
             : (location.origin || location.protocol + '//' + location.host));
         function ssoNextQuery() {
-          var n = new URLSearchParams(location.search).get('next') || '/onboarding.html';
-          if (!n.startsWith('/') || n.indexOf('//') !== -1) n = '/onboarding.html';
+          var n = new URLSearchParams(location.search).get('next') || '/onboarding/';
+          if (!n.startsWith('/') || n.indexOf('//') !== -1) n = '/onboarding/';
           return '?next=' + encodeURIComponent(n);
         }
         var sq = ssoNextQuery();
@@ -909,14 +880,15 @@
               const data = await r.json().catch(function() { return {}; });
               if (r.ok && data.access_token) {
                 localStorage.setItem('cp_token', data.access_token);
-                const next = new URLSearchParams(location.search).get('next') || '/onboarding.html';
+                const next = new URLSearchParams(location.search).get('next') || '/onboarding/';
                 window.location.href = next;
                 return;
               }
               if (r.ok && data.status === 'verification_required') {
                 setMsg('Account created! Check your email for a verification code.', 'success');
                 setTimeout(function() {
-                  window.location.href = '/verify.html?email=' + encodeURIComponent(email) + '&next=/onboarding.html';
+                  var _vBase = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? '/verify/' : '/verify.html';
+                  window.location.href = _vBase + '?email=' + encodeURIComponent(email) + '&next=/onboarding/';
                 }, 1200);
                 return;
               }
