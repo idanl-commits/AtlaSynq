@@ -3,32 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Governed AI Agents for Enterprise | AtlaSynq</title>
-  <meta name="description" content="AtlaSynq gives every department a governed AI agent — Finance, Sales, Engineering, HR and more. RBAC governance, measurable ROI, and a single interface for your entire organisation.">
+  <title>Department AI Agents, Governed by Your Permissions | AtlaSynq</title>
+  <meta name="description" content="AtlaSynq deploys governed AI agents for every enterprise department — Finance, Sales, Engineering, HR, Marketing, Legal — with RBAC access control, cited answers from your tools, and full audit trails.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
-  <meta property="og:title" content="Governed AI Agents for Enterprise | AtlaSynq">
-  <meta property="og:description" content="Deploy department AI agents with built-in RBAC governance. Finance, Sales, Engineering and more — all in one platform.">
+  <meta property="og:title" content="Department AI Agents, Governed by Your Permissions | AtlaSynq">
+  <meta property="og:description" content="Deploy department AI agents with built-in RBAC governance. Finance, Sales, Engineering and more — cited answers from your own tools.">
   <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-mark.svg">
+  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
   <link rel="alternate icon" href="/images/icon.png">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- External CSS -->
   <link rel="stylesheet" href="/css/clay-marketing.css">
-
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,8 +27,6 @@
     gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-
-  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,14 +44,14 @@
         "@id": "https://www.atlasynq.com/#website",
         "url": "https://www.atlasynq.com/",
         "name": "AtlaSynq",
-        "publisher": {"@id": "https://www.atlasynq.com/#org"}
+        "publisher": { "@id": "https://www.atlasynq.com/#org" }
       },
       {
         "@type": "SoftwareApplication",
         "name": "AtlaSynq",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "Governed AI agents for enterprise departments. RBAC access control, department-specific context, measurable ROI.",
+        "description": "Governed AI agents for enterprise departments with RBAC, cited answers from your tools, and full audit trails.",
         "offers": { "@type": "Offer", "url": "https://www.atlasynq.com/pricing/" }
       },
       {
@@ -72,7 +60,7 @@
           {
             "@type": "Question",
             "name": "What is AtlaSynq?",
-            "acceptedAnswer": { "@type": "Answer", "text": "AtlaSynq is an enterprise platform that deploys governed AI agents for every business department — Finance, Sales, Engineering, HR, Marketing and Legal — with built-in RBAC governance and auditability." }
+            "acceptedAnswer": { "@type": "Answer", "text": "AtlaSynq is an enterprise platform that deploys governed AI agents for every business department — Finance, Sales, Engineering, HR, Marketing and Legal — with built-in RBAC governance, cited answers from your own tools, and full auditability." }
           },
           {
             "@type": "Question",
@@ -87,7 +75,7 @@
           {
             "@type": "Question",
             "name": "What is the ROI of deploying AtlaSynq?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Customers typically recover 30% of manual information-gathering hours. For a 50-person team spending 5 hours/week on research at $80k average salary, that translates to over $28,000 in annual savings with a payback period under 2 months." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Customers typically recover 30% of manual information-gathering hours. For a 50-person team spending 5 hours per week on research at an $80k average salary, that is over $28,000 in annual savings with a payback period under 2 months." }
           },
           {
             "@type": "Question",
@@ -97,738 +85,912 @@
           {
             "@type": "Question",
             "name": "Is AtlaSynq secure for enterprise use?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. AtlaSynq is SOC 2 Type II compliant, supports SSO/SAML, enforces end-to-end encryption in transit and at rest, and provides a full audit log for every agent action." }
+            "acceptedAnswer": { "@type": "Answer", "text": "AtlaSynq is SOC 2 Type II compliant, supports SSO/SAML, enforces end-to-end encryption in transit and at rest, provides a full audit log for every agent action, and never trains models on customer data." }
           }
         ]
       }
     ]
   }
   </script>
+  <style>
+    .sb-icon { flex-shrink: 0; color: var(--clay-text-muted); }
+    .sb-item.active .sb-icon { color: var(--clay-primary); }
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
+    .gov-badge { display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:var(--clay-sage-lt);border:1px solid rgba(138,143,98,0.25);border-radius:5px;font-family:'Sora',sans-serif;font-size:0.68rem;font-weight:700;color:var(--clay-sage);text-transform:uppercase;letter-spacing:0.06em; }
+    .workflow-row { display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:3rem 0;border-bottom:1px solid var(--clay-border-soft); }
+    .workflow-row:last-child { border-bottom:none; }
+    .workflow-row.flip { direction:rtl; }
+    .workflow-row.flip > * { direction:ltr; }
+    .tool-cluster { display:flex;flex-wrap:wrap;gap:10px;align-items:center; }
+    .tool-chip { display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--clay-surface);border-radius:var(--radius-sm);border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec); }
+    .tool-chip img { width:22px;height:22px;object-fit:contain;border-radius:4px; }
+    .arrow-connector { font-size:1.2rem;color:var(--clay-primary);opacity:0.7;font-weight:300; }
+    .hub-chip { display:flex;align-items:center;gap:8px;padding:9px 16px;background:var(--clay-primary-lt);border:1.5px solid rgba(201,106,74,0.3);border-radius:var(--radius-sm);box-shadow:var(--shadow);font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:700;color:var(--clay-primary-dk); }
+    .answer-chip { display:flex;align-items:flex-start;gap:10px;padding:14px 16px;background:var(--clay-surface);border-radius:var(--radius);border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-sec);line-height:1.5;margin-top:14px; }
+    .tour-chapter-btn { flex:1;padding:14px 8px;background:none;border:none;border-bottom:2.5px solid transparent;font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:600;color:var(--clay-text-muted);cursor:pointer;transition:color 0.15s,border-color 0.15s;white-space:nowrap; }
+    .tour-chapter-btn.active { color:var(--clay-primary);border-bottom-color:var(--clay-primary); }
+    .tour-panel { display:none; }
+    .tour-panel.active { display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;padding:2.5rem; }
+    .trust-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem; }
+    .trust-item { background:var(--clay-surface);border-radius:var(--radius);border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);padding:1.5rem;text-align:center; }
+    .trust-icon { width:40px;height:40px;border-radius:10px;background:var(--clay-blue-lt);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;box-shadow:var(--shadow-sm); }
+    .trust-icon.terra { background:var(--clay-primary-lt); }
+    .trust-icon.sage { background:var(--clay-sage-lt); }
+    .trust-icon.amber { background:var(--clay-amber-lt); }
+    @media (max-width:900px) {
+      .workflow-row { grid-template-columns:1fr;gap:1.5rem; }
+      .workflow-row.flip { direction:ltr; }
+      .trust-grid { grid-template-columns:1fr 1fr; }
+      .tour-panel.active { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      .trust-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════════════════════════ -->
-<header class="site-header site-nav">
-  <div class="container">
-    <nav class="nav-inner">
-      <a href="/" class="nav-logo">
-        <img src="/images/atlasynq-mark.svg" alt="AtlaSynq mark" width="28" height="28">
-        Atla<span>Synq</span>
-      </a>
+<div class="ambient-glow glow-1" aria-hidden="true"></div>
+<div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="/pricing/">Pricing</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="/security/">Security</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/updates/">Updates</a></li>
-        <li><a href="#roi">ROI</a></li>
-        <li><a href="#integrations">Integrations</a></li>
-        <li><a href="/about/">About</a></li>
-      </ul>
-
-      <div class="nav-cta">
-        <a href="/login/" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.88rem;">Log in</a>
-        <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.88rem;">Book Demo</a>
-        <a href="/signup/" class="clay-btn clay-btn-primary" style="padding:9px 20px;font-size:0.88rem;">Start Building</a>
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-  </div>
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="34" height="34" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:9px 14px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book Demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-primary" style="padding:9px 18px;font-size:0.86rem;">Start Building</a>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 </header>
 
-<!-- ═══════════════════════════════════════════════════════════
-     MOBILE MENU
-═══════════════════════════════════════════════════════════ -->
-<div class="mobile-menu-overlay" id="mobileMenu">
+<!-- ── MOBILE MENU ──────────────────────────────────────────────────────── -->
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <div class="mobile-menu-panel">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-      <span style="font-family:'Fraunces',serif;font-weight:800;font-size:1.2rem;">AtlaSynq</span>
-      <button id="closeMobileMenu" style="background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--clay-text-sec);">✕</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.15rem;">Atla</span><span class="wordmark-synq" style="font-size:1.15rem;">Synq</span>
+      </a>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.3rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
     </div>
     <a href="/pricing/">Pricing</a>
-    <a href="#features">Features</a>
+    <a href="/features/">Features</a>
     <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
     <a href="/blog/">Blog</a>
     <a href="/updates/">Updates</a>
-    <a href="#roi">ROI Calculator</a>
-    <a href="#integrations">Integrations</a>
-    <a href="/about/">About</a>
-    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:10px;">
-      <a href="/login/" class="clay-btn clay-btn-outline" style="justify-content:center;">Log in</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" class="clay-btn clay-btn-outline" style="justify-content:center;">Book Demo</a>
-      <a href="/signup/" class="clay-btn clay-btn-primary" style="justify-content:center;">Start Building →</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="/signup/" style="color:var(--clay-primary);font-weight:700;">Start Building</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
+  </div>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="section-hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot" aria-hidden="true"></div>
+      <span class="clay-pill primary" style="font-size:0.75rem;letter-spacing:0.04em;">Governed AI for enterprise teams</span>
+    </div>
+    <h1 class="hero-headline">Department AI agents.<br>Governed by your permissions.</h1>
+    <p class="hero-sub">Connect your tools, define access rules per role, and give every department cited answers — without exposing data across teams.</p>
+    <div class="hero-actions">
+      <a href="/signup/" class="clay-btn clay-btn-primary">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        Start Building
+      </a>
+      <a href="#tour" class="clay-btn clay-btn-outline">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 3.5l8 4.5-8 4.5V3.5z" fill="currentColor" opacity=".8"/></svg>
+        Watch product tour
+      </a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+
+    <!-- HERO DEMO WINDOW -->
+    <div class="window-frame" id="heroApp" style="max-width:880px;margin:0 auto;text-align:left;position:relative;" data-fade>
+      <div class="window-chrome">
+        <div class="window-dot window-dot-red"></div>
+        <div class="window-dot window-dot-amber"></div>
+        <div class="window-dot window-dot-green"></div>
+        <span class="window-title">AtlaSynq — Governed Workspace</span>
+      </div>
+      <div style="display:flex;height:400px;overflow:hidden;">
+        <!-- Sidebar -->
+        <aside style="width:180px;min-width:180px;border-right:1px solid var(--clay-border-soft);padding:0.6rem 0.4rem;display:flex;flex-direction:column;gap:2px;background:var(--clay-elevated);" aria-label="Agent selector">
+          <div style="padding:6px 12px;margin-bottom:6px;">
+            <span style="font-family:'Sora',sans-serif;font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--clay-text-muted);">Agents</span>
+          </div>
+          <div class="sb-item" id="sb-sales" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="9" width="3" height="6" rx="1" fill="currentColor" opacity=".65"/><rect x="6.5" y="6" width="3" height="9" rx="1" fill="currentColor" opacity=".8"/><rect x="12" y="3" width="3" height="12" rx="1" fill="currentColor"/></svg>
+            <span class="sb-label">Sales</span>
+          </div>
+          <div class="sb-item" id="sb-finance" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5v7M6 6.5c0-.8.9-1.5 2-1.5s2 .7 2 1.5-.9 1.5-2 1.5-2 .7-2 1.5.9 1.5 2 1.5 2-.7 2-1.5"/></svg>
+            <span class="sb-label">Finance</span>
+          </div>
+          <div class="sb-item" id="sb-eng" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4L1 8l4 4M11 4l4 4-4 4M10 3l-4 10"/></svg>
+            <span class="sb-label">Engineering</span>
+          </div>
+          <div class="sb-item" id="sb-hr" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="4" r="2.5"/><path d="M1 13c0-2.5 2-4.5 4.5-4.5S10 10.5 10 13"/><circle cx="12" cy="4.5" r="2"/><path d="M12.5 9.5c1.5.5 2.5 1.8 2.5 3.5"/></svg>
+            <span class="sb-label">HR</span>
+          </div>
+          <div class="sb-item" id="sb-marketing" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3v10L5 9.5V6.5L13 3zM5 6.5H3a1.5 1.5 0 000 3h2"/><path d="M3 9.5l1.5 3.5"/></svg>
+            <span class="sb-label">Marketing</span>
+          </div>
+          <div class="sb-item" id="sb-legal" role="button" tabindex="0">
+            <svg class="sb-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v12M5 14h6M4.5 3.5L2 8l2.5 1L8 8M11.5 3.5L14 8l-2.5 1L8 8"/></svg>
+            <span class="sb-label">Legal</span>
+          </div>
+        </aside>
+        <!-- Main chat area -->
+        <div style="flex:1;display:flex;flex-direction:column;position:relative;min-width:0;">
+          <!-- Zero state -->
+          <div id="heroZero" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;">
+            <div style="width:44px;height:44px;border-radius:12px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;box-shadow:var(--shadow-sm);">
+              <img src="/images/atlasynq-logo.svg" alt="" width="24" height="24" aria-hidden="true">
+            </div>
+            <p style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:600;color:var(--clay-text-sec);margin:0;">Select an agent to start</p>
+            <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-muted);margin:4px 0 0;">Each agent has governed access to your tools</p>
+          </div>
+          <!-- Chat UI (hidden until JS activates) -->
+          <div id="heroChatUI" style="display:none;flex-direction:column;height:100%;">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-surface);">
+              <div style="width:28px;height:28px;border-radius:8px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);">
+                <img src="/images/atlasynq-logo.svg" alt="" width="16" height="16" aria-hidden="true">
+              </div>
+              <span id="heroAgentName" style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Sales Agent</span>
+              <span class="gov-badge" style="margin-left:auto;">Governed</span>
+            </div>
+            <div class="chat-feed" id="heroFeed" aria-live="polite"></div>
+            <div style="padding:10px 14px;border-top:1px solid var(--clay-border-soft);background:var(--clay-elevated);">
+              <div class="chat-input-box" id="heroInputBox">
+                <span id="heroTyper" style="font-family:'Sora',sans-serif;font-size:0.84rem;color:var(--clay-text);"></span>
+                <span class="cursor-blink" aria-hidden="true"></span>
+                <span id="heroPlaceholder" style="color:var(--clay-text-muted);font-size:0.84rem;font-family:'Sora',sans-serif;">Ask your agent...</span>
+              </div>
+            </div>
+          </div>
+          <!-- Fake cursor overlay -->
+          <div class="cursor-overlay" aria-hidden="true">
+            <div class="fake-mouse" id="heroCursor"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LOGOS STRIP ──────────────────────────────────────────────────────── -->
+<div class="logos-strip" aria-label="Integrated tools">
+  <div class="container">
+    <p class="logos-label">Governed access to your existing tools</p>
+    <div style="overflow:hidden;position:relative;">
+      <div class="logos-track" aria-hidden="true">
+        <span class="logo-item"><img src="/images/salesforce.png" alt="Salesforce" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Salesforce</span></span>
+        <span class="logo-item"><img src="/images/jira.png" alt="Jira" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Jira</span></span>
+        <span class="logo-item"><img src="/images/slack.png" alt="Slack" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Slack</span></span>
+        <span class="logo-item"><img src="/images/hubspot.png" alt="HubSpot" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">HubSpot</span></span>
+        <span class="logo-item"><img src="/images/quickbooks.png" alt="QuickBooks" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">QuickBooks</span></span>
+        <span class="logo-item"><img src="/images/github.jpg" alt="GitHub" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">GitHub</span></span>
+        <span class="logo-item"><img src="/images/notion.png" alt="Notion" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Notion</span></span>
+        <span class="logo-item"><img src="/images/gong.png" alt="Gong" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Gong</span></span>
+        <span class="logo-item"><img src="/images/stripe.jpg" alt="Stripe" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Stripe</span></span>
+        <span class="logo-item"><img src="/images/netsuite.png" alt="NetSuite" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">NetSuite</span></span>
+        <span class="logo-item"><img src="/images/linear.png" alt="Linear" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Linear</span></span>
+        <span class="logo-item"><img src="/images/drive.png" alt="Google Drive" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Drive</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="logo-item"><img src="/images/salesforce.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Salesforce</span></span>
+        <span class="logo-item"><img src="/images/jira.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Jira</span></span>
+        <span class="logo-item"><img src="/images/slack.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Slack</span></span>
+        <span class="logo-item"><img src="/images/hubspot.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">HubSpot</span></span>
+        <span class="logo-item"><img src="/images/quickbooks.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">QuickBooks</span></span>
+        <span class="logo-item"><img src="/images/github.jpg" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">GitHub</span></span>
+        <span class="logo-item"><img src="/images/notion.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Notion</span></span>
+        <span class="logo-item"><img src="/images/gong.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Gong</span></span>
+        <span class="logo-item"><img src="/images/stripe.jpg" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Stripe</span></span>
+        <span class="logo-item"><img src="/images/netsuite.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">NetSuite</span></span>
+        <span class="logo-item"><img src="/images/linear.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Linear</span></span>
+        <span class="logo-item"><img src="/images/drive.png" alt="" loading="lazy"><span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);">Drive</span></span>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════════════════ -->
-<section class="section-hero" id="home">
+<!-- ── PRODUCT TOUR ─────────────────────────────────────────────────────── -->
+<section class="section-deep-dive" id="tour">
   <div class="container">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      <span class="clay-pill primary">Now in early access — governed by default</span>
+    <div class="text-center" style="margin-bottom:2.5rem;" data-fade>
+      <div class="section-label">Product tour</div>
+      <h2>See how AtlaSynq works</h2>
+      <p class="section-sub">From connecting your tools to getting cited answers in four steps.</p>
     </div>
-
-    <h1 class="hero-headline text-gradient">
-      The AI workspace<br>every department actually trusts
-    </h1>
-
-    <p class="hero-sub">
-      AtlaSynq gives Finance, Sales, Engineering, HR and every other team a governed AI agent — with RBAC access control, measurable ROI, and one interface for your whole organisation.
-    </p>
-
-    <div class="hero-actions">
-      <a href="/signup/" class="clay-btn clay-btn-primary">Start Building Free →</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" class="clay-btn clay-btn-outline">Book a 30-min Demo</a>
-    </div>
-
-    <!-- Live Hero Demo -->
-    <div id="heroApp" class="window-frame fade-up" style="max-width:860px;margin:0 auto;position:relative;">
-      <!-- Fake cursor -->
-      <div id="heroCursor" style="position:absolute;top:50%;left:50%;pointer-events:none;z-index:20;transition:top 0.38s cubic-bezier(0.34,1.2,0.64,1),left 0.38s cubic-bezier(0.34,1.2,0.64,1);transform:translate(-4px,-2px);">
-        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true"><path d="M0 0L0 16L4.5 11.5L7.5 18L9.5 17L6.5 10.5L13 10.5Z" fill="#C96A4A" stroke="white" stroke-width="1.2"/></svg>
+    <div class="clay-card blueprint" style="max-width:840px;margin:0 auto;padding:0;overflow:hidden;" data-fade>
+      <div style="display:flex;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-elevated);overflow-x:auto;">
+        <button class="tour-chapter-btn active" id="tc0" onclick="setTourChapter(0)">01 Connect</button>
+        <button class="tour-chapter-btn" id="tc1" onclick="setTourChapter(1)">02 Assign role</button>
+        <button class="tour-chapter-btn" id="tc2" onclick="setTourChapter(2)">03 Ask with citations</button>
+        <button class="tour-chapter-btn" id="tc3" onclick="setTourChapter(3)">04 Admin approval</button>
       </div>
-
-      <div class="window-chrome">
-        <span class="window-dot window-dot-red"></span>
-        <span class="window-dot window-dot-amber"></span>
-        <span class="window-dot window-dot-green"></span>
-        <span class="window-title">AtlaSynq — Workspace</span>
+      <!-- Video (shown if mp4 exists) -->
+      <div id="tourVideoWrap">
+        <video id="tourVideo" controls playsinline poster="/images/atlasynq-logo.png" preload="metadata" style="width:100%;display:block;background:#1a1510;max-height:420px;object-fit:cover;" aria-label="AtlaSynq product tour">
+          <source src="/videos/atlasynq-product-tour.mp4" type="video/mp4">
+        </video>
       </div>
-
-      <div style="display:flex;height:340px;">
-        <!-- Sidebar -->
-        <div style="width:168px;flex-shrink:0;border-right:1px solid var(--clay-border-soft);padding:12px 8px;display:flex;flex-direction:column;gap:4px;background:var(--clay-elevated);">
-          <p style="font-family:'Sora',sans-serif;font-size:0.68rem;font-weight:700;color:var(--clay-text-muted);text-transform:uppercase;letter-spacing:0.1em;padding:4px 8px 8px;">Departments</p>
-          <div id="sb-sales"     class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#5B78B8;"></span><span class="sb-label">💼 Sales</span></div>
-          <div id="sb-finance"   class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#8A8F62;"></span><span class="sb-label">📊 Finance</span></div>
-          <div id="sb-eng"       class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#C96A4A;"></span><span class="sb-label">🛠 Engineering</span></div>
-          <div id="sb-hr"        class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#D5A24B;"></span><span class="sb-label">👥 HR</span></div>
-          <div id="sb-marketing" class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#B87BAA;"></span><span class="sb-label">📣 Marketing</span></div>
-          <div id="sb-legal"     class="sb-item" role="button" tabindex="0"><span class="sb-dot" style="background:#6B8F8A;"></span><span class="sb-label">⚖️ Legal</span></div>
-        </div>
-
-        <!-- Chat area -->
-        <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
-          <div style="padding:10px 16px;border-bottom:1px solid var(--clay-border-soft);display:flex;align-items:center;gap:10px;background:var(--clay-surface);">
-            <span style="font-family:'Fraunces',serif;font-weight:700;font-size:0.95rem;" id="heroAgentName">Select a department →</span>
-            <span class="clay-chip">Governed</span>
+      <!-- Fallback panels (shown when video is unavailable) -->
+      <div id="tourFallback" style="display:none;">
+        <div class="tour-panel active" id="tp0">
+          <div>
+            <h3 style="margin-bottom:0.75rem;">Connect your tools</h3>
+            <p style="font-size:0.95rem;">Authorize your existing tools via OAuth — Salesforce, Jira, QuickBooks, Slack, and 40+ more. AtlaSynq never stores credentials; it uses scoped tokens per agent role.</p>
+            <div class="tool-cluster" style="margin-top:1.25rem;">
+              <span class="tool-chip"><img src="/images/salesforce.png" alt="">Salesforce</span>
+              <span class="tool-chip"><img src="/images/jira.png" alt="">Jira</span>
+              <span class="tool-chip"><img src="/images/slack.png" alt="">Slack</span>
+              <span class="tool-chip"><img src="/images/quickbooks.png" alt="">QuickBooks</span>
+            </div>
           </div>
-
-          <!-- Zero state -->
-          <div id="heroZero" class="hero-zero">
-            <div class="hero-zero-icon">🤖</div>
-            <p>Click a department to see your AI agent in action</p>
-          </div>
-
-          <!-- Chat UI (shown by JS) -->
-          <div id="heroChatUI" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
-            <div id="heroFeed" class="chat-feed" style="flex:1;overflow-y:auto;padding:12px 14px;"></div>
-            <div style="padding:10px 12px;border-top:1px solid var(--clay-border-soft);background:var(--clay-surface);">
-              <div id="heroInputBox" class="chat-input-box" style="min-height:38px;">
-                <span id="heroPlaceholder" style="color:var(--clay-text-muted);font-size:0.84rem;">Ask your agent anything…</span>
-                <span id="heroTyper" style="font-size:0.84rem;color:var(--clay-text);"></span>
-                <span class="cursor-blink"></span>
+          <div style="background:var(--clay-elevated);border-radius:var(--radius-lg);padding:2rem;border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);text-align:center;">
+            <div style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-text-muted);margin-bottom:1rem;">OAuth connection</div>
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch;">
+              <div style="display:flex;align-items:center;gap:10px;background:var(--clay-surface);border-radius:var(--radius-sm);padding:10px 14px;border:1.5px solid var(--clay-border-soft);">
+                <img src="/images/salesforce.png" alt="" width="20" height="20" style="border-radius:4px;">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;flex:1;text-align:left;">Salesforce CRM</span>
+                <span style="font-size:0.7rem;font-family:'Sora',sans-serif;color:var(--clay-sage);font-weight:700;background:var(--clay-sage-lt);padding:2px 8px;border-radius:4px;">Connected</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;background:var(--clay-surface);border-radius:var(--radius-sm);padding:10px 14px;border:1.5px solid var(--clay-border-soft);">
+                <img src="/images/jira.png" alt="" width="20" height="20" style="border-radius:4px;">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;flex:1;text-align:left;">Jira</span>
+                <span style="font-size:0.7rem;font-family:'Sora',sans-serif;color:var(--clay-sage);font-weight:700;background:var(--clay-sage-lt);padding:2px 8px;border-radius:4px;">Connected</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div><!-- /heroApp -->
-
-    <p style="text-align:center;margin-top:1rem;font-family:'Sora',sans-serif;font-size:0.8rem;color:var(--clay-text-muted);">Live demo — click any department to ask your agent</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     BENEFITS STRIP
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-alt" id="features">
-  <div class="container">
-    <p class="section-label">Why AtlaSynq</p>
-    <h2 class="text-center">Built for how enterprise teams actually work</h2>
-    <p class="section-sub">No prompt engineering. No rogue agents. Just governed AI that every department can rely on.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem;">
-      <div class="clay-card fade-up">
-        <div class="e-card-header">
-          <div class="e-icon">🔐</div>
-          <h4 class="e-title">Governed by default</h4>
-        </div>
-        <p class="e-text">Every agent action is gated by role-based access control. Define who can ask what, which data is in scope, and what actions are permitted — before you deploy.</p>
-      </div>
-      <div class="clay-card fade-up">
-        <div class="e-card-header">
-          <div class="e-icon">🏢</div>
-          <h4 class="e-title">Department agents</h4>
-        </div>
-        <p class="e-text">Finance, Sales, Engineering, HR, Marketing, Legal — each agent understands your team's tools, language, and data. No generic chatbot fumbling your stack.</p>
-      </div>
-      <div class="clay-card fade-up">
-        <div class="e-card-header">
-          <div class="e-icon">✦</div>
-          <h4 class="e-title">One interface</h4>
-        </div>
-        <p class="e-text">Your whole organisation in one workspace. Switch departments, compare answers, and share context across teams — without juggling ten different AI tools.</p>
-      </div>
-      <div class="clay-card fade-up">
-        <div class="e-card-header">
-          <div class="e-icon">📈</div>
-          <h4 class="e-title">Measurable ROI</h4>
-        </div>
-        <p class="e-text">Track hours saved, decisions accelerated, and dollar value recovered per department. AtlaSynq makes AI investment as measurable as headcount.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     LIVE BUILDER DEMO
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-builder" id="product">
-  <div class="container">
-    <p class="section-label">Live Demo</p>
-    <h2 class="text-center">Configure &amp; govern in seconds</h2>
-    <p class="section-sub">Pick a model, assign a role, connect your tools, deploy. AtlaSynq applies governance automatically.</p>
-
-    <div id="builderApp" class="builder-ui fade-up" style="margin-top:2.5rem;position:relative;max-width:920px;margin-left:auto;margin-right:auto;">
-      <!-- Fake cursor -->
-      <div id="builderCursor" style="position:absolute;top:30%;left:25%;pointer-events:none;z-index:20;transition:top 0.38s cubic-bezier(0.34,1.2,0.64,1),left 0.38s cubic-bezier(0.34,1.2,0.64,1);transform:translate(-4px,-2px);">
-        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true"><path d="M0 0L0 16L4.5 11.5L7.5 18L9.5 17L6.5 10.5L13 10.5Z" fill="#C96A4A" stroke="white" stroke-width="1.2"/></svg>
-      </div>
-
-      <!-- Tab bar -->
-      <div style="display:flex;align-items:center;gap:4px;padding:12px 16px;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-elevated);flex-wrap:wrap;">
-        <div id="tab1" class="b-tab active">1 · Choose Model</div>
-        <div id="tab2" class="b-tab">2 · Department Role</div>
-        <div id="tab3" class="b-tab">3 · Connect Tools</div>
-        <div id="tab4" class="b-tab">4 · Deploy</div>
-      </div>
-
-      <!-- Step 1: LLM -->
-      <div id="step1" class="step-view active" style="padding:1.5rem;">
-        <p style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);margin-bottom:1rem;">Select your AI model</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;">
-          <div id="llm-gpt" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/gpt.png" alt="GPT-4o" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">GPT-4o</span>
+        <div class="tour-panel" id="tp1">
+          <div>
+            <h3 style="margin-bottom:0.75rem;">Assign role-based access</h3>
+            <p style="font-size:0.95rem;">Define what each agent role can see and do. Finance agents access QuickBooks but not Salesforce. Engineering agents read Jira but cannot write to HR systems. RBAC enforced at every query.</p>
           </div>
-          <div id="llm-claude" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/claude.png" alt="Claude" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">Claude 3.5</span>
-          </div>
-          <div id="llm-gemini" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/gemini.png" alt="Gemini" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">Gemini 1.5</span>
-          </div>
-          <div id="llm-llama" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/llama.png" alt="Llama" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">Llama 3</span>
-          </div>
-          <div id="llm-copilot" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/copilot.png" alt="Copilot" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">Copilot</span>
-          </div>
-          <div id="llm-perplexity" class="b-card" style="align-items:center;text-align:center;">
-            <img src="/images/pplx.png" alt="Perplexity" style="width:36px;height:36px;object-fit:contain;border-radius:8px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.8rem;font-weight:600;color:var(--clay-text);">Perplexity</span>
+          <div style="background:var(--clay-elevated);border-radius:var(--radius-lg);padding:1.5rem;border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);">
+            <div style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-text-muted);margin-bottom:1rem;">Access policy — Finance Agent</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--clay-surface);border-radius:var(--radius-sm);border:1px solid var(--clay-border-soft);">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-sec);">QuickBooks — read</span>
+                <span style="color:var(--clay-sage);font-size:0.8rem;font-weight:700;">Allow</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--clay-surface);border-radius:var(--radius-sm);border:1px solid var(--clay-border-soft);">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-sec);">Stripe — read</span>
+                <span style="color:var(--clay-sage);font-size:0.8rem;font-weight:700;">Allow</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--clay-surface);border-radius:var(--radius-sm);border:1px solid var(--clay-border-soft);">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-sec);">Salesforce — any</span>
+                <span style="color:var(--clay-text-muted);font-size:0.8rem;font-weight:700;">Deny</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--clay-surface);border-radius:var(--radius-sm);border:1px solid var(--clay-border-soft);">
+                <span style="font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-sec);">HR systems — any</span>
+                <span style="color:var(--clay-text-muted);font-size:0.8rem;font-weight:700;">Deny</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Step 2: Role -->
-      <div id="step2" class="step-view" style="padding:1.5rem;">
-        <p style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);margin-bottom:1rem;">Choose a department role</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;">
-          <div id="role-finance" class="b-card" style="cursor:pointer;">
-            <span style="font-size:1.4rem;">📊</span>
-            <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--clay-text);">Finance</span>
-            <span style="font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-sec);">P&amp;L, runway, forecasts</span>
+        <div class="tour-panel" id="tp2">
+          <div>
+            <h3 style="margin-bottom:0.75rem;">Ask questions, get cited answers</h3>
+            <p style="font-size:0.95rem;">Team members ask questions in plain language. AtlaSynq queries only the tools their role permits, assembles a response, and cites the exact source — so answers are traceable, not hallucinated.</p>
           </div>
-          <div id="role-sales" class="b-card" style="cursor:pointer;">
-            <span style="font-size:1.4rem;">💼</span>
-            <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--clay-text);">Sales</span>
-            <span style="font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-sec);">Pipeline, CRM, deals</span>
-          </div>
-          <div id="role-eng" class="b-card" style="cursor:pointer;">
-            <span style="font-size:1.4rem;">🛠</span>
-            <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--clay-text);">Engineering</span>
-            <span style="font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-sec);">Bugs, sprints, velocity</span>
+          <div style="background:var(--clay-elevated);border-radius:var(--radius-lg);padding:1.5rem;border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);">
+            <div class="msg user" style="max-width:100%;margin-bottom:10px;">
+              <div class="msg-bubble" style="font-size:0.82rem;">What&#39;s our cash runway?</div>
+            </div>
+            <div class="msg" style="max-width:100%;">
+              <div class="msg-bubble" style="font-size:0.82rem;"><strong>18.4 months of runway</strong> at $310k/mo burn. Cash: $5.7M. Source: <span class="cite-tag">QuickBooks</span></div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Step 3: Integrations -->
-      <div id="step3" class="step-view" style="padding:1.5rem;">
-        <p id="detectText" style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text-sec);margin-bottom:1rem;">Detecting tools for your team…</p>
-        <div id="integrationsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;"></div>
-      </div>
-
-      <!-- Step 4: Deploy -->
-      <div id="step4" class="step-view" style="padding:1.5rem;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;">
-          <button id="btn-deploy" class="clay-btn clay-btn-primary" style="padding:11px 28px;">Deploy Agent →</button>
-          <div id="govLoader" style="display:none;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:0.84rem;color:var(--clay-text-sec);">
-            <span style="display:inline-block;width:16px;height:16px;border:2.5px solid var(--clay-primary);border-top-color:transparent;border-radius:50%;animation:spin 0.7s linear infinite;"></span>
-            Applying governance for <strong id="govRoleName"></strong>…
+        <div class="tour-panel" id="tp3">
+          <div>
+            <h3 style="margin-bottom:0.75rem;">Admin approval for sensitive actions</h3>
+            <p style="font-size:0.95rem;">When an agent action exceeds read-only scope — like drafting a contract or updating a record — it enters an approval queue. Admins review, approve, or reject with a full audit trail attached.</p>
           </div>
-        </div>
-
-        <!-- Chat preview -->
-        <div id="chatResult" style="display:none;flex-direction:column;border-radius:var(--radius-lg);border:1.5px solid var(--clay-border-soft);overflow:hidden;box-shadow:var(--shadow);">
-          <div style="padding:10px 14px;background:var(--clay-elevated);border-bottom:1px solid var(--clay-border-soft);display:flex;align-items:center;gap:8px;">
-            <span style="width:8px;height:8px;border-radius:50%;background:var(--clay-sage);display:inline-block;"></span>
-            <span id="agentTitle" style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);"></span>
-            <span class="clay-chip" style="margin-left:auto;">Live</span>
-          </div>
-          <div id="resChatFeed" class="chat-feed" style="max-height:180px;overflow-y:auto;padding:12px 14px;"></div>
-          <div style="padding:10px 12px;border-top:1px solid var(--clay-border-soft);background:var(--clay-surface);">
-            <div id="cpInputBox" class="chat-input-box" style="min-height:36px;">
-              <span id="resTyper" style="font-size:0.84rem;color:var(--clay-text);"></span>
-              <span class="cursor-blink"></span>
+          <div style="background:var(--clay-elevated);border-radius:var(--radius-lg);padding:1.5rem;border:1.5px solid var(--clay-border-soft);box-shadow:var(--shadow-sm);">
+            <div style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-primary);margin-bottom:1rem;">Pending approval</div>
+            <div style="background:var(--clay-surface);border-radius:var(--radius-sm);padding:12px 14px;border:1.5px solid rgba(201,106,74,0.2);margin-bottom:10px;">
+              <p style="font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;color:var(--clay-text);margin:0 0 4px;">Update CRM record: Acme Corp</p>
+              <p style="font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-muted);margin:0;">Requested by Sales Agent · 2 min ago</p>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <button style="flex:1;padding:8px;background:var(--clay-sage);color:#fff;border:none;border-radius:var(--radius-sm);font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">Approve</button>
+              <button style="flex:1;padding:8px;background:var(--clay-elevated);color:var(--clay-text-sec);border:1.5px solid var(--clay-border);border-radius:var(--radius-sm);font-family:'Sora',sans-serif;font-size:0.82rem;font-weight:600;cursor:pointer;">Reject</button>
             </div>
           </div>
         </div>
       </div>
-    </div><!-- /builderApp -->
+    </div>
+  </div>
+  <script>
+    (function() {
+      var video = document.getElementById('tourVideo');
+      var fallback = document.getElementById('tourFallback');
+      var videoWrap = document.getElementById('tourVideoWrap');
+      function showFallback() {
+        if (videoWrap) videoWrap.style.display = 'none';
+        if (fallback) fallback.style.display = 'block';
+        setTourChapter(0);
+      }
+      if (video) {
+        video.addEventListener('error', showFallback);
+        video.addEventListener('emptied', function() {
+          if (video.networkState === 3) showFallback();
+        });
+        setTimeout(function() {
+          if (video.networkState === 3 || video.readyState === 0) showFallback();
+        }, 2000);
+      } else {
+        showFallback();
+      }
+      window.setTourChapter = function(idx) {
+        for (var i = 0; i < 4; i++) {
+          var btn = document.getElementById('tc' + i);
+          var panel = document.getElementById('tp' + i);
+          if (btn) btn.classList.toggle('active', i === idx);
+          if (panel) panel.classList.toggle('active', i === idx);
+        }
+      };
+    })();
+  </script>
+</section>
+
+<!-- ── INTEGRATIONS ─────────────────────────────────────────────────────── -->
+<section class="section" id="integrations">
+  <div class="container">
+    <div class="text-center" data-fade>
+      <div class="section-label">How it works with your stack</div>
+      <h2>Real workflows. Real tools. Governed answers.</h2>
+      <p class="section-sub">AtlaSynq doesn't replace your tools — it connects them and enforces who can ask what.</p>
+    </div>
+    <div style="margin-top:3rem;" data-fade>
+      <!-- Row 1: Sales -->
+      <div class="workflow-row">
+        <div>
+          <div class="clay-chip" style="margin-bottom:1rem;">Sales</div>
+          <h3 style="margin-bottom:0.75rem;">Pipeline risk in one governed answer</h3>
+          <p>Your Sales agent queries Salesforce deal stages, surfaces Gong call risk signals, and posts a summary to Slack — all within the permissions you set. No spreadsheet, no manual triage.</p>
+          <div class="answer-chip" style="margin-top:1.25rem;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px;"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 5.5l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 9l3.44-3.44a.75.75 0 011.06 1.06z" fill="var(--clay-sage)"/></svg>
+            <span><strong>3 deals at risk</strong> — Acme ($120k, 14d silent), Beta Industries (62% close-lost), TechFlow needs proposal by Friday. <span class="cite-tag">Salesforce</span> <span class="cite-tag">Gong</span></span>
+          </div>
+        </div>
+        <div class="clay-card" style="padding:1.75rem;">
+          <div style="font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-text-muted);margin-bottom:1rem;">Tools connected — Sales Agent</div>
+          <div class="tool-cluster">
+            <span class="tool-chip"><img src="/images/salesforce.png" alt="Salesforce">Salesforce</span>
+            <span class="tool-chip"><img src="/images/gong.png" alt="Gong">Gong</span>
+            <span class="tool-chip"><img src="/images/slack.png" alt="Slack">Slack</span>
+          </div>
+          <div style="text-align:center;margin:1rem 0;font-size:1.4rem;color:var(--clay-primary);opacity:0.6;" aria-hidden="true">&#x2193;</div>
+          <div class="hub-chip" style="justify-content:center;">
+            <img src="/images/atlasynq-logo.svg" alt="" width="18" height="18" aria-hidden="true">
+            AtlaSynq — governed answer
+          </div>
+        </div>
+      </div>
+      <!-- Row 2: Finance -->
+      <div class="workflow-row flip">
+        <div>
+          <div class="clay-chip" style="margin-bottom:1rem;">Finance</div>
+          <h3 style="margin-bottom:0.75rem;">Burn and policy without spreadsheet chaos</h3>
+          <p>The Finance agent reads NetSuite GL, Stripe revenue, and QuickBooks expenses. It answers burn, runway, and margin questions without giving Finance access to Sales pipeline or HR data.</p>
+          <div class="answer-chip" style="margin-top:1.25rem;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px;"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 5.5l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 9l3.44-3.44a.75.75 0 011.06 1.06z" fill="var(--clay-sage)"/></svg>
+            <span><strong>18.4 months runway</strong> at $310k/mo. Engineering 44% of OpEx. <span class="cite-tag">QuickBooks</span> <span class="cite-tag">NetSuite</span></span>
+          </div>
+        </div>
+        <div class="clay-card" style="padding:1.75rem;">
+          <div style="font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-text-muted);margin-bottom:1rem;">Tools connected — Finance Agent</div>
+          <div class="tool-cluster">
+            <span class="tool-chip"><img src="/images/netsuite.png" alt="NetSuite">NetSuite</span>
+            <span class="tool-chip"><img src="/images/stripe.jpg" alt="Stripe">Stripe</span>
+            <span class="tool-chip"><img src="/images/quickbooks.png" alt="QuickBooks">QuickBooks</span>
+          </div>
+          <div style="text-align:center;margin:1rem 0;font-size:1.4rem;color:var(--clay-primary);opacity:0.6;" aria-hidden="true">&#x2193;</div>
+          <div class="hub-chip" style="justify-content:center;">
+            <img src="/images/atlasynq-logo.svg" alt="" width="18" height="18" aria-hidden="true">
+            AtlaSynq — governed answer
+          </div>
+        </div>
+      </div>
+      <!-- Row 3: Engineering -->
+      <div class="workflow-row">
+        <div>
+          <div class="clay-chip" style="margin-bottom:1rem;">Engineering</div>
+          <h3 style="margin-bottom:0.75rem;">Release blockers with citations</h3>
+          <p>Engineering agents pull P1 bugs from Jira, open PRs from GitHub, and cross-reference Linear milestones. No more pinging three tools to find out if the release is on track.</p>
+          <div class="answer-chip" style="margin-top:1.25rem;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0;margin-top:1px;"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.5 5.5l-4 4a.75.75 0 01-1.06 0l-2-2a.75.75 0 011.06-1.06L7 9l3.44-3.44a.75.75 0 011.06 1.06z" fill="var(--clay-sage)"/></svg>
+            <span><strong>4 P1 issues</strong> blocking v2.4.0. Estimated clear: July 14. <span class="cite-tag">Jira</span> <span class="cite-tag">GitHub</span></span>
+          </div>
+        </div>
+        <div class="clay-card" style="padding:1.75rem;">
+          <div style="font-family:'Sora',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--clay-text-muted);margin-bottom:1rem;">Tools connected — Engineering Agent</div>
+          <div class="tool-cluster">
+            <span class="tool-chip"><img src="/images/jira.png" alt="Jira">Jira</span>
+            <span class="tool-chip"><img src="/images/github.jpg" alt="GitHub">GitHub</span>
+            <span class="tool-chip"><img src="/images/linear.png" alt="Linear">Linear</span>
+          </div>
+          <div style="text-align:center;margin:1rem 0;font-size:1.4rem;color:var(--clay-primary);opacity:0.6;" aria-hidden="true">&#x2193;</div>
+          <div class="hub-chip" style="justify-content:center;">
+            <img src="/images/atlasynq-logo.svg" alt="" width="18" height="18" aria-hidden="true">
+            AtlaSynq — governed answer
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2.5rem;" data-fade>
+      <a href="/integrations/" class="clay-btn clay-btn-outline">See all 40+ integrations</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     ROI CALCULATOR
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-roi" id="roi">
+<!-- ── BUILDER DEMO ─────────────────────────────────────────────────────── -->
+<section class="section-alt section-builder" id="product">
   <div class="container">
-    <p class="section-label">ROI Calculator</p>
-    <h2 class="text-center">See your return before you sign</h2>
-    <p class="section-sub">Enter your team size and we'll estimate how much time and money AtlaSynq recovers in year one.</p>
-
-    <div class="roi-card fade-up">
-      <div class="roi-inputs">
-        <div class="roi-field">
-          <label for="roiEmployees">Knowledge workers</label>
-          <input type="number" id="roiEmployees" value="50" min="1" max="10000" placeholder="50">
-        </div>
-        <div class="roi-field">
-          <label for="roiHours">Hours/week on manual research</label>
-          <input type="number" id="roiHours" value="5" min="1" max="40" placeholder="5">
-        </div>
-        <div class="roi-field">
-          <label for="roiSalary">Avg annual salary (USD)</label>
-          <input type="number" id="roiSalary" value="80000" min="20000" max="500000" placeholder="80000">
+    <div class="text-center" style="margin-bottom:2.5rem;" data-fade>
+      <div class="section-label">Agent builder</div>
+      <h2>Build a governed agent in four steps</h2>
+      <p class="section-sub">Choose a model, assign a department role, connect tools, and deploy. No engineering required.</p>
+    </div>
+    <div class="builder-ui" id="builderApp" style="position:relative;max-width:920px;margin:0 auto;" data-fade>
+      <!-- Tab bar -->
+      <div style="display:flex;gap:4px;padding:12px 16px;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-elevated);overflow-x:auto;">
+        <button class="b-tab active" id="tab1">1. Choose model</button>
+        <button class="b-tab" id="tab2">2. Set role</button>
+        <button class="b-tab" id="tab3">3. Connect tools</button>
+        <button class="b-tab" id="tab4">4. Deploy</button>
+      </div>
+      <!-- Step 1: LLM selection -->
+      <div class="step-view active" id="step1" style="padding:1.5rem;">
+        <p style="font-family:'Sora',sans-serif;font-size:0.85rem;color:var(--clay-text-muted);margin-bottom:1rem;">Select the AI model for this agent. You can use a different model per role.</p>
+        <div class="grid-3" style="gap:1rem;">
+          <div class="b-card" id="llm-gpt">
+            <img src="/images/gpt.png" alt="GPT-4o" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">GPT-4o</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">OpenAI</div>
+          </div>
+          <div class="b-card" id="llm-claude">
+            <img src="/images/claude.png" alt="Claude 3.5" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Claude 3.5</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Anthropic</div>
+          </div>
+          <div class="b-card" id="llm-gemini">
+            <img src="/images/gemini.png" alt="Gemini 1.5" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Gemini 1.5</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Google</div>
+          </div>
+          <div class="b-card" id="llm-llama">
+            <img src="/images/llama.png" alt="Llama 3" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Llama 3</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Meta — self-hosted</div>
+          </div>
+          <div class="b-card" id="llm-copilot">
+            <img src="/images/copilot.png" alt="Copilot" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Copilot</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">GitHub / Microsoft</div>
+          </div>
+          <div class="b-card" id="llm-perplexity">
+            <img src="/images/pplx.png" alt="Perplexity" width="32" height="32" style="border-radius:8px;object-fit:contain;" onerror="this.style.display='none'">
+            <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Perplexity</div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Perplexity AI</div>
+          </div>
         </div>
       </div>
+      <!-- Step 2: Role selection -->
+      <div class="step-view" id="step2" style="padding:1.5rem;">
+        <p style="font-family:'Sora',sans-serif;font-size:0.85rem;color:var(--clay-text-muted);margin-bottom:1rem;">Assign a department role. Access policies are pre-configured per role and customizable.</p>
+        <div class="grid-3" style="gap:1rem;">
+          <div class="b-card" id="role-finance">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-blue-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--clay-blue)" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5v7M6 6.5c0-.8.9-1.5 2-1.5s2 .7 2 1.5-.9 1.5-2 1.5-2 .7-2 1.5.9 1.5 2 1.5 2-.7 2-1.5"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Finance</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">QuickBooks · Stripe · Excel</div>
+          </div>
+          <div class="b-card" id="role-sales">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="9" width="3" height="6" rx="1" fill="var(--clay-primary)" opacity=".7"/><rect x="6.5" y="6" width="3" height="9" rx="1" fill="var(--clay-primary)"/><rect x="12" y="3" width="3" height="12" rx="1" fill="var(--clay-primary)"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Sales</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Salesforce · HubSpot · Gong</div>
+          </div>
+          <div class="b-card" id="role-eng">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-sage-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--clay-sage)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4L1 8l4 4M11 4l4 4-4 4M10 3l-4 10"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Engineering</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Jira · GitHub · Linear</div>
+          </div>
+          <div class="b-card" id="role-hr">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-amber-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--clay-amber)" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="4" r="2.5"/><path d="M1 13c0-2.5 2-4.5 4.5-4.5S10 10.5 10 13"/><circle cx="12" cy="4.5" r="2"/><path d="M12 9c1.8.4 3 1.8 3 3.5"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">HR</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">Greenhouse · Slack · Drive</div>
+          </div>
+          <div class="b-card" id="role-marketing">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--clay-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3v10L5 9.5V6.5L13 3zM5 6.5H3a1.5 1.5 0 000 3h2"/><path d="M3 9.5l1.5 3.5"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Marketing</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">HubSpot · LinkedIn · Drive</div>
+          </div>
+          <div class="b-card" id="role-legal">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;border-radius:8px;background:var(--clay-blue-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--clay-blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v12M5 14h6M4.5 3.5L2 8l2.5 1L8 8M11.5 3.5L14 8l-2.5 1L8 8"/></svg>
+              </div>
+              <span style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);">Legal</span>
+            </div>
+            <div style="font-size:0.76rem;color:var(--clay-text-muted);">DocuSign · Drive · Notion</div>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3: Integrations -->
+      <div class="step-view" id="step3" style="padding:1.5rem;">
+        <p id="detectText" style="font-family:'Sora',sans-serif;font-size:0.85rem;color:var(--clay-text-muted);margin-bottom:1rem;">Detected tools for selected team...</p>
+        <div class="grid-3" id="integrationsGrid" style="gap:10px;"></div>
+      </div>
+      <!-- Step 4: Deploy -->
+      <div class="step-view" id="step4" style="padding:1.5rem;">
+        <div style="text-align:center;margin-bottom:1.5rem;">
+          <button id="btn-deploy" style="cursor:pointer;">Deploy Agent</button>
+        </div>
+        <div class="gov-loader" id="govLoader">
+          <div class="gov-spinner"></div>
+          <p style="font-family:'Sora',sans-serif;font-size:0.88rem;color:var(--clay-text-sec);">Applying governance policies for <strong id="govRoleName">Finance</strong> role...</p>
+        </div>
+        <div id="chatResult" style="display:none;">
+          <div class="chat-preview">
+            <div class="chat-preview-header">
+              <div style="width:26px;height:26px;border-radius:7px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;">
+                <img src="/images/atlasynq-logo.svg" alt="" width="14" height="14" aria-hidden="true">
+              </div>
+              <span id="agentTitle" style="font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:700;color:var(--clay-text);">Finance Agent</span>
+              <span class="gov-badge" style="margin-left:auto;font-size:0.66rem;">Live</span>
+            </div>
+            <div class="cp-feed" id="resChatFeed" aria-live="polite"></div>
+            <div class="cp-input" id="cpInputBox">
+              <span id="resTyper" style="font-family:'Sora',sans-serif;font-size:0.84rem;color:var(--clay-text);"></span>
+              <span class="cursor-blink" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fake cursor overlay -->
+      <div class="cursor-overlay" aria-hidden="true">
+        <div class="fake-mouse" id="builderCursor"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <button id="roiCalcBtn" class="clay-btn clay-btn-primary" style="width:100%;">Calculate my ROI →</button>
-
+<!-- ── ROI CALCULATOR ───────────────────────────────────────────────────── -->
+<section class="section-roi" id="roi">
+  <div class="container">
+    <div class="text-center" data-fade>
+      <div class="section-label">ROI calculator</div>
+      <h2>What does governed AI save your team?</h2>
+      <p class="section-sub">Model your savings in real time based on your team size and current manual research time.</p>
+    </div>
+    <div class="roi-card" data-fade>
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label for="roiEmployees">Team size</label>
+          <input type="number" id="roiEmployees" value="50" min="1" max="10000" aria-label="Number of employees">
+        </div>
+        <div class="roi-field">
+          <label for="roiHours">Hours / week on manual research</label>
+          <input type="number" id="roiHours" value="5" min="0" max="40" step="0.5" aria-label="Hours per week on manual research">
+        </div>
+        <div class="roi-field">
+          <label for="roiSalary">Avg annual salary ($)</label>
+          <input type="number" id="roiSalary" value="80000" min="1" step="1000" aria-label="Average annual salary in dollars">
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <button class="clay-btn clay-btn-primary" id="roiCalcBtn" style="padding:11px 28px;">Calculate savings</button>
+      </div>
       <div class="roi-results">
         <div class="roi-result">
           <div class="roi-result-label">Hours saved / year</div>
-          <div id="roiHoursSaved" class="roi-result-value positive">—</div>
+          <div class="roi-result-value positive" id="roiHoursSaved">3,900 hrs/yr</div>
         </div>
         <div class="roi-result">
-          <div class="roi-result-label">Annual dollar value</div>
-          <div id="roiDollars" class="roi-result-value positive">—</div>
+          <div class="roi-result-label">Annual value recovered</div>
+          <div class="roi-result-value" id="roiDollars">$75,000</div>
         </div>
         <div class="roi-result">
           <div class="roi-result-label">Payback period</div>
-          <div id="roiPayback" class="roi-result-value">—</div>
+          <div class="roi-result-value" id="roiPayback">2 months</div>
         </div>
       </div>
-
-      <div style="margin-top:1.5rem;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="/roi/" class="clay-btn clay-btn-outline">See full ROI report →</a>
-        <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" class="clay-btn clay-btn-primary">Book Demo</a>
-      </div>
+      <p style="text-align:center;font-family:'Sora',sans-serif;font-size:0.78rem;color:var(--clay-text-muted);margin-top:1rem;">Based on 30% efficiency recovery — a conservative estimate from customer deployments. <a href="/roi/" style="color:var(--clay-primary);">Full ROI model &#x2192;</a></p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     COMPARE
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-compare" id="compare">
+<!-- ── TRUST / GOVERNANCE ───────────────────────────────────────────────── -->
+<section class="section" id="security">
   <div class="container">
-    <p class="section-label">Old vs New</p>
-    <h2 class="text-center">Stop duct-taping AI tools together</h2>
-    <p class="section-sub">Most enterprises cobble together five different AI products with no governance. Here's the difference.</p>
-
-    <div class="compare-grid" style="margin-top:2.5rem;">
-      <div class="compare-card">
-        <p class="c-title">❌ Today's fragmented approach</p>
-        <div class="c-list">
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> One ChatGPT subscription shared by everyone</div>
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> Sensitive data pasted into generic prompts</div>
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> No audit trail — you don't know what your teams asked</div>
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> Finance and Engineering get the same generic responses</div>
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> ROI is a guess — no visibility on usage or value</div>
-          <div class="c-item"><span style="color:var(--danger);flex-shrink:0;">✕</span> Compliance team blocks adoption entirely</div>
+    <div class="text-center" data-fade>
+      <div class="section-label">Enterprise-grade security</div>
+      <h2>Built for teams that operate under policy</h2>
+      <p class="section-sub">Every agent action is governed, logged, and attributable. No shadow AI, no data leakage.</p>
+    </div>
+    <div class="trust-grid" data-fade>
+      <div class="trust-item">
+        <div class="trust-icon terra">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2L4 5v5c0 3.3 2.5 6.4 6 7.2C13.5 16.4 16 13.3 16 10V5L10 2z" stroke="var(--clay-primary)" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="var(--clay-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">RBAC Governance</div>
+        <div style="font-size:0.8rem;color:var(--clay-text-muted);">Granular access rules per role, per tool, per action. Enforced at every query.</div>
       </div>
-      <div class="compare-card new">
-        <p class="c-title" style="color:var(--clay-primary);">✓ AtlaSynq governed workspace</p>
-        <div class="c-list">
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> Role-based agents — right context for every team</div>
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> RBAC policies enforce data scope automatically</div>
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> Full audit log — every query, every response</div>
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> Department-specific integrations and answers</div>
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> Dashboard shows hours saved and dollar value per team</div>
-          <div class="c-item"><span style="color:var(--clay-sage);flex-shrink:0;">✓</span> SOC 2 compliant — compliance team loves it</div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2" stroke="var(--clay-blue)" stroke-width="1.5"/><path d="M7 9V7a3 3 0 016 0v2" stroke="var(--clay-blue)" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
+        <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">SSO / SAML</div>
+        <div style="font-size:0.8rem;color:var(--clay-text-muted);">Okta, Azure AD, Google Workspace. Identity enforced before any agent can act.</div>
       </div>
+      <div class="trust-item">
+        <div class="trust-icon sage">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6h12M4 10h12M4 14h8" stroke="var(--clay-sage)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="14" r="2.5" stroke="var(--clay-sage)" stroke-width="1.5"/></svg>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">Full Audit Trail</div>
+        <div style="font-size:0.8rem;color:var(--clay-text-muted);">Every query, answer, and agent action logged. Export for compliance review.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon amber">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="var(--clay-amber)" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="var(--clay-amber)" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">No model training</div>
+        <div style="font-size:0.8rem;color:var(--clay-text-muted);">Your data is never used to train AI models. Zero retention by default.</div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:2rem;" data-fade>
+      <a href="/security/" class="clay-btn clay-btn-outline" style="font-size:0.88rem;">Read our security overview</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     INTEGRATION HUB
-═══════════════════════════════════════════════════════════ -->
-<section class="logos-strip" id="integrations">
+<!-- ── UPDATES + BLOG ───────────────────────────────────────────────────── -->
+<section class="section-deep-dive section-blog" id="content">
   <div class="container">
-    <p class="logos-label">Connects to your existing stack</p>
-
-    <!-- Orbital hub diagram -->
-    <div style="position:relative;width:100%;max-width:480px;height:260px;margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;">
-      <!-- Hub lines -->
-      <div id="line-1" class="hub-line" style="position:absolute;width:120px;transform-origin:left center;left:50%;top:50%;transform:rotate(-45deg);"></div>
-      <div id="line-2" class="hub-line" style="position:absolute;width:120px;transform-origin:left center;left:50%;top:50%;transform:rotate(45deg);"></div>
-      <div id="line-3" class="hub-line" style="position:absolute;width:120px;transform-origin:left center;left:50%;top:50%;transform:rotate(-135deg);"></div>
-      <div id="line-4" class="hub-line" style="position:absolute;width:120px;transform-origin:left center;left:50%;top:50%;transform:rotate(135deg);"></div>
-
-      <!-- Satellites -->
-      <div id="sat-1" style="position:absolute;top:18px;left:50%;transform:translateX(-50%);"><div class="clay-card" style="padding:8px 14px;display:flex;align-items:center;gap:6px;"><img src="/images/salesforce.png" alt="Salesforce" style="height:20px;object-fit:contain;"><span style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:600;">Salesforce</span></div></div>
-      <div id="sat-2" style="position:absolute;bottom:18px;left:50%;transform:translateX(-50%);"><div class="clay-card" style="padding:8px 14px;display:flex;align-items:center;gap:6px;"><img src="/images/jira.png" alt="Jira" style="height:20px;object-fit:contain;"><span style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:600;">Jira</span></div></div>
-      <div id="sat-3" style="position:absolute;left:0;top:50%;transform:translateY(-50%);"><div class="clay-card" style="padding:8px 14px;display:flex;align-items:center;gap:6px;"><img src="/images/slack.png" alt="Slack" style="height:20px;object-fit:contain;"><span style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:600;">Slack</span></div></div>
-      <div id="sat-4" style="position:absolute;right:0;top:50%;transform:translateY(-50%);"><div class="clay-card" style="padding:8px 14px;display:flex;align-items:center;gap:6px;"><img src="/images/notion.png" alt="Notion" style="height:20px;object-fit:contain;"><span style="font-family:'Sora',sans-serif;font-size:0.78rem;font-weight:600;">Notion</span></div></div>
-
-      <!-- Hub center -->
-      <div id="hub-center" style="position:relative;z-index:5;">
-        <div class="clay-card" style="padding:14px 20px;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-xl);">
-          <img src="/images/atlasynq-mark.svg" alt="AtlaSynq" style="height:28px;">
-          <span style="font-family:'Fraunces',serif;font-weight:800;font-size:1rem;">AtlaSynq</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" data-fade>
+      <!-- Blog -->
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">From the blog</div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <a href="/blog/governed-ai-agents-roi/" class="clay-card" style="text-decoration:none;color:inherit;padding:1.25rem;">
+            <div class="blog-category">ROI &amp; Governance</div>
+            <div class="blog-title" style="font-size:1rem;margin-bottom:4px;">The ROI of Governed AI Agents: How Teams Save 12+ Hours Per Week</div>
+            <div class="blog-excerpt" style="-webkit-line-clamp:2;">A data-driven breakdown of where teams recover the most time when governed agents replace manual research loops.</div>
+          </a>
+          <a href="/blog/what-is-ai-governance/" class="clay-card" style="text-decoration:none;color:inherit;padding:1.25rem;">
+            <div class="blog-category">Enterprise AI</div>
+            <div class="blog-title" style="font-size:1rem;margin-bottom:4px;">What Is AI Governance? A Practical Guide for Enterprise Teams</div>
+            <div class="blog-excerpt" style="-webkit-line-clamp:2;">RBAC, audit trails, human-in-the-loop controls — what they mean in practice and why they matter.</div>
+          </a>
+          <a href="/blog/aeo-for-b2b-saas/" class="clay-card" style="text-decoration:none;color:inherit;padding:1.25rem;">
+            <div class="blog-category">Answer Engine Optimization</div>
+            <div class="blog-title" style="font-size:1rem;margin-bottom:4px;">AEO for B2B SaaS: How AtlaSynq Wins Citations</div>
+            <div class="blog-excerpt" style="-webkit-line-clamp:2;">How structured content, semantic clarity, and citation design help AI assistants surface your product.</div>
+          </a>
         </div>
+        <a href="/blog/" class="clay-btn clay-btn-outline" style="margin-top:1.25rem;font-size:0.86rem;">All articles</a>
       </div>
-    </div>
-
-    <!-- Logo scrolling strip -->
-    <div style="overflow:hidden;">
-      <div class="logos-track">
-        <span class="logo-item"><img src="/images/salesforce.png" alt="Salesforce"><span>Salesforce</span></span>
-        <span class="logo-item"><img src="/images/hubspot.png" alt="HubSpot"><span>HubSpot</span></span>
-        <span class="logo-item"><img src="/images/jira.png" alt="Jira"><span>Jira</span></span>
-        <span class="logo-item"><img src="/images/github.jpg" alt="GitHub"><span>GitHub</span></span>
-        <span class="logo-item"><img src="/images/slack.png" alt="Slack"><span>Slack</span></span>
-        <span class="logo-item"><img src="/images/notion.png" alt="Notion"><span>Notion</span></span>
-        <span class="logo-item"><img src="/images/quickbooks.png" alt="QuickBooks"><span>QuickBooks</span></span>
-        <span class="logo-item"><img src="/images/drive.png" alt="Google Drive"><span>Drive</span></span>
-        <span class="logo-item"><img src="/images/stripe.jpg" alt="Stripe"><span>Stripe</span></span>
-        <span class="logo-item"><img src="/images/gong.png" alt="Gong"><span>Gong</span></span>
-        <span class="logo-item"><img src="/images/zendesk.png" alt="Zendesk"><span>Zendesk</span></span>
-        <span class="logo-item"><img src="/images/linear.png" alt="Linear"><span>Linear</span></span>
-        <span class="logo-item"><img src="/images/teams.png" alt="Teams"><span>Teams</span></span>
-        <span class="logo-item"><img src="/images/netsuite.png" alt="NetSuite"><span>NetSuite</span></span>
-        <!-- Duplicate for seamless loop -->
-        <span class="logo-item"><img src="/images/salesforce.png" alt="Salesforce"><span>Salesforce</span></span>
-        <span class="logo-item"><img src="/images/hubspot.png" alt="HubSpot"><span>HubSpot</span></span>
-        <span class="logo-item"><img src="/images/jira.png" alt="Jira"><span>Jira</span></span>
-        <span class="logo-item"><img src="/images/github.jpg" alt="GitHub"><span>GitHub</span></span>
-        <span class="logo-item"><img src="/images/slack.png" alt="Slack"><span>Slack</span></span>
-        <span class="logo-item"><img src="/images/notion.png" alt="Notion"><span>Notion</span></span>
-        <span class="logo-item"><img src="/images/quickbooks.png" alt="QuickBooks"><span>QuickBooks</span></span>
-        <span class="logo-item"><img src="/images/drive.png" alt="Google Drive"><span>Drive</span></span>
-        <span class="logo-item"><img src="/images/stripe.jpg" alt="Stripe"><span>Stripe</span></span>
-        <span class="logo-item"><img src="/images/gong.png" alt="Gong"><span>Gong</span></span>
-        <span class="logo-item"><img src="/images/zendesk.png" alt="Zendesk"><span>Zendesk</span></span>
-        <span class="logo-item"><img src="/images/linear.png" alt="Linear"><span>Linear</span></span>
-        <span class="logo-item"><img src="/images/teams.png" alt="Teams"><span>Teams</span></span>
-        <span class="logo-item"><img src="/images/netsuite.png" alt="NetSuite"><span>NetSuite</span></span>
+      <!-- Product Updates -->
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">Product updates</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="update-card">
+            <div class="date">July 2026</div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.92rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">CMO Agent GA — marketing data, governed</div>
+            <p style="font-size:0.84rem;margin:0;">Marketing Agent now reads HubSpot, LinkedIn, and GA4 with full RBAC enforcement and export-ready audit log.</p>
+          </div>
+          <div class="update-card">
+            <div class="date">June 2026</div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.92rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">Clay UI redesign — professional, not generic</div>
+            <p style="font-size:0.84rem;margin:0;">Rebuilt from scratch. Fraunces display type, Sora for UI, terracotta brand system, and the soft raised clay visual language.</p>
+          </div>
+          <div class="update-card">
+            <div class="date">May 2026</div>
+            <div style="font-family:'Sora',sans-serif;font-size:0.92rem;font-weight:700;color:var(--clay-text);margin-bottom:4px;">Governed connector framework v2</div>
+            <p style="font-size:0.84rem;margin:0;">Scoped OAuth tokens, per-connector rate limiting, and admin-configurable allow/deny per agent role.</p>
+          </div>
+        </div>
+        <a href="/updates/" class="clay-btn clay-btn-outline" style="margin-top:1.25rem;font-size:0.86rem;">Full changelog</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     UPDATES TEASER
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="container" style="text-align:center;">
-    <p class="section-label" style="justify-content:center;">What's new</p>
-    <h2>Fresh from the AtlaSynq team</h2>
-    <p class="section-sub">We ship fast. See the latest features, improvements, and announcements.</p>
-    <div style="margin-top:2rem;">
-      <div class="clay-card fade-up" style="max-width:560px;margin:0 auto;display:flex;align-items:center;gap:16px;text-align:left;">
-        <span style="font-size:2rem;flex-shrink:0;">🚀</span>
-        <div>
-          <span class="clay-pill sage" style="margin-bottom:8px;display:inline-flex;">New</span>
-          <h4 style="font-family:'Fraunces',serif;margin-bottom:4px;">Multi-model governance now GA</h4>
-          <p style="font-size:0.88rem;">Assign different LLMs to different department agents — all governed by the same RBAC policies.</p>
-        </div>
-      </div>
-    </div>
-    <a href="/updates/" class="clay-btn clay-btn-outline" style="margin-top:1.5rem;">See all updates →</a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     BLOG TEASER
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-blog" id="blog">
+<!-- ── FAQ ──────────────────────────────────────────────────────────────── -->
+<section class="section-faq" id="faq">
   <div class="container">
-    <p class="section-label" style="justify-content:center;margin-bottom:0.5rem;">Insights</p>
-    <h2 class="text-center">From the AtlaSynq blog</h2>
-    <p class="section-sub">Strategy, governance, and AI adoption for enterprise teams.</p>
-
-    <div class="blog-grid">
-      <a href="/blog/what-is-ai-governance/" class="blog-card fade-up">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,var(--clay-primary-lt),var(--clay-blue-lt));display:flex;align-items:center;justify-content:center;font-size:3rem;">🔐</div>
-        <div class="blog-body">
-          <span class="blog-category">AI Governance</span>
-          <h3 class="blog-title">What is AI governance — and why does your enterprise need it?</h3>
-          <p class="blog-excerpt">AI governance defines who can use AI, on what data, and with what guardrails. Without it, you're one prompt away from a compliance incident.</p>
-          <div class="blog-meta"><span>5 min read</span></div>
-        </div>
-      </a>
-
-      <a href="/blog/governed-ai-agents-roi/" class="blog-card fade-up">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,var(--clay-sage-lt),var(--clay-amber-lt));display:flex;align-items:center;justify-content:center;font-size:3rem;">📊</div>
-        <div class="blog-body">
-          <span class="blog-category">ROI</span>
-          <h3 class="blog-title">The real ROI of governed AI agents for enterprise</h3>
-          <p class="blog-excerpt">How do you quantify the value of AI agents that actually work within compliance boundaries? We break down the numbers.</p>
-          <div class="blog-meta"><span>7 min read</span></div>
-        </div>
-      </a>
-
-      <a href="/blog/aeo-for-b2b-saas/" class="blog-card fade-up">
-        <div class="blog-thumb" style="background:linear-gradient(135deg,var(--clay-blue-lt),var(--clay-primary-lt));display:flex;align-items:center;justify-content:center;font-size:3rem;">🤖</div>
-        <div class="blog-body">
-          <span class="blog-category">Strategy</span>
-          <h3 class="blog-title">AEO for B2B SaaS: how to show up in AI search results</h3>
-          <p class="blog-excerpt">Answer Engine Optimisation is changing how B2B buyers discover software. Here's how to get your product into AI answers.</p>
-          <div class="blog-meta"><span>6 min read</span></div>
-        </div>
-      </a>
+    <div class="text-center" data-fade>
+      <div class="section-label">FAQ</div>
+      <h2>Common questions</h2>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════
-     FAQ
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-faq section-alt" id="faq">
-  <div class="container">
-    <p class="section-label" style="justify-content:center;">FAQ</p>
-    <h2 class="text-center">Common questions</h2>
-    <p class="section-sub">Everything you need to know about governed AI agents for enterprise.</p>
-
-    <div class="faq-container">
+    <div class="faq-container" data-fade>
       <details class="faq-item">
         <summary>What is AtlaSynq?</summary>
-        <p>AtlaSynq is an enterprise platform that deploys governed AI agents for every business department — Finance, Sales, Engineering, HR, Marketing, and Legal. Each agent is purpose-built for its team's context, integrated with your existing tools, and enforces role-based access control (RBAC) by default. Unlike generic AI chatbots, AtlaSynq agents know your data scope, your policies, and your integrations.</p>
+        <p>AtlaSynq is an enterprise platform that deploys governed AI agents for every business department — Finance, Sales, Engineering, HR, Marketing and Legal. Each agent has access only to the tools and data its role permits, and every answer is cited and logged.</p>
       </details>
-
       <details class="faq-item">
         <summary>How does AtlaSynq enforce governance on AI agents?</summary>
-        <p>AtlaSynq applies RBAC policies at the agent layer. Admins define what data each role can access, which integrations are permitted, and what actions agents may take. These policies are enforced before every response — so a Finance agent can never access Engineering's codebase, and a junior analyst can't query restricted board data. Every action is logged for audit.</p>
+        <p>AtlaSynq applies role-based access control (RBAC) policies to every AI agent. Admins define what data each role can read, what actions agents may take, and which integrations are permitted — enforced at query time, not just at login.</p>
       </details>
-
       <details class="faq-item">
         <summary>Which AI models does AtlaSynq support?</summary>
-        <p>AtlaSynq supports GPT-4o (OpenAI), Claude 3.5 (Anthropic), Gemini 1.5 Pro (Google), Llama 3 (Meta), GitHub Copilot, and Perplexity. You can assign a different model per department, per role, or even per query type. Governance policies apply uniformly regardless of which model is selected.</p>
+        <p>AtlaSynq supports GPT-4o, Claude 3.5, Gemini 1.5 Pro, Llama 3 (self-hosted), GitHub Copilot, and Perplexity. You can assign a different model per department or per role and switch without re-deploying connectors.</p>
       </details>
-
-      <details class="faq-item">
-        <summary>What is the typical ROI of deploying AtlaSynq?</summary>
-        <p>Customers typically recover 30% of manual information-gathering hours within the first quarter. For a 50-person knowledge-work team spending 5 hours/week on research at an $80k average salary, that's approximately 3,900 hours and $150,000 saved annually. Payback periods typically range from 1–3 months. Use our <a href="#roi">ROI calculator</a> to model your specific numbers.</p>
-      </details>
-
       <details class="faq-item">
         <summary>Which integrations does AtlaSynq support?</summary>
-        <p>AtlaSynq connects to Salesforce, HubSpot, Jira, GitHub, Slack, QuickBooks, Notion, Google Drive, Stripe, Gong, LinkedIn, Zendesk, Greenhouse ATS, NetSuite, Microsoft Teams and more — all via OAuth and secure API. Integration discovery is automatic: when you select a department role, AtlaSynq detects which tools your team uses and proposes a connection plan.</p>
+        <p>AtlaSynq connects to Salesforce, HubSpot, Jira, GitHub, Slack, QuickBooks, Notion, Google Drive, Stripe, Gong, LinkedIn, Zendesk, Greenhouse, NetSuite, Teams, Linear, DocuSign, and many more via OAuth and API. Enterprise plans include custom connector development.</p>
       </details>
-
       <details class="faq-item">
-        <summary>Is AtlaSynq secure and compliant for enterprise use?</summary>
-        <p>Yes. AtlaSynq is SOC 2 Type II compliant with end-to-end encryption in transit and at rest. We support SSO/SAML, have a full audit log for every agent action, and never train on your company data. Data residency options (US, EU) are available on enterprise plans. Our security documentation is available on request.</p>
+        <summary>Is AtlaSynq secure for enterprise use?</summary>
+        <p>AtlaSynq is SOC 2 Type II compliant, supports SSO/SAML, enforces end-to-end encryption in transit and at rest, and provides a full audit log for every agent action. We never train AI models on customer data.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does deployment take?</summary>
+        <p>Teams are typically live within a week. You connect your tools via OAuth (no code required), configure role policies in the admin panel, and invite your team. Custom connectors or enterprise SSO setups typically add 1–2 weeks.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     FINAL CTA / LEAD FORM
-═══════════════════════════════════════════════════════════ -->
-<section class="section section-cta" id="about">
-  <div class="container" style="text-align:center;max-width:680px;">
-    <p class="section-label" style="justify-content:center;">Get started</p>
-    <h2>Ready to govern your AI?</h2>
-    <p style="font-size:1.1rem;color:var(--clay-text-sec);margin-bottom:2.5rem;">Leave your email and get a personalised ROI report, or book a 30-minute demo with our team.</p>
-
-    <form id="homeLeadForm" style="display:flex;flex-direction:column;gap:12px;max-width:440px;margin:0 auto;">
-      <!-- Honeypot -->
-      <input type="text" name="company_website" style="display:none;" tabindex="-1" autocomplete="off">
-
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="you@company.com"
-        style="padding:14px 18px;border-radius:var(--radius);border:1.5px solid var(--clay-border);background:var(--clay-surface);box-shadow:var(--shadow-inset);font-family:'Sora',sans-serif;font-size:1rem;color:var(--clay-text);outline:none;transition:border-color 0.15s,box-shadow 0.15s;"
-        onfocus="this.style.borderColor='var(--clay-primary)';this.style.boxShadow='var(--shadow-inset),0 0 0 3px rgba(201,106,74,0.12)'"
-        onblur="this.style.borderColor='var(--clay-border)';this.style.boxShadow='var(--shadow-inset)'"
-      >
-
-      <button type="submit" class="clay-btn clay-btn-primary" style="width:100%;padding:14px;">Get my ROI Report →</button>
-
-      <p style="font-size:0.78rem;color:var(--clay-text-muted);margin-top:4px;">No spam. Unsubscribe anytime. Or <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">book a demo directly</a>.</p>
-    </form>
-
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:2.5rem;flex-wrap:wrap;">
-      <span class="clay-pill"><span style="color:var(--clay-sage);">✓</span> SOC 2 Type II</span>
-      <span class="clay-pill"><span style="color:var(--clay-sage);">✓</span> RBAC Governance</span>
-      <span class="clay-pill"><span style="color:var(--clay-sage);">✓</span> 14-day free trial</span>
-      <span class="clay-pill"><span style="color:var(--clay-sage);">✓</span> No credit card needed</span>
+<!-- ── CTA / LEAD CAPTURE ───────────────────────────────────────────────── -->
+<section class="section-cta" id="cta">
+  <div class="container">
+    <div class="cta-card" data-fade>
+      <div class="section-label" style="justify-content:center;">Get started</div>
+      <h2>Deploy your first governed agent today</h2>
+      <p>Join enterprise teams using AtlaSynq to give every department an AI agent that actually stays within bounds.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+        <a href="/signup/" class="clay-btn clay-btn-primary">Start Building — free trial</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <form id="homeLeadForm" style="max-width:520px;margin:0 auto;" aria-label="Stay in the loop">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <input type="text" name="first_name" placeholder="First name" required style="flex:1;min-width:140px;padding:12px 16px;border-radius:var(--radius);border:1.5px solid var(--clay-border);background:var(--clay-surface);box-shadow:var(--shadow-inset);font-family:'Sora',sans-serif;font-size:0.92rem;color:var(--clay-text);outline:none;" aria-label="First name">
+          <input type="email" name="email" placeholder="Work email" required style="flex:1;min-width:200px;padding:12px 16px;border-radius:var(--radius);border:1.5px solid var(--clay-border);background:var(--clay-surface);box-shadow:var(--shadow-inset);font-family:'Sora',sans-serif;font-size:0.92rem;color:var(--clay-text);outline:none;" aria-label="Work email address">
+          <button type="submit" class="clay-btn clay-btn-primary" style="white-space:nowrap;padding:12px 24px;">Get updates</button>
+        </div>
+        <input type="text" name="company_website" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="lead_source" value="homepage-cta">
+        <div class="lead-form-msg" aria-live="polite"></div>
+      </form>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════════════════ -->
+<!-- ── FOOTER ────────────────────────────────────────────────────────────── -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a href="/" class="nav-logo" style="display:inline-flex;margin-bottom:1rem;text-decoration:none;">
-          <img src="/images/atlasynq-mark.svg" alt="" width="24" height="24">
-          Atla<span style="color:var(--clay-primary);">Synq</span>
+        <a href="/" class="nav-logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p style="font-size:0.88rem;color:var(--clay-text-muted);max-width:240px;line-height:1.6;">Governed AI agents for every enterprise department.</p>
-        <p style="font-size:0.82rem;color:var(--clay-text-muted);margin-top:0.75rem;">
-          <a href="mailto:hello@atlasynq.com" class="footer-link" style="display:inline;">hello@atlasynq.com</a>
-        </p>
+        <p style="max-width:260px;font-size:0.88rem;">Governed AI agents for enterprise departments. Cited answers from your tools. No shadow AI.</p>
       </div>
       <div>
         <h4>Product</h4>
-        <a href="#features" class="footer-link">Features</a>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
         <a href="/pricing/" class="footer-link">Pricing</a>
-        <a href="#integrations" class="footer-link">Integrations</a>
-        <a href="/signup/" class="footer-link">Start free</a>
+        <a href="/roi/" class="footer-link">ROI Calculator</a>
+        <a href="/updates/" class="footer-link">Updates</a>
       </div>
       <div>
         <h4>Resources</h4>
         <a href="/blog/" class="footer-link">Blog</a>
-        <a href="/updates/" class="footer-link">Updates</a>
-        <a href="/roi/" class="footer-link">ROI Calculator</a>
-        <a href="#faq" class="footer-link">FAQ</a>
+        <a href="/security/" class="footer-link">Security</a>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book Demo</a>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="/about/" class="footer-link">About</a>
-        <a href="/security/" class="footer-link">Security</a>
-        <a href="/privacy/" class="footer-link">Privacy</a>
-        <a href="/terms/" class="footer-link">Terms</a>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+        <a href="/security/" class="footer-link">Security Overview</a>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>© 2026 AtlaSynq. All rights reserved. &nbsp;·&nbsp;
-        <a href="#" onclick="var m=document.getElementById('cookieModal');if(m){m.classList.add('active');}return false;" style="color:var(--clay-text-muted);text-decoration:underline;font-size:0.85rem;">Manage cookies</a>
-      </p>
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
+      <span style="margin-left:1rem;">SOC 2 Type II &middot; GDPR Ready &middot; <a id="cookieManageLink" href="#" style="color:inherit;text-decoration:underline;">Cookie preferences</a></span>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-     COOKIE BANNER
-═══════════════════════════════════════════════════════════ -->
-<div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie consent">
+<!-- ── COOKIE BANNER ─────────────────────────────────────────────────────── -->
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
   <div class="cookie-content">
-    <strong>We use cookies</strong> to improve your experience and measure site performance.
-    <a id="cookieManageLink" href="#" style="color:var(--clay-primary);font-weight:600;margin-left:4px;">Manage preferences</a>
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience and measure site performance. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
   </div>
   <div class="cookie-buttons">
-    <button class="btn-cookie-decline">Decline</button>
     <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     COOKIE MODAL
-═══════════════════════════════════════════════════════════ -->
-<div id="cookieModal" style="display:none;position:fixed;inset:0;z-index:950;background:rgba(43,31,26,0.5);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
-  <div class="clay-card" style="max-width:480px;width:calc(100vw - 2rem);position:relative;">
-    <button id="cookieModalClose" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--clay-text-muted);">✕</button>
-    <h3 style="margin-bottom:1rem;">Cookie preferences</h3>
-
-    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:1.5rem;">
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:default;">
-        <input id="cookieEssential" type="checkbox" checked disabled style="margin-top:3px;accent-color:var(--clay-primary);">
-        <div>
-          <strong style="font-family:'Sora',sans-serif;font-size:0.9rem;">Essential</strong>
-          <p style="font-size:0.82rem;margin-top:2px;">Required for the site to function. Always active.</p>
-        </div>
-      </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
-        <input id="cookieAnalytics" type="checkbox" style="margin-top:3px;accent-color:var(--clay-primary);">
-        <div>
-          <strong style="font-family:'Sora',sans-serif;font-size:0.9rem;">Analytics</strong>
-          <p style="font-size:0.82rem;margin-top:2px;">Helps us understand how visitors use the site (Google Analytics).</p>
-        </div>
-      </label>
-      <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
-        <input id="cookieMarketing" type="checkbox" style="margin-top:3px;accent-color:var(--clay-primary);">
-        <div>
-          <strong style="font-family:'Sora',sans-serif;font-size:0.9rem;">Marketing</strong>
-          <p style="font-size:0.82rem;margin-top:2px;">Used to show relevant ads and measure campaign performance.</p>
-        </div>
-      </label>
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
     </div>
-
-    <button id="cookieSaveBtn" class="clay-btn clay-btn-primary" style="width:100%;">Save preferences</button>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site (Google Analytics).</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance and deliver relevant content.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
+    </div>
   </div>
 </div>
 
-<!-- Spin animation for govLoader -->
-<style>
-  @keyframes spin { to { transform: rotate(360deg); } }
-  #govLoader { display: none; }
-  #govLoader.active { display: flex; }
-  #cookieModal.active { display: flex; }
-  header.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background: rgba(251,246,237,0.82);
-    backdrop-filter: blur(18px) saturate(180%);
-    -webkit-backdrop-filter: blur(18px) saturate(180%);
-    border-bottom: 1px solid rgba(201,106,74,0.12);
-    box-shadow: 0 2px 12px rgba(92,64,51,0.08);
-  }
-  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-  .int-card { display: flex; align-items: center; gap: 8px; background: var(--clay-elevated); border-radius: var(--radius-sm); border: 1px solid var(--clay-border-soft); padding: 10px 12px; font-family: 'Sora', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--clay-text-sec); }
-  .int-card img { width: 24px; height: 24px; object-fit: contain; border-radius: 5px; }
-  .int-check { margin-left: auto; color: var(--clay-sage); font-weight: 700; }
-  #btn-deploy.press { transform: scale(0.96); box-shadow: var(--shadow-inset); }
-  @media (max-width: 768px) {
-    .nav-links, .nav-cta a:not(.hamburger-btn) { display: none; }
-    .hamburger-btn { display: flex !important; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .compare-grid, .roi-results { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-</style>
-
-<script defer src="/js/site-demos.js"></script>
+<script src="/js/site-demos.js" defer></script>
 </body>
 </html>

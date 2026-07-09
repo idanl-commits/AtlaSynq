@@ -1,17 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
   <title>AtlaSynq</title>
   <defs>
-    <linearGradient id="asq-bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5b21b6"/>
-      <stop offset="0.5" stop-color="#3730a3"/>
-      <stop offset="1" stop-color="#0f4c5c"/>
+    <linearGradient id="atm-layer-bottom" x1="6" y1="43" x2="58" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B78B8"/>
+      <stop offset="1" stop-color="#4260A0"/>
     </linearGradient>
-    <linearGradient id="asq-feather" x1="12" y1="54" x2="52" y2="10" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#06b6d4"/>
-      <stop offset="0.45" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#e0f2fe"/>
+    <linearGradient id="atm-layer-mid" x1="10" y1="34" x2="62" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C96A4A"/>
+      <stop offset="1" stop-color="#B5533D"/>
     </linearGradient>
+    <linearGradient id="atm-layer-top" x1="14" y1="25" x2="60" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E08060"/>
+      <stop offset="1" stop-color="#C96A4A"/>
+    </linearGradient>
+    <linearGradient id="atm-shine" x1="22" y1="26" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.40"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="atm-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#5C4033" flood-opacity="0.25"/>
+    </filter>
   </defs>
-  <circle cx="32" cy="32" r="22" fill="url(#asq-bg)"/>
-  <path fill="url(#asq-feather)" d="M11 53C13 38 24 24 46 13L49 12 47 16C35 24 26 36 21 48C19 51 16 53 14 52C13 52 12 52 11 53z"/>
+  <g filter="url(#atm-soft)">
+    <path fill="url(#atm-layer-bottom)" d="M6 43 32 55 58 43 32 37Z"/>
+    <path fill="url(#atm-layer-mid)"    d="M10 34 36 41 62 34 36 29Z"/>
+    <path fill="url(#atm-layer-top)"    d="M14 25 38 31 60 24 38 21Z"/>
+  </g>
+  <ellipse cx="42" cy="34" rx="22" ry="16" transform="rotate(-18 42 34)" fill="url(#atm-shine)" opacity="0.65"/>
 </svg>

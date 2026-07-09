@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
   <title>AtlaSynq</title>
   <defs>
-    <linearGradient id="atl-layer-bottom" x1="8" y1="48" x2="56" y2="44" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0073EA"/>
-      <stop offset="1" stop-color="#174A9E"/>
+    <linearGradient id="atl-layer-bottom" x1="6" y1="43" x2="58" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B78B8"/>
+      <stop offset="1" stop-color="#4260A0"/>
     </linearGradient>
-    <linearGradient id="atl-layer-mid" x1="14" y1="36" x2="54" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1F8FFF"/>
-      <stop offset="1" stop-color="#0073EA"/>
+    <linearGradient id="atl-layer-mid" x1="10" y1="34" x2="62" y2="41" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C96A4A"/>
+      <stop offset="1" stop-color="#B5533D"/>
     </linearGradient>
-    <linearGradient id="atl-layer-top" x1="20" y1="24" x2="48" y2="18" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5EB0FF"/>
-      <stop offset="1" stop-color="#2296EB"/>
+    <linearGradient id="atl-layer-top" x1="14" y1="25" x2="60" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E08060"/>
+      <stop offset="1" stop-color="#C96A4A"/>
     </linearGradient>
     <linearGradient id="atl-shine" x1="22" y1="26" x2="48" y2="52" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop stop-color="#FFFFFF" stop-opacity="0.40"/>
       <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
     <filter id="atl-soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#0f2942" flood-opacity="0.28"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="1.8" flood-color="#5C4033" flood-opacity="0.25"/>
     </filter>
   </defs>
   <g filter="url(#atl-soft)">
     <path fill="url(#atl-layer-bottom)" d="M6 43 32 55 58 43 32 37Z"/>
-    <path fill="url(#atl-layer-mid)" d="M10 34 36 41 62 34 36 29Z"/>
-    <path fill="url(#atl-layer-top)" d="M14 25 38 31 60 24 38 21Z"/>
+    <path fill="url(#atl-layer-mid)"    d="M10 34 36 41 62 34 36 29Z"/>
+    <path fill="url(#atl-layer-top)"    d="M14 25 38 31 60 24 38 21Z"/>
   </g>
-  <ellipse cx="42" cy="34" rx="22" ry="16" transform="rotate(-18 42 34)" fill="url(#atl-shine)" opacity="0.82"/>
+  <ellipse cx="42" cy="34" rx="22" ry="16" transform="rotate(-18 42 34)" fill="url(#atl-shine)" opacity="0.65"/>
 </svg>

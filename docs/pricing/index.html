@@ -1,3009 +1,762 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <!-- connect-src *: pricing form POSTs to api.atlasynq.com -->
-  <script>
-    const CANONICAL_URL = "https://www.atlasynq.com/pricing/";
-    const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
-    const PAGE_TITLE = "Pricing & Plans - AtlaSynq";
-    const PAGE_DESCRIPTION = "Choose the right plan for your team. Start with our free tier or upgrade for advanced security and governance features.";
-  </script>
-  <title>Pricing & Plans - AtlaSynq</title>
-  <link rel="stylesheet" href="/css/clay-marketing.css">
-  <meta name="description" content="Choose the right plan for your team. Start with our free tier or upgrade for advanced security and governance features.">
-  <link rel="canonical" href="https://www.atlasynq.com/pricing/" />
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Pricing & Plans - AtlaSynq">
-  <meta property="og:description" content="Choose the right plan for your team. Start with our free tier or upgrade for advanced security and governance features.">
-  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-  <meta property="og:url" content="https://www.atlasynq.com/pricing/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — AtlaSynq | Governed AI Agents for Enterprise</title>
+  <meta name="description" content="AtlaSynq pricing: Team from $49/user/mo, Business from $99/user/mo, Enterprise custom. RBAC governance, SSO, audit logs, and on-prem options included where you need them.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.atlasynq.com/pricing/">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.atlasynq.com/pricing/">
+  <meta property="og:title" content="Pricing — AtlaSynq | Governed AI Agents for Enterprise">
+  <meta property="og:description" content="Transparent pricing for governed AI agents. Team, Business, and Enterprise plans with real RBAC, audit logs, and SSO.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pricing & Plans - AtlaSynq">
-  <meta name="twitter:description" content="Choose the right plan for your team. Start with our free tier or upgrade for advanced security and governance features.">
-  <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.atlasynq.com/#organization",
-      "name": "AtlaSynq",
-      "url": "https://www.atlasynq.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.atlasynq.com/images/icon.png",
-        "caption": "AtlaSynq Logo"
-      },
-      "description": "Build secure, internal AI agents for every department.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "idanl@atlasynq.com",
-        "contactType": "sales",
-        "areaServed": "Worldwide"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.atlasynq.com/#website",
-      "url": "https://www.atlasynq.com/",
-      "name": "AtlaSynq",
-      "publisher": {
-        "@id": "https://www.atlasynq.com/#organization"
-      }
-    }
-  ]
-}
-</script>
-
+  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
+  <link rel="alternate icon" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-  
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
-  <link rel="apple-touch-icon" href="/images/icon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700" rel="stylesheet">
-
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.atlasynq.com/#org",
+        "name": "AtlaSynq",
+        "url": "https://www.atlasynq.com/",
+        "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "AtlaSynq",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Team",
+            "price": "49",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49", "priceCurrency": "USD", "unitText": "per user per month" },
+            "url": "https://www.atlasynq.com/signup/"
+          },
+          {
+            "@type": "Offer",
+            "name": "Business",
+            "price": "99",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99", "priceCurrency": "USD", "unitText": "per user per month" },
+            "url": "https://calendly.com/idanl-atlasynq/30min"
+          },
+          {
+            "@type": "Offer",
+            "name": "Enterprise",
+            "description": "Custom pricing — contact sales"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
-    /* VARIABLES */
-    :root {
-      --bg: #F7F1E8;
-      --bg-alt: #FBF6ED; 
-      --text: #2B1F1A;
-      --text-muted: #A08B7D;
-      --primary: #C96A4A;
-      --primary-light: #F5E0D8;
-      --border: rgba(92, 64, 51, 0.13);
-      --success: #10b981;
-      --danger: #ef4444;
-      --dot-orange: #fb923c;
-      --dot-green: #22c55e;
-      --dot-blue: #3b82f6;
-      
-      --shadow-sm: 2px 2px 5px rgba(92,64,51,0.10), -1px -1px 3px rgba(255,248,235,0.85);
-      --shadow: 4px 6px 14px rgba(92,64,51,0.14), -2px -3px 8px rgba(255,248,235,0.90);
-      --shadow-lg: 8px 14px 32px rgba(92,64,51,0.18), -4px -6px 16px rgba(255,248,235,0.95); 
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-    
-    ::selection { background: rgba(201, 106, 74, 0.2); color: var(--primary); }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-    
-    html { scroll-behavior: smooth; }
-    
-    body { 
-        font-family: 'Sora', sans-serif; 
-        background-color: var(--bg);
-        color: var(--text); 
-        line-height: 1.6; 
-        overflow-x: hidden;
-        background-size: 32px 32px;
-        background-image:
-          linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
-    }
-    
-    /* AMBIENT GLOWS */
-    .ambient-glow {
-        position: fixed;
-        width: 600px; height: 600px;
-        border-radius: 50%;
-        filter: blur(90px);
-        opacity: 0.35;
-        z-index: -1;
-        pointer-events: none;
-    }
-    .glow-1 { top: -150px; left: -150px; background: radial-gradient(circle, rgba(201,106,74,0.3) 0%, rgba(255,255,255,0) 70%); }
-    .glow-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(91, 120, 184, 0.2) 0%, rgba(255,255,255,0) 70%); }
-
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
-    .flex-col { display: flex; flex-direction: column; }
-    .hidden { display: none !important; }
-    .text-center { text-align: center; }
-
-    h1, h2, h3, h4 { font-family: 'Fraunces', serif, sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
-    h1 { font-size: 3.5rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
-    h2 { font-size: 2.5rem; font-weight: 700; }
-    h3 { font-size: 1.5rem; font-weight: 700; }
-    p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #C96A4A 0%, #5B78B8 50%, #10b981 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 200% 200%;
-      animation: gradient-text 5s ease infinite;
-    }
-
-    @keyframes gradient-text {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Sora', sans-serif; border: none; }
-    .btn-primary { 
-      background: linear-gradient(135deg, #C96A4A 0%, #B5533D 50%, #06b6d4 100%);
-      background-size: 200% 200%;
-      animation: gradientFlow 4s ease infinite;
-      color: white;
-      border: none;
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes gradientFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-    .btn-primary:hover { 
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(201, 106, 74, 0.5);
-      border: none;
-    }
-    .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
-    .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
-
-    .icon { width: 20px; height: 20px; fill: currentColor; }
-
-    /* Header */
-    header { 
-      position: sticky; top: 0; z-index: 100; 
-      background: rgba(255,255,255,0.75); 
-      backdrop-filter: blur(16px); 
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.6); 
-    }
-    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    
-    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Fraunces', sans-serif; gap: 8px; }
-    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
-    
-    .nav-links { display: flex; gap: 2rem; }
-    /* Header Nav Links - Make Black & Bold */
-    .nav-links a, .nav-link {
-        font-weight: 600; /* Bolder */
-        color: #0f172a;   /* Dark/Black */
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-link:hover {
-        color: var(--primary); /* Clay accent on hover */
-    }
-
-    /* Active Navigation State */
-    .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
-        color: var(--primary) !important;
-        font-weight: 700;
-        position: relative;
-    }
-
-    .nav-link.active::after, .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--primary);
-        border-radius: 1px;
-    }
-
-    /* Hamburger Menu Button (Hidden on Desktop) */
-    .hamburger-menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 28px;
-      height: 28px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 1001;
-    }
-
-    .hamburger-menu-btn span {
-      width: 100%;
-      height: 3px;
-      background: #0f172a;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Mobile Menu Overlay */
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .mobile-menu-content {
-      background: white;
-      width: 80%;
-      max-width: 400px;
-      height: 100%;
-      padding: 2rem;
-      position: fixed;
-      top: 0;
-      right: 0;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu-overlay.active .mobile-menu-content {
-      transform: translateX(0);
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text);
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .mobile-menu-close:hover {
-      background: var(--bg-alt);
-    }
-
-    .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-
-    .mobile-nav-link {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s;
-      position: relative;
-      display: block;
-      font-size: 1rem;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .mobile-nav-link::before {
-      content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 0;
-      background: linear-gradient(180deg, #C96A4A, #06b6d4);
-      transition: height 0.3s;
-      border-radius: 2px;
-    }
-
-    .mobile-nav-link:hover {
-      color: #C96A4A;
-      padding-left: 1rem;
-    }
-
-    .mobile-nav-link:hover::before {
-      height: 60%;
-    }
-
-    .mobile-menu-actions {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .mobile-menu-actions .btn {
-      width: 100%;
-      justify-content: center;
-      padding: 12px 20px;
-      font-size: 1rem;
-    }
-    
-    .mobile-menu-actions .btn-primary {
-      background: var(--primary);
-      color: white;
-      border: none;
-      box-shadow: 0 2px 6px rgba(201, 106, 74, 0.3);
-    }
-    
-    .mobile-menu-actions .btn-primary:hover {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.4);
-    }
-
-    /* Hero - Split Layout */
-    .hero { 
-      padding: 8rem 0 6rem 0; 
-      position: relative; 
-      overflow: hidden;
-      min-height: 90vh;
-      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(201, 106, 74, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(91, 120, 184, 0.08) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-content { 
-        position: relative; z-index: 2; text-align: center; margin-bottom: 3rem; 
-        display: flex; flex-direction: column; align-items: center;
-    }
-    .hero p { max-width: 700px; margin: 1.5rem auto 2rem; text-align: center; font-size: 1.2rem; }
-
-    /* Split Layout Container */
-    .pricing-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 4rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Left Side - Visual & Benefits */
-    .pricing-visual {
-      position: relative;
-      padding: 2rem;
-    }
-
-    /* Value Cards */
-    .value-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .value-card {
-      background: white;
-      border: 2px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .value-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--primary), #5B78B8);
-      transform: scaleY(0);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .value-card:hover {
-      border-color: var(--primary);
-      transform: translateX(8px);
-      box-shadow: 0 12px 32px rgba(201, 106, 74, 0.15);
-    }
-
-    .value-card:hover::before {
-      transform: scaleY(1);
-    }
-
-    .value-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, var(--primary-light), rgba(91, 120, 184, 0.1));
-      color: var(--primary);
-    }
-
-    .value-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .value-content h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .value-content p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: 1.5rem 1rem;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-
-    .stat-item:hover {
-      border-color: var(--primary);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(201, 106, 74, 0.1);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), #5B78B8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.25rem;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Pricing Hero Illustration */
-    .pricing-illustration {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .pricing-illustration svg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0.6;
-    }
-
-    /* Floating Shapes */
-    .floating-shape {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.5;
-      animation: float-shape 20s infinite ease-in-out;
-    }
-
-    .shape-1 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(201, 106, 74, 0.5) 0%, rgba(91, 120, 184, 0.3) 50%, rgba(201, 106, 74, 0) 70%);
-      top: 10%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .shape-2 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(201, 106, 74, 0.3) 50%, rgba(16, 185, 129, 0) 70%);
-      bottom: 15%;
-      right: 15%;
-      animation-delay: 5s;
-    }
-
-    .shape-3 {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(251, 146, 60, 0.4) 0%, rgba(91, 120, 184, 0.3) 50%, rgba(251, 146, 60, 0) 70%);
-      top: 50%;
-      right: 10%;
-      animation-delay: 10s;
-    }
-
-    @keyframes float-shape {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(30px, -30px) scale(1.1); }
-      50% { transform: translate(-20px, 20px) scale(0.9); }
-      75% { transform: translate(20px, 30px) scale(1.05); }
-    }
-
-    /* Animated Grid Background */
-    .animated-grid {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(201, 106, 74, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201, 106, 74, 0.15) 1px, transparent 1px),
-        linear-gradient(rgba(91, 120, 184, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91, 120, 184, 0.08) 1px, transparent 1px);
-      background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
-      animation: grid-move 20s linear infinite;
-      opacity: 0.4;
-    }
-
-    @keyframes grid-move {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-
-    /* Form Container - Premium Design */
-    .form-container {
-      position: relative;
-      z-index: 10;
-      background: white;
-      border-radius: 24px;
-      padding: 3rem;
-      box-shadow: 
-        0 0 0 1px rgba(201, 106, 74, 0.1),
-        0 20px 60px -12px rgba(0, 0, 0, 0.15),
-        0 0 0 0 rgba(201, 106, 74, 0.05);
-      max-width: 100%;
-      animation: fadeInUp 0.8s ease-out;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-    }
-
-    .form-container::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      padding: 2px;
-      background: linear-gradient(135deg, var(--primary), #5B78B8, #10b981);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .form-container:hover::before {
-      opacity: 0.3;
-    }
-
-    .form-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .form-header h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--text), var(--primary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .form-header p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes success-pulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 8px 24px rgba(201, 106, 74, 0.2);
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 12px 32px rgba(201, 106, 74, 0.3);
-      }
-    }
-
-    @keyframes checkmark-draw {
-      from {
-        stroke-dasharray: 0, 100;
-        opacity: 0;
-      }
-      to {
-        stroke-dasharray: 100, 0;
-        opacity: 1;
-      }
-    }
-
-    /* Form Input Icons */
-    .input-wrapper {
-      position: relative;
-    }
-
-    .input-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      color: var(--text-muted);
-      z-index: 2;
-      pointer-events: none;
-      transition: color 0.2s;
-    }
-
-    .input-wrapper input {
-      padding-left: 44px !important;
-    }
-
-    .input-wrapper input:focus + .input-icon,
-    .input-wrapper:focus-within .input-icon {
-      color: var(--primary);
-    }
-
-    /* Animated Form Fields */
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="tel"] {
-      background: white;
-      border: 2px solid var(--border);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    form input[type="text"]:hover,
-    form input[type="email"]:hover,
-    form input[type="tel"]:hover {
-      border-color: rgba(201, 106, 74, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.1);
-    }
-
-    form input[type="text"]:focus,
-    form input[type="email"]:focus,
-    form input[type="tel"]:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px var(--primary-light), 0 8px 16px rgba(201, 106, 74, 0.15);
-      transform: translateY(-2px);
-    }
-
-    /* Submit Button Enhancement */
-    .btn-primary {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--primary) 0%, #B5533D 50%, #5B78B8 100%);
-      background-size: 200% 200%;
-      animation: gradient-shift 3s ease infinite;
-      box-shadow: 0 4px 15px rgba(201, 106, 74, 0.4);
-    }
-
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: left 0.6s;
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(201, 106, 74, 0.5);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-    }
-
-    /* Pricing Badge */
-    .pricing-badge {
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
+
+    /* Billing toggle */
+    .billing-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--primary-light), rgba(91, 120, 184, 0.1));
-      border: 1px solid rgba(201, 106, 74, 0.2);
-      padding: 8px 16px;
-      border-radius: 99px;
-      font-size: 0.85rem;
+      gap: 10px;
+      background: var(--clay-elevated);
+      border: 1.5px solid var(--clay-border);
+      border-radius: 999px;
+      padding: 5px 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .billing-toggle-btn {
+      padding: 7px 20px;
+      border-radius: 999px;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.84rem;
       font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      animation: pulse-badge 2s ease-in-out infinite;
+      border: none;
+      cursor: pointer;
+      background: none;
+      color: var(--clay-text-muted);
+      transition: all 0.18s;
     }
-
-    @keyframes pulse-badge {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201, 106, 74, 0.4); }
-      50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(201, 106, 74, 0); }
+    .billing-toggle-btn.active {
+      background: var(--clay-surface);
+      color: var(--clay-text);
+      box-shadow: var(--shadow-sm);
     }
-
-    /* Feature Pills */
-    .feature-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .feature-pill {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      background: rgba(201, 106, 74, 0.08);
-      border: 1px solid rgba(201, 106, 74, 0.15);
-      border-radius: 99px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--primary);
-      transition: all 0.3s;
-    }
-
-    .feature-pill:hover {
-      background: rgba(201, 106, 74, 0.12);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.15);
-    }
-
-    .feature-pill svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    /* Pricing Split Layout */
-    .pricing-split-container {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 5rem;
-      align-items: start;
-      max-width: 1600px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
-    }
-
-    .pricing-cards-section {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    /* Feature Cards */
-    .pricing-feature-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-    }
-
-    .pricing-feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(201, 106, 74, 0.15);
-      border-color: rgba(201, 106, 74, 0.2);
-    }
-
-    .pricing-feature-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(201, 106, 74, 0.1), rgba(91, 120, 184, 0.1));
-      border-radius: 12px;
-      color: var(--primary);
-    }
-
-    .pricing-feature-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
-    }
-
-    .pricing-feature-content h3 {
-      font-size: 1.1rem;
+    .annual-badge {
+      font-size: 0.68rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text);
+      color: var(--clay-sage);
+      background: var(--clay-sage-lt);
+      border: 1px solid rgba(138,143,98,0.25);
+      border-radius: 5px;
+      padding: 2px 7px;
+      font-family: 'Sora', sans-serif;
     }
 
-    .pricing-feature-content p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* Stats Grid */
-    .pricing-stats-grid {
+    /* Pricing cards */
+    .pricing-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    .price-card {
+      background: var(--clay-surface);
+      border-radius: var(--radius-xl);
+      border: 1.5px solid var(--clay-border-soft);
+      box-shadow: var(--shadow);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .pricing-stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 16px;
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .pricing-stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(201, 106, 74, 0.15);
-    }
-
-    .pricing-stat-number {
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #C96A4A, #5B78B8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.25rem;
-    }
-
-    .pricing-stat-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Pricing Form Wrapper - Glassmorphism - Enhanced */
-    .pricing-form-wrapper {
       position: relative;
-      padding: 5rem 4rem;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-radius: 32px;
-      border: 2px solid rgba(255, 255, 255, 0.95);
-      box-shadow: 
-        0 30px 100px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 255, 255, 0.7) inset,
-        0 1px 0 rgba(255, 255, 255, 0.95) inset,
-        0 8px 32px rgba(201, 106, 74, 0.08);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      text-align: left;
-      min-height: 700px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      width: 100%;
+      transition: box-shadow var(--transition), transform var(--transition);
     }
-
-    .pricing-form-wrapper::before {
-      content: '';
+    .price-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .price-card.featured {
+      border-color: rgba(201,106,74,0.35);
+      box-shadow: var(--shadow-lg);
+      background: var(--clay-primary-lt);
+    }
+    .featured-badge {
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(135deg, rgba(201, 106, 74, 0.3), rgba(91, 120, 184, 0.3), rgba(16, 185, 129, 0.3));
-      border-radius: 24px;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.4s;
-      animation: gradient-rotate 8s linear infinite;
-    }
-
-    .pricing-form-wrapper:hover::before {
-      opacity: 1;
-    }
-
-    .pricing-form-wrapper:hover {
-      transform: translateY(-4px);
-      box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(255, 255, 255, 0.5) inset,
-        0 1px 0 rgba(255, 255, 255, 0.9) inset;
-    }
-
-    /* Animated Sparkles */
-    .pricing-form-wrapper::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(201, 106, 74, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(91, 120, 184, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
-      animation: sparkle-rotate 15s linear infinite;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    @keyframes sparkle-rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes gradient-rotate {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Pricing Illustrations */
-    .pricing-illustrations {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .pricing-bg-svg {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Floating Particles */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(2px 2px at 20% 30%, rgba(201, 106, 74, 0.3), transparent),
-        radial-gradient(2px 2px at 60% 70%, rgba(91, 120, 184, 0.3), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(16, 185, 129, 0.3), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(251, 146, 60, 0.3), transparent),
-        radial-gradient(2px 2px at 90% 50%, rgba(201, 106, 74, 0.2), transparent),
-        radial-gradient(1px 1px at 33% 60%, rgba(91, 120, 184, 0.2), transparent),
-        radial-gradient(1px 1px at 10% 80%, rgba(16, 185, 129, 0.2), transparent);
-      background-size: 200% 200%;
-      animation: particle-float 20s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    @keyframes particle-float {
-      0%, 100% { 
-        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 10%, 90% 50%, 33% 60%, 10% 80%;
-        opacity: 0.6;
-      }
-      50% { 
-        background-position: 100% 100%, 0% 0%, 50% 50%, 20% 90%, 10% 50%, 67% 40%, 90% 20%;
-        opacity: 0.8;
-      }
-    }
-
-    /* Enhanced Form Inputs - For Embedded Form */
-    #pricing-embedded-form input,
-    #pricing-embedded-form select {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
-
-    #pricing-embedded-form input:hover,
-    #pricing-embedded-form select:hover {
-      border-color: rgba(201, 106, 74, 0.5) !important;
-      background: rgba(255, 255, 255, 1);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.15);
-    }
-
-    #pricing-embedded-form input:focus,
-    #pricing-embedded-form select:focus {
-      outline: none;
-      border-color: var(--primary) !important;
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 
-        0 0 0 4px rgba(201, 106, 74, 0.1),
-        0 8px 20px rgba(201, 106, 74, 0.15);
-      transform: translateY(-2px);
-    }
-
-    #pricing-embedded-form select {
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23334155' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 18px center;
-      padding-right: 45px;
-    }
-
-    #pricing-embedded-form select option {
-      color: var(--text);
-      background: white;
-      padding: 12px;
-    }
-
-    /* Legacy form styles for compatibility */
-    #pricing-form input,
-    #pricing-form select {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 2px solid rgba(226, 232, 240, 0.8);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    #pricing-form input:hover,
-    #pricing-form select:hover {
-      border-color: rgba(201, 106, 74, 0.4);
-      background: rgba(255, 255, 255, 1);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.1);
-    }
-
-    #pricing-form input:focus,
-    #pricing-form select:focus {
-      outline: none;
-      border-color: var(--primary);
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 
-        0 0 0 4px rgba(201, 106, 74, 0.1),
-        0 8px 20px rgba(201, 106, 74, 0.15);
-      transform: translateY(-2px);
-    }
-
-    #pricing-form select {
-      cursor: pointer;
-    }
-
-    #pricing-form select option {
-      color: var(--text);
-      background: white;
-    }
-
-    /* Form Styles */
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="tel"],
-    form select {
-      font-size: 1rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    form input[type="text"]:focus,
-    form input[type="email"]:focus,
-    form input[type="tel"]:focus,
-    form select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px var(--primary-light);
-    }
-
-    /* Pricing Success Message */
-    #pricing-success-message {
-      display: none;
-      text-align: center;
-      padding: 3rem 2rem;
-      min-height: 400px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    #pricing-success-message[style*="display: flex"],
-    #pricing-success-message[style*="display:block"] {
-      display: flex !important;
-    }
-    #pricing-success-message svg {
-      filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));
-    }
-    form input::placeholder {
-      color: var(--text-muted);
-      opacity: 0.7;
-    }
-    form input:focus::placeholder {
-      opacity: 0.5;
-    }
-    form select {
-      cursor: pointer;
-    }
-    form select option {
-      color: var(--text);
-    }
-
-    /* Footer Global Styling - Black & Clickable */
-    footer {
-        border-top: 1px solid var(--border);
-        padding: 4rem 0 2rem;
-        margin-top: 4rem;
-        background: white;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 2rem;
-        align-items: start;
-    }
-
-    /* Footer Links - Make Black, Aligned & Clickable */
-    .footer-grid h4 {
-        color: #000000; /* Pure Black Headers */
-        font-weight: 700;
-        margin-bottom: 16px;
-    }
-    .footer-grid a, .footer-grid p {
-        color: #1e293b; /* Very dark text for links */
-        font-weight: 500;
-        text-decoration: none;
-        margin-bottom: 12px;
-        display: block;
-        cursor: pointer; /* Force Hand Cursor */
-        transition: all 0.2s ease;
-    }
-    .footer-grid a:hover {
-        color: var(--primary);
-        transform: translateX(2px);
-        font-weight: 600;
-    }
-
-    /* COOKIE BANNER (FIXED Z-INDEX & MOBILE) */
-    .cookie-banner {
-      position: fixed; 
-      bottom: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border);
-      padding: 1.5rem; 
-      display: flex; justify-content: center; align-items: center; gap: 2rem;
-      z-index: 2147483647; /* MAX Z-INDEX TO ENSURE VISIBILITY */
-      transform: translateY(100%); 
-      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
-      /* iPhone Safe Area */
-      padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
-    }
-    .cookie-banner.visible { transform: translateY(0); }
-    
-    .cookie-content { max-width: 600px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
-    .cookie-content strong { color: var(--text); display: block; margin-bottom: 4px; }
-    
-    .cookie-buttons { display: flex; gap: 12px; flex-shrink: 0; align-items: center; }
-    .cookie-manage-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: color 0.2s;
-      margin-left: 8px;
-    }
-    .cookie-manage-link:hover {
-      color: var(--primary-hover);
-      text-decoration: underline;
-    }
-    
-    /* Cookie Preferences Modal */
-    .cookie-modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .cookie-modal-overlay.active {
-      display: flex;
-      opacity: 1;
-    }
-    .cookie-modal {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      transform: scale(0.95) translateY(20px);
-      transition: transform 0.3s ease;
-    }
-    .cookie-modal-overlay.active .cookie-modal {
-      transform: scale(1) translateY(0);
-    }
-    .cookie-modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .cookie-modal-header h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0;
-      font-family: 'Fraunces', sans-serif;
-    }
-    .cookie-modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 4px 8px;
-      line-height: 1;
-      transition: all 0.2s;
-      border-radius: 6px;
-    }
-    .cookie-modal-close:hover {
-      background: var(--bg-alt);
-      color: var(--text);
-    }
-    .cookie-preference-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .cookie-preference-item:last-child {
-      border-bottom: none;
-    }
-    .cookie-preference-info {
-      flex: 1;
-      margin-right: 1rem;
-    }
-    .cookie-preference-info h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0 0 0.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cookie-preference-info p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.5;
-    }
-    .cookie-preference-info .locked-badge {
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--clay-primary);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
       font-size: 0.7rem;
-      background: var(--primary-light);
-      color: var(--primary);
-      padding: 2px 6px;
-      border-radius: 4px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 2px 3px 8px rgba(201,106,74,0.4);
+    }
+    .price-card-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--clay-text-muted);
+    }
+    .price-card-price {
+      font-family: 'Fraunces', serif;
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--clay-text);
+      line-height: 1;
+    }
+    .price-card-price sup {
+      font-size: 1.4rem;
+      vertical-align: top;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+    .price-card-period {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.82rem;
+      color: var(--clay-text-muted);
+    }
+    .price-card-desc {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clay-text-sec);
+      line-height: 1.6;
+      border-top: 1px solid var(--clay-border-soft);
+      padding-top: 1rem;
+    }
+    .price-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+    }
+    .price-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.87rem;
+      color: var(--clay-text-sec);
+      line-height: 1.4;
+    }
+    .pf-check {
+      width: 17px;
+      height: 17px;
+      border-radius: 5px;
+      background: var(--clay-sage-lt);
+      color: var(--clay-sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Comparison table */
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 2.5rem;
+      background: var(--clay-surface);
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--clay-border-soft);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .compare-table th {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--clay-text-muted);
+      background: var(--clay-elevated);
+      padding: 14px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--clay-border-soft);
+    }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td {
+      padding: 13px 20px;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.86rem;
+      color: var(--clay-text-sec);
+      border-bottom: 1px solid var(--clay-border-soft);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .compare-table tr:hover td { background: rgba(201,106,74,0.03); }
+    .ct-yes { color: var(--clay-sage); font-weight: 700; font-size: 0.82rem; }
+    .ct-no { color: var(--clay-text-muted); font-size: 1rem; }
+    .ct-partial { color: var(--clay-amber); font-weight: 600; font-size: 0.82rem; }
+
+    /* Enterprise quote form */
+    .ent-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .ent-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .ent-field label {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      color: var(--clay-text-sec);
     }
-    .cookie-toggle {
-      position: relative;
-      width: 48px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-    .cookie-toggle input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .cookie-toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #cbd5e1;
-      transition: 0.3s;
-      border-radius: 28px;
-    }
-    .cookie-toggle-slider:before {
-      position: absolute;
-      content: "";
-      height: 20px;
-      width: 20px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: 0.3s;
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .cookie-toggle input:checked + .cookie-toggle-slider {
-      background-color: var(--primary);
-    }
-    .cookie-toggle input:checked + .cookie-toggle-slider:before {
-      transform: translateX(20px);
-    }
-    .cookie-toggle input:disabled + .cookie-toggle-slider {
-      background-color: var(--primary);
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .cookie-modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-    .cookie-modal-actions button {
-      flex: 1;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-    }
-    .cookie-save-btn {
-      background: var(--primary);
-      color: white;
-    }
-    .cookie-save-btn:hover {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-    }
-    
-    .btn-cookie-accept { 
-      background: var(--text); color: white; border: none; 
-      padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; 
-      transition: 0.2s;
-    }
-    .btn-cookie-accept:hover { background: #334155; transform: translateY(-1px); }
-    
-    .btn-cookie-decline { 
-      background: transparent; color: var(--text); border: 1px solid var(--border); 
-      padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; 
-      transition: 0.2s;
-    }
-    .btn-cookie-decline:hover { background: #f1f5f9; border-color: #cbd5e1; }
-    
-    /* Cookie Mobile Layout */
-    @media(max-width: 768px) {
-      .cookie-banner { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 1.5rem; 
-        padding: 20px 20px max(30px, env(safe-area-inset-bottom)) 20px; 
-      }
-      .cookie-buttons { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-      .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
-    }
-
-    /* =========================================
-       RESPONSIVE DESIGN (MOBILE ADAPTATION)
-    ========================================= */
-    @media(max-width: 900px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 2rem; }
-      p { font-size: 1rem; }
-      
-      /* Navigation: Hide links and buttons on mobile */
-      .nav-links { display: none !important; }
-      .header-actions { display: none !important; }
-      .hamburger-menu-btn { display: flex !important; }
-      .nav { height: 64px; }
-      .logo { font-size: 1.1rem; }
-      
-      /* Hero Adjustments */
-      .hero { padding: 4rem 0; }
-      
-      /* Button improvements for mobile */
-      .btn {
-        padding: 14px 24px; /* Larger touch targets */
-        font-size: 1rem;
-        min-height: 44px; /* iOS recommended touch target */
-      }
-      
-      /* Pricing Split Layout - Mobile */
-      .pricing-split-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .pricing-cards-section {
-        order: 2;
-      }
-
-      .pricing-form-wrapper {
-        order: 1;
-        padding: 3rem 2rem;
-        min-height: auto;
-      }
-
-      #form-container form {
-        max-width: 100% !important;
-      }
-      #form-container form > div[style*="grid-template-columns"],
-      #pricing-form-inputs > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-      }
-      #success-message {
-        padding: 0 1rem;
-      }
-
-      .pricing-stats-grid {
-        grid-template-columns: 1fr;
-      }
-      .feature-pills {
-        flex-direction: column;
-        align-items: center;
-      }
-      .pricing-illustration {
-        opacity: 0.3;
-      }
-      .floating-shape {
-        opacity: 0.2;
-      }
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      .value-card:hover {
-        transform: translateX(0) translateY(-4px);
-      }
-      
-      /* Container padding adjustments */
-      .container { padding: 0 1rem; }
-      
-      /* FIX: Footer - 2 Columns on Mobile */
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 2rem 1rem;
-      }
-      .footer-grid > div:first-child {
-        grid-column: span 2; 
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-    
-    /* Additional mobile adjustments for very small screens */
-    @media(max-width: 480px) {
-      .mobile-menu-content {
-        width: 90%;
-        padding: 1.25rem;
-      }
-
-      .hamburger-menu-btn {
-        width: 32px;
-        height: 32px;
-      }
-
-      .mobile-nav-link {
-        font-size: 0.95rem;
-        padding: 0.875rem 0;
-      }
-
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.6rem; }
-      h3 { font-size: 1.2rem; }
-      
-      .hero { padding: 3rem 0 1.5rem; }
-    }
-
-    /* Quote Modal - Smart Lead Flow */
-    #quoteModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
+    .ent-field input,
+    .ent-field select,
+    .ent-field textarea {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--clay-border);
+      background: var(--clay-elevated);
+      box-shadow: var(--shadow-inset);
       font-family: 'Sora', sans-serif;
-    }
-
-    #quoteModal.active {
-      display: flex;
-    }
-
-    .quote-modal-container {
-      background: white;
-      border-radius: 16px;
-      padding: 2.5rem;
-      max-width: 500px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      position: relative;
-      animation: modalFadeIn 0.3s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95) translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    .quote-modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #64748b;
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-
-    .quote-modal-close:hover {
-      background: #f1f5f9;
-      color: #0f172a;
-    }
-
-    .quote-modal-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
-      font-family: 'Fraunces', sans-serif;
-    }
-
-    .quote-modal-subtitle {
-      color: #64748b;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .quote-form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .quote-form-group label {
-      display: block;
-      font-weight: 600;
       font-size: 0.9rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
-
-    .quote-form-group input,
-    .quote-form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      font-family: 'Sora', sans-serif;
-      font-size: 1rem;
-      transition: all 0.2s;
-      box-sizing: border-box;
-    }
-
-    .quote-form-group input:focus,
-    .quote-form-group textarea:focus {
+      color: var(--clay-text);
+      transition: border-color 0.15s;
       outline: none;
-      border-color: #C96A4A;
-      box-shadow: 0 0 0 3px rgba(201, 106, 74, 0.1);
     }
+    .ent-field input:focus,
+    .ent-field select:focus,
+    .ent-field textarea:focus {
+      border-color: var(--clay-primary);
+      box-shadow: var(--shadow-inset), 0 0 0 3px rgba(201,106,74,0.12);
+    }
+    .ent-field.full { grid-column: span 2; }
 
-    .quote-form-group textarea {
-      resize: vertical;
-      min-height: 100px;
+    @media (max-width: 900px) {
+      .pricing-grid-3 { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+      .ent-form-grid { grid-template-columns: 1fr; }
+      .ent-field.full { grid-column: span 1; }
     }
-
-    .quote-submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: #C96A4A;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-top: 0.5rem;
+    @media (max-width: 640px) {
+      .compare-table th:nth-child(3),
+      .compare-table td:nth-child(3) { display: none; }
     }
-
-    .quote-submit-btn:hover:not(:disabled) {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-    }
-
-    .quote-submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .quote-success-message {
-      display: none;
-      text-align: center;
-      padding: 2rem 0;
-    }
-
-    .quote-success-message.active {
-      display: block;
-    }
-
-    .quote-success-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(201, 106, 74, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      color: #C96A4A;
-    }
-
-    .quote-success-message h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
-    }
-
-    .quote-success-message p {
-      color: #64748b;
-      font-size: 1rem;
-    }
-
-    .quote-form-fields {
-      transition: opacity 0.3s;
-    }
-
-    .quote-form-fields.hidden {
-      display: none;
-    }
-
-    @media(max-width: 768px) {
-      .quote-modal-container {
-        padding: 1.5rem;
-        width: 95%;
-      }
-    }
-  
-    /* Clay polish overrides (after page-local styles) */
-    body {
-      background-color: #F7F1E8 !important;
-      background-image:
-        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(201,106,74,0.10), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 90% 0%, rgba(91,120,184,0.08), transparent 50%) !important;
-      font-family: 'Sora', sans-serif !important;
-    }
-    h1, h2, h3, h4, .nav-logo, .logo {
-      font-family: 'Fraunces', serif !important;
-    }
-    ::selection { background: rgba(201,106,74,0.22) !important; color: #B5533D !important; }
-    .ambient-glow { opacity: 0.22 !important; }
-    .glow-1 { background: radial-gradient(circle, rgba(201,106,74,0.28) 0%, transparent 70%) !important; }
-    .glow-2 { background: radial-gradient(circle, rgba(91,120,184,0.18) 0%, transparent 70%) !important; }
-    header, .site-header, nav.navbar {
-      background: rgba(251,246,237,0.88) !important;
-      backdrop-filter: blur(16px) !important;
-      border-bottom: 1px solid rgba(201,106,74,0.12) !important;
-    }
-    .btn-primary, .btn.btn-primary {
-      background: linear-gradient(180deg, #D48368 0%, #C96A4A 55%, #B5533D 100%) !important;
-      border: none !important;
-      box-shadow: 4px 6px 14px rgba(92,64,51,0.14), inset 0 1px 0 rgba(255,255,255,0.25) !important;
-      border-radius: 14px !important;
-    }
-    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .blueprint, .pricing-card, .feature-card, .plan-card, .card, .window-frame {
-      background: #FFFDF8 !important;
-      border: 1.5px solid rgba(92,64,51,0.10) !important;
-      box-shadow: 8px 10px 22px rgba(92,64,51,0.12), -4px -4px 14px rgba(255,248,235,0.9) !important;
-      border-radius: 20px !important;
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #2B1F1A 0%, #C96A4A 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-    }
-
   </style>
 </head>
 <body>
 
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+<div class="ambient-glow glow-1" aria-hidden="true"></div>
+<div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-  <header>
-    <div class="container nav">
-      <a href="https://www.atlasynq.com" class="logo">
-        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-        <span>Atla<span style="color: var(--primary);">Synq</span></span>
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="34" height="34" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/pricing/" class="active">Pricing</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.88rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:9px 14px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book Demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-primary" style="padding:9px 18px;font-size:0.86rem;">Start Building</a>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ── MOBILE MENU ──────────────────────────────────────────────────────── -->
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.15rem;">Atla</span><span class="wordmark-synq" style="font-size:1.15rem;">Synq</span>
       </a>
-      <div class="nav-links">
-        <a href="/pricing/" class="nav-link">Pricing</a>
-        <a href="/features/" class="nav-link">Features</a>
-        <a href="/blog/">Blog</a>
-        <a href="/updates/">Updates</a>
-        <a href="/roi/">ROI</a>
-
-        <a href="/security/" class="nav-link">Security</a>
-        <a href="/#product" class="nav-link">Product</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/integrations/" class="nav-link">Integrations</a>
-      </div>
-      <div class="header-actions" style="display:flex; gap:10px;">
-        <a href="../login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
-      </div>
-      <!-- Hamburger Menu Button (Mobile Only) -->
-      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.3rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
     </div>
-  </header>
+    <a href="/pricing/" style="color:var(--clay-primary);font-weight:700;">Pricing</a>
+    <a href="/features/">Features</a>
+    <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
+    <a href="/blog/">Blog</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="/signup/" style="color:var(--clay-primary);font-weight:700;">Start Building</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book Demo</a>
+  </div>
+</div>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
-      <nav class="mobile-nav">
-        <a href="/pricing/" class="mobile-nav-link">Pricing</a>
-        <a href="/features/" class="mobile-nav-link">Features</a>
-        <a href="/security/" class="mobile-nav-link">Security</a>
-        <a href="/#product" class="mobile-nav-link">Product</a>
-        <a href="/about/" class="mobile-nav-link">About</a>
-        <a href="/integrations/" class="mobile-nav-link">Integrations</a>
-      </nav>
-      <div class="mobile-menu-actions">
-        <a href="../login/" class="btn btn-secondary">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<section class="clay-hero" style="padding-bottom:3rem;">
+  <div class="container">
+    <div class="clay-hero__eyebrow">Pricing</div>
+    <h1 class="clay-hero__title">Serious AI for serious teams.<br>Priced to match.</h1>
+    <p class="clay-hero__sub">Three plans with no hidden governance add-ons. RBAC, audit, and cited answers are core — not upsells.</p>
+    <!-- Billing toggle -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <div class="billing-toggle" role="group" aria-label="Billing period">
+        <button class="billing-toggle-btn active" id="toggleMonthly" onclick="setBilling('monthly')">Monthly</button>
+        <button class="billing-toggle-btn" id="toggleAnnual" onclick="setBilling('annual')">Annual <span class="annual-badge">Save 20%</span></button>
       </div>
+      <p id="billingNote" style="font-family:'Sora',sans-serif;font-size:0.8rem;color:var(--clay-text-muted);margin:0;">Billed month-to-month. Cancel anytime.</p>
     </div>
   </div>
+</section>
 
-  <section class="hero" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; padding-top: 4rem; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(239, 246, 255, 0.5) 0%, rgba(250, 245, 255, 0.5) 50%, rgba(240, 253, 250, 0.5) 100%);">
-    <div class="animated-grid"></div>
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
-    <div class="floating-shape shape-3"></div>
-    
-    <!-- Animated Background SVGs -->
-    <div class="pricing-illustrations">
-      <svg class="pricing-bg-svg" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.25; z-index: 1; pointer-events: none;">
-        <defs>
-          <linearGradient id="pricingGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#5B78B8;stop-opacity:1" />
-          </linearGradient>
-          <linearGradient id="pricingGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#C96A4A;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        
-        <!-- Floating Calculator Icons -->
-        <g id="calc1" transform="translate(100, 150)">
-          <rect x="0" y="0" width="80" height="100" rx="8" fill="url(#pricingGrad1)" opacity="0.3">
-            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-20; 0,0" dur="4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="10" y="15" width="60" height="50" rx="4" fill="white" opacity="0.8"/>
-          <line x1="20" y1="30" x2="60" y2="30" stroke="url(#pricingGrad1)" stroke-width="2"/>
-          <line x1="20" y1="45" x2="60" y2="45" stroke="url(#pricingGrad1)" stroke-width="2"/>
-          <circle cx="25" cy="80" r="8" fill="url(#pricingGrad1)" opacity="0.6"/>
-          <circle cx="45" cy="80" r="8" fill="url(#pricingGrad1)" opacity="0.6"/>
-          <circle cx="65" cy="80" r="8" fill="url(#pricingGrad1)" opacity="0.6"/>
-        </g>
+<!-- ── PRICING CARDS ────────────────────────────────────────────────────── -->
+<section style="padding:0 0 4rem;">
+  <div class="container">
+    <div class="pricing-grid-3">
 
-        <g id="calc2" transform="translate(900, 300)">
-          <rect x="0" y="0" width="80" height="100" rx="8" fill="url(#pricingGrad2)" opacity="0.3">
-            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="5s" begin="1s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" begin="1s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="10" y="15" width="60" height="50" rx="4" fill="white" opacity="0.8"/>
-          <line x1="20" y1="30" x2="60" y2="30" stroke="url(#pricingGrad2)" stroke-width="2"/>
-          <line x1="20" y1="45" x2="60" y2="45" stroke="url(#pricingGrad2)" stroke-width="2"/>
-          <circle cx="25" cy="80" r="8" fill="url(#pricingGrad2)" opacity="0.6"/>
-          <circle cx="45" cy="80" r="8" fill="url(#pricingGrad2)" opacity="0.6"/>
-          <circle cx="65" cy="80" r="8" fill="url(#pricingGrad2)" opacity="0.6"/>
-        </g>
-
-        <!-- Floating Coins/Money Icons -->
-        <g id="coin1" transform="translate(200, 500)">
-          <circle cx="0" cy="0" r="40" fill="url(#pricingGrad1)" opacity="0.25">
-            <animateTransform attributeName="transform" type="translate" values="0,0; 20,-30; 0,0" dur="6s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.25;0.4;0.25" dur="6s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="0" cy="0" r="30" fill="white" opacity="0.9"/>
-          <text x="0" y="5" text-anchor="middle" fill="url(#pricingGrad1)" font-size="20" font-weight="bold">$</text>
-        </g>
-
-        <g id="coin2" transform="translate(1000, 200)">
-          <circle cx="0" cy="0" r="40" fill="url(#pricingGrad2)" opacity="0.25">
-            <animateTransform attributeName="transform" type="translate" values="0,0; -15,-25; 0,0" dur="7s" begin="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.25;0.4;0.25" dur="7s" begin="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="0" cy="0" r="30" fill="white" opacity="0.9"/>
-          <text x="0" y="5" text-anchor="middle" fill="url(#pricingGrad2)" font-size="20" font-weight="bold">$</text>
-        </g>
-
-        <!-- Chart Lines -->
-        <g id="chart" transform="translate(500, 100)">
-          <polyline points="0,200 50,150 100,180 150,120 200,140" stroke="url(#pricingGrad1)" stroke-width="3" fill="none" opacity="0.4">
-            <animate attributeName="stroke-dasharray" values="0,500;500,0" dur="8s" repeatCount="indefinite"/>
-          </polyline>
-          <circle cx="200" cy="140" r="6" fill="url(#pricingGrad1)" opacity="0.6">
-            <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
-          </circle>
-        </g>
-
-        <!-- Network Nodes -->
-        <g id="nodes">
-          <circle cx="300" cy="400" r="8" fill="url(#pricingGrad1)" opacity="0.5">
-            <animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="500" cy="350" r="8" fill="url(#pricingGrad2)" opacity="0.5">
-            <animate attributeName="r" values="8;12;8" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="700" cy="450" r="8" fill="url(#pricingGrad1)" opacity="0.5">
-            <animate attributeName="r" values="8;12;8" dur="3s" begin="1s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" begin="1s" repeatCount="indefinite"/>
-          </circle>
-          <line x1="300" y1="400" x2="500" y2="350" stroke="url(#pricingGrad1)" stroke-width="2" opacity="0.3">
-            <animate attributeName="stroke-dasharray" values="0,300;300,0" dur="4s" repeatCount="indefinite"/>
-          </line>
-          <line x1="500" y1="350" x2="700" y2="450" stroke="url(#pricingGrad2)" stroke-width="2" opacity="0.3">
-            <animate attributeName="stroke-dasharray" values="0,300;300,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-          </line>
-        </g>
-      </svg>
-    </div>
-    
-    <div class="container" style="position: relative; z-index: 10;">
-      
-      <div class="pricing-split-container">
-        <!-- Left Side - Feature Cards -->
-        <div class="pricing-cards-section" style="animation: fadeInUp 0.8s ease-out;">
-          <div class="pricing-feature-card" style="animation: fadeInUp 0.8s ease-out 0.1s both;">
-            <div class="pricing-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path d="M2 17l10 5 10-5"/>
-                <path d="M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <div class="pricing-feature-content">
-              <h3>Unlimited Agents & Workspaces</h3>
-              <p>Create as many department-specific agents as you need. Custom licensing plans tailored to your organization's specific needs.</p>
-            </div>
-          </div>
-
-          <div class="pricing-feature-card" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
-            <div class="pricing-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-            </div>
-            <div class="pricing-feature-content">
-              <h3>Enterprise Security Included</h3>
-              <p>RBAC, audit logs, encryption, and compliance features—all standard. No security add-ons required.</p>
-            </div>
-          </div>
-
-          <div class="pricing-feature-card" style="animation: fadeInUp 0.8s ease-out 0.3s both;">
-            <div class="pricing-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-              </svg>
-            </div>
-            <div class="pricing-feature-content">
-              <h3>Dedicated Support & Onboarding</h3>
-              <p>Get a dedicated success manager, priority support, and custom training for your team.</p>
-            </div>
-          </div>
-
-          <div class="pricing-feature-card" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
-            <div class="pricing-feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                <line x1="12" y1="22.08" x2="12" y2="12"/>
-              </svg>
-            </div>
-            <div class="pricing-feature-content">
-              <h3>Flexible Deployment Options</h3>
-              <p>Cloud, on-premise, or hybrid. Deploy where your data needs to live.</p>
-            </div>
-          </div>
-
-          <div class="pricing-stats-grid" style="animation: fadeInUp 0.8s ease-out 0.5s both;">
-            <div class="pricing-stat-card">
-              <div class="pricing-stat-number">24/7</div>
-              <div class="pricing-stat-label">Support</div>
-            </div>
-            <div class="pricing-stat-card">
-              <div class="pricing-stat-number">99.9%</div>
-              <div class="pricing-stat-label">Uptime SLA</div>
-            </div>
-            <div class="pricing-stat-card">
-              <div class="pricing-stat-number">∞</div>
-              <div class="pricing-stat-label">Integrations</div>
-            </div>
-          </div>
+      <!-- TEAM -->
+      <div class="price-card">
+        <div class="price-card-name">Team</div>
+        <div>
+          <div class="price-card-price"><sup>$</sup><span class="price-amt" data-monthly="49" data-annual="39">49</span></div>
+          <div class="price-card-period">per user / month &middot; <span class="billing-label">billed monthly</span></div>
         </div>
-
-        <!-- Right Side - Form -->
-        <div id="form-container" class="pricing-form-wrapper" style="animation: fadeInUp 0.8s ease-out 0.6s both;">
-          <h1 class="text-gradient" style="margin-bottom: 1.5rem; font-size: 3rem; text-align: left; line-height: 1.2; font-weight: 800;">Simple, Transparent Pricing</h1>
-          <p style="margin-bottom: 2.5rem; animation: fadeInUp 0.8s ease-out 0.2s both; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">
-            We tailor our pricing to your organization's scale and security needs.
-          </p>
-
-          <form id="pricing-embedded-form" method="post" autocomplete="off" style="display: flex; flex-direction: column; gap: 16px; animation: fadeInUp 0.8s ease-out 0.4s both;">
-
-          <!-- Lead Attribution - Hidden UTM Tracking -->
-          <input type="hidden" name="utm_source" id="utm_source">
-          <input type="hidden" name="utm_medium" id="utm_medium">
-          <input type="hidden" name="utm_campaign" id="utm_campaign">
-          <input type="text" name="company_website" id="pricing_hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" value="" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
-
-          <!-- Form Inputs Container -->
-          <div id="pricing-form-inputs" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div>
-                <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-              </div>
-              <div>
-                <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-              </div>
-            </div>
-
-            <div>
-              <input type="email" name="email" placeholder="Work Email" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div>
-                <input type="text" name="company" placeholder="Company Name" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-              </div>
-              <div>
-                <select name="company_size" id="company_size" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s; background: white; color: var(--text); cursor: pointer;">
-                  <option value="" disabled selected>Company Size</option>
-                  <option value="1-10">1-10 employees</option>
-                  <option value="11-50">11-50 employees</option>
-                  <option value="51-200">51-200 employees</option>
-                  <option value="201-500">201-500 employees</option>
-                  <option value="501-1000">501-1,000 employees</option>
-                  <option value="1001-5000">1,001-5,000 employees</option>
-                  <option value="5000+">5,000+ employees</option>
-                </select>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div>
-                <input type="text" name="title" placeholder="Job Title" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-              </div>
-              <div>
-                <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-              </div>
-            </div>
-
-            <div>
-              <select name="lead_source" id="lead_source" required style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s; background: white; color: var(--text); cursor: pointer;">
-                <option value="" disabled selected>How did you hear about us?</option>
-                <option value="Google Search">Google Search</option>
-                <option value="LinkedIn">LinkedIn</option>
-                <option value="Newsletter">Newsletter</option>
-                <option value="Podcast">Podcast</option>
-                <option value="Word of Mouth">Word of Mouth</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <input type="text" name="description" placeholder="Message (Optional)" style="width: 100%; padding: 16px 18px; border: 2px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; transition: all 0.2s;">
-            </div>
-
-            <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 1.1rem; padding: 18px 24px; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3); transition: all 0.2s;">Request Quote</button>
-            <p id="form-status" style="margin-top: 10px; text-align: center; font-size: 0.9rem; color: var(--danger); display: none;"></p>
-          </div>
-
-          <!-- Success Message (Hidden by default) -->
-          <div id="pricing-success-message" style="display: none; text-align: center; padding: 3rem 2rem; min-height: 400px;">
-            <div style="width: 100px; height: 100px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center;">
-              <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.3));">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);">Thank You!</h3>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 450px; margin: 0 auto; line-height: 1.6;">We've received your request.</p>
-          </div>
-        </form>
+        <div class="price-card-desc">For teams getting started with governed AI agents. Up to 25 seats.</div>
+        <ul class="price-feature-list">
+          <li><span class="pf-check">&#10003;</span> Up to 25 seats</li>
+          <li><span class="pf-check">&#10003;</span> 4 department agents</li>
+          <li><span class="pf-check">&#10003;</span> 10+ standard connectors</li>
+          <li><span class="pf-check">&#10003;</span> RBAC access policies</li>
+          <li><span class="pf-check">&#10003;</span> Basic audit log (30-day retention)</li>
+          <li><span class="pf-check">&#10003;</span> Email support</li>
+          <li><span class="pf-check">&#10003;</span> GPT-4o, Claude 3.5, Gemini</li>
+        </ul>
+        <a href="/signup/" class="clay-btn clay-btn-outline" style="text-align:center;justify-content:center;">Start Building</a>
       </div>
 
+      <!-- BUSINESS (featured) -->
+      <div class="price-card featured">
+        <div class="featured-badge">Recommended</div>
+        <div class="price-card-name" style="color:var(--clay-primary-dk);">Business</div>
+        <div>
+          <div class="price-card-price"><sup>$</sup><span class="price-amt" data-monthly="99" data-annual="79">99</span></div>
+          <div class="price-card-period">per user / month &middot; <span class="billing-label">billed monthly</span></div>
+        </div>
+        <div class="price-card-desc" style="border-color:rgba(201,106,74,0.2);">For growing teams that need SSO, audit exports, and priority support.</div>
+        <ul class="price-feature-list">
+          <li><span class="pf-check">&#10003;</span> Unlimited seats</li>
+          <li><span class="pf-check">&#10003;</span> 8 department agents</li>
+          <li><span class="pf-check">&#10003;</span> 25+ connectors</li>
+          <li><span class="pf-check">&#10003;</span> Advanced RBAC + approval workflows</li>
+          <li><span class="pf-check">&#10003;</span> Full audit log + export (1-yr retention)</li>
+          <li><span class="pf-check">&#10003;</span> SSO / SAML (Okta, Azure AD, Google)</li>
+          <li><span class="pf-check">&#10003;</span> Priority support (4hr SLA)</li>
+          <li><span class="pf-check">&#10003;</span> All LLM models</li>
+        </ul>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="text-align:center;justify-content:center;" target="_blank" rel="noopener">Book Demo</a>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="price-card">
+        <div class="price-card-name">Enterprise</div>
+        <div>
+          <div class="price-card-price" style="font-size:2rem;">Custom</div>
+          <div class="price-card-period">volume &middot; annual contract</div>
+        </div>
+        <div class="price-card-desc">For organizations with compliance requirements, VPC needs, or custom integrations.</div>
+        <ul class="price-feature-list">
+          <li><span class="pf-check">&#10003;</span> Everything in Business</li>
+          <li><span class="pf-check">&#10003;</span> VPC / on-premises deployment</li>
+          <li><span class="pf-check">&#10003;</span> Custom connector development</li>
+          <li><span class="pf-check">&#10003;</span> Unlimited agents &amp; roles</li>
+          <li><span class="pf-check">&#10003;</span> Dedicated customer success manager</li>
+          <li><span class="pf-check">&#10003;</span> Slack support channel</li>
+          <li><span class="pf-check">&#10003;</span> MSA / DPA / BAA available</li>
+          <li><span class="pf-check">&#10003;</span> Custom SLA</li>
+        </ul>
+        <a href="#enterprise-quote" class="clay-btn clay-btn-outline" style="text-align:center;justify-content:center;">Request quote</a>
+      </div>
     </div>
-  </section>
 
-  <script>
-    // Mobile Menu Toggle
-    (function() {
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const closeMobileMenu = document.getElementById('closeMobileMenu');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    <p style="text-align:center;font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text-muted);margin-top:1.5rem;">
+      All plans include a 14-day free trial. No credit card required to start. &nbsp;|&nbsp;
+      <a href="https://calendly.com/idanl-atlasynq/30min" style="color:var(--clay-primary);" target="_blank" rel="noopener">Talk to sales</a>
+    </p>
+  </div>
+</section>
 
-      function openMobileMenu() {
-        if (hamburgerBtn) hamburgerBtn.classList.add('active');
-        if (mobileMenu) mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+<!-- ── COMPARISON TABLE ─────────────────────────────────────────────────── -->
+<section class="section-deep-dive" id="compare">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem;" data-fade>
+      <div class="section-label">Plan comparison</div>
+      <h2>What&#39;s included in each plan</h2>
+    </div>
+    <div style="overflow-x:auto;" data-fade>
+      <table class="compare-table" aria-label="Plan feature comparison">
+        <thead>
+          <tr>
+            <th style="width:40%;">Feature</th>
+            <th>Team</th>
+            <th>Business</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Seats</strong></td>
+            <td>Up to 25</td>
+            <td>Unlimited</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td><strong>Department agents</strong></td>
+            <td>4</td>
+            <td>8</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td><strong>Connectors</strong></td>
+            <td>10+</td>
+            <td>25+</td>
+            <td>Custom</td>
+          </tr>
+          <tr>
+            <td><strong>RBAC governance</strong></td>
+            <td><span class="ct-yes">Included</span></td>
+            <td><span class="ct-yes">Advanced</span></td>
+            <td><span class="ct-yes">Custom</span></td>
+          </tr>
+          <tr>
+            <td><strong>Approval workflows</strong></td>
+            <td><span class="ct-partial">Basic</span></td>
+            <td><span class="ct-yes">Full</span></td>
+            <td><span class="ct-yes">Full</span></td>
+          </tr>
+          <tr>
+            <td><strong>Audit log</strong></td>
+            <td>30-day retention</td>
+            <td>1-year + export</td>
+            <td>Unlimited + export</td>
+          </tr>
+          <tr>
+            <td><strong>SSO / SAML</strong></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-yes">Included</span></td>
+            <td><span class="ct-yes">Included</span></td>
+          </tr>
+          <tr>
+            <td><strong>VPC / on-premises</strong></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-yes">Included</span></td>
+          </tr>
+          <tr>
+            <td><strong>Support</strong></td>
+            <td>Email</td>
+            <td>Priority (4hr SLA)</td>
+            <td>Dedicated CSM + Slack</td>
+          </tr>
+          <tr>
+            <td><strong>MSA / DPA / BAA</strong></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-partial">On request</span></td>
+            <td><span class="ct-yes">Included</span></td>
+          </tr>
+          <tr>
+            <td><strong>Custom connectors</strong></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-no">&mdash;</span></td>
+            <td><span class="ct-yes">Included</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 
-      function closeMobileMenuFunc() {
-        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-        if (mobileMenu) mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+<!-- ── ENTERPRISE QUOTE ─────────────────────────────────────────────────── -->
+<section class="section-cta" id="enterprise-quote">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;" data-fade>
+      <div class="section-label" style="justify-content:center;">Enterprise</div>
+      <h2 class="text-center" style="margin-bottom:0.75rem;">Talk to our team</h2>
+      <p class="text-center" style="margin-bottom:2.5rem;">Tell us about your team size and requirements. We'll respond within one business day with a tailored proposal and a 30-minute technical walkthrough.</p>
 
-      if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', openMobileMenu);
-      }
+      <form id="homeLeadForm" class="clay-card" style="padding:2rem;" aria-label="Enterprise quote request">
+        <div class="ent-form-grid">
+          <div class="ent-field">
+            <label for="ent-first">First name <span style="color:var(--clay-primary);">*</span></label>
+            <input type="text" id="ent-first" name="first_name" placeholder="Sarah" required>
+          </div>
+          <div class="ent-field">
+            <label for="ent-last">Last name <span style="color:var(--clay-primary);">*</span></label>
+            <input type="text" id="ent-last" name="last_name" placeholder="Chen" required>
+          </div>
+          <div class="ent-field">
+            <label for="ent-email">Work email <span style="color:var(--clay-primary);">*</span></label>
+            <input type="email" id="ent-email" name="email" placeholder="s.chen@acmecorp.com" required>
+          </div>
+          <div class="ent-field">
+            <label for="ent-title">Job title</label>
+            <input type="text" id="ent-title" name="title" placeholder="VP of Engineering">
+          </div>
+          <div class="ent-field">
+            <label for="ent-company">Company <span style="color:var(--clay-primary);">*</span></label>
+            <input type="text" id="ent-company" name="company" placeholder="Acme Corp" required>
+          </div>
+          <div class="ent-field">
+            <label for="ent-size">Company size</label>
+            <select id="ent-size" name="company_size">
+              <option value="">Select...</option>
+              <option value="1-25">1–25 employees</option>
+              <option value="26-100">26–100 employees</option>
+              <option value="101-500">101–500 employees</option>
+              <option value="501-2000">501–2,000 employees</option>
+              <option value="2001+">2,001+ employees</option>
+            </select>
+          </div>
+          <div class="ent-field">
+            <label for="ent-phone">Phone (optional)</label>
+            <input type="tel" id="ent-phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="ent-field">
+            <label for="ent-source">How did you hear about us?</label>
+            <select id="ent-source" name="lead_source">
+              <option value="">Select...</option>
+              <option value="search">Search</option>
+              <option value="linkedin">LinkedIn</option>
+              <option value="referral">Referral</option>
+              <option value="newsletter">Newsletter</option>
+              <option value="conference">Conference / event</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="ent-field full">
+            <label for="ent-desc">What are you trying to solve?</label>
+            <textarea id="ent-desc" name="description" rows="3" placeholder="E.g. We need governed AI agents for our Finance and Legal teams, with SSO and an on-prem deployment option..."></textarea>
+          </div>
+        </div>
+        <!-- Honeypot -->
+        <input type="text" name="company_website" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+          <p style="font-size:0.78rem;color:var(--clay-text-muted);margin:0;">By submitting you agree to our <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>.</p>
+          <button type="submit" class="clay-btn clay-btn-primary" style="padding:12px 28px;">Request Enterprise Quote</button>
+        </div>
+        <div class="lead-form-msg" aria-live="polite" style="margin-top:0.75rem;"></div>
+      </form>
+    </div>
+  </div>
+</section>
 
-      if (closeMobileMenu) {
-        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-      }
+<!-- ── FAQ ──────────────────────────────────────────────────────────────── -->
+<section class="section-faq">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem;" data-fade>
+      <div class="section-label">FAQ</div>
+      <h2>Pricing questions</h2>
+    </div>
+    <div class="faq-container" data-fade>
+      <details class="faq-item">
+        <summary>Is there a free trial?</summary>
+        <p>Yes. All plans include a 14-day free trial with no credit card required. You get access to all features of your chosen plan so you can evaluate before committing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What counts as a "user" for billing?</summary>
+        <p>A user is any member of your workspace who can query an agent. Read-only observers and admin-only users (who configure policies but don't query agents) do not count toward the seat limit.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I switch plans mid-cycle?</summary>
+        <p>Yes. Upgrades take effect immediately and are prorated. Downgrades take effect at the next billing cycle.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer annual billing?</summary>
+        <p>Yes — annual billing saves 20% compared to monthly. Team at $39/user/mo and Business at $79/user/mo, billed annually. Contact sales for Enterprise annual pricing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What integrations are included in the standard connectors?</summary>
+        <p>Standard connectors include Salesforce, HubSpot, Jira, GitHub, Slack, QuickBooks, Notion, Google Drive, Stripe, Gong, LinkedIn, Zendesk, and more. Enterprise plans include custom connector development for any tool with an API.</p>
+      </details>
+    </div>
+  </div>
+</section>
 
-      // Close menu when clicking on a link
-      mobileNavLinks.forEach(function(link) {
-        link.addEventListener('click', closeMobileMenuFunc);
-      });
-
-      // Close menu when clicking outside
-      if (mobileMenu) {
-        mobileMenu.addEventListener('click', function(e) {
-          if (e.target === mobileMenu) {
-            closeMobileMenuFunc();
-          }
-        });
-      }
-    })();
-
-    // UTM Parameter Tracking for Lead Attribution
-    (function() {
-      function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        const results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get UTM parameters from URL
-        const utmSource = getUrlParameter('utm_source');
-        const utmMedium = getUrlParameter('utm_medium');
-        const utmCampaign = getUrlParameter('utm_campaign');
-
-        // Populate hidden UTM fields if they exist in URL
-        const utmSourceField = document.getElementById('utm_source');
-        const utmMediumField = document.getElementById('utm_medium');
-        const utmCampaignField = document.getElementById('utm_campaign');
-
-        if (utmSource && utmSourceField) {
-          utmSourceField.value = utmSource;
-        }
-        if (utmMedium && utmMediumField) {
-          utmMediumField.value = utmMedium;
-        }
-        if (utmCampaign && utmCampaignField) {
-          utmCampaignField.value = utmCampaign;
-        }
-
-        // Auto-select lead_source if utm_source matches
-        const leadSourceField = document.getElementById('lead_source');
-        if (utmSource && leadSourceField) {
-          const sourceMap = {
-            'google': 'Google Search',
-            'linkedin': 'LinkedIn',
-            'newsletter': 'Newsletter',
-            'podcast': 'Podcast'
-          };
-          const mappedSource = sourceMap[utmSource.toLowerCase()];
-          if (mappedSource) {
-            // Find and select the matching option
-            for (let option of leadSourceField.options) {
-              if (option.value === mappedSource) {
-                leadSourceField.value = mappedSource;
-                break;
-              }
-            }
-          }
-        }
-      });
-    })();
-
-    function atlasynqCpPublicBase() {
-      try {
-        var p = new URLSearchParams(location.search || '').get('cp_api');
-        if (p && /^https?:\/\//i.test(p)) return p.replace(/\/$/, '');
-      } catch (e0) {}
-      var h = location.hostname;
-      if (h === 'www.atlasynq.com' || h === 'atlasynq.com') return 'https://api.atlasynq.com';
-      return (location.origin || '').replace(/\/$/, '');
-    }
-
-    function postPricingLead(payload) {
-      return fetch(atlasynqCpPublicBase() + '/api/cp/public/pricing-lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      }).then(function (r) {
-        if (!r.ok) return Promise.reject(new Error('bad status'));
-        return r.json();
-      });
-    }
-
-    /** Mirror to Formspree xzddovbl; fire-and-forget. */
-    var ATL_FORMSPREE_PRICING = 'https://formspree.io/f/xzddovbl';
-
-    function postFormspreePricingMirrored(payload) {
-      try {
-        if ((payload.company_website || '').toString().trim()) return;
-        var data = new FormData();
-        data.append('email', payload.email || '');
-        data.append('firstName', payload.first_name || '');
-        data.append('lastName', payload.last_name || '');
-        data.append('company', payload.company || '');
-        data.append('companySize', payload.company_size || '');
-        data.append('jobTitle', payload.title || '');
-        data.append('phone', payload.phone || '');
-        data.append('leadSource', payload.lead_source || '');
-        data.append('description', payload.description || '');
-        data.append('utm_source', payload.utm_source || '');
-        data.append('utm_medium', payload.utm_medium || '');
-        data.append('utm_campaign', payload.utm_campaign || '');
-        data.append('_subject', 'AtlaSynq pricing inquiry');
-        fetch(ATL_FORMSPREE_PRICING, {
-          method: 'POST',
-          body: data,
-          headers: { Accept: 'application/json' }
-        }).catch(function () {});
-      } catch (eSp) {}
-    }
-
-    /** Salesforce Web-to-Lead mirror (pricing org). Fire-and-forget; does not block UI. */
-    var ATL_SF_WEBTO_ACTION = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
-    var ATL_SF_OID = '00D9k000001jUUP';
-    var ATL_SF_RETURL = 'https://www.atlasynq.com';
-
-    function postSalesforceWebToLeadMirrored(payload, pairs) {
-      try {
-        if ((payload.company_website || '').toString().trim()) return;
-        var iframeName = 'sf_web_to_lead_iframe';
-        var iframe = document.getElementById(iframeName);
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.id = iframeName;
-          iframe.name = iframeName;
-          iframe.title = 'Salesforce Web-to-Lead';
-          iframe.setAttribute('aria-hidden', 'true');
-          iframe.style.cssText = 'display:none;width:0;height:0;border:0;';
-          document.body.appendChild(iframe);
-        }
-
-        function add(inp, name, val) {
-          var s = val == null ? '' : String(val).trim();
-          if (!s) return;
-          var el = document.createElement('input');
-          el.type = 'hidden';
-          el.name = name;
-          el.value = s.slice(0, 32000);
-          inp.appendChild(el);
-        }
-
-        var f = document.createElement('form');
-        f.method = 'POST';
-        f.action = ATL_SF_WEBTO_ACTION;
-        f.target = iframeName;
-        f.style.display = 'none';
-        f.setAttribute('novalidate', '');
-
-        add(f, 'oid', ATL_SF_OID);
-        add(f, 'retURL', ATL_SF_RETURL);
-
-        var i;
-        for (i = 0; i < pairs.length; i++) {
-          add(f, pairs[i].name, pairs[i].value);
-        }
-
-        document.body.appendChild(f);
-        f.submit();
-        setTimeout(function () {
-          if (f.parentNode) f.parentNode.removeChild(f);
-        }, 2500);
-      } catch (eSf) {}
-    }
-
-    // Pricing hero form → control-plane (emails PRICING_LEAD_NOTIFY_EMAIL via Resend)
-    document.addEventListener('DOMContentLoaded', function() {
-      var form = document.getElementById('pricing-embedded-form');
-      var formInputs = document.getElementById('pricing-form-inputs');
-      var successMessage = document.getElementById('pricing-success-message');
-      var submitBtn = document.getElementById('submit-btn');
-      var statusEl = document.getElementById('form-status');
-
-      if (!form) return;
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (statusEl) {
-          statusEl.style.display = 'none';
-          statusEl.textContent = '';
-        }
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
-        }
-
-        var fd = new FormData(form);
-        var utmSrc = document.getElementById('utm_source');
-        var utmMed = document.getElementById('utm_medium');
-        var utmCamp = document.getElementById('utm_campaign');
-        var leadSel = document.getElementById('lead_source');
-
-        var payload = {
-          email: (fd.get('email') || '').toString().trim(),
-          company_website: (fd.get('company_website') || '').toString(),
-          first_name: (fd.get('first_name') || '').toString().trim() || null,
-          last_name: (fd.get('last_name') || '').toString().trim() || null,
-          company: (fd.get('company') || '').toString().trim() || null,
-          company_size: (fd.get('company_size') || '').toString().trim() || null,
-          title: (fd.get('title') || '').toString().trim() || null,
-          phone: (fd.get('phone') || '').toString().trim() || null,
-          lead_source: leadSel && leadSel.value ? leadSel.value : null,
-          description: (fd.get('description') || '').toString().trim() || null,
-          utm_source: utmSrc && utmSrc.value ? utmSrc.value : null,
-          utm_medium: utmMed && utmMed.value ? utmMed.value : null,
-          utm_campaign: utmCamp && utmCamp.value ? utmCamp.value : null
-        };
-
-        var sfPairs = [
-          { name: 'first_name', value: (fd.get('first_name') || '').toString() },
-          { name: 'last_name', value: (fd.get('last_name') || '').toString() },
-          { name: 'email', value: (fd.get('email') || '').toString() },
-          { name: 'company', value: (fd.get('company') || '').toString() },
-          { name: 'company_size', value: (fd.get('company_size') || '').toString() },
-          { name: 'title', value: (fd.get('title') || '').toString() },
-          { name: 'phone', value: (fd.get('phone') || '').toString() },
-          { name: 'lead_source', value: leadSel && leadSel.value ? leadSel.value : '' },
-          { name: 'description', value: (fd.get('description') || '').toString() }
-        ];
-        postSalesforceWebToLeadMirrored(payload, sfPairs);
-
-        postFormspreePricingMirrored(payload);
-        postPricingLead(payload)
-          .then(function () {
-            if (formInputs) formInputs.style.display = 'none';
-            if (successMessage) {
-              successMessage.style.display = 'flex';
-              successMessage.style.flexDirection = 'column';
-              successMessage.style.alignItems = 'center';
-              successMessage.style.justifyContent = 'center';
-            }
-            if (typeof gtag !== 'undefined') {
-              gtag('event', 'generate_lead', { send_to: 'G-JXPHR1VRHF' });
-            }
-          })
-          .catch(function () {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'Request Quote';
-            }
-            if (statusEl) {
-              statusEl.style.display = 'block';
-              statusEl.style.color = 'var(--danger)';
-              statusEl.textContent =
-                'Could not send right now. Please try again or email idanl@atlasynq.com.';
-            }
-          });
-      });
-    });
-  </script>
-
-  <footer>
-    <div class="container footer-grid">
+<!-- ── FOOTER ────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
       <div>
-        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Fraunces', sans-serif; font-size: 1.3rem;">
-            <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-            <span>Atla<span style="color: var(--primary);">Synq</span></span>
+        <a href="/" class="nav-logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
+        <p style="max-width:260px;font-size:0.88rem;">Governed AI agents for enterprise departments. Cited answers from your tools. No shadow AI.</p>
       </div>
-      <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
-      <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
-      <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:inherit; display:block; margin-bottom:8px;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:inherit; display:block;">Terms of Service</a></div>
+      <div>
+        <h4>Product</h4>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+        <a href="/roi/" class="footer-link">ROI Calculator</a>
+        <a href="/updates/" class="footer-link">Updates</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="/blog/" class="footer-link">Blog</a>
+        <a href="/security/" class="footer-link">Security</a>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book Demo</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+        <a href="/security/" class="footer-link">Security Overview</a>
+      </div>
     </div>
-    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
-  </footer>
-
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-content">
-      <div style="font-weight:700; margin-bottom:4px; color:var(--text);">We value your privacy</div>
-      <div>We use cookies to improve your experience and analyze traffic. By clicking "Accept", you consent to our use of cookies.</div>
-    </div>
-    <div class="cookie-buttons">
-      <button class="btn-cookie-decline">Decline</button>
-      <button class="btn-cookie-accept">Accept All</button>
-      <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage Preferences</a>
-    </div>
-  </div>
-
-  <!-- Cookie Preferences Modal -->
-  <div class="cookie-modal-overlay" id="cookieModal">
-    <div class="cookie-modal">
-      <div class="cookie-modal-header">
-        <h3>Cookie Preferences</h3>
-        <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">×</button>
-      </div>
-      <div class="cookie-preferences">
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Essential <span class="locked-badge">Required</span></h4>
-            <p>Required for site function.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieEssential" checked disabled>
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Analytics</h4>
-            <p>Helps us improve.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieAnalytics">
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Marketing</h4>
-            <p>Personalized offers.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieMarketing">
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-      </div>
-      <div class="cookie-modal-actions">
-        <button class="cookie-save-btn" id="cookieSaveBtn">Save Preferences</button>
-      </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
+      <span style="margin-left:1rem;">SOC 2 Type II &middot; GDPR Ready &middot; <a id="cookieManageLink" href="#" style="color:inherit;text-decoration:underline;">Cookie preferences</a></span>
     </div>
   </div>
+</footer>
 
-  <script>
-    // Global Cookie Banner Logic - Granular Consent
-    (function() {
-      // Cookie consent state management
-      function getCookiePreferences() {
-        const stored = localStorage.getItem('cookiePreferences');
-        if (stored) {
-          try {
-            return JSON.parse(stored);
-          } catch(e) {
-            return null;
-          }
-        }
-        return null;
-      }
+<!-- ── COOKIE BANNER ─────────────────────────────────────────────────────── -->
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div class="cookie-content">
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience and measure site performance. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
+  </div>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
+  </div>
+</div>
 
-      function saveCookiePreferences(prefs) {
-        localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
-        // Also set legacy flag for backwards compatibility
-        if (prefs.essential) {
-          localStorage.setItem('cookieConsent', 'true');
-        }
-      }
-
-      function hideBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.style.display = 'none';
-          cookieBanner.style.setProperty('display', 'none', 'important');
-        }
-      }
-
-      function showBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.classList.add('visible');
-        }
-      }
-
-      // Check localStorage on page load - hide banner immediately if consent exists
-      const existingPrefs = getCookiePreferences();
-      if (existingPrefs && existingPrefs.essential) {
-        hideBanner();
-      }
-
-      // Initialize on DOM ready
-      document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        const cookieModal = document.getElementById('cookieModal');
-        const cookieManageLink = document.getElementById('cookieManageLink');
-        const cookieModalClose = document.getElementById('cookieModalClose');
-        const cookieSaveBtn = document.getElementById('cookieSaveBtn');
-        const cookieEssential = document.getElementById('cookieEssential');
-        const cookieAnalytics = document.getElementById('cookieAnalytics');
-        const cookieMarketing = document.getElementById('cookieMarketing');
-        const btnAccept = document.querySelector('.btn-cookie-accept');
-        const btnDecline = document.querySelector('.btn-cookie-decline');
-
-        if (!cookieBanner) return;
-
-        // Hide immediately if consent already exists
-        const existingPrefs = getCookiePreferences();
-        if (existingPrefs && existingPrefs.essential) {
-          hideBanner();
-          // Load preferences into modal if they exist
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-          return;
-        }
-
-        // Load saved preferences into modal
-        if (existingPrefs) {
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-        }
-
-        // Accept All button
-        if (btnAccept) {
-          btnAccept.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const prefs = {
-              essential: true,
-              analytics: true,
-              marketing: true
-            };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            
-            return false;
-          });
-        }
-
-        // Decline All button
-        if (btnDecline) {
-          btnDecline.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const prefs = {
-              essential: true,
-              analytics: false,
-              marketing: false
-            };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            
-            return false;
-          });
-        }
-
-        // Manage Preferences link
-        if (cookieManageLink) {
-          cookieManageLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (cookieModal) {
-              cookieModal.classList.add('active');
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        }
-
-        // Close modal
-        if (cookieModalClose) {
-          cookieModalClose.addEventListener('click', function() {
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        // Close modal on overlay click
-        if (cookieModal) {
-          cookieModal.addEventListener('click', function(e) {
-            if (e.target === cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        // Save Preferences button
-        if (cookieSaveBtn) {
-          cookieSaveBtn.addEventListener('click', function() {
-            const prefs = {
-              essential: true,
-              analytics: cookieAnalytics ? cookieAnalytics.checked : false,
-              marketing: cookieMarketing ? cookieMarketing.checked : false
-            };
-            saveCookiePreferences(prefs);
-            
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-            hideBanner();
-          });
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && cookieModal && cookieModal.classList.contains('active')) {
-            cookieModal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-
-        // Show banner after a short delay if no consent exists
-        setTimeout(function() {
-          const existingPrefs = getCookiePreferences();
-          if (!existingPrefs || !existingPrefs.essential) {
-            showBanner();
-          }
-        }, 1500);
-      });
-    })();
-      }
-    });
-  </script>
-
-  <!-- Quote Modal -->
-  <div id="quoteModal">
-    <div class="quote-modal-container">
-      <button class="quote-modal-close" onclick="closeQuoteModal()" aria-label="Close">×</button>
-      
-      <!-- Form Step -->
-      <div id="formStep">
-        <h2 class="quote-modal-title">Request a Quote</h2>
-        <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
-        
-        <form id="quoteForm" method="post" autocomplete="off">
-          <input type="text" name="company_website" id="modal_hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" value="" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
-          <div class="quote-form-group">
-            <label for="first_name">First Name *</label>
-            <input type="text" name="first_name" id="first_name" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="last_name">Last Name *</label>
-            <input type="text" name="last_name" id="last_name" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="email">Email *</label>
-            <input type="email" name="email" id="email" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="company">Company *</label>
-            <input type="text" name="company" id="company" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="description">Message *</label>
-            <textarea name="description" id="description" placeholder="Tell us about your requirements..." required></textarea>
-          </div>
-          
-          <button type="submit" class="quote-submit-btn" id="leadSubmitBtn">Request Quote</button>
-        </form>
-      </div>
-      
-      <!-- Success Step -->
-      <div id="successStep" class="quote-success-container" style="display: none;">
-        <div class="quote-success-icon-large">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
         </div>
-        <h3 class="quote-success-title">Thank you! Request Received.</h3>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance and deliver relevant content.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
       </div>
     </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
+    </div>
   </div>
+</div>
 
-  <script>
-    // Quote Modal Functions
-    function openQuoteModal() {
-      const modal = document.getElementById('quoteModal');
-      const formStep = document.getElementById('formStep');
-      const successStep = document.getElementById('successStep');
-      const submitBtn = document.getElementById('leadSubmitBtn');
-      
-      if (!modal || !formStep || !successStep || !submitBtn) return;
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Reset UI state
-      formStep.style.display = 'block';
-      successStep.style.display = 'none';
-      submitBtn.textContent = 'Request Quote';
-      
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
-      }
-    }
-
-    function closeQuoteModal() {
-      const modal = document.getElementById('quoteModal');
-      if (!modal) return;
-      
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-      
-      // Reset form after a delay
-      setTimeout(() => {
-        const form = document.getElementById('quoteForm');
-        const formStep = document.getElementById('formStep');
-        const successStep = document.getElementById('successStep');
-        const submitBtn = document.getElementById('leadSubmitBtn');
-        
-        if (form) form.reset();
-        if (formStep) formStep.style.display = 'block';
-        if (successStep) successStep.style.display = 'none';
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Request Quote';
-        }
-      }, 300);
-    }
-
-    // Split Behavior Script - Runs on DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('quoteForm');
-      const formStep = document.getElementById('formStep');
-      const successStep = document.getElementById('successStep');
-      const submitBtn = document.getElementById('leadSubmitBtn');
-      
-      // Handle form submission (Quote Modal only)
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-          }
-
-          var fd = new FormData(form);
-          var payload = {
-            email: (fd.get('email') || '').toString().trim(),
-            company_website: (fd.get('company_website') || '').toString(),
-            first_name: (fd.get('first_name') || '').toString().trim() || null,
-            last_name: (fd.get('last_name') || '').toString().trim() || null,
-            company: (fd.get('company') || '').toString().trim() || null,
-            description: (fd.get('description') || '').toString().trim() || null,
-            lead_source: 'pricing_modal_request_quote'
-          };
-
-          var sfPairsModal = [
-            { name: 'first_name', value: (fd.get('first_name') || '').toString() },
-            { name: 'last_name', value: (fd.get('last_name') || '').toString() },
-            { name: 'email', value: (fd.get('email') || '').toString() },
-            { name: 'company', value: (fd.get('company') || '').toString() },
-            { name: 'description', value: (fd.get('description') || '').toString() },
-            { name: 'lead_source', value: 'pricing_modal_request_quote' }
-          ];
-          postSalesforceWebToLeadMirrored(payload, sfPairsModal);
-
-          postFormspreePricingMirrored(payload);
-          postPricingLead(payload)
-            .then(function () {
-              if (formStep) formStep.style.display = 'none';
-              if (successStep) successStep.style.display = 'block';
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', { send_to: 'G-JXPHR1VRHF' });
-              }
-              setTimeout(function () {
-                closeQuoteModal();
-              }, 2500);
-            })
-            .catch(function () {
-              if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Request Quote';
-              }
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'exception', { description: 'pricing_modal_quote_failed' });
-              }
-              window.alert('Could not send. Please try again or email idanl@atlasynq.com.');
-            });
-        });
-      }
-
-      // Split Detection: Find ALL buttons and links by TEXT content
-      const allButtons = document.querySelectorAll('button, a');
-      allButtons.forEach(function(btn) {
-        const btnText = btn.textContent.trim().toLowerCase();
-        
-        // Clean up: Remove old event listeners and onclick handlers
-        if (btn.getAttribute('onclick')) {
-          btn.removeAttribute('onclick');
-        }
-        
-        
-        // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
-        // BUT: Skip if button is inside the pricing embedded form (it has its own handler)
-        if ((btnText.includes('request quote') || btnText.includes('contact sales')) && 
-            !btn.closest('#pricing-embedded-form')) {
-          btn.addEventListener('click', function(e) {
-            // Only handle if it's a button or a link without a real href
-            if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
-              e.preventDefault();
-              e.stopPropagation();
-              openQuoteModal();
-              return false;
-            }
-          }, true);
-        }
-      });
+<script>
+  // Billing toggle
+  window.setBilling = function(mode) {
+    var isAnnual = mode === 'annual';
+    document.getElementById('toggleMonthly').classList.toggle('active', !isAnnual);
+    document.getElementById('toggleAnnual').classList.toggle('active', isAnnual);
+    document.getElementById('billingNote').textContent = isAnnual
+      ? 'Billed annually. 20% off monthly pricing.'
+      : 'Billed month-to-month. Cancel anytime.';
+    document.querySelectorAll('.price-amt').forEach(function(el) {
+      var val = isAnnual ? el.dataset.annual : el.dataset.monthly;
+      if (val) el.textContent = val;
     });
-
-    // Close modal when clicking outside
-    document.addEventListener('click', function(e) {
-      const modal = document.getElementById('quoteModal');
-      if (e.target === modal) {
-        closeQuoteModal();
-      }
+    document.querySelectorAll('.billing-label').forEach(function(el) {
+      el.textContent = isAnnual ? 'billed annually' : 'billed monthly';
     });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const modal = document.getElementById('quoteModal');
-        if (modal && modal.classList.contains('active')) {
-          closeQuoteModal();
-        }
-      }
-    });
-  </script>
-
-  <script>
-    // Active Navigation State
-    (function() {
-      const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
-      
-      // Normalize current path (remove trailing slash except for root)
-      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-      
-      navLinks.forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (!href || href.startsWith('#')) return;
-        
-        // Normalize link path
-        let linkPath = href;
-        if (href.startsWith('/')) {
-          linkPath = href;
-        } else if (href.startsWith('../')) {
-          // Convert relative paths to absolute
-          const segments = href.split('/').filter(s => s && s !== '..');
-          linkPath = '/' + segments[segments.length - 1];
-        } else {
-          return; // Skip other relative paths
-        }
-        
-        // Normalize link path (remove trailing slash except for root)
-        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
-        
-        // Check for exact match or if current path starts with link path
-        if (normalizedCurrentPath === normalizedLinkPath || 
-            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
-          link.classList.add('active');
-        }
-      });
-    })();
-  </script>
+  };
+</script>
+<script src="/js/site-demos.js" defer></script>
 </body>
 </html>
