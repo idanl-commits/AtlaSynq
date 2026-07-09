@@ -118,11 +118,13 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* H1 only uses Fraunces — all other headings use Sora */
+/* H1 only uses Fraunces — quieter weight so it doesn't read as costume AI */
 h1 {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2.4rem, 5.5vw, 3.75rem);
-  font-weight: 800;
+  font-size: clamp(2.1rem, 4.5vw, 3.15rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 h2 {
@@ -348,14 +350,16 @@ nav, header.site-nav {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-family: 'Fraunces', serif;
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--clay-text);
   text-decoration: none;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
+.nav-logo .wordmark-atla { color: var(--clay-text); }
+.nav-logo .wordmark-synq { color: var(--clay-primary); }
 .nav-logo span { color: var(--clay-primary); }
 
 .nav-links {
@@ -462,21 +466,14 @@ nav, header.site-nav {
 
 /* ─── 8. HERO SECTION ────────────────────────────────────── */
 .section-hero {
-  padding: 5rem 0 4rem;
+  padding: 4rem 0 3.25rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.section-hero::before {
-  content: '';
-  position: absolute;
-  top: -200px; left: 50%;
-  transform: translateX(-50%);
-  width: 900px; height: 600px;
-  background: radial-gradient(ellipse, rgba(201,106,74,0.10) 0%, transparent 65%);
-  pointer-events: none;
-}
+/* No radial haze — flat cream reads more institutional */
+.section-hero::before { display: none; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -2120,12 +2117,12 @@ footer {
   margin-bottom: 1rem;
 }
 .clay-hero__title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 800;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.1rem, 4.5vw, 3.15rem);
+  font-weight: 700;
   color: var(--clay-text);
   line-height: 1.12;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   margin-bottom: 1rem;
 }
 .clay-hero__sub {

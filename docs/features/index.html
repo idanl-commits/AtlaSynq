@@ -1,2590 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <script>
-    const CANONICAL_URL = "https://www.atlasynq.com/features/";
-    const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
-    const PAGE_TITLE = "Features — AtlaSynq";
-    const PAGE_DESCRIPTION = "Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.";
-  </script>
-  <title>Features — AtlaSynq</title>
-  <link rel="stylesheet" href="/css/clay-marketing.css">
-  <meta name="description" content="Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.">
-  <link rel="canonical" href="https://www.atlasynq.com/features/" />
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Features — AtlaSynq">
-  <meta property="og:description" content="Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.">
-  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-  <meta property="og:url" content="https://www.atlasynq.com/features/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — Governed Department Agents | AtlaSynq</title>
+  <meta name="description" content="Role-scoped agents, connector RBAC, cited answers, human-in-the-loop approvals, model choice per role, and a full admin audit console — in one platform.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.atlasynq.com/features/">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.atlasynq.com/features/">
+  <meta property="og:title" content="Features — Governed Department Agents | AtlaSynq">
+  <meta property="og:description" content="Everything departments need. Everything security requires. RBAC, citations, approvals, and model choice in one governed platform.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Features — AtlaSynq">
-  <meta name="twitter:description" content="Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.">
-  <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.atlasynq.com/#organization",
-      "name": "AtlaSynq",
-      "url": "https://www.atlasynq.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.atlasynq.com/images/icon.png",
-        "caption": "AtlaSynq Logo"
-      },
-      "description": "Build secure, internal AI agents for every department.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "idanl@atlasynq.com",
-        "contactType": "sales",
-        "areaServed": "Worldwide"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.atlasynq.com/#website",
-      "url": "https://www.atlasynq.com/",
-      "name": "AtlaSynq",
-      "publisher": {
-        "@id": "https://www.atlasynq.com/#organization"
-      }
-    }
-  ]
-}
-</script>
-
+  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
+  <link rel="alternate icon" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
-  <link rel="apple-touch-icon" href="/images/icon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700" rel="stylesheet">
-
   <style>
-    /* VARIABLES */
-    :root {
-      --bg: #F7F1E8;
-      --bg-alt: #FBF6ED; 
-      --text: #2B1F1A;
-      --text-muted: #A08B7D;
-      --primary: #C96A4A;
-      --primary-light: #F5E0D8;
-      --border: rgba(92, 64, 51, 0.13);
-      --success: #10b981;
-      --danger: #ef4444;
-      
-      --shadow-sm: 2px 2px 5px rgba(92,64,51,0.10), -1px -1px 3px rgba(255,248,235,0.85);
-      --shadow: 4px 6px 14px rgba(92,64,51,0.14), -2px -3px 8px rgba(255,248,235,0.90);
-      --shadow-lg: 8px 14px 32px rgba(92,64,51,0.18), -4px -6px 16px rgba(255,248,235,0.95); 
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-    
-    ::selection { background: rgba(201, 106, 74, 0.2); color: var(--primary); }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
-    
-    html { scroll-behavior: smooth; }
-    
-    body { 
-        font-family: 'Sora', sans-serif; 
-        background-color: var(--bg);
-        color: var(--text); 
-        line-height: 1.6; 
-        overflow-x: hidden;
-        background-size: 32px 32px;
-        background-image:
-          linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
-    }
-    
-    /* AMBIENT GLOWS */
-    .ambient-glow {
-        position: fixed;
-        width: 600px; height: 600px;
-        border-radius: 50%;
-        filter: blur(90px);
-        opacity: 0.35;
-        z-index: -1;
-        pointer-events: none;
-    }
-    .glow-1 { top: -150px; left: -150px; background: radial-gradient(circle, rgba(201,106,74,0.3) 0%, rgba(255,255,255,0) 70%); }
-    .glow-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(91, 120, 184, 0.2) 0%, rgba(255,255,255,0) 70%); }
-
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
-    .flex-col { display: flex; flex-direction: column; }
-    .hidden { display: none !important; }
-    .text-center { text-align: center; }
-
-    h1, h2, h3, h4 { font-family: 'Fraunces', serif, sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
-    h1 { font-size: 3.5rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
-    h2 { font-size: 2.5rem; font-weight: 700; }
-    h3 { font-size: 1.5rem; font-weight: 700; }
-    p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
-
-    .text-gradient {
-      background: linear-gradient(135deg, #0f172a 0%, #C96A4A 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Sora', sans-serif; border: none; }
-    .btn-primary { 
-      background: linear-gradient(135deg, #C96A4A 0%, #B5533D 50%, #06b6d4 100%);
-      background-size: 200% 200%;
-      animation: gradientFlow 4s ease infinite;
-      color: white;
-      border: none;
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes gradientFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-    .btn-primary:hover { 
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(201, 106, 74, 0.5);
-      border: none;
-    }
-    .btn-primary:hover { 
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-      border: none;
-    }
-    .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
-    .btn-secondary:hover { background: var(--bg-alt); border-color: #cbd5e1; color: var(--primary); }
-
-    .icon { width: 20px; height: 20px; fill: currentColor; }
-
-    /* Header */
-    header { 
-      position: sticky; top: 0; z-index: 100; 
-      background: rgba(255,255,255,0.75); 
-      backdrop-filter: blur(16px); 
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.6); 
-    }
-    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    
-    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Fraunces', sans-serif; gap: 8px; }
-    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
-    
-    .nav-links { display: flex; gap: 2rem; }
-    /* Header Nav Links - Make Black & Bold */
-    .nav-links a, .nav-link {
-        font-weight: 600; /* Bolder */
-        color: #0f172a;   /* Dark/Black */
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.2s;
-    }
-    .nav-links a:hover, .nav-link:hover {
-        color: var(--primary); /* Clay accent on hover */
-    }
-
-    /* Active Navigation State */
-    .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
-        color: var(--primary) !important;
-        font-weight: 700;
-        position: relative;
-    }
-
-    .nav-link.active::after, .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--primary);
-        border-radius: 1px;
-    }
-
-    /* Hamburger Menu Button (Hidden on Desktop) */
-    .hamburger-menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 28px;
-      height: 28px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 1001;
-    }
-
-    .hamburger-menu-btn span {
-      width: 100%;
-      height: 3px;
-      background: #0f172a;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Mobile Menu Overlay */
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .mobile-menu-content {
-      background: white;
-      width: 80%;
-      max-width: 400px;
-      height: 100%;
-      padding: 2rem;
-      position: fixed;
-      top: 0;
-      right: 0;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu-overlay.active .mobile-menu-content {
-      transform: translateX(0);
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text);
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .mobile-menu-close:hover {
-      background: var(--bg-alt);
-    }
-
-    .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-
-    .mobile-nav-link {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s;
-      position: relative;
-      display: block;
-      font-size: 1rem;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .mobile-nav-link::before {
-      content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 0;
-      background: linear-gradient(180deg, #C96A4A, #06b6d4);
-      transition: height 0.3s;
-      border-radius: 2px;
-    }
-
-    .mobile-nav-link:hover {
-      color: #C96A4A;
-      padding-left: 1rem;
-    }
-
-    .mobile-nav-link:hover::before {
-      height: 60%;
-    }
-
-    .mobile-menu-actions {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .mobile-menu-actions .btn {
-      width: 100%;
-      justify-content: center;
-      padding: 12px 20px;
-      font-size: 1rem;
-    }
-    
-    .mobile-menu-actions .btn-primary {
-      background: var(--primary);
-      color: white;
-      border: none;
-      box-shadow: 0 2px 6px rgba(201, 106, 74, 0.3);
-    }
-    
-    .mobile-menu-actions .btn-primary:hover {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.4);
-    }
-
-    /* Hero */
-    .hero { padding: 6rem 0 2rem 0; position: relative; }
-    .hero::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 65%);
-      pointer-events: none; z-index: -1;
-    }
-    .hero-content { 
-        position: relative; z-index: 2; text-align: center; margin-bottom: 1.5rem; 
-        display: flex; flex-direction: column; align-items: center;
-    }
-    .hero p { max-width: 600px; margin: 1.5rem auto 2rem; text-align: center; }
-
-    .window-frame {
-      width: 100%; max-width: 1080px; height: 600px; margin: 0 auto;
-      background: #ffffff; border: 1px solid var(--border); border-radius: 16px;
-      box-shadow: 0 30px 60px -12px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.02); 
-      display: flex; overflow: hidden; position: relative; text-align: left;
-      z-index: 5;
-    }
-
-    .app-sidebar {
-      width: 250px; background: #F8FAFC; border-right: 1px solid var(--border);
-      display: flex; flex-direction: column; padding: 20px 12px; gap: 4px; flex-shrink: 0;
-    }
-    .sb-section-title { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 24px 0 8px 12px; font-family: 'Sora', monospace; }
-    .sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; cursor: default; transition: 0.2s; border: 1px solid transparent; }
-    .sb-item:hover { background: #e2e8f0; color: var(--text); }
-    .sb-item.active { background: white; color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-color: var(--border); }
-    
-    .app-main { flex: 1; display: flex; flex-direction: column; background: white; position: relative; width: 100%; overflow: hidden; }
-    .hero-zero { position: absolute; inset: 0; background: white; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.3s; }
-    .hero-zero.hidden { opacity: 0; pointer-events: none; }
-    .zero-icon { width: 56px; height: 56px; background: #F3F4F6; border-radius: 16px; display: grid; place-items: center; margin-bottom: 1rem; color: #9CA3AF; }
-
-    /* MOBILE CHAT FIXES */
-    .chat-header { height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: rgba(255,255,255,0.95); flex-shrink: 0; gap: 10px; }
-    #heroAgentName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
-    .conf-badge { font-size: 0.7rem; background: #F3F4F6; padding: 4px 10px; border-radius: 4px; color: #6B7280; font-weight: 500; display: flex; align-items: center; gap: 6px; border: 1px solid #E5E7EB; font-family: 'Sora', monospace; flex-shrink: 0; }
-    
-    .chat-feed { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; height: 100%; }
-    .msg { display: flex; gap: 14px; max-width: 90%; opacity: 0; animation: fadeUp 0.3s forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .msg.user { align-self: flex-end; flex-direction: row-reverse; }
-    .bubble { padding: 12px 18px; border-radius: 12px; font-size: 0.95rem; line-height: 1.6; word-break: break-word; }
-    .msg.user .bubble { background: #F1F5F9; color: var(--text); border-top-right-radius: 2px; }
-    .msg.ai .bubble { background: white; border: 1px solid var(--border); border-top-left-radius: 2px; box-shadow: var(--shadow-sm); }
-    
-    .agent-avatar {
-        width: 32px; height: 32px; 
-        background: white;
-        border-radius: 8px; display: grid; place-items: center; 
-        color: white; flex-shrink: 0; 
-        box-shadow: 0 2px 4px rgba(201,106,74,0.2);
-        overflow: hidden;
-    }
-    .agent-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .agent-avatar svg { width: 20px; height: 20px; } 
-
-    .citations { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .cite-tag { font-size: 0.7rem; background: #F8FAFC; border: 1px solid #E5E7EB; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-weight: 500; display: flex; align-items: center; gap: 4px; font-family: 'Sora', monospace; }
-
-    .chat-input-area { padding: 20px; border-top: 1px solid var(--border); background: white; margin-top: auto; flex-shrink: 0; }
-    .chat-input-box { background: white; border: 1px solid var(--border); border-radius: 10px; height: 50px; display: flex; align-items: center; padding: 0 16px; position: relative; transition: 0.2s; overflow: hidden; }
-    .chat-input-box.focused { border-color: var(--text); box-shadow: 0 0 0 3px var(--bg-alt); }
-    #heroTyper, #resTyper { position: relative; z-index: 2; color: var(--text); font-weight: 500; white-space: pre-wrap; word-break: break-all; }
-
-    /* --- INFINITE LOGO SCROLL & GENERAL IMAGE STYLES (FULL COLOR) --- */
-    .logos-strip { padding: 4rem 0; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); overflow: hidden; }
-    .logos-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem; font-family: 'Sora', monospace; }
-    
-    /* GLOBAL LOGO STYLING */
-    /* mix-blend-mode: multiply ensures white backgrounds on jpg/png are invisible */
-    .logo-item img, 
-    .b-card img,
-    .satellite img,
-    .node-tag img { 
-        mix-blend-mode: multiply; 
-        filter: none; /* Full Color always */
-        opacity: 1;   
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-    }
-
-    /* Hover effects - keep uniform across all logos (no per-brand scaling) */
-    .logo-item:hover img { 
-        transform: scale(1.06); 
-    }
-    /* Builder hover: don't override the wide-logo optical scaling below */
-    .b-card:hover img:not([src*="perplexity"]):not([src*="gemini"]):not([src*="stripe"]) { 
-        transform: scale(1.06); 
-    }
-    .b-card:hover img[src*="perplexity"],
-    .b-card:hover img[src*="gemini"],
-    .b-card:hover img[src*="stripe"] {
-        transform: scale(1.26);
-    }
-
-    /* Selected state in Builder */
-    .b-card.selected img {
-        mix-blend-mode: normal; 
-    }
-    
-    .logos-wrapper {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    }
-    
-    .logos-track {
-        display: flex;
-        width: max-content;
-        gap: 4rem;
-        animation: scroll-logos 45s linear infinite;
-    }
-    
-    .logo-item { 
-        display: flex; align-items: center; gap: 0; /* No text gap needed */
-        font-weight: 500; color: #64748b; font-size: 1rem; 
-        transition: 0.3s ease; 
-        white-space: nowrap; 
-        background: transparent; 
-        padding: 12px 24px;
-    }
-    /* Only Drive needs a gap */
-    .logo-item.logo-drive { gap: 12px; }
-
-    .logo-item img {
-        height: 56px; /* Increased for better visibility */
-        width: auto;
-        object-fit: contain;
-    }
-    /* Make HubSpot image specifically larger for better readability */
-    .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] { height: 96px; }
-    
-    @keyframes scroll-logos {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } 
-    }
-
-    /* Layer */
-    .section-layer { padding: 7rem 0 5rem; background: transparent; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-    .section-layer::before { content:''; position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%); z-index: -1; }
-    
-    .layer-container { position: relative; max-width: 800px; margin: 0 auto; text-align: center; height: 360px; }
-    
-    .layer-center { 
-        width: 88px; height: 88px; background: white; border-radius: 20px; 
-        box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--border); 
-        display: grid; place-items: center; 
-        position: absolute; 
-        top: 50%; left: 50%; transform: translate(-50%, -50%);
-        z-index: 5; 
-        overflow: hidden;
-    }
-    .layer-center svg { width: 44px; height: 44px; } 
-
-    /* Satellites - Sized for readability (Enterprise Standard) */
-    .satellite { 
-        position: absolute; 
-        width: 88px; /* Increased for better visibility */
-        height: 88px; 
-        background: white; border-radius: 16px; 
-        box-shadow: var(--shadow-sm); border: 1px solid var(--border); 
-        display: grid; place-items: center; color: var(--text-muted); 
-        z-index: 5;
-    }
-    .satellite img { 
-        width: 56px; /* Increased for better visibility */
-        height: 56px; 
-        object-fit: contain; 
-    }
-    
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    
-    .sat-1 { top: 10%; left: 20%; animation: float 6s ease-in-out infinite; }
-    .sat-2 { top: 20%; right: 15%; animation: float 5s ease-in-out infinite 1s; }
-    .sat-3 { bottom: 15%; left: 25%; animation: float 7s ease-in-out infinite 2s; }
-    .sat-4 { bottom: 10%; right: 20%; animation: float 6s ease-in-out infinite 3s; }
-    
-    @keyframes dash-flow { to { stroke-dashoffset: -12; } }
-    .animated-lines-svg line {
-        stroke: #CBD5E1;
-        stroke-width: 2;
-        stroke-dasharray: 6, 6;
-        animation: dash-flow 0.8s linear infinite;
-    }
-
-    /* Deep Dive */
-    .section-deep-dive { padding: 8rem 0; background: transparent; }
-    .dd-row { display: flex; align-items: center; justify-content: space-between; gap: 4rem; margin-bottom: 8rem; }
-    .dd-row:last-child { margin-bottom: 0; }
-    .dd-row:nth-child(even) { flex-direction: row-reverse; }
-
-    .dd-text { flex: 1; max-width: 500px; }
-    .dd-text h3 { font-size: 2rem; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
-    .dd-text p { margin-bottom: 2rem; }
-    
-    .dd-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .dd-item { display: flex; align-items: center; gap: 12px; font-weight: 500; color: var(--text); }
-    .check-icon { width: 20px; height: 20px; background: var(--success); border-radius: 4px; display: grid; place-items: center; flex-shrink: 0; color: white; }
-
-    .dd-visual { flex: 1; display: flex; justify-content: center; width: 100%; }
-    
-    .schematic-card {
-      width: 100%; max-width: 550px; aspect-ratio: 16/10;
-      background: white; border: 1px solid var(--border); border-radius: 8px;
-      position: relative; display: flex; align-items: center; justify-content: center;
-      box-shadow: var(--shadow); overflow: hidden;
-    }
-    
-    .hub-icon {
-        width: 110px; height: 110px; /* Increased Hub size for better visibility */
-        background: white; border: 1px solid var(--border);
-        border-radius: 20px; display: grid; place-items: center; color: var(--text);
-        box-shadow: var(--shadow-sm); z-index: 10; position: relative;
-    }
-    .hub-icon svg { width: 56px; height: 56px; }
-
-    .node-tag {
-      position: absolute; background: white; border: 1px solid var(--border);
-      padding: 8px 14px; /* More padding */
-      border-radius: 8px; font-size: 0.75rem; font-weight: 600;
-      color: var(--text-muted); font-family: 'Sora', monospace;
-      box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px;
-      white-space: nowrap;
-      animation: gentle-float 4s ease-in-out infinite;
-      z-index: 11;
-    }
-    /* FIX: Ensure node tag images fit */
-    .node-tag img { width: 36px; height: 36px; margin: 0; object-fit: contain; vertical-align: middle; }
-    /* Make Salesforce and Jira images specifically larger (same size) */
-    .node-tag img[alt="Salesforce"], .node-tag img[src*="salesforce"],
-    .node-tag img[alt="Jira"], .node-tag img[src*="jira"] { width: 48px; height: 48px; }
-    /* Make NetSuite and Slack images even larger for better readability */
-    .node-tag img[alt="NetSuite"], .node-tag img[src*="netsuite"],
-    .node-tag img[alt="Slack"], .node-tag img[src*="slack"] { width: 60px; height: 60px; }
-
-    .node-lines-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; }
-    .node-line { stroke: var(--border); stroke-width: 1; }
-    @keyframes gentle-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-
-    .scanner-beam {
-      position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-      background: var(--success); box-shadow: 0 0 10px var(--success);
-      opacity: 0.5; animation: scan-vertical 3s ease-in-out infinite;
-    }
-    @keyframes scan-vertical { 0% { top: 10%; opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { top: 90%; opacity: 0; } }
-
-    .data-particle { position: absolute; width: 4px; height: 4px; background: var(--primary); border-radius: 50%; opacity: 0; }
-    .p1 { top: 50%; left: 10%; animation: flow-right 2s infinite ease-in; }
-    .p2 { top: 20%; left: 20%; animation: flow-right 2.5s infinite ease-in 0.5s; }
-    .p3 { top: 80%; left: 15%; animation: flow-right 2.2s infinite ease-in 1s; }
-    .p4 { top: 50%; right: 10%; animation: flow-left 2s infinite ease-in; }
-    .p5 { top: 30%; right: 20%; animation: flow-left 2.7s infinite ease-in 0.3s; }
-    @keyframes flow-right { 0% { transform: translateX(0); opacity:0; } 50% { opacity:1; } 100% { transform: translateX(180px); opacity:0; } }
-    @keyframes flow-left { 0% { transform: translateX(0); opacity:0; } 50% { opacity:1; } 100% { transform: translateX(-180px); opacity:0; } }
-
-    .approval-modal {
-        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-        background: white; padding: 24px; border-radius: 12px;
-        box-shadow: var(--shadow-lg); border: 1px solid var(--border);
-        width: 320px; z-index: 20; text-align: left;
-    }
-    .approval-header { font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
-    .approval-badge { 
-        background: #DBEAFE; color: #1E40AF; font-size: 0.65rem; font-weight: 800; 
-        padding: 6px 10px; border-radius: 99px; font-family: 'Sora'; 
-        display: flex; align-items: center; justify-content: center; 
-        text-align: center; letter-spacing: 0.05em;
-    }
-    .approval-list { list-style: none; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; }
-    .approval-list li { display: flex; align-items: center; gap: 8px; }
-    .approval-list img {
-      width: 28px !important; /* Increased from 16px for better visibility */
-      height: 28px;
-      object-fit: contain;
-      margin-right: 8px;
-    }
-    .approval-actions { display: flex; gap: 12px; }
-    .approval-btn { flex: 1; padding: 10px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; cursor: default; text-align: center; }
-    .btn-deny { background: #FEF2F2; color: var(--danger); border: 1px solid #FEE2E2; }
-    .btn-approve { background: #ECFDF5; color: var(--success); border: 1px solid #D1FAE5; animation: pulse-green 2s infinite; }
-    @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
-    
-    /* Careers Modal */
-    .careers-modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-    }
-    .careers-modal-overlay.active {
-      display: flex;
-    }
-    .careers-modal {
-      background: white;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border);
-      width: 90%;
-      max-width: 600px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    .careers-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .careers-modal-header h3 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: var(--text);
-    }
-    .careers-modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 4px 8px;
-      line-height: 1;
-      transition: color 0.2s;
-    }
-    .careers-modal-close:hover {
-      color: var(--text);
-    }
-    .careers-modal-content {
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .careers-modal-content h4 {
-      color: var(--text);
-      margin-top: 24px;
-      margin-bottom: 12px;
-      font-size: 1.1rem;
-    }
-    .careers-modal-content p {
-      margin-bottom: 16px;
-    }
-    .careers-modal-content a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .careers-modal-content a:hover {
-      text-decoration: underline;
-    }
-
-    .blueprint::before, .blueprint::after {
-      content: '+'; position: absolute; color: #cbd5e1;
-      font-family: 'Sora', monospace; font-weight: 300; font-size: 1.2rem; line-height: 1;
-    }
-    .blueprint::before { top: -8px; left: -5px; }
-    .blueprint::after { bottom: -8px; right: -5px; }
-
-    .section-builder { background: white; padding: 6rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .builder-ui {
-      background: white; border: 1px solid var(--border); border-radius: 16px;
-      box-shadow: var(--shadow-lg); height: 650px; max-width: 980px; margin: 3rem auto 0;
-      display: flex; flex-direction: column; overflow: hidden; position: relative;
-    }
-    .b-nav { display: flex; border-bottom: 1px solid var(--border); background: white; padding: 0; }
-    .b-tab { flex: 1; padding: 16px; text-align: center; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); cursor: default; position: relative; font-family:'Sora'; }
-    .b-tab.active { color: var(--primary); font-weight: 700; background: #fafafa; }
-    .b-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right:0; height: 2px; background: var(--primary); }
-    .b-content { flex: 1; position: relative; background: #fcfcfc; padding: 40px; }
-    .step-view { display: none; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; animation: fadeIn 0.4s ease; }
-    .step-view.active { display: flex; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; max-width: 800px; }
-    .b-card {
-      background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px 16px;
-      text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-    }
-    .b-card:hover { 
-        border-color: var(--primary); 
-        transform: translateY(-4px); 
-        box-shadow: 0 12px 24px -8px rgba(201, 106, 74, 0.15); 
-    }
-    .b-card.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
-    
-    /* FIX: Ensure builder card images and SVGs are sized correctly (uniform box) */
-    .b-card img, .b-card svg { 
-        height: 72px; /* Increased from 64px for better visibility */
-        width: auto; 
-        max-width: 80%; 
-        object-fit: contain; 
-        margin-bottom: 20px; /* More space between icon and text */
-        display: block;
-    }
-    /* Optical adjustment for wide logos (Perplexity, Gemini, Stripe) */
-    img[src*="perplexity"], img[src*="gemini"], img[src*="stripe"] {
-        transform: scale(1.2); 
-    }
-    
-    /* Plus Icon Styling */
-    .b-card svg {
-       color: #94a3b8;
-       transition: 0.3s;
-       padding: 12px;
-    }
-    .b-card:hover svg {
-       color: var(--primary);
-       transform: rotate(90deg);
-    }
-
-    .b-card h4 {
-       font-size: 0.95rem;
-       font-weight: 600;
-       margin: 0;
-       color: var(--text);
-    }
-
-    .auto-badge {
-      position: absolute; top: -10px; right: -10px; background: var(--success); color: white;
-      font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; font-family:'Sora';
-      box-shadow: var(--shadow-sm); display: none;
-    }
-    .b-card.auto .auto-badge { display: block; }
-    .gov-loader { display: none; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
-    .spinner { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s infinite linear; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .chat-preview { 
-      position: absolute; inset: 0; background: white; z-index: 10; display: flex; flex-direction: column; 
-      opacity: 0; transform: translateY(20px); transition: 0.5s; pointer-events: none;
-    }
-    .chat-preview.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-    .cp-header { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .cp-feed { flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; }
-    .cp-input-area { padding: 20px; border-top: 1px solid var(--border); margin-top: auto; }
-    .cp-input { background: white; border: 1px solid var(--border); border-radius: 10px; height: 50px; display: flex; align-items: center; padding: 0 16px; transition:0.2s; }
-    .cp-input.active { border-color: var(--text); box-shadow: 0 0 0 3px var(--bg-alt); }
-
-    .section-compare { padding: 4rem 0; background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-    .compare-card { padding: 2rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
-    .compare-card.old { background: #FEF2F2; border: 1px solid #FEE2E2; }
-    .compare-card.new { background: #EFF6FF; border: 1px solid #DBEAFE; box-shadow: 0 4px 6px -1px rgba(201, 106, 74, 0.1), 0 2px 4px -1px rgba(201, 106, 74, 0.06); }
-    .c-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
-    .old .c-title { color: #991B1B; }
-    .new .c-title { color: #1E3A8A; }
-    .c-list { display: flex; flex-direction: column; gap: 1rem; }
-    .c-item { display: flex; gap: 12px; align-items: center; font-size: 1rem; font-weight: 500; }
-    .old .c-item { color: #7F1D1D; }
-    .new .c-item { color: #1E40AF; }
-
-    .section-impact { padding: 6rem 0; background: transparent; }
-    .impact-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; font-family:'Sora'; }
-    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-    .stat-card { padding: 3rem 2rem; border-radius: 4px; background: white; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow-sm); position: relative; }
-    .stat-val { font-size: 3rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; display: block; letter-spacing: -0.05em; font-family:'Sora'; }
-    .stat-old { font-size: 1rem; text-decoration: line-through; color: var(--text-muted); font-weight: 400; margin-left: 8px; }
-    .stat-label { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
-
-    .section-everything { padding: 6rem 0; background: transparent; }
-    .everything-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
-    .everything-card { padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border); background: white; transition: 0.2s; position: relative; overflow: hidden; }
-    .everything-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow); }
-    .e-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
-    .e-icon { width: 32px; height: 32px; background: var(--primary-light); border-radius: 6px; display: grid; place-items: center; color: var(--primary); flex-shrink: 0; }
-    .e-title { font-size: 1.1rem; font-weight: 700; margin: 0; }
-    .e-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
-
-    .section-faq { padding: 6rem 0; background: white; border-top: 1px solid var(--border); }
-    .faq-container { max-width: 800px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
-    details.faq-item { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: white; }
-    details.faq-item summary { padding: 1.5rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
-    details.faq-item summary:hover { background: #f9fafb; }
-    details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; color: var(--text-muted); font-family:'Sora'; }
-    details.faq-item[open] summary::after { content: '-'; }
-    details.faq-item p { padding: 0 1.5rem 1.5rem; margin: 0; color: var(--text-muted); font-size: 1rem; line-height: 1.6; border-top: 1px solid var(--border); background: #fcfcfc; animation: slideDown 0.2s ease-out; }
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .cursor-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 999; }
-    .fake-mouse { width: 24px; height: 24px; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 4L22.5 18.5L14.5 19.5L18.5 28L15 29.5L11 21L6 26V4Z' fill='%230f172a' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain; position: absolute; top: 0; left: 0; transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); opacity: 0; }
-    .fake-mouse.visible { opacity: 1; }
-    .fake-mouse.click { transform: scale(0.8); }
-    .cursor-blink { width: 2px; height: 18px; background: var(--primary); animation: blink 1s infinite; display: inline-block; vertical-align: middle; margin-left: 2px; }
-    @keyframes blink { 50% { opacity: 0; } }
-
-    /* COOKIE BANNER (FIXED Z-INDEX & MOBILE) */
-    .cookie-banner {
-      position: fixed; 
-      bottom: 0; left: 0; width: 100%;
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border);
-      padding: 1.5rem; 
-      display: flex; justify-content: center; align-items: center; gap: 2rem;
-      z-index: 2147483647; /* MAX Z-INDEX TO ENSURE VISIBILITY */
-      transform: translateY(100%); 
-      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-      box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
-      /* iPhone Safe Area */
-      padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
-    }
-    .cookie-banner.visible { transform: translateY(0); }
-    
-    .cookie-content { max-width: 600px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
-    .cookie-content strong { color: var(--text); display: block; margin-bottom: 4px; }
-    
-    .cookie-buttons { display: flex; gap: 12px; flex-shrink: 0; align-items: center; }
-    .cookie-manage-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: color 0.2s;
-      margin-left: 8px;
-    }
-    .cookie-manage-link:hover {
-      color: var(--primary-hover);
-      text-decoration: underline;
-    }
-    
-    /* Cookie Preferences Modal */
-    .cookie-modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 10000;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .cookie-modal-overlay.active {
-      display: flex;
-      opacity: 1;
-    }
-    .cookie-modal {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 500px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      transform: scale(0.95) translateY(20px);
-      transition: transform 0.3s ease;
-    }
-    .cookie-modal-overlay.active .cookie-modal {
-      transform: scale(1) translateY(0);
-    }
-    .cookie-modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .cookie-modal-header h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0;
-      font-family: 'Fraunces', sans-serif;
-    }
-    .cookie-modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 4px 8px;
-      line-height: 1;
-      transition: all 0.2s;
-      border-radius: 6px;
-    }
-    .cookie-modal-close:hover {
-      background: var(--bg-alt);
-      color: var(--text);
-    }
-    .cookie-preference-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .cookie-preference-item:last-child {
-      border-bottom: none;
-    }
-    .cookie-preference-info {
-      flex: 1;
-      margin-right: 1rem;
-    }
-    .cookie-preference-info h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 0 0 0.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cookie-preference-info p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.5;
-    }
-    .cookie-preference-info .locked-badge {
-      font-size: 0.7rem;
-      background: var(--primary-light);
-      color: var(--primary);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .cookie-toggle {
-      position: relative;
-      width: 48px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-    .cookie-toggle input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .cookie-toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #cbd5e1;
-      transition: 0.3s;
-      border-radius: 28px;
-    }
-    .cookie-toggle-slider:before {
-      position: absolute;
-      content: "";
-      height: 20px;
-      width: 20px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: 0.3s;
-      border-radius: 50%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    .cookie-toggle input:checked + .cookie-toggle-slider {
-      background-color: var(--primary);
-    }
-    .cookie-toggle input:checked + .cookie-toggle-slider:before {
-      transform: translateX(20px);
-    }
-    .cookie-toggle input:disabled + .cookie-toggle-slider {
-      background-color: var(--primary);
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .cookie-modal-actions {
-      display: flex;
-      gap: 12px;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-    .cookie-modal-actions button {
-      flex: 1;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-    }
-    .cookie-save-btn {
-      background: var(--primary);
-      color: white;
-    }
-    .cookie-save-btn:hover {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-    }
-    
-    .btn-cookie-accept { 
-      background: var(--text); color: white; border: none; 
-      padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; 
-      transition: 0.2s;
-    }
-    .btn-cookie-accept:hover { background: #334155; transform: translateY(-1px); }
-    
-    .btn-cookie-decline { 
-      background: transparent; color: var(--text); border: 1px solid var(--border); 
-      padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; 
-      transition: 0.2s;
-    }
-    .btn-cookie-decline:hover { background: #f1f5f9; border-color: #cbd5e1; }
-    
-    /* Cookie Mobile Layout */
-    @media(max-width: 768px) {
-      .cookie-banner { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 1.5rem; 
-        padding: 20px 20px max(30px, env(safe-area-inset-bottom)) 20px; 
-      }
-      .cookie-buttons { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-      .btn-cookie-accept, .btn-cookie-decline { width: 100%; justify-content: center; }
-    }
-
-    /* Footer Global Styling - Black & Clickable */
-    footer {
-        border-top: 1px solid var(--border);
-        padding: 4rem 0 2rem;
-        margin-top: 4rem;
-        background: white;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 2rem;
-        align-items: start;
-    }
-
-    /* Footer Links - Make Black, Aligned & Clickable */
-    .footer-grid h4 {
-        color: #000000; /* Pure Black Headers */
-        font-weight: 700;
-        margin-bottom: 16px;
-    }
-    .footer-grid a, .footer-grid p {
-        color: #1e293b; /* Very dark text for links */
-        font-weight: 500;
-        text-decoration: none;
-        margin-bottom: 12px;
-        display: block;
-        cursor: pointer; /* Force Hand Cursor */
-        transition: all 0.2s ease;
-    }
-    .footer-grid a:hover {
-        color: var(--primary);
-        transform: translateX(2px);
-        font-weight: 600;
-    }
-
-    /* =========================================
-       FEATURES PAGE ANIMATIONS
-    ========================================= */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.4;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
-    }
-
-    @keyframes scanBeam {
-      0% {
-        opacity: 0.3;
-        transform: rotate(0deg);
-      }
-      50% {
-        opacity: 0.8;
-      }
-      100% {
-        opacity: 0.3;
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes pulseDot {
-      0%, 100% {
-        opacity: 0.4;
-        r: 4;
-      }
-      50% {
-        opacity: 1;
-        r: 6;
-      }
-    }
-
-    @keyframes switchMove {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(5px);
-      }
-    }
-
-    @keyframes lockPulse {
-      0%, 100% {
-        opacity: 0.8;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes flowLine {
-      0% {
-        stroke-dashoffset: 0;
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 0.8;
-      }
-      100% {
-        stroke-dashoffset: -20;
-        opacity: 0.3;
-      }
-    }
-
-    /* Neural Network Animations */
-    .pulse-node {
-      animation: pulse 3s ease-in-out infinite;
-    }
-    .pulse-line {
-      stroke-dasharray: 5, 5;
-      animation: flowLine 2s linear infinite;
-    }
-
-    /* Feature Card Hover Effects */
-    .feature-card-bento:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 32px rgba(201, 106, 74, 0.12), 0 0 0 1px rgba(201, 106, 74, 0.1);
-      border-color: rgba(201, 106, 74, 0.3);
-    }
-
-    /* SVG Animations */
-    .search-scan .scan-beam {
-      animation: scanBeam 2s ease-in-out infinite;
-      transform-origin: 50% 50%;
-    }
-
-    .brain-pulse .pulse-dot {
-      animation: pulseDot 1.5s ease-in-out infinite;
-    }
-
-    .switch-animate .arrow-left {
-      animation: switchMove 2s ease-in-out infinite;
-    }
-    .switch-animate .arrow-right {
-      animation: switchMove 2s ease-in-out infinite;
-      animation-delay: 1s;
-    }
-
-    .shield-lock .lock-animate {
-      animation: lockPulse 2s ease-in-out infinite;
-    }
-
-    /* Flow Arrow Animation */
-    .flow-arrow .flow-line {
-      stroke-dasharray: 10, 5;
-      animation: flowLine 2s linear infinite;
-    }
-
-    /* =========================================
-       RESPONSIVE DESIGN (MOBILE ADAPTATION)
-    ========================================= */
-    @media(max-width: 900px) {
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 2rem; }
-      p { font-size: 1rem; }
-      
-      /* Navigation: Hide links and buttons on mobile */
-      .nav-links { display: none !important; }
-      .header-actions { display: none !important; }
-      .hamburger-menu-btn { display: flex !important; }
-      .nav { height: 64px; }
-      .logo { font-size: 1.1rem; }
-      
-      /* Stack grids */
-      .compare-grid, .everything-grid, .impact-grid {
-        display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
-      }
-
-      /* Bento Grid - Stack on mobile */
-      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"] {
-        grid-template-columns: 1fr !important;
-      }
-      .feature-card-bento {
-        grid-column: span 1 !important;
-      }
-
-      /* Workflow - Stack on mobile */
-      .workflow-section > .container > div[style*="display: flex"] {
-        flex-direction: column !important;
-        gap: 2rem !important;
-      }
-      .workflow-section .flow-arrow {
-        transform: rotate(90deg);
-        margin: 1rem 0;
-      }
-
-      /* FIX: Builder Grid - Force 2 Columns on Mobile */
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
-      }
-      .b-card { padding: 16px 8px; }
-      .b-card h4 { font-size: 0.9rem; }
-      
-      /* FIX: Footer - 2 Columns on Mobile */
-      /* Mobile responsive fix for footer */
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 2rem 1rem;
-      }
-      .footer-grid > div:first-child {
-        grid-column: span 2; 
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      /* Hero Adjustments */
-      .hero { padding: 4rem 0; min-height: 400px !important; }
-      
-      /* Hide neural network on mobile */
-      .neural-network-bg {
-        display: none !important;
-      }
-      
-      /* Button improvements for mobile */
-      .btn {
-        padding: 14px 24px; /* Larger touch targets */
-        font-size: 1rem;
-        min-height: 44px; /* iOS recommended touch target */
-      }
-      
-      /* Section spacing adjustments */
-      .section { padding: 4rem 0; }
-      .section-layer { padding: 4rem 0 3rem; }
-      
-      /* FIX: Chat Layout on Mobile */
-      .window-frame { 
-          height: 500px; 
-          display: flex; 
-          flex-direction: row; /* Keep sidebar next to chat */
-      }
-
-      /* Sidebar - Show it, but narrow */
-      .app-sidebar {
-        display: flex !important; 
-        width: 80px; 
-        min-width: 80px;
-        padding: 12px 4px;
-        align-items: center;
-      }
-      .sb-section-title { display: none; }
-      .sb-item {
-        flex-direction: column; 
-        text-align: center;
-        font-size: 0.65rem; 
-        gap: 4px;
-        padding: 8px 4px;
-        justify-content: center;
-      }
-      .sb-item svg { width: 24px; height: 24px; margin: 0; }
-
-      /* Chat Main Area - Fix Stability */
-      .app-main {
-         flex: 1;
-         width: auto;
-         overflow: hidden; /* Contain chat */
-         display: flex;
-         flex-direction: column;
-      }
-      .chat-feed {
-        overflow-y: auto; /* Scroll messages only */
-        height: 100%;
-        flex: 1;
-      }
-      .chat-input-area {
-          flex-shrink: 0; /* Prevent input from squashing */
-      }
-      
-      /* Logo Strip - Scale down for mobile */
-      .logo-item img {
-        height: 40px !important; /* Reduced from 56px */
-      }
-      .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] {
-        height: 56px !important; /* Reduced from 96px */
-      }
-      
-      /* Builder Cards - Scale down images for mobile */
-      .b-card img, .b-card svg {
-        height: 48px !important; /* Reduced from 72px */
-        margin-bottom: 12px;
-      }
-      
-      /* Animation Layer Scaling for Mobile */
-      .layer-container { height: 280px; }
-      .hub-icon {
-        width: 72px !important; /* Reduced from 110px */
-        height: 72px !important;
-      }
-      .hub-icon svg {
-        width: 40px !important; /* Reduced from 56px */
-        height: 40px !important;
-      }
-      .satellite {
-        width: 56px !important; /* Reduced from 88px */
-        height: 56px !important;
-      }
-      .satellite img {
-        width: 36px !important; /* Reduced from 56px */
-        height: 36px !important;
-      }
-      
-      .sat-1 { top: 15%; left: 15%; }
-      .sat-2 { top: 20%; right: 10%; }
-      .sat-3 { bottom: 15%; left: 10%; }
-      .sat-4 { bottom: 10%; right: 15%; }
-      
-      /* Node Tags - Scale down for mobile */
-      .node-tag img {
-        width: 28px !important; /* Reduced from 36px */
-        height: 28px !important;
-      }
-      .node-tag img[alt="Salesforce"], .node-tag img[src*="salesforce"],
-      .node-tag img[alt="Jira"], .node-tag img[src*="jira"] {
-        width: 36px !important; /* Reduced from 48px */
-        height: 36px !important;
-      }
-      .node-tag img[alt="NetSuite"], .node-tag img[src*="netsuite"],
-      .node-tag img[alt="Slack"], .node-tag img[src*="slack"] {
-        width: 44px !important; /* Reduced from 60px */
-        height: 44px !important;
-      }
-      
-      /* Container padding adjustments */
-      .container { padding: 0 1rem; }
-      .logos-strip { padding: 2rem 0; }
-      .logo-item { padding: 8px 16px; }
-      
-      .dd-row, .dd-row:nth-child(even) { flex-direction: column; text-align: center; gap: 3rem; }
-      .dd-list { align-items: center; text-align: left; }
-      
-      .builder-ui { height: auto; min-height: 550px; }
-      .b-content { padding: 20px; }
-    }
-    
-    /* Additional mobile adjustments for very small screens */
-    @media(max-width: 480px) {
-      .mobile-menu-content {
-        width: 90%;
-        padding: 1.25rem;
-      }
-
-      .hamburger-menu-btn {
-        width: 32px;
-        height: 32px;
-      }
-
-      .mobile-nav-link {
-        font-size: 0.95rem;
-        padding: 0.875rem 0;
-      }
-
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.6rem; }
-      h3 { font-size: 1.2rem; }
-      
-      .hero { padding: 3rem 0 1.5rem; }
-      .window-frame { height: 400px; }
-      
-      /* Even smaller logos on very small screens */
-      .logo-item img {
-        height: 32px !important;
-      }
-      .logo-item img[alt="HubSpot"], .logo-item img[src*="hubspot"] {
-        height: 44px !important;
-      }
-      
-      .b-card img, .b-card svg {
-        height: 40px !important;
-      }
-      
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8px;
-      }
-      .b-card {
-        padding: 12px 6px;
-      }
-      .b-card h4 {
-        font-size: 0.8rem;
-      }
-
-      /* Features page specific mobile fixes */
-      /* Bento grid - ensure all cards stack */
-      .section-everything > .container > div[style*="grid-template-columns: repeat(4, 1fr)"],
-      .section-everything > .container > div[style*="grid-template-columns: repeat(2, 1fr)"] {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-      }
-
-      /* Feature cards - full width on mobile */
-      .feature-card-bento {
-        grid-column: span 1 !important;
-      }
-
-      /* Workflow section - stack steps vertically */
-      .workflow-section > .container > div[style*="display: flex"] {
-        flex-direction: column !important;
-        gap: 2rem !important;
-        align-items: center !important;
-      }
-
-      /* Flow arrows - rotate to point down */
-      .workflow-section .flow-arrow {
-        transform: rotate(90deg) !important;
-        margin: 1rem 0 !important;
-      }
-
-      /* Neural network background - hide on mobile for performance */
-      .neural-network-bg {
-        display: none !important;
-      }
-
-      /* Hero animations - reduce on mobile */
-      .hero [style*="animation"] {
-        animation-duration: 1.5s !important;
-      }
-    }
-    /* Quote Modal - Smart Lead Flow */
-    #quoteModal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .feat-card {
+      background: var(--clay-surface);
+      border: 1.5px solid var(--clay-border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.75rem;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .feat-card:hover {
+      border-color: rgba(201,106,74,0.35);
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+    .feat-card-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--clay-primary-lt);
+      color: var(--clay-primary);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .feat-card-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .feat-card h3 {
       font-family: 'Sora', sans-serif;
-    }
-
-    #quoteModal.active {
-      display: flex;
-    }
-
-    .quote-modal-container {
-      background: white;
-      border-radius: 16px;
-      padding: 2.5rem;
-      max-width: 500px;
-      width: 90%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      position: relative;
-      animation: modalFadeIn 0.3s ease-out;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95) translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    .quote-modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #64748b;
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-
-    .quote-modal-close:hover {
-      background: #f1f5f9;
-      color: #0f172a;
-    }
-
-    .quote-modal-title {
-      font-size: 1.75rem;
+      font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
-      font-family: 'Fraunces', sans-serif;
+      color: var(--clay-text);
+      margin: 0 0 0.5rem;
+    }
+    .feat-card p {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clay-text-sec);
+      line-height: 1.6;
+      margin: 0;
     }
 
-    .quote-modal-subtitle {
-      color: #64748b;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .how-step {
+      padding: 1.5rem;
+      background: var(--clay-surface);
+      border: 1.5px solid var(--clay-border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .how-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clay-primary);
+      margin-bottom: 0.65rem;
+    }
+    .how-step h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+    }
+    .how-step p {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clay-text-sec);
+      line-height: 1.55;
+      margin: 0;
     }
 
-    .quote-form-group {
+    .compare-strip {
+      background: var(--clay-elevated);
+      border-top: 1px solid var(--clay-border-soft);
+      border-bottom: 1px solid var(--clay-border-soft);
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid var(--clay-border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--clay-surface);
+      box-shadow: var(--shadow-sm);
+    }
+    .compare-col {
+      padding: 1.75rem;
+    }
+    .compare-col + .compare-col {
+      border-left: 1.5px solid var(--clay-border-soft);
+    }
+    .compare-col-label {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       margin-bottom: 1.25rem;
     }
-
-    .quote-form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
-
-    .quote-form-group input,
-    .quote-form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
+    .compare-col-label.atlasynq { color: var(--clay-primary); }
+    .compare-col-label.competitor { color: var(--clay-text-muted); }
+    .compare-col h3 {
       font-family: 'Sora', sans-serif;
-      font-size: 1rem;
-      transition: all 0.2s;
-      box-sizing: border-box;
-    }
-
-    .quote-form-group input:focus,
-    .quote-form-group textarea:focus {
-      outline: none;
-      border-color: #C96A4A;
-      box-shadow: 0 0 0 3px rgba(201, 106, 74, 0.1);
-    }
-
-    .quote-form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .quote-submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: #C96A4A;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-top: 0.5rem;
-    }
-
-    .quote-submit-btn:hover:not(:disabled) {
-      background: #B5533D;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
-    }
-
-    .quote-submit-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .quote-success-message {
-      display: none;
-      text-align: center;
-      padding: 2rem 0;
-    }
-
-    .quote-success-message.active {
-      display: block;
-    }
-
-    .quote-success-icon {
-      width: 64px;
-      height: 64px;
-      background: rgba(201, 106, 74, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      color: #C96A4A;
-    }
-
-    .quote-success-message h3 {
-      font-size: 1.5rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
+      margin: 0 0 1.25rem;
+      color: var(--clay-text);
+    }
+    .compare-list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .compare-list li {
+      font-family: 'Sora', sans-serif;
+      font-size: 0.88rem;
+      color: var(--clay-text-sec);
+      line-height: 1.5;
+      display: flex; align-items: flex-start; gap: 0.6rem;
+    }
+    .compare-list li::before {
+      content: '';
+      display: block;
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      margin-top: 1px;
+      border-radius: 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .compare-col.atlasynq-col .compare-list li::before {
+      background-color: var(--clay-primary-lt);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8l3.5 3.5L13 4.5' stroke='%23C96A4A' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    .compare-col.competitor-col .compare-list li::before {
+      background-color: var(--clay-elevated);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M5 5l6 6M11 5l-6 6' stroke='%23999' stroke-width='1.75' stroke-linecap='round'/%3E%3C/svg%3E");
     }
 
-    .quote-success-message p {
-      color: #64748b;
-      font-size: 1rem;
+    @media (max-width: 900px) {
+      .feat-grid, .how-grid { grid-template-columns: 1fr 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .compare-col + .compare-col { border-left: none; border-top: 1.5px solid var(--clay-border-soft); }
     }
-
-    .quote-form-fields {
-      transition: opacity 0.3s;
+    @media (max-width: 600px) {
+      .feat-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
     }
-
-    .quote-form-fields.hidden {
-      display: none;
-    }
-
-    @media(max-width: 768px) {
-      .quote-modal-container {
-        padding: 1.5rem;
-        width: 95%;
-      }
-    }
-  
-    /* Clay polish overrides (after page-local styles) */
-    body {
-      background-color: #F7F1E8 !important;
-      background-image:
-        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(201,106,74,0.10), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 90% 0%, rgba(91,120,184,0.08), transparent 50%) !important;
-      font-family: 'Sora', sans-serif !important;
-    }
-    h1, h2, h3, h4, .nav-logo, .logo {
-      font-family: 'Fraunces', serif !important;
-    }
-    ::selection { background: rgba(201,106,74,0.22) !important; color: #B5533D !important; }
-    .ambient-glow { opacity: 0.22 !important; }
-    .glow-1 { background: radial-gradient(circle, rgba(201,106,74,0.28) 0%, transparent 70%) !important; }
-    .glow-2 { background: radial-gradient(circle, rgba(91,120,184,0.18) 0%, transparent 70%) !important; }
-    header, .site-header, nav.navbar {
-      background: rgba(251,246,237,0.88) !important;
-      backdrop-filter: blur(16px) !important;
-      border-bottom: 1px solid rgba(201,106,74,0.12) !important;
-    }
-    .btn-primary, .btn.btn-primary {
-      background: linear-gradient(180deg, #D48368 0%, #C96A4A 55%, #B5533D 100%) !important;
-      border: none !important;
-      box-shadow: 4px 6px 14px rgba(92,64,51,0.14), inset 0 1px 0 rgba(255,255,255,0.25) !important;
-      border-radius: 14px !important;
-    }
-    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .blueprint, .pricing-card, .feature-card, .plan-card, .card, .window-frame {
-      background: #FFFDF8 !important;
-      border: 1.5px solid rgba(92,64,51,0.10) !important;
-      box-shadow: 8px 10px 22px rgba(92,64,51,0.12), -4px -4px 14px rgba(255,248,235,0.9) !important;
-      border-radius: 20px !important;
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #2B1F1A 0%, #C96A4A 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-    }
-
   </style>
 </head>
 <body>
 
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#product">Product</a></li>
+      <li><a href="/features/" class="active">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 20px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.84rem;">Start Building</a>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
 
-  <header>
-    <div class="container nav">
-      <a href="https://www.atlasynq.com" class="logo">
-        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-        <span>Atla<span style="color: var(--primary);">Synq</span></span>
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.1rem;">Atla</span><span class="wordmark-synq" style="font-size:1.1rem;">Synq</span>
       </a>
-      <div class="nav-links">
-        <a href="/#product" class="nav-link">Product</a>
-        <a href="/features/" class="nav-link active">Features</a>
-        <a href="/security/" class="nav-link">Security</a>
-        <a href="/integrations/" class="nav-link">Integrations</a>
-        <a href="/pricing/" class="nav-link">Pricing</a>
-      </div>
-      <div class="header-actions" style="display:flex; gap:10px; align-items:center;">
-        <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book a demo</a>
-        <a href="/signup/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Start Building</a>
-      </div>
-      <!-- Hamburger Menu Button (Mobile Only) -->
-      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
     </div>
-  </header>
+    <a href="/#product">Product</a>
+    <a href="/features/" style="color:var(--clay-primary);font-weight:700;">Features</a>
+    <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
+    <a href="/pricing/">Pricing</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" style="color:var(--clay-primary);font-weight:700;">Book a demo</a>
+    <a href="/signup/">Start Building</a>
+  </div>
+</div>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
-      <nav class="mobile-nav">
-        <a href="/#product" class="mobile-nav-link">Product</a>
-        <a href="/features/" class="mobile-nav-link">Features</a>
-        <a href="/security/" class="mobile-nav-link">Security</a>
-        <a href="/integrations/" class="mobile-nav-link">Integrations</a>
-        <a href="/pricing/" class="mobile-nav-link">Pricing</a>
-        <a href="/blog/" class="mobile-nav-link">Blog</a>
-        <a href="/about/" class="mobile-nav-link">About</a>
-      </nav>
-      <div class="mobile-menu-actions">
-        <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none;">Book a demo</a>
-        <a href="/signup/" class="btn btn-secondary">Start Building</a>
+<section class="section-hero" style="padding-bottom:2.5rem;">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-primary);">Features</span>
+    </div>
+    <h1 class="hero-headline">Everything departments need.<br>Everything security requires.</h1>
+    <p class="hero-sub">Role-scoped agents, connectors, citations, and human-in-the-loop approvals — in one platform.</p>
+    <div class="hero-actions" style="margin-bottom:0;">
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:13px 28px;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:13px 24px;font-size:0.9rem;">Start Building</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 4.5rem;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <h2 style="margin-bottom:0.5rem;">Built for every department</h2>
+      <p style="max-width:520px;margin:0 auto;color:var(--clay-text-sec);font-size:0.95rem;">One governance layer across Sales, Finance, Engineering, HR, Legal, and Marketing.</p>
+    </div>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Department agents</h3>
+        <p>Dedicated agents for Sales, Finance, Engineering, HR, Legal, and Marketing — each scoped to the tools and data its role is permitted to see.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>RBAC at query time</h3>
+        <p>Role policies are enforced on every request — not just at setup. A Sales agent cannot touch Finance data even if it crafts a clever prompt.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Cited answers from your tools</h3>
+        <p>Every answer references the exact record, document, or data point it used. Agents never hallucinate sources — they cite or they say they don't know.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Human-in-the-loop approvals</h3>
+        <p>Write actions — sending emails, updating CRM, closing tickets — are queued for an admin or manager to approve before anything executes.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Model choice per role</h3>
+        <p>Route each department to GPT-4o, Claude, Gemini, or Llama based on cost, capability, or data-residency requirements — without rewriting prompts.</p>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Admin console + audit export</h3>
+        <p>Full query log, approval history, and user activity in a searchable console. Export to CSV or SIEM for compliance reviews.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="compare-strip" style="padding:3.5rem 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <h2 style="margin-bottom:0.5rem;">AtlaSynq vs ChatGPT Enterprise</h2>
+      <p style="max-width:520px;margin:0 auto;color:var(--clay-text-sec);font-size:0.95rem;">General-purpose AI chat is not the same as governed department agents.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col atlasynq-col">
+        <div class="compare-col-label atlasynq">AtlaSynq</div>
+        <h3>Purpose-built governance</h3>
+        <ul class="compare-list">
+          <li>Role-scoped agents — Sales cannot see Finance, ever</li>
+          <li>Connector RBAC enforced at query time, not just configuration</li>
+          <li>Approval queue for all write actions before execution</li>
+        </ul>
+      </div>
+      <div class="compare-col competitor-col">
+        <div class="compare-col-label competitor">ChatGPT Enterprise</div>
+        <h3>General chat with plugins</h3>
+        <ul class="compare-list">
+          <li>Shared workspace with broad access for all users</li>
+          <li>Plugin connections without per-role data scoping</li>
+          <li>Freeform write actions with no approval layer</li>
+        </ul>
       </div>
     </div>
   </div>
+</section>
 
-  <section class="hero" style="position: relative; overflow: hidden; min-height: 500px; display: flex; align-items: center; background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);">
-    <!-- Neural Network Background Animation -->
-    <div class="neural-network-bg" style="position: absolute; inset: 0; opacity: 0.4; z-index: 0; pointer-events: none;">
-      <svg width="100%" height="100%" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:0.6" />
-            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.3" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <!-- Animated Connection Lines -->
-        <line x1="200" y1="150" x2="400" y2="200" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
-        <line x1="400" y1="200" x2="600" y2="180" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
-        <line x1="600" y1="180" x2="800" y2="220" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
-        <line x1="200" y1="300" x2="400" y2="350" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
-        <line x1="400" y1="350" x2="600" y2="380" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
-        <line x1="600" y1="380" x2="800" y2="400" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
-        <!-- Nodes -->
-        <circle cx="200" cy="150" r="6" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
-        <circle cx="400" cy="200" r="8" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
-        <circle cx="600" cy="180" r="6" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
-        <circle cx="800" cy="220" r="7" fill="url(#nodeGrad)" filter="url(#glow)" class="pulse-node"/>
-        <circle cx="200" cy="300" r="5" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
-        <circle cx="400" cy="350" r="6" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
-        <circle cx="600" cy="380" r="5" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
-        <circle cx="800" cy="400" r="6" fill="#60a5fa" opacity="0.4" class="pulse-node"/>
-      </svg>
+<section style="padding:4rem 0;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2rem;">
+      <h2 style="margin-bottom:0.5rem;">How it works</h2>
+      <p style="max-width:520px;margin:0 auto;color:var(--clay-text-sec);font-size:0.95rem;">Three steps from setup to governed answers — no engineering sprint required.</p>
     </div>
-    
-    <div class="container" style="position: relative; z-index: 1;">
-      <div class="hero-content" style="animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-        <h1 class="text-gradient" style="font-weight: 800;">The Brain of Your Enterprise.</h1>
-        <p style="font-size: 1.2rem; margin-top: 1.5rem;">Stop building patchwork AI. AtlaSynq orchestrates your entire stack.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">Step 01</div>
+        <h3>Connect your tools</h3>
+        <p>Authorize Salesforce, Jira, NetSuite, Drive, and more via OAuth. No shared passwords in prompts.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">Step 02</div>
+        <h3>Assign roles</h3>
+        <p>Map each agent to a department. Set which connectors, models, and approval rules apply to each role.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">Step 03</div>
+        <h3>Agents answer with citations</h3>
+        <p>Users ask questions in plain language. Agents respond with cited sources. Write actions wait for approval.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  
-  <section class="section-everything" style="padding: 6rem 0; background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);">
-    <div class="container">
-      <!-- Bento Grid Layout -->
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
-        <!-- Universal Search - Spans 2 columns -->
-        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-          <div style="text-align: center; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="search-scan">
-                <defs>
-                  <linearGradient id="searchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
-                  </linearGradient>
-                </defs>
-                <circle cx="50" cy="50" r="30" fill="none" stroke="url(#searchGrad)" stroke-width="3" opacity="0.3"/>
-                <circle cx="50" cy="50" r="20" fill="none" stroke="url(#searchGrad)" stroke-width="2.5" opacity="0.5"/>
-                <line x1="70" y1="70" x2="85" y2="85" stroke="url(#searchGrad)" stroke-width="3" stroke-linecap="round"/>
-                <!-- Scanning beam -->
-                <line x1="50" y1="50" x2="80" y2="50" stroke="#C96A4A" stroke-width="2" opacity="0.6" class="scan-beam"/>
-</svg>
-          </div>
-          </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Universal Search</h4>
-          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">Query across Jira, Slack, and Drive simultaneously—one prompt, one governed answer.</p>
-        </div>
-
-        <!-- Context Awareness -->
-        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-          <div style="text-align: center; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="brain-pulse">
-                <defs>
-                  <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
-                  </linearGradient>
-                </defs>
-                <!-- Brain shape -->
-                <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="url(#brainGrad)" opacity="0.2"/>
-                <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="none" stroke="url(#brainGrad)" stroke-width="2.5"/>
-                <!-- Pulsing nodes -->
-                <circle cx="40" cy="45" r="4" fill="#C96A4A" class="pulse-dot"/>
-                <circle cx="60" cy="45" r="4" fill="#C96A4A" class="pulse-dot" style="animation-delay: 0.3s"/>
-                <circle cx="50" cy="60" r="4" fill="#60a5fa" class="pulse-dot" style="animation-delay: 0.6s"/>
-</svg>
-          </div>
-          </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Context Awareness</h4>
-          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">The AI knows who you are, what you're working on, and what you're allowed to see—automatically.</p>
-        </div>
-
-        <!-- Model Agnostic -->
-        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-          <div style="text-align: center; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="switch-animate">
-                <defs>
-                  <linearGradient id="switchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
-                  </linearGradient>
-                </defs>
-                <!-- Exchange arrows -->
-                <path d="M30 30 L50 30 L45 20 M50 30 L45 40" stroke="url(#switchGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" class="arrow-left"/>
-                <path d="M70 70 L50 70 L55 60 M50 70 L55 80" stroke="url(#switchGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" class="arrow-right"/>
-                <!-- Central circle -->
-                <circle cx="50" cy="50" r="15" fill="url(#switchGrad)" opacity="0.2"/>
-                <circle cx="50" cy="50" r="12" fill="none" stroke="url(#switchGrad)" stroke-width="2.5"/>
-</svg>
-          </div>
-          </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Model Agnostic</h4>
-          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">Swap between GPT-4o and Claude 3.5 instantly without rewriting workflows or losing guardrails.</p>
-        </div>
-
-        <!-- Zero-Retention -->
-        <div class="feature-card-bento" style="grid-column: span 2; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.6); border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-          <div style="text-align: center; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; margin: 0 auto; display: flex; align-items: center; justify-content: center;">
-              <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="shield-lock">
-                <defs>
-                  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
-                  </linearGradient>
-                </defs>
-                <!-- Shield -->
-                <path d="M50 20 L30 30 L30 50 Q30 65 50 75 Q70 65 70 50 L70 30 Z" fill="url(#shieldGrad)" opacity="0.2"/>
-                <path d="M50 20 L30 30 L30 50 Q30 65 50 75 Q70 65 70 50 L70 30 Z" fill="none" stroke="url(#shieldGrad)" stroke-width="3"/>
-                <!-- Lock -->
-                <rect x="40" y="50" width="20" height="18" rx="2" fill="url(#shieldGrad)" opacity="0.8" class="lock-animate"/>
-                <circle cx="50" cy="50" r="6" fill="url(#shieldGrad)" opacity="0.9"/>
-</svg>
-          </div>
-          </div>
-          <h4 class="e-title" style="text-align: center; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 700;">Zero-Retention</h4>
-          <p class="e-text" style="text-align: center; font-size: 1rem; line-height: 1.6;">We process data to respond, we don't store it. Your systems remain the source of truth.</p>
-        </div>
-      </div>
+<section style="padding:3.5rem 0 5rem;text-align:center;">
+  <div class="container">
+    <h2 style="margin-bottom:0.75rem;">Ready to see it live?</h2>
+    <p style="max-width:480px;margin:0 auto 1.75rem;color:var(--clay-text-sec);">Book a 30-minute demo and see governed agents running on your own tool stack.</p>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:13px 28px;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/pricing/" class="clay-btn clay-btn-outline" style="padding:13px 24px;">See pricing</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- The Workflow Section -->
-  <section class="workflow-section" style="padding: 6rem 0; background: white; position: relative; overflow: hidden;">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem; font-weight: 700; color: #0f172a;">The Workflow</h2>
-      <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative;">
-        <!-- Step 1 -->
-        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Connect Apps</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Link your existing tools</p>
-        </div>
-
-        <!-- Arrow 1 -->
-        <div style="flex: 0 0 100px; position: relative; z-index: 1;">
-          <svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" class="flow-arrow">
-            <defs>
-              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:0.3" />
-                <stop offset="50%" style="stop-color:#C96A4A;stop-opacity:0.6" />
-                <stop offset="100%" style="stop-color:#C96A4A;stop-opacity:0.3" />
-              </linearGradient>
-            </defs>
-            <line x1="10" y1="20" x2="70" y2="20" stroke="url(#arrowGrad)" stroke-width="2" class="flow-line"/>
-            <path d="M70 20 L85 10 M70 20 L85 30" stroke="url(#arrowGrad)" stroke-width="2" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-
-        <!-- Step 2 -->
-        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
-              <polyline points="7.5 19.79 7.5 14.6 3 12"/>
-              <polyline points="21 12 16.5 14.6 16.5 19.79"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Index Metadata</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">We map your data structure</p>
-        </div>
-
-        <!-- Arrow 2 -->
-        <div style="flex: 0 0 100px; position: relative; z-index: 1;">
-          <svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" class="flow-arrow">
-            <line x1="10" y1="20" x2="70" y2="20" stroke="url(#arrowGrad)" stroke-width="2" class="flow-line"/>
-            <path d="M70 20 L85 10 M70 20 L85 30" stroke="url(#arrowGrad)" stroke-width="2" stroke-linecap="round" fill="none"/>
-          </svg>
-        </div>
-
-        <!-- Step 3 -->
-        <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              <path d="M13 8H7"/>
-              <path d="M17 12H7"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a;">Governed Response</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">AI answers with permissions</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-grid">
+<footer>
+  <div class="container">
+    <div class="footer-grid">
       <div>
-        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Fraunces', sans-serif; font-size: 1.3rem;">
-            <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-            <span>Atla<span style="color: var(--primary);">Synq</span></span>
+        <a href="/" class="nav-logo" style="margin-bottom:1rem;display:inline-flex;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="30" height="30" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
+        <p style="max-width:260px;font-size:0.86rem;line-height:1.6;">Governed AI agents for enterprise departments. Cited answers from your tools.</p>
       </div>
-      <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
-      <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
-      <div><h4>Legal</h4><a href="/privacy/" style="text-decoration:none; color:inherit; display:block; margin-bottom:8px;">Privacy Policy</a><a href="/terms/" style="text-decoration:none; color:inherit; display:block;">Terms of Service</a></div>
+      <div>
+        <h4>Product</h4>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+        <a href="/security/" class="footer-link">Security</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="/blog/" class="footer-link">Blog</a>
+        <a href="/roi/" class="footer-link">ROI Calculator</a>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+      </div>
     </div>
-    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
-  </footer>
-
-  <!-- Quote Modal -->
-  <div id="quoteModal">
-    <div class="quote-modal-container">
-      <button class="quote-modal-close" onclick="closeQuoteModal()" aria-label="Close">×</button>
-      
-      <!-- Form Step -->
-      <div id="formStep">
-        <h2 class="quote-modal-title">Request a Quote</h2>
-        <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
-        
-        <form id="quoteForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe">
-          <input type="hidden" name="oid" value="00D9k000001jUUP">
-          <input type="hidden" name="retURL" value="https://www.atlasynq.com">
-          <input type="hidden" name="debug" value="1">
-          
-          <div class="quote-form-group">
-            <label for="first_name">First Name *</label>
-            <input type="text" name="first_name" id="first_name" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="last_name">Last Name *</label>
-            <input type="text" name="last_name" id="last_name" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="email">Email *</label>
-            <input type="email" name="email" id="email" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="company">Company *</label>
-            <input type="text" name="company" id="company" required>
-          </div>
-          
-          <div class="quote-form-group">
-            <label for="description">Message *</label>
-            <textarea name="description" id="description" placeholder="Tell us about your requirements..." required></textarea>
-          </div>
-          
-          <button type="submit" class="quote-submit-btn" id="leadSubmitBtn">Request Quote</button>
-        </form>
-      </div>
-      
-      <!-- Success Step -->
-      <div id="successStep" class="quote-success-container" style="display: none;">
-        <div class="quote-success-icon-large">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <h3 class="quote-success-title">Thank you! Request Received.</h3>
-      </div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
     </div>
   </div>
+</footer>
 
-  <!-- Hidden iframe for Salesforce form submission -->
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div class="cookie-content">
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
+  </div>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
+  </div>
+</div>
 
-  <script>
-    // Quote Modal Functions
-    function openQuoteModal() {
-      const modal = document.getElementById('quoteModal');
-      const formStep = document.getElementById('formStep');
-      const successStep = document.getElementById('successStep');
-      const submitBtn = document.getElementById('leadSubmitBtn');
-      
-      if (!modal || !formStep || !successStep || !submitBtn) return;
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Reset UI state
-      formStep.style.display = 'block';
-      successStep.style.display = 'none';
-      submitBtn.textContent = 'Request Quote';
-      
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
-      }
-    }
-
-    function closeQuoteModal() {
-      const modal = document.getElementById('quoteModal');
-      if (!modal) return;
-      
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-      
-      // Reset form after a delay
-      setTimeout(() => {
-        const form = document.getElementById('quoteForm');
-        const formStep = document.getElementById('formStep');
-        const successStep = document.getElementById('successStep');
-        const submitBtn = document.getElementById('leadSubmitBtn');
-        
-        if (form) form.reset();
-        if (formStep) formStep.style.display = 'block';
-        if (successStep) successStep.style.display = 'none';
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Request Quote';
-        }
-      }, 300);
-    }
-
-    // Split Behavior Script - Runs on DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('quoteForm');
-      const formStep = document.getElementById('formStep');
-      const successStep = document.getElementById('successStep');
-      const submitBtn = document.getElementById('leadSubmitBtn');
-      
-      // Handle form submission (Quote Modal only)
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          // Do NOT prevent default - let it post to iframe
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-          }
-          
-          // Immediately hide form and show success
-          if (formStep) formStep.style.display = 'none';
-          if (successStep) successStep.style.display = 'block';
-          
-          // Wait 3s, then close modal
-          setTimeout(function() {
-            closeQuoteModal();
-          }, 3000);
-        });
-      }
-
-      // Split Detection: Find ALL buttons and links by TEXT content
-      const allButtons = document.querySelectorAll('button, a');
-      allButtons.forEach(function(btn) {
-        const btnText = btn.textContent.trim().toLowerCase();
-        
-        // Clean up: Remove old event listeners and onclick handlers
-        if (btn.getAttribute('onclick')) {
-          btn.removeAttribute('onclick');
-        }
-        
-        
-        // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
-        if (btnText.includes('request quote') || btnText.includes('contact sales')) {
-          btn.addEventListener('click', function(e) {
-            // Only handle if it's a button or a link without a real href
-            if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
-              e.preventDefault();
-              e.stopPropagation();
-              openQuoteModal();
-              return false;
-            }
-          }, true);
-        }
-      });
-    });
-
-    document.addEventListener('click', function(e) {
-      const modal = document.getElementById('quoteModal');
-      if (e.target === modal) {
-        closeQuoteModal();
-      }
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const modal = document.getElementById('quoteModal');
-        if (modal && modal.classList.contains('active')) {
-          closeQuoteModal();
-        }
-      }
-    });
-  </script>
-
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookieBanner">
-    <div class="cookie-content">
-      <div style="font-weight:700; margin-bottom:4px; color:var(--text);">We value your privacy</div>
-      <div>We use cookies to improve your experience and analyze traffic. By clicking "Accept", you consent to our use of cookies.</div>
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
     </div>
-    <div class="cookie-buttons">
-      <button class="btn-cookie-decline">Decline</button>
-      <button class="btn-cookie-accept">Accept All</button>
-      <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage Preferences</a>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
     </div>
   </div>
+</div>
 
-  <!-- Cookie Preferences Modal -->
-  <div class="cookie-modal-overlay" id="cookieModal">
-    <div class="cookie-modal">
-      <div class="cookie-modal-header">
-        <h3>Cookie Preferences</h3>
-        <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">×</button>
-      </div>
-      <div class="cookie-preferences">
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Essential <span class="locked-badge">Required</span></h4>
-            <p>Required for site function.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieEssential" checked disabled>
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Analytics</h4>
-            <p>Helps us improve.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieAnalytics">
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-preference-item">
-          <div class="cookie-preference-info">
-            <h4>Marketing</h4>
-            <p>Personalized offers.</p>
-          </div>
-          <label class="cookie-toggle">
-            <input type="checkbox" id="cookieMarketing">
-            <span class="cookie-toggle-slider"></span>
-          </label>
-        </div>
-      </div>
-      <div class="cookie-modal-actions">
-        <button class="cookie-save-btn" id="cookieSaveBtn">Save Preferences</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Global Cookie Banner Logic - Granular Consent
-    (function() {
-      // Cookie consent state management
-      function getCookiePreferences() {
-        const stored = localStorage.getItem('cookiePreferences');
-        if (stored) {
-          try {
-            return JSON.parse(stored);
-          } catch(e) {
-            return null;
-          }
-        }
-        return null;
-      }
-
-      function saveCookiePreferences(prefs) {
-        localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
-        // Also set legacy flag for backwards compatibility
-        if (prefs.essential) {
-          localStorage.setItem('cookieConsent', 'true');
-        }
-      }
-
-      function hideBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.style.display = 'none';
-          cookieBanner.style.setProperty('display', 'none', 'important');
-        }
-      }
-
-      function showBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.classList.add('visible');
-        }
-      }
-
-      // Check localStorage on page load - hide banner immediately if consent exists
-      const existingPrefs = getCookiePreferences();
-      if (existingPrefs && existingPrefs.essential) {
-        hideBanner();
-      }
-
-      // Initialize on DOM ready
-      document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        const cookieModal = document.getElementById('cookieModal');
-        const cookieManageLink = document.getElementById('cookieManageLink');
-        const cookieModalClose = document.getElementById('cookieModalClose');
-        const cookieSaveBtn = document.getElementById('cookieSaveBtn');
-        const cookieEssential = document.getElementById('cookieEssential');
-        const cookieAnalytics = document.getElementById('cookieAnalytics');
-        const cookieMarketing = document.getElementById('cookieMarketing');
-        const btnAccept = document.querySelector('.btn-cookie-accept');
-        const btnDecline = document.querySelector('.btn-cookie-decline');
-
-        if (!cookieBanner) return;
-
-        // Hide immediately if consent already exists
-        const existingPrefs = getCookiePreferences();
-        if (existingPrefs && existingPrefs.essential) {
-          hideBanner();
-          // Load preferences into modal if they exist
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-          return;
-        }
-
-        // Load saved preferences into modal
-        if (existingPrefs) {
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-        }
-
-        // Accept All button
-        if (btnAccept) {
-          btnAccept.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const prefs = {
-              essential: true,
-              analytics: true,
-              marketing: true
-            };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            
-            return false;
-          });
-        }
-
-        // Decline All button
-        if (btnDecline) {
-          btnDecline.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const prefs = {
-              essential: true,
-              analytics: false,
-              marketing: false
-            };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            
-            return false;
-          });
-        }
-
-        // Manage Preferences link
-        if (cookieManageLink) {
-          cookieManageLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (cookieModal) {
-              cookieModal.classList.add('active');
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        }
-
-        // Close modal
-        if (cookieModalClose) {
-          cookieModalClose.addEventListener('click', function() {
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        // Close modal on overlay click
-        if (cookieModal) {
-          cookieModal.addEventListener('click', function(e) {
-            if (e.target === cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        // Save Preferences button
-        if (cookieSaveBtn) {
-          cookieSaveBtn.addEventListener('click', function() {
-            const prefs = {
-              essential: true,
-              analytics: cookieAnalytics ? cookieAnalytics.checked : false,
-              marketing: cookieMarketing ? cookieMarketing.checked : false
-            };
-            saveCookiePreferences(prefs);
-            
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-            hideBanner();
-          });
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && cookieModal && cookieModal.classList.contains('active')) {
-            cookieModal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-
-        // Show banner after a short delay if no consent exists
-        setTimeout(function() {
-          const existingPrefs = getCookiePreferences();
-          if (!existingPrefs || !existingPrefs.essential) {
-            showBanner();
-          }
-        }, 1500);
-      });
-    })();
-
-    // Mobile Menu Toggle
-    (function() {
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const closeMobileMenu = document.getElementById('closeMobileMenu');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-      function openMobileMenu() {
-        if (hamburgerBtn) hamburgerBtn.classList.add('active');
-        if (mobileMenu) mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMobileMenuFunc() {
-        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-        if (mobileMenu) mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', openMobileMenu);
-      }
-
-      if (closeMobileMenu) {
-        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-      }
-
-      // Close menu when clicking on a link
-      mobileNavLinks.forEach(function(link) {
-        link.addEventListener('click', closeMobileMenuFunc);
-      });
-
-      // Close menu when clicking outside
-      if (mobileMenu) {
-        mobileMenu.addEventListener('click', function(e) {
-          if (e.target === mobileMenu) {
-            closeMobileMenuFunc();
-          }
-        });
-      }
-    })();
-  </script>
-
-  <script>
-  <script>
-    // Active Navigation State
-    (function() {
-      const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
-      
-      // Normalize current path (remove trailing slash except for root)
-      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-      
-      navLinks.forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (!href || href.startsWith('#')) return;
-        
-        // Normalize link path
-        let linkPath = href;
-        if (href.startsWith('/')) {
-          linkPath = href;
-        } else if (href.startsWith('../')) {
-          // Convert relative paths to absolute
-          const segments = href.split('/').filter(s => s && s !== '..');
-          linkPath = '/' + segments[segments.length - 1];
-        } else {
-          return; // Skip other relative paths
-        }
-        
-        // Normalize link path (remove trailing slash except for root)
-        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
-        
-        // Check for exact match or if current path starts with link path
-        if (normalizedCurrentPath === normalizedLinkPath || 
-            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
-          link.classList.add('active');
-        }
-      });
-    })();
-  </script>
-  </script>
+<script src="/js/site-demos.js" defer></script>
 </body>
 </html>
