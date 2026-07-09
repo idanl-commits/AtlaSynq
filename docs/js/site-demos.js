@@ -356,7 +356,7 @@
         if (!stillActive()) return;
         const card = document.createElement('div');
         card.className = 'int-card';
-        card.innerHTML = `<img src="${int.icon}" alt="${int.name}" onerror="this.style.display='none'"><span>${int.name}</span><span class="int-check">✓</span>`;
+        card.innerHTML = `<img src="${int.icon}" alt="${int.name}" onerror="this.style.display='none'"><span>${int.name}</span><span class="int-check">&#10003;</span>`;
         intGrid.appendChild(card);
         await sleep(130);
       }
