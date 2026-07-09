@@ -44,12 +44,13 @@
     return wrap;
   }
 
-  /** Typing effect — writes text char-by-char into a span */
-  async function typeText(el, text, speed) {
+  /** Typing effect — writes text char-by-char into a span. Optional shouldContinue() aborts early. */
+  async function typeText(el, text, speed, shouldContinue) {
     if (!el) return;
     el.textContent = '';
     const chars = [...text];
     for (const ch of chars) {
+      if (shouldContinue && !shouldContinue()) return;
       el.textContent += ch;
       await sleep(speed || 38);
     }
@@ -173,8 +174,12 @@
   let heroIndex    = 0;
   let heroPaused   = false;
   let heroTimeout  = null;
+  let heroRunId    = 0; // cancels in-flight scenario when a newer one starts
 
   async function runHeroScenario(scenario) {
+    const runId = ++heroRunId;
+    const stillActive = () => runId === heroRunId;
+
     const feed        = $('heroFeed');
     const typer       = $('heroTyper');
     const placeholder = $('heroPlaceholder');
@@ -202,11 +207,14 @@
     // Move fake cursor to input area
     moveCursor(cursor, 82, 55);
     await sleep(400);
+    if (!stillActive()) return;
 
     // Type user question into input box
     if (placeholder) placeholder.style.display = 'none';
-    await typeText(typer, scenario.question, 42);
+    await typeText(typer, scenario.question, 42, stillActive);
+    if (!stillActive()) return;
     await sleep(350);
+    if (!stillActive()) return;
     if (typer) typer.textContent = '';
     if (placeholder) placeholder.style.display = '';
 
@@ -221,15 +229,18 @@
     feed.scrollTop = feed.scrollHeight;
 
     await sleep(1400);
-    feed.removeChild(typingEl);
+    if (!stillActive()) return;
+    if (typingEl.parentNode) typingEl.remove();
 
     // Move cursor to response area
     moveCursor(cursor, 55, 45);
     await sleep(200);
+    if (!stillActive()) return;
 
     // Add agent response
     appendMsg(feed, scenario.answer, 'agent', scenario.tool);
     await sleep(200);
+    if (!stillActive()) return;
     feed.scrollTop = feed.scrollHeight;
   }
 
@@ -239,8 +250,8 @@
       if (heroPaused) return;
       heroIndex = (heroIndex + 1) % HERO_SCENARIOS.length;
       await runHeroScenario(HERO_SCENARIOS[heroIndex]);
-      scheduleNextHero(5500);
-    }, delay || 5500);
+      if (!heroPaused) scheduleNextHero(6500);
+    }, delay || 6500);
   }
 
   function runHeroLoop() {
@@ -256,21 +267,27 @@
         heroIndex = i;
         await runHeroScenario(scenario);
         // Resume auto-loop after user interaction
-        scheduleNextHero(6000);
         heroPaused = false;
+        scheduleNextHero(7000);
       });
     });
 
-    // Start first scenario
-    runHeroScenario(HERO_SCENARIOS[0]).then(() => scheduleNextHero(5500));
+    // Start first scenario, then schedule next only after it finishes
+    runHeroScenario(HERO_SCENARIOS[0]).then(() => {
+      if (!heroPaused) scheduleNextHero(6500);
+    });
   }
 
   /* ─── BUILDER LOOP STATE ─────────────────────────────────── */
   let builderIndex   = 0;
   let builderPaused  = false;
   let builderTimeout = null;
+  let builderRunId   = 0;
 
   async function runBuilderScenario(scenario) {
+    const runId = ++builderRunId;
+    const stillActive = () => runId === builderRunId;
+
     const cursor     = $('builderCursor');
     const detectText = $('detectText');
     const intGrid    = $('integrationsGrid');
@@ -282,18 +299,6 @@
     const resTyper   = $('resTyper');
     const cpInput    = $('cpInputBox');
     const btnDeploy  = $('btn-deploy');
-
-    // Helper: click a builder tab
-    function activateTab(tabId) {
-      ['tab1','tab2','tab3','tab4'].forEach(id => {
-        const t = $(id);
-        if (t) t.classList.toggle('active', id === tabId);
-      });
-      ['step1','step2','step3','step4'].forEach((id, i) => {
-        const s = $(id);
-        if (s) s.classList.toggle('active', 'step' + (i + 1) === tabId.replace('tab','step'));
-      });
-    }
 
     // Mapping tab → step
     const tabStepMap = { tab1: 'step1', tab2: 'step2', tab3: 'step3', tab4: 'step4' };
@@ -317,24 +322,29 @@
     activateTabAndStep('tab1');
     moveCursor(cursor, 30, 25);
     await sleep(500);
+    if (!stillActive()) return;
     const llmEl = $(scenario.llmId);
     if (llmEl) {
       moveCursor(cursor, parseFloat(llmEl.offsetTop) || 35, 30);
       await sleep(400);
+      if (!stillActive()) return;
       llmEl.classList.add('selected');
     }
     await sleep(800);
+    if (!stillActive()) return;
 
     // ── Step 2: Role select ──
     activateTabAndStep('tab2');
     moveCursor(cursor, 40, 45);
     await sleep(500);
+    if (!stillActive()) return;
     const roleEl = $(scenario.roleId);
     if (roleEl) {
       roleEl.classList.add('selected');
       moveCursor(cursor, 45, 50);
     }
     await sleep(900);
+    if (!stillActive()) return;
 
     // ── Step 3: Integrations ──
     activateTabAndStep('tab3');
@@ -343,6 +353,7 @@
     if (intGrid) {
       intGrid.innerHTML = '';
       for (const int of scenario.integrations) {
+        if (!stillActive()) return;
         const card = document.createElement('div');
         card.className = 'int-card';
         card.innerHTML = `<img src="${int.icon}" alt="${int.name}" onerror="this.style.display='none'"><span>${int.name}</span><span class="int-check">✓</span>`;
@@ -351,41 +362,43 @@
       }
     }
     await sleep(900);
+    if (!stillActive()) return;
 
     // ── Step 4: Deploy & preview ──
     activateTabAndStep('tab4');
     moveCursor(cursor, 60, 55);
     await sleep(500);
+    if (!stillActive()) return;
 
-    // Deploy button click animation
     if (btnDeploy) {
       btnDeploy.classList.add('press');
       setTimeout(() => btnDeploy.classList.remove('press'), 320);
     }
     await sleep(300);
+    if (!stillActive()) return;
 
-    // Show gov loader
     if (govLoader) govLoader.classList.add('active');
     if (govRole)   govRole.textContent = scenario.tabLabel;
     await sleep(1600);
+    if (!stillActive()) return;
     if (govLoader) govLoader.classList.remove('active');
 
-    // Show chat preview
     if (chatResult) chatResult.style.display = 'flex';
     if (agentTitle) agentTitle.textContent   = scenario.agentName;
     if (cpFeed)     cpFeed.innerHTML         = '';
     moveCursor(cursor, 75, 60);
 
-    // Type question into cp input
     if (cpInput && resTyper) {
-      await typeText(resTyper, scenario.question, 40);
+      await typeText(resTyper, scenario.question, 40, stillActive);
+      if (!stillActive()) return;
       await sleep(300);
+      if (!stillActive()) return;
       resTyper.textContent = '';
     }
 
-    // Show convo
     if (cpFeed) {
       for (const turn of scenario.convo) {
+        if (!stillActive()) return;
         if (turn.role === 'user') {
           appendMsg(cpFeed, turn.text, 'user');
           await sleep(700);
@@ -396,7 +409,8 @@
           cpFeed.appendChild(typingEl);
           cpFeed.scrollTop = cpFeed.scrollHeight;
           await sleep(1200);
-          cpFeed.removeChild(typingEl);
+          if (!stillActive()) return;
+          if (typingEl.parentNode) typingEl.remove();
           appendMsg(cpFeed, turn.text, 'agent', turn.tool || null);
           await sleep(300);
           cpFeed.scrollTop = cpFeed.scrollHeight;
@@ -411,14 +425,13 @@
       if (builderPaused) return;
       builderIndex = (builderIndex + 1) % BUILDER_SCENARIOS.length;
       await runBuilderScenario(BUILDER_SCENARIOS[builderIndex]);
-      scheduleNextBuilder(7000);
-    }, delay || 7000);
+      if (!builderPaused) scheduleNextBuilder(8000);
+    }, delay || 8000);
   }
 
   function runBuilder() {
     if (!$('builderApp')) return;
 
-    // Wire role card click handlers
     BUILDER_SCENARIOS.forEach((scenario, i) => {
       const el = $(scenario.roleId);
       if (!el) return;
@@ -427,12 +440,14 @@
         if (builderTimeout) clearTimeout(builderTimeout);
         builderIndex = i;
         await runBuilderScenario(scenario);
-        scheduleNextBuilder(8000);
         builderPaused = false;
+        scheduleNextBuilder(9000);
       });
     });
 
-    runBuilderScenario(BUILDER_SCENARIOS[0]).then(() => scheduleNextBuilder(7000));
+    runBuilderScenario(BUILDER_SCENARIOS[0]).then(() => {
+      if (!builderPaused) scheduleNextBuilder(8000);
+    });
   }
 
   /* ─── ROI CALCULATOR ─────────────────────────────────────── */
