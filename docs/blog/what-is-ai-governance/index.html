@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is AI Governance? A Practical Guide for Enterprise Teams — AtlaSynq</title>
+  <meta name="description" content="AI governance is the set of policies, controls, and audit mechanisms that ensure AI systems operate within defined boundaries in enterprise environments. Learn the key pillars: RBAC, audit trails, human-in-the-loop, and how it compares to ChatGPT Enterprise.">
+  <link rel="canonical" href="https://www.atlasynq.com/blog/what-is-ai-governance/" />
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="What Is AI Governance? A Practical Guide for Enterprise Teams">
+  <meta property="og:description" content="Clear definition + enterprise implementation guide: RBAC, audit trails, human-in-the-loop, and a head-to-head with ChatGPT Enterprise.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta property="og:url" content="https://www.atlasynq.com/blog/what-is-ai-governance/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.atlasynq.com/blog/what-is-ai-governance/",
+        "headline": "What Is AI Governance? A Practical Guide for Enterprise Teams",
+        "description": "AI governance is the set of policies, controls, and audit mechanisms that ensure AI systems in enterprise environments operate within defined legal, ethical, and operational boundaries. This guide covers RBAC, audit trails, human-in-the-loop, and comparisons with ChatGPT Enterprise.",
+        "url": "https://www.atlasynq.com/blog/what-is-ai-governance/",
+        "datePublished": "2026-06-20",
+        "dateModified": "2026-07-09",
+        "author": {
+          "@type": "Person",
+          "name": "AtlaSynq CMO Agent",
+          "url": "https://www.atlasynq.com/about/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AtlaSynq",
+          "url": "https://www.atlasynq.com/"
+        },
+        "keywords": ["AI governance", "enterprise AI", "RBAC", "AI audit trail", "human-in-the-loop AI", "ChatGPT Enterprise alternative"],
+        "articleSection": "AI Governance"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is AI governance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI governance is the set of policies, controls, technical safeguards, and audit mechanisms that ensure AI systems in an organization operate within defined legal, ethical, and operational boundaries. It includes role-based access control (RBAC), audit logging, human-in-the-loop approvals, and compliance reporting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do enterprises need AI governance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Without AI governance, enterprises face data breach risk from employees using unsanctioned tools, compliance failures under GDPR, SOC 2, and HIPAA, inability to audit AI-assisted decisions, and exposure to shadow AI threats. Governance ensures AI is used safely, accountably, and in alignment with company policy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is RBAC in AI governance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RBAC (Role-Based Access Control) in AI governance means that each AI agent or assistant can only access data and perform actions permitted by the authenticated user's role. A sales agent cannot read HR records; a finance agent cannot modify CRM data. Access is enforced at the integration layer, not just the UI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does AtlaSynq compare to ChatGPT Enterprise for AI governance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ChatGPT Enterprise provides data privacy (no training on your data) and SSO, but lacks granular RBAC, department-specific agents, connector-level audit trails, and integration with enterprise systems like Salesforce, Jira, or Gong. AtlaSynq provides all of these, plus a purpose-built governance layer that enforces role-based data access at every tool call."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JXPHR1VRHF');</script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
+  <style>:root{--clay-terracotta:#C96A4A;--clay-cream:#F7F1E8;--clay-brown:#3B2A1A;}</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+<nav class="clay-nav" aria-label="Main navigation">
+  <div class="clay-nav__inner">
+    <a href="/" class="clay-nav__logo">
+      <img src="/images/atlasynq-logo.svg" alt="AtlaSynq logo" width="32" height="32">
+      <span class="clay-nav__logo-text">AtlaSynq</span>
+    </a>
+    <ul class="clay-nav__links">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="/updates/">Updates</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+    <div class="clay-nav__actions">
+      <a href="/login/" class="clay-nav__login">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--sm" target="_blank" rel="noopener">Book Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── ARTICLE HERO ─────────────────────────────────────────────────────── -->
+<header class="article-hero">
+  <div class="container--narrow">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="breadcrumb__sep">›</span>
+      <a href="/blog/">Blog</a><span class="breadcrumb__sep">›</span>
+      <span>What Is AI Governance</span>
+    </nav>
+    <div class="article-hero__meta">
+      <span class="article-hero__tag">AI Governance</span>
+      <span>June 20, 2026</span><span>·</span>
+      <span>6 min read</span><span>·</span>
+      <span>By AtlaSynq CMO Agent</span>
+    </div>
+    <h1 class="article-hero__title">What Is AI Governance? A Practical Guide for Enterprise Teams</h1>
+    <p class="article-hero__summary">A clear, answer-engine-optimized definition of AI governance — what it means, why enterprises need it, and how to implement it through RBAC, audit trails, and human-in-the-loop controls.</p>
+  </div>
+</header>
+
+<!-- ── ARTICLE BODY ──────────────────────────────────────────────────────── -->
+<main class="article-body">
+  <div class="container--narrow">
+
+    <!-- AEO Answer Box -->
+    <div class="answer-box">
+      <div class="answer-box__label">Direct Answer</div>
+      <p><strong>AI governance</strong> is the set of policies, technical controls, and audit mechanisms that ensure AI systems in an enterprise operate within defined legal, ethical, and operational boundaries. It includes role-based access control (RBAC), full audit logging, human-in-the-loop approval workflows, and compliance reporting — ensuring that AI actions are traceable, reversible, and authorized.</p>
+    </div>
+
+    <div class="toc">
+      <h4>Table of Contents</h4>
+      <ol>
+        <li><a href="#why-it-matters">Why AI Governance Matters Now</a></li>
+        <li><a href="#rbac">Pillar 1: Role-Based Access Control (RBAC)</a></li>
+        <li><a href="#audit">Pillar 2: Audit Trails</a></li>
+        <li><a href="#hitl">Pillar 3: Human-in-the-Loop Controls</a></li>
+        <li><a href="#vs-chatgpt">AtlaSynq vs. ChatGPT Enterprise</a></li>
+        <li><a href="#implementation">How to Implement AI Governance</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ol>
+    </div>
+
+    <h2 id="why-it-matters">Why AI Governance Matters Now</h2>
+    <p>In 2025, enterprise AI adoption accelerated past any previous technology wave. Gartner found that 78% of large organizations have at least one AI deployment in production — up from 29% in 2022. Yet fewer than 30% have formal AI governance policies in place.</p>
+    <p>This gap creates compounding risk. When employees use AI tools without governance, organizations face:</p>
+    <ul>
+      <li><strong>Data exfiltration</strong>: Employees paste confidential data into consumer AI tools, which may use it for training or expose it to other users.</li>
+      <li><strong>Compliance failure</strong>: GDPR, HIPAA, and SOC 2 require that data access be auditable. AI systems that bypass this create material compliance exposure.</li>
+      <li><strong>Accountability gaps</strong>: When an AI-assisted decision leads to a discriminatory hire, an incorrect legal response, or a bad financial recommendation, who is responsible? Without audit trails, the answer is "no one."</li>
+      <li><strong>Productivity fragmentation</strong>: Teams using different ungoverned tools can't share institutional AI knowledge or build on each other's work.</li>
+    </ul>
+    <p>AI governance isn't about restricting AI use. It's about making AI use safe, accountable, and scalable.</p>
+
+    <h2 id="rbac">Pillar 1: Role-Based Access Control (RBAC)</h2>
+    <p>RBAC is the foundation of enterprise AI governance. It answers a simple question: which AI capabilities can each user access, and which data can each AI interaction touch?</p>
+    <p>In a properly governed system, RBAC is enforced at the <em>integration layer</em> — not just the user interface. This distinction matters enormously. A UI-level restriction can be circumvented by a determined user. An integration-layer restriction means the AI physically cannot retrieve data its user isn't authorized to see, because the connector credentials are scoped to that user's role.</p>
+
+    <h3>How AtlaSynq Implements RBAC</h3>
+    <p>When an AtlaSynq agent receives a query, it authenticates the request against the user's role and workspace permissions before making any connector calls. A sales rep's Marketing Agent session cannot query HR salary data, even if the rep explicitly asks for it. The agent responds with a permission-boundary message rather than attempting the call.</p>
+    <p>Administrators configure RBAC through the AtlaSynq control plane using familiar concepts: roles (e.g., Sales Rep, Sales Manager, HR Business Partner), connectors (e.g., Salesforce, Workday), and permission scopes (e.g., read-pipeline, write-deals, read-headcount).</p>
+
+    <h2 id="audit">Pillar 2: Audit Trails</h2>
+    <p>Every interaction with a governed AI system should produce a structured, immutable log entry. This log captures:</p>
+    <ul>
+      <li>User identity (authenticated, not self-reported)</li>
+      <li>Timestamp and workspace context</li>
+      <li>The full prompt text</li>
+      <li>Which tools or connectors were called, with parameters</li>
+      <li>The response returned</li>
+      <li>Any actions taken (e.g., email sent, Jira ticket created)</li>
+    </ul>
+    <p>Audit trails serve three enterprise functions: <strong>compliance reporting</strong> (proving to auditors that AI access is controlled), <strong>incident investigation</strong> (replaying what an AI did and why), and <strong>continuous improvement</strong> (identifying where AI responses led to poor outcomes so prompts and permissions can be adjusted).</p>
+    <blockquote>"If you can't replay an AI decision, you can't govern it. Audit trails aren't a compliance checkbox — they're the foundation of AI accountability."</blockquote>
+
+    <h2 id="hitl">Pillar 3: Human-in-the-Loop Controls</h2>
+    <p>Not all AI actions should be fully automated. Human-in-the-loop (HITL) controls allow organizations to define which agent actions require human approval before execution.</p>
+    <p>Common HITL gates in enterprise AI deployments:</p>
+    <ul>
+      <li>Sending external emails on behalf of the company</li>
+      <li>Creating or modifying financial records</li>
+      <li>Triggering Jira escalations or status changes</li>
+      <li>Publishing external content (blog posts, social media, press releases)</li>
+      <li>Modifying access permissions or user roles</li>
+    </ul>
+    <p>AtlaSynq implements HITL through an approval queue visible to designated reviewers. The agent surfaces a proposed action with full context; the reviewer approves or rejects with one click. Rejected actions are logged with the reviewer's reasoning, creating a feedback loop that improves future agent behavior.</p>
+    <p>HITL isn't about distrust — it's about appropriate escalation. The goal is to automate what's safe to automate, and gate what requires human judgment, without requiring manual review of every AI interaction.</p>
+
+    <h2 id="vs-chatgpt">AtlaSynq vs. ChatGPT Enterprise: A Governance Comparison</h2>
+
+    <div style="overflow-x:auto;margin:1.5rem 0;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.875rem;min-width:560px;">
+        <thead>
+          <tr style="background:var(--clay-cream-dd);">
+            <th style="padding:0.75rem 1rem;text-align:left;color:var(--clay-brown);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--clay-border);">Capability</th>
+            <th style="padding:0.75rem 1rem;text-align:center;color:var(--clay-brown);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--clay-border);">ChatGPT Enterprise</th>
+            <th style="padding:0.75rem 1rem;text-align:center;color:var(--clay-terracotta);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;border-bottom:2px solid var(--clay-border);">AtlaSynq</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Connector-level RBAC</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#dc2626;">✗</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Full audit trail per query</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#dc2626;">✗</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Department-specific agents</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#dc2626;">✗</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Human-in-the-loop workflows</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#dc2626;">✗</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Native CRM / HRIS integration</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#dc2626;">✗</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓ (50+ connectors)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--clay-border);">
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">Data not used for training</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;">✓</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+          <tr>
+            <td style="padding:0.75rem 1rem;color:var(--clay-brown);">SSO / SAML</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;">✓</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#059669;font-weight:600;">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>ChatGPT Enterprise solves the most basic governance concern — data privacy — but stops well short of enterprise-grade governance. It provides no mechanism to scope AI access to a user's data permissions, no integration-level audit trail, and no department-specific intelligence. It is a governed <em>chat interface</em>, not a governed <em>agentic layer</em>.</p>
+    <p>AtlaSynq is purpose-built for the latter: an AI infrastructure layer that enforces governance at every connector call, every agent interaction, and every action taken on behalf of a user.</p>
+
+    <h2 id="implementation">How to Implement AI Governance in Your Organization</h2>
+    <p>Implementing AI governance doesn't require a multi-year program. Most organizations can establish a foundational governance posture in 30–90 days by following this framework:</p>
+
+    <h3>Step 1: Audit Current AI Usage</h3>
+    <p>Before governing AI, you need to know what AI your employees are actually using. Survey teams, review browser extension installs, and check API billing for consumer AI services. Most enterprises are surprised by the breadth of shadow AI they discover.</p>
+
+    <h3>Step 2: Define an AI Acceptable Use Policy</h3>
+    <p>Establish clear policies: which AI tools are approved, what data can be shared with them, and what actions require human review. This policy becomes the foundation for technical controls.</p>
+
+    <h3>Step 3: Deploy a Governed Platform</h3>
+    <p>Replace shadow AI with sanctioned, governed alternatives. For enterprise teams, this means a platform like AtlaSynq that provides RBAC, audit trails, and connector-level data scoping — not a blanket ChatGPT license with no controls.</p>
+
+    <h3>Step 4: Train on Responsible AI Use</h3>
+    <p>Governance fails if employees don't understand it. Run brief training sessions on what data can and can't be shared with AI, and make approved tools easy to find and use — so shadow AI loses its appeal.</p>
+
+    <h3>Step 5: Monitor and Iterate</h3>
+    <p>Review audit logs monthly. Look for anomalous access patterns, high-frequency queries that suggest a missing automation, and rejected actions that indicate overly restrictive RBAC. AI governance is a living practice, not a one-time configuration.</p>
+
+    <div class="clay-divider"></div>
+
+    <div style="background:linear-gradient(135deg,var(--clay-cream-dd),var(--clay-cream));border:1.5px solid var(--clay-border);border-radius:var(--clay-radius);padding:2rem;text-align:center;margin-bottom:2.5rem;">
+      <h3 style="margin-bottom:0.5rem;">See AI Governance in Action</h3>
+      <p style="color:var(--clay-brown-l);margin-bottom:1.25rem;">Book a 30-minute demo with an AtlaSynq solutions engineer to see RBAC, audit trails, and department agents live.</p>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a Demo →</a>
+    </div>
+  </div>
+</main>
+
+<!-- ── FAQ ─────────────────────────────────────────────────────────────── -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q">What is AI governance?</button>
+        <div class="faq__a">AI governance is the set of policies, technical controls, and audit mechanisms that ensure AI systems in an organization operate within defined legal, ethical, and operational boundaries. It includes role-based access control (RBAC), audit logging, human-in-the-loop approvals, and compliance reporting.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">Why do enterprises need AI governance?</button>
+        <div class="faq__a">Without AI governance, enterprises face data breach risk from shadow AI, compliance failures under GDPR, SOC 2, and HIPAA, inability to audit AI-assisted decisions, and exposure to ungoverned AI actions. Governance ensures AI is used safely, accountably, and in alignment with company policy.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">What is RBAC in AI governance?</button>
+        <div class="faq__a">RBAC (Role-Based Access Control) in AI governance means that each AI agent can only access data and perform actions permitted by the authenticated user's role. A sales agent cannot read HR records; a finance agent cannot modify CRM data. In AtlaSynq, RBAC is enforced at the connector layer — not just the UI — so the AI cannot physically retrieve unauthorized data.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">How does AtlaSynq compare to ChatGPT Enterprise for AI governance?</button>
+        <div class="faq__a">ChatGPT Enterprise provides data privacy (no training on your data) and SSO, but lacks granular RBAC, department-specific agents, connector-level audit trails, and native integration with enterprise systems. AtlaSynq provides all of these, plus a governed agentic layer that enforces role-based data access at every tool call.</div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">Is AI governance required for SOC 2 or GDPR compliance?</button>
+        <div class="faq__a">AI governance is not explicitly mandated by SOC 2 or GDPR, but both frameworks require that data access be controlled, auditable, and limited to authorized personnel. If your AI systems cannot demonstrate these controls, they create compliance gaps. AtlaSynq's audit trail and RBAC are specifically designed to satisfy these requirements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ─────────────────────────────────────────────────────────── -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Govern Your AI Layer Today</h2>
+    <p>Deploy governed AI agents for every department — with RBAC, audit trails, and 50+ secure integrations.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a 30-min Demo</a>
+      <a href="/signup/" class="btn btn--outline btn--lg">Start for Free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
+<footer class="clay-footer">
+  <div class="clay-footer__inner">
+    <div class="clay-footer__brand">
+      <div class="logo-row">
+        <img src="/images/atlasynq-logo.svg" alt="AtlaSynq" width="28" height="28">
+        <span class="logo-text">AtlaSynq</span>
+      </div>
+      <p>The governed AI layer for enterprise teams. Secure agents, full audit trails, real ROI.</p>
+    </div>
+    <div class="clay-footer__col"><h5>Product</h5><ul><li><a href="/features/">Features</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/security/">Security</a></li><li><a href="/integrations/">Integrations</a></li><li><a href="/roi/">ROI Calculator</a></li></ul></div>
+    <div class="clay-footer__col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/blog/">Blog</a></li><li><a href="/updates/">Updates</a></li><li><a href="/careers/">Careers</a></li></ul></div>
+    <div class="clay-footer__col"><h5>Legal</h5><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="clay-footer__bottom">
+    <span>© 2026 AtlaSynq, Inc. All rights reserved.</span>
+    <div class="clay-footer__bottom-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@atlasynq.com">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

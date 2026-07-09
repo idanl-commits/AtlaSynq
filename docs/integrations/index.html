@@ -10,6 +10,7 @@
     const PAGE_DESCRIPTION = "Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.";
   </script>
   <title>Integrations — AtlaSynq</title>
+  <link rel="stylesheet" href="/css/clay-marketing.css">
   <meta name="description" content="Connect your AI agents to any tool. Integrate with Salesforce, Slack, GitHub, Teams, Gmail, Zendesk, Linear, and more.">
   <link rel="canonical" href="https://www.atlasynq.com/integrations/" />
   <meta name="robots" content="index,follow">
@@ -38,27 +39,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #ffffff;
-      --bg-alt: #f8fafc;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --primary: #2563eb;
+      --bg: #F7F1E8;
+      --bg-alt: #FBF6ED;
+      --text: #2B1F1A;
+      --text-muted: #A08B7D;
+      --primary: #C96A4A;
       --primary-dark: #1e40af;
-      --primary-light: #eff6ff;
+      --primary-light: #F5E0D8;
       --secondary: #06b6d4;
       --secondary-dark: #0891b2;
       --accent: #f59e0b;
       --accent-light: #fef3c7;
       --success: #10b981;
-      --border: #e2e8f0;
+      --border: rgba(92, 64, 51, 0.13);
       --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 25px -5px rgba(37, 99, 235, 0.2);
+      --shadow-xl: 0 20px 25px -5px rgba(201, 106, 74, 0.2);
     }
 
     @keyframes colorPulse {
@@ -88,7 +89,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Sora', sans-serif;
       background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%);
       background-attachment: fixed;
       color: var(--text);
@@ -105,7 +106,7 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 20% 30%, rgba(201, 106, 74, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
       pointer-events: none;
@@ -146,16 +147,16 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 3px solid transparent;
       border-image: linear-gradient(to right, #4F46E5, #06b6d4, #10b981) 1;
-      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+      box-shadow: 0 4px 20px rgba(201, 106, 74, 0.08);
       animation: headerGlow 4s ease-in-out infinite;
     }
 
     @keyframes headerGlow {
       0%, 100% { 
-        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+        box-shadow: 0 4px 20px rgba(201, 106, 74, 0.08);
       }
       50% { 
-        box-shadow: 0 4px 30px rgba(37, 99, 235, 0.15);
+        box-shadow: 0 4px 30px rgba(201, 106, 74, 0.15);
       }
     }
 
@@ -173,7 +174,7 @@
       font-size: 1.3rem;
       color: var(--text);
       text-decoration: none;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       gap: 8px;
     }
     .logo svg {
@@ -195,7 +196,7 @@
         transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary); /* Blue on hover */
+        color: var(--primary); /* Clay accent on hover */
     }
 
     /* Active Navigation State */
@@ -230,10 +231,10 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #4f46e5 100%);
       color: white;
       border: none;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -244,9 +245,9 @@
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #1d4ed8 0%, #4338ca 100%);
+      background: linear-gradient(135deg, #B5533D 0%, #4338ca 100%);
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 6px 16px rgba(201, 106, 74, 0.4);
     }
 
     .btn-secondary {
@@ -275,8 +276,8 @@
 
     .btn-secondary:hover {
       background: var(--bg-alt);
-      border-color: #2563EB;
-      color: #2563EB;
+      border-color: #C96A4A;
+      color: #C96A4A;
       transform: translateY(-1px);
     }
 
@@ -296,7 +297,7 @@
       right: -20%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201, 106, 74, 0.15) 0%, transparent 70%);
       border-radius: 50%;
       animation: float 8s ease-in-out infinite;
     }
@@ -327,7 +328,7 @@
       font-size: 3.25rem;
       font-weight: 900;
       margin-bottom: 1.25rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       color: var(--text);
       line-height: 1.1;
     }
@@ -341,7 +342,7 @@
     }
 
     .hero .highlight {
-      color: #2563EB;
+      color: #C96A4A;
       font-weight: 600;
     }
 
@@ -362,7 +363,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.1);
       border: 1px solid var(--border);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       animation: logoFloat 3s ease-in-out infinite;
@@ -377,7 +378,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+      background: linear-gradient(90deg, transparent, rgba(201, 106, 74, 0.1), transparent);
       transition: left 0.6s;
     }
 
@@ -399,8 +400,8 @@
 
     .hero-logo-item:hover {
       transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
-      border-color: #2563EB;
+      box-shadow: 0 12px 24px rgba(201, 106, 74, 0.25);
+      border-color: #C96A4A;
       background: linear-gradient(135deg, #eff6ff 0%, white 100%);
     }
 
@@ -431,7 +432,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(37, 99, 235, 0.03) 50%, transparent 70%);
+      background: linear-gradient(45deg, transparent 30%, rgba(201, 106, 74, 0.03) 50%, transparent 70%);
       background-size: 200% 200%;
       animation: shimmer 8s ease-in-out infinite;
     }
@@ -445,8 +446,8 @@
       font-size: 3.5rem;
       font-weight: 900;
       margin-bottom: 1.5rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, var(--text) 0%, #2563EB 50%, #06b6d4 100%);
+      font-family: 'Fraunces', sans-serif;
+      background: linear-gradient(135deg, var(--text) 0%, #C96A4A 50%, #06b6d4 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -486,7 +487,7 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #2563EB, #06b6d4, transparent);
+      background: linear-gradient(90deg, transparent, #C96A4A, #06b6d4, transparent);
       animation: lineFlow 4s ease-in-out infinite;
     }
 
@@ -515,7 +516,7 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: linear-gradient(90deg, #2563EB, #06b6d4, #f59e0b);
+      background: linear-gradient(90deg, #C96A4A, #06b6d4, #f59e0b);
       background-size: 200% 100%;
       transform: scaleX(0);
       transition: transform 0.4s;
@@ -529,8 +530,8 @@
 
     .showcase-item:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
-      border-color: #2563EB;
+      box-shadow: 0 12px 28px rgba(201, 106, 74, 0.2);
+      border-color: #C96A4A;
       background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
     }
 
@@ -548,15 +549,15 @@
     }
 
     .showcase-item:hover .showcase-icon {
-      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #06b6d4 100%);
       transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 8px 16px rgba(201, 106, 74, 0.3);
     }
 
     .showcase-icon svg {
       width: 32px;
       height: 32px;
-      stroke: #2563EB;
+      stroke: #C96A4A;
       stroke-width: 2;
       transition: all 0.3s;
     }
@@ -569,7 +570,7 @@
       font-size: 1.3rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       color: var(--text);
     }
 
@@ -593,7 +594,7 @@
       left: 0;
       right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #2563EB, #06b6d4, transparent);
+      background: linear-gradient(90deg, transparent, #C96A4A, #06b6d4, transparent);
       animation: lineFlow 3s ease-in-out infinite;
     }
 
@@ -611,8 +612,8 @@
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, var(--text) 0%, #2563EB 100%);
+      font-family: 'Fraunces', sans-serif;
+      background: linear-gradient(135deg, var(--text) 0%, #C96A4A 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -659,7 +660,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+      background: linear-gradient(135deg, rgba(201, 106, 74, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
       opacity: 0;
       transition: opacity 0.4s;
     }
@@ -671,7 +672,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #2563EB, #06b6d4, #f59e0b);
+      background: linear-gradient(90deg, #C96A4A, #06b6d4, #f59e0b);
       background-size: 200% 100%;
       transform: scaleX(0);
       transition: transform 0.4s;
@@ -693,8 +694,8 @@
 
     .integration-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.2);
-      border-color: #2563EB;
+      box-shadow: 0 16px 32px rgba(201, 106, 74, 0.2);
+      border-color: #C96A4A;
       background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
     }
 
@@ -712,7 +713,7 @@
 
     .integration-card:hover img {
       transform: scale(1.15) rotate(5deg);
-      filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
+      filter: drop-shadow(0 4px 8px rgba(201, 106, 74, 0.3));
     }
 
     .integration-card h3 {
@@ -732,7 +733,7 @@
     }
 
     .integration-card:hover h3 {
-      color: #2563EB;
+      color: #C96A4A;
       transform: scale(1.05);
     }
 
@@ -752,7 +753,7 @@
       font-weight: 600;
       color: #5f6368;
       font-size: 28px;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Sora', sans-serif;
       transition: color 0.3s;
     }
 
@@ -763,7 +764,7 @@
     }
 
     .integration-card-gmail:hover .logo-wrapper span {
-      color: #2563EB;
+      color: #C96A4A;
     }
 
     .integration-card img[alt="Zendesk"],
@@ -784,11 +785,11 @@
     /* Open API Card */
     .integration-card-openapi {
       background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-      border: 2px solid #2563EB;
+      border: 2px solid #C96A4A;
     }
 
     .integration-card-openapi::before {
-      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
     }
 
     .openapi-icon {
@@ -798,7 +799,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #06b6d4 100%);
       border-radius: 12px;
       position: relative;
       z-index: 1;
@@ -814,7 +815,7 @@
 
     .integration-card-openapi:hover .openapi-icon {
       transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 8px 16px rgba(201, 106, 74, 0.4);
     }
 
     /* Features */
@@ -848,7 +849,7 @@
       left: 0;
       width: 3px;
       height: 100%;
-      background: linear-gradient(to bottom, #2563EB, #06b6d4, #f59e0b);
+      background: linear-gradient(to bottom, #C96A4A, #06b6d4, #f59e0b);
       background-size: 100% 200%;
       transform: scaleY(0);
       transition: transform 0.4s;
@@ -862,8 +863,8 @@
 
     .feature-card:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.2);
-      border-color: #2563EB;
+      box-shadow: 0 12px 28px rgba(201, 106, 74, 0.2);
+      border-color: #C96A4A;
       background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
     }
 
@@ -880,15 +881,15 @@
     }
 
     .feature-card:hover .feature-icon {
-      background: linear-gradient(135deg, #2563EB 0%, #06b6d4 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #06b6d4 100%);
       transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 6px 12px rgba(201, 106, 74, 0.3);
     }
 
     .feature-icon svg {
       width: 28px;
       height: 28px;
-      stroke: #2563EB;
+      stroke: #C96A4A;
       stroke-width: 2;
       transition: all 0.3s;
     }
@@ -901,7 +902,7 @@
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       color: var(--text);
       transition: all 0.4s;
       position: relative;
@@ -909,7 +910,7 @@
     }
 
     .feature-card:hover h3 {
-      color: #2563EB;
+      color: #C96A4A;
       transform: translateX(5px);
     }
 
@@ -930,7 +931,7 @@
     .cta-section {
       padding: 5rem 0;
       text-align: center;
-      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #B5533D 50%, #06b6d4 100%);
       background-size: 200% 200%;
       animation: gradientFlow 8s ease infinite;
       color: white;
@@ -956,7 +957,7 @@
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1.25rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       line-height: 1.2;
     }
 
@@ -972,7 +973,7 @@
 
     .btn-cta {
       background: white;
-      color: #2563EB;
+      color: #C96A4A;
       font-size: 1.05rem;
       padding: 14px 32px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -1016,14 +1017,14 @@
     }
 
     .footer-link:hover {
-      color: #2563EB;
+      color: #C96A4A;
       transform: translateX(4px);
     }
 
     footer h4 {
       font-weight: 700;
       margin-bottom: 1.25rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
       color: var(--text);
     }
 
@@ -1152,13 +1153,13 @@
       transform: translateY(-50%);
       width: 4px;
       height: 0;
-      background: linear-gradient(180deg, #2563EB, #06b6d4);
+      background: linear-gradient(180deg, #C96A4A, #06b6d4);
       transition: height 0.3s;
       border-radius: 2px;
     }
 
     .mobile-nav-link:hover {
-      color: #2563EB;
+      color: #C96A4A;
       padding-left: 1rem;
     }
 
@@ -1284,6 +1285,46 @@
         padding: 0.875rem 0;
       }
     }
+  
+    /* Clay polish overrides (after page-local styles) */
+    body {
+      background-color: #F7F1E8 !important;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(201,106,74,0.10), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 0%, rgba(91,120,184,0.08), transparent 50%) !important;
+      font-family: 'Sora', sans-serif !important;
+    }
+    h1, h2, h3, h4, .nav-logo, .logo {
+      font-family: 'Fraunces', serif !important;
+    }
+    ::selection { background: rgba(201,106,74,0.22) !important; color: #B5533D !important; }
+    .ambient-glow { opacity: 0.22 !important; }
+    .glow-1 { background: radial-gradient(circle, rgba(201,106,74,0.28) 0%, transparent 70%) !important; }
+    .glow-2 { background: radial-gradient(circle, rgba(91,120,184,0.18) 0%, transparent 70%) !important; }
+    header, .site-header, nav.navbar {
+      background: rgba(251,246,237,0.88) !important;
+      backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid rgba(201,106,74,0.12) !important;
+    }
+    .btn-primary, .btn.btn-primary {
+      background: linear-gradient(180deg, #D48368 0%, #C96A4A 55%, #B5533D 100%) !important;
+      border: none !important;
+      box-shadow: 4px 6px 14px rgba(92,64,51,0.14), inset 0 1px 0 rgba(255,255,255,0.25) !important;
+      border-radius: 14px !important;
+    }
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .blueprint, .pricing-card, .feature-card, .plan-card, .card, .window-frame {
+      background: #FFFDF8 !important;
+      border: 1.5px solid rgba(92,64,51,0.10) !important;
+      box-shadow: 8px 10px 22px rgba(92,64,51,0.12), -4px -4px 14px rgba(255,248,235,0.9) !important;
+      border-radius: 20px !important;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #2B1F1A 0%, #C96A4A 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
   </style>
 </head>
 <body>
@@ -1291,11 +1332,7 @@
   <header>
     <div class="container nav">
       <a href="../" class="logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
-          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
+        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
@@ -1589,13 +1626,9 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-            <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
-            <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-          <span>Atla<span style="color: #2563EB;">Synq</span></span>
+        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Fraunces', sans-serif; font-size: 1.3rem;">
+          <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
+          <span>Atla<span style="color: #C96A4A;">Synq</span></span>
         </a>
         <p style="font-size: 0.9rem; color: var(--text-muted);">The unified, governed intelligence layer for enterprise AI agents.</p>
       </div>

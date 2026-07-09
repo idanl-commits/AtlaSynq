@@ -10,6 +10,7 @@
     const PAGE_DESCRIPTION = "Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.";
   </script>
   <title>Features — AtlaSynq</title>
+  <link rel="stylesheet" href="/css/clay-marketing.css">
   <meta name="description" content="Discover AtlaSynq features: universal search, context awareness, model agnostic architecture, and zero-retention data processing.">
   <link rel="canonical" href="https://www.atlasynq.com/features/" />
   <meta name="robots" content="index,follow">
@@ -71,29 +72,29 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700" rel="stylesheet">
 
   <style>
     /* VARIABLES */
     :root {
-      --bg: #ffffff;
-      --bg-alt: #f8fafc; 
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --primary: #2563eb;
-      --primary-light: #eff6ff;
-      --border: #e2e8f0;
+      --bg: #F7F1E8;
+      --bg-alt: #FBF6ED; 
+      --text: #2B1F1A;
+      --text-muted: #A08B7D;
+      --primary: #C96A4A;
+      --primary-light: #F5E0D8;
+      --border: rgba(92, 64, 51, 0.13);
       --success: #10b981;
       --danger: #ef4444;
       
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15); 
+      --shadow-sm: 2px 2px 5px rgba(92,64,51,0.10), -1px -1px 3px rgba(255,248,235,0.85);
+      --shadow: 4px 6px 14px rgba(92,64,51,0.14), -2px -3px 8px rgba(255,248,235,0.90);
+      --shadow-lg: 8px 14px 32px rgba(92,64,51,0.18), -4px -6px 16px rgba(255,248,235,0.95); 
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
     
-    ::selection { background: rgba(37, 99, 235, 0.2); color: var(--primary); }
+    ::selection { background: rgba(201, 106, 74, 0.2); color: var(--primary); }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
@@ -101,7 +102,7 @@
     html { scroll-behavior: smooth; }
     
     body { 
-        font-family: 'Inter', sans-serif; 
+        font-family: 'Sora', sans-serif; 
         background-color: var(--bg);
         color: var(--text); 
         line-height: 1.6; 
@@ -122,34 +123,34 @@
         z-index: -1;
         pointer-events: none;
     }
-    .glow-1 { top: -150px; left: -150px; background: radial-gradient(circle, rgba(37,99,235,0.3) 0%, rgba(255,255,255,0) 70%); }
-    .glow-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255,255,255,0) 70%); }
+    .glow-1 { top: -150px; left: -150px; background: radial-gradient(circle, rgba(201,106,74,0.3) 0%, rgba(255,255,255,0) 70%); }
+    .glow-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(91, 120, 184, 0.2) 0%, rgba(255,255,255,0) 70%); }
 
     .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
     .flex-col { display: flex; flex-direction: column; }
     .hidden { display: none !important; }
     .text-center { text-align: center; }
 
-    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
+    h1, h2, h3, h4 { font-family: 'Fraunces', serif, sans-serif; color: var(--text); line-height: 1.15; letter-spacing: -0.02em; }
     h1 { font-size: 3.5rem; font-weight: 800; max-width: 900px; margin-left: auto; margin-right: auto; }
     h2 { font-size: 2.5rem; font-weight: 700; }
     h3 { font-size: 1.5rem; font-weight: 700; }
     p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
 
     .text-gradient {
-      background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #C96A4A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Inter', sans-serif; border: none; }
+    .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: 0.2s; font-family: 'Sora', sans-serif; border: none; }
     .btn-primary { 
-      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
+      background: linear-gradient(135deg, #C96A4A 0%, #B5533D 50%, #06b6d4 100%);
       background-size: 200% 200%;
       animation: gradientFlow 4s ease infinite;
       color: white;
       border: none;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -172,13 +173,13 @@
     }
     .btn-primary:hover { 
       transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 8px 20px rgba(201, 106, 74, 0.5);
       border: none;
     }
     .btn-primary:hover { 
-      background: #1d4ed8;
+      background: #B5533D;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
       border: none;
     }
     .btn-secondary { background: white; border: 1px solid var(--border); color: var(--text); }
@@ -196,7 +197,7 @@
     }
     .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; }
     
-    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; }
+    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; font-family: 'Fraunces', sans-serif; gap: 8px; }
     .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
     
     .nav-links { display: flex; gap: 2rem; }
@@ -209,7 +210,7 @@
         transition: color 0.2s;
     }
     .nav-links a:hover, .nav-link:hover {
-        color: var(--primary); /* Blue on hover */
+        color: var(--primary); /* Clay accent on hover */
     }
 
     /* Active Navigation State */
@@ -354,13 +355,13 @@
       transform: translateY(-50%);
       width: 4px;
       height: 0;
-      background: linear-gradient(180deg, #2563EB, #06b6d4);
+      background: linear-gradient(180deg, #C96A4A, #06b6d4);
       transition: height 0.3s;
       border-radius: 2px;
     }
 
     .mobile-nav-link:hover {
-      color: #2563EB;
+      color: #C96A4A;
       padding-left: 1rem;
     }
 
@@ -388,13 +389,13 @@
       background: var(--primary);
       color: white;
       border: none;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 2px 6px rgba(201, 106, 74, 0.3);
     }
     
     .mobile-menu-actions .btn-primary:hover {
-      background: #1d4ed8;
+      background: #B5533D;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.4);
     }
 
     /* Hero */
@@ -422,7 +423,7 @@
       width: 250px; background: #F8FAFC; border-right: 1px solid var(--border);
       display: flex; flex-direction: column; padding: 20px 12px; gap: 4px; flex-shrink: 0;
     }
-    .sb-section-title { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 24px 0 8px 12px; font-family: 'JetBrains Mono', monospace; }
+    .sb-section-title { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin: 24px 0 8px 12px; font-family: 'Sora', monospace; }
     .sb-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; color: var(--text-muted); font-size: 0.9rem; font-weight: 500; cursor: default; transition: 0.2s; border: 1px solid transparent; }
     .sb-item:hover { background: #e2e8f0; color: var(--text); }
     .sb-item.active { background: white; color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-color: var(--border); }
@@ -435,7 +436,7 @@
     /* MOBILE CHAT FIXES */
     .chat-header { height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: rgba(255,255,255,0.95); flex-shrink: 0; gap: 10px; }
     #heroAgentName { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
-    .conf-badge { font-size: 0.7rem; background: #F3F4F6; padding: 4px 10px; border-radius: 4px; color: #6B7280; font-weight: 500; display: flex; align-items: center; gap: 6px; border: 1px solid #E5E7EB; font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
+    .conf-badge { font-size: 0.7rem; background: #F3F4F6; padding: 4px 10px; border-radius: 4px; color: #6B7280; font-weight: 500; display: flex; align-items: center; gap: 6px; border: 1px solid #E5E7EB; font-family: 'Sora', monospace; flex-shrink: 0; }
     
     .chat-feed { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; height: 100%; }
     .msg { display: flex; gap: 14px; max-width: 90%; opacity: 0; animation: fadeUp 0.3s forwards; }
@@ -450,14 +451,14 @@
         background: white;
         border-radius: 8px; display: grid; place-items: center; 
         color: white; flex-shrink: 0; 
-        box-shadow: 0 2px 4px rgba(37,99,235,0.2);
+        box-shadow: 0 2px 4px rgba(201,106,74,0.2);
         overflow: hidden;
     }
     .agent-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .agent-avatar svg { width: 20px; height: 20px; } 
 
     .citations { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .cite-tag { font-size: 0.7rem; background: #F8FAFC; border: 1px solid #E5E7EB; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-weight: 500; display: flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', monospace; }
+    .cite-tag { font-size: 0.7rem; background: #F8FAFC; border: 1px solid #E5E7EB; color: var(--text-muted); padding: 4px 8px; border-radius: 4px; font-weight: 500; display: flex; align-items: center; gap: 4px; font-family: 'Sora', monospace; }
 
     .chat-input-area { padding: 20px; border-top: 1px solid var(--border); background: white; margin-top: auto; flex-shrink: 0; }
     .chat-input-box { background: white; border: 1px solid var(--border); border-radius: 10px; height: 50px; display: flex; align-items: center; padding: 0 16px; position: relative; transition: 0.2s; overflow: hidden; }
@@ -466,7 +467,7 @@
 
     /* --- INFINITE LOGO SCROLL & GENERAL IMAGE STYLES (FULL COLOR) --- */
     .logos-strip { padding: 4rem 0; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.8); backdrop-filter: blur(5px); overflow: hidden; }
-    .logos-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace; }
+    .logos-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2rem; font-family: 'Sora', monospace; }
     
     /* GLOBAL LOGO STYLING */
     /* mix-blend-mode: multiply ensures white backgrounds on jpg/png are invisible */
@@ -621,7 +622,7 @@
       position: absolute; background: white; border: 1px solid var(--border);
       padding: 8px 14px; /* More padding */
       border-radius: 8px; font-size: 0.75rem; font-weight: 600;
-      color: var(--text-muted); font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted); font-family: 'Sora', monospace;
       box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 6px;
       white-space: nowrap;
       animation: gentle-float 4s ease-in-out infinite;
@@ -665,7 +666,7 @@
     .approval-header { font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
     .approval-badge { 
         background: #DBEAFE; color: #1E40AF; font-size: 0.65rem; font-weight: 800; 
-        padding: 6px 10px; border-radius: 99px; font-family: 'JetBrains Mono'; 
+        padding: 6px 10px; border-radius: 99px; font-family: 'Sora'; 
         display: flex; align-items: center; justify-content: center; 
         text-align: center; letter-spacing: 0.05em;
     }
@@ -761,7 +762,7 @@
 
     .blueprint::before, .blueprint::after {
       content: '+'; position: absolute; color: #cbd5e1;
-      font-family: 'JetBrains Mono', monospace; font-weight: 300; font-size: 1.2rem; line-height: 1;
+      font-family: 'Sora', monospace; font-weight: 300; font-size: 1.2rem; line-height: 1;
     }
     .blueprint::before { top: -8px; left: -5px; }
     .blueprint::after { bottom: -8px; right: -5px; }
@@ -773,7 +774,7 @@
       display: flex; flex-direction: column; overflow: hidden; position: relative;
     }
     .b-nav { display: flex; border-bottom: 1px solid var(--border); background: white; padding: 0; }
-    .b-tab { flex: 1; padding: 16px; text-align: center; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); cursor: default; position: relative; font-family:'JetBrains Mono'; }
+    .b-tab { flex: 1; padding: 16px; text-align: center; font-size: 0.85rem; font-weight: 500; color: var(--text-muted); cursor: default; position: relative; font-family:'Sora'; }
     .b-tab.active { color: var(--primary); font-weight: 700; background: #fafafa; }
     .b-tab.active::after { content: ''; position: absolute; bottom: 0; left: 0; right:0; height: 2px; background: var(--primary); }
     .b-content { flex: 1; position: relative; background: #fcfcfc; padding: 40px; }
@@ -791,7 +792,7 @@
     .b-card:hover { 
         border-color: var(--primary); 
         transform: translateY(-4px); 
-        box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.15); 
+        box-shadow: 0 12px 24px -8px rgba(201, 106, 74, 0.15); 
     }
     .b-card.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
     
@@ -829,7 +830,7 @@
 
     .auto-badge {
       position: absolute; top: -10px; right: -10px; background: var(--success); color: white;
-      font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; font-family:'JetBrains Mono';
+      font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; font-family:'Sora';
       box-shadow: var(--shadow-sm); display: none;
     }
     .b-card.auto .auto-badge { display: block; }
@@ -851,7 +852,7 @@
     .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; max-width: 900px; margin-left: auto; margin-right: auto; }
     .compare-card { padding: 2rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
     .compare-card.old { background: #FEF2F2; border: 1px solid #FEE2E2; }
-    .compare-card.new { background: #EFF6FF; border: 1px solid #DBEAFE; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06); }
+    .compare-card.new { background: #EFF6FF; border: 1px solid #DBEAFE; box-shadow: 0 4px 6px -1px rgba(201, 106, 74, 0.1), 0 2px 4px -1px rgba(201, 106, 74, 0.06); }
     .c-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
     .old .c-title { color: #991B1B; }
     .new .c-title { color: #1E3A8A; }
@@ -861,10 +862,10 @@
     .new .c-item { color: #1E40AF; }
 
     .section-impact { padding: 6rem 0; background: transparent; }
-    .impact-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; font-family:'JetBrains Mono'; }
+    .impact-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; font-family:'Sora'; }
     .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
     .stat-card { padding: 3rem 2rem; border-radius: 4px; background: white; border: 1px solid var(--border); text-align: center; box-shadow: var(--shadow-sm); position: relative; }
-    .stat-val { font-size: 3rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; display: block; letter-spacing: -0.05em; font-family:'JetBrains Mono'; }
+    .stat-val { font-size: 3rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; display: block; letter-spacing: -0.05em; font-family:'Sora'; }
     .stat-old { font-size: 1rem; text-decoration: line-through; color: var(--text-muted); font-weight: 400; margin-left: 8px; }
     .stat-label { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
 
@@ -883,7 +884,7 @@
     details.faq-item summary { padding: 1.5rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
     details.faq-item summary:hover { background: #f9fafb; }
     details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; color: var(--text-muted); font-family:'JetBrains Mono'; }
+    details.faq-item summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; color: var(--text-muted); font-family:'Sora'; }
     details.faq-item[open] summary::after { content: '-'; }
     details.faq-item p { padding: 0 1.5rem 1.5rem; margin: 0; color: var(--text-muted); font-size: 1rem; line-height: 1.6; border-top: 1px solid var(--border); background: #fcfcfc; animation: slideDown 0.2s ease-out; }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -981,7 +982,7 @@
       font-weight: 700;
       color: var(--text);
       margin: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
     }
     .cookie-modal-close {
       background: none;
@@ -1104,9 +1105,9 @@
       color: white;
     }
     .cookie-save-btn:hover {
-      background: #1d4ed8;
+      background: #B5533D;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
     }
     
     .btn-cookie-accept { 
@@ -1265,8 +1266,8 @@
     /* Feature Card Hover Effects */
     .feature-card-bento:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.1);
-      border-color: rgba(37, 99, 235, 0.3);
+      box-shadow: 0 8px 32px rgba(201, 106, 74, 0.12), 0 0 0 1px rgba(201, 106, 74, 0.1);
+      border-color: rgba(201, 106, 74, 0.3);
     }
 
     /* SVG Animations */
@@ -1582,7 +1583,7 @@
       -webkit-backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Sora', sans-serif;
     }
 
     #quoteModal.active {
@@ -1641,7 +1642,7 @@
       font-weight: 700;
       margin-bottom: 0.5rem;
       color: #0f172a;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Fraunces', sans-serif;
     }
 
     .quote-modal-subtitle {
@@ -1668,7 +1669,7 @@
       padding: 12px;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Sora', sans-serif;
       font-size: 1rem;
       transition: all 0.2s;
       box-sizing: border-box;
@@ -1677,8 +1678,8 @@
     .quote-form-group input:focus,
     .quote-form-group textarea:focus {
       outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      border-color: #C96A4A;
+      box-shadow: 0 0 0 3px rgba(201, 106, 74, 0.1);
     }
 
     .quote-form-group textarea {
@@ -1689,7 +1690,7 @@
     .quote-submit-btn {
       width: 100%;
       padding: 14px;
-      background: #2563eb;
+      background: #C96A4A;
       color: white;
       border: none;
       border-radius: 8px;
@@ -1701,9 +1702,9 @@
     }
 
     .quote-submit-btn:hover:not(:disabled) {
-      background: #1d4ed8;
+      background: #B5533D;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 12px rgba(201, 106, 74, 0.3);
     }
 
     .quote-submit-btn:disabled {
@@ -1724,13 +1725,13 @@
     .quote-success-icon {
       width: 64px;
       height: 64px;
-      background: rgba(37, 99, 235, 0.1);
+      background: rgba(201, 106, 74, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1rem;
-      color: #2563eb;
+      color: #C96A4A;
     }
 
     .quote-success-message h3 {
@@ -1759,6 +1760,46 @@
         width: 95%;
       }
     }
+  
+    /* Clay polish overrides (after page-local styles) */
+    body {
+      background-color: #F7F1E8 !important;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(201,106,74,0.10), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 0%, rgba(91,120,184,0.08), transparent 50%) !important;
+      font-family: 'Sora', sans-serif !important;
+    }
+    h1, h2, h3, h4, .nav-logo, .logo {
+      font-family: 'Fraunces', serif !important;
+    }
+    ::selection { background: rgba(201,106,74,0.22) !important; color: #B5533D !important; }
+    .ambient-glow { opacity: 0.22 !important; }
+    .glow-1 { background: radial-gradient(circle, rgba(201,106,74,0.28) 0%, transparent 70%) !important; }
+    .glow-2 { background: radial-gradient(circle, rgba(91,120,184,0.18) 0%, transparent 70%) !important; }
+    header, .site-header, nav.navbar {
+      background: rgba(251,246,237,0.88) !important;
+      backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid rgba(201,106,74,0.12) !important;
+    }
+    .btn-primary, .btn.btn-primary {
+      background: linear-gradient(180deg, #D48368 0%, #C96A4A 55%, #B5533D 100%) !important;
+      border: none !important;
+      box-shadow: 4px 6px 14px rgba(92,64,51,0.14), inset 0 1px 0 rgba(255,255,255,0.25) !important;
+      border-radius: 14px !important;
+    }
+    .btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    .blueprint, .pricing-card, .feature-card, .plan-card, .card, .window-frame {
+      background: #FFFDF8 !important;
+      border: 1.5px solid rgba(92,64,51,0.10) !important;
+      box-shadow: 8px 10px 22px rgba(92,64,51,0.12), -4px -4px 14px rgba(255,248,235,0.9) !important;
+      border-radius: 20px !important;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #2B1F1A 0%, #C96A4A 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+    }
+
   </style>
 </head>
 <body>
@@ -1769,16 +1810,16 @@
   <header>
     <div class="container nav">
       <a href="https://www.atlasynq.com" class="logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
-          <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
+        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
         <span>Atla<span style="color: var(--primary);">Synq</span></span>
       </a>
       <div class="nav-links">
         <a href="/pricing/" class="nav-link">Pricing</a>
         <a href="/features/" class="nav-link">Features</a>
+        <a href="/blog/">Blog</a>
+        <a href="/updates/">Updates</a>
+        <a href="/roi/">ROI</a>
+
         <a href="/security/" class="nav-link">Security</a>
         <a href="/#product" class="nav-link">Product</a>
         <a href="/about/" class="nav-link">About</a>
@@ -1822,7 +1863,7 @@
       <svg width="100%" height="100%" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.6" />
+            <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:0.6" />
             <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.3" />
           </linearGradient>
           <filter id="glow">
@@ -1834,9 +1875,9 @@
           </filter>
         </defs>
         <!-- Animated Connection Lines -->
-        <line x1="200" y1="150" x2="400" y2="200" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
-        <line x1="400" y1="200" x2="600" y2="180" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
-        <line x1="600" y1="180" x2="800" y2="220" stroke="#2563eb" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="200" y1="150" x2="400" y2="200" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="400" y1="200" x2="600" y2="180" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
+        <line x1="600" y1="180" x2="800" y2="220" stroke="#C96A4A" stroke-width="1.5" opacity="0.3" class="pulse-line"/>
         <line x1="200" y1="300" x2="400" y2="350" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
         <line x1="400" y1="350" x2="600" y2="380" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
         <line x1="600" y1="380" x2="800" y2="400" stroke="#60a5fa" stroke-width="1.5" opacity="0.25" class="pulse-line"/>
@@ -1872,7 +1913,7 @@
               <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="search-scan">
                 <defs>
                   <linearGradient id="searchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
                   </linearGradient>
                 </defs>
@@ -1880,7 +1921,7 @@
                 <circle cx="50" cy="50" r="20" fill="none" stroke="url(#searchGrad)" stroke-width="2.5" opacity="0.5"/>
                 <line x1="70" y1="70" x2="85" y2="85" stroke="url(#searchGrad)" stroke-width="3" stroke-linecap="round"/>
                 <!-- Scanning beam -->
-                <line x1="50" y1="50" x2="80" y2="50" stroke="#2563eb" stroke-width="2" opacity="0.6" class="scan-beam"/>
+                <line x1="50" y1="50" x2="80" y2="50" stroke="#C96A4A" stroke-width="2" opacity="0.6" class="scan-beam"/>
 </svg>
           </div>
           </div>
@@ -1895,7 +1936,7 @@
               <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="brain-pulse">
                 <defs>
                   <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
                   </linearGradient>
                 </defs>
@@ -1903,8 +1944,8 @@
                 <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="url(#brainGrad)" opacity="0.2"/>
                 <path d="M50 20 Q30 30 25 50 Q20 70 35 80 Q50 85 65 80 Q80 70 75 50 Q70 30 50 20 Z" fill="none" stroke="url(#brainGrad)" stroke-width="2.5"/>
                 <!-- Pulsing nodes -->
-                <circle cx="40" cy="45" r="4" fill="#2563eb" class="pulse-dot"/>
-                <circle cx="60" cy="45" r="4" fill="#2563eb" class="pulse-dot" style="animation-delay: 0.3s"/>
+                <circle cx="40" cy="45" r="4" fill="#C96A4A" class="pulse-dot"/>
+                <circle cx="60" cy="45" r="4" fill="#C96A4A" class="pulse-dot" style="animation-delay: 0.3s"/>
                 <circle cx="50" cy="60" r="4" fill="#60a5fa" class="pulse-dot" style="animation-delay: 0.6s"/>
 </svg>
           </div>
@@ -1920,7 +1961,7 @@
               <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="switch-animate">
                 <defs>
                   <linearGradient id="switchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
                   </linearGradient>
                 </defs>
@@ -1944,7 +1985,7 @@
               <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="shield-lock">
                 <defs>
                   <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                    <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.8" />
                   </linearGradient>
                 </defs>
@@ -1971,8 +2012,8 @@
       <div style="max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative;">
         <!-- Step 1 -->
         <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
               <line x1="12" y1="22.08" x2="12" y2="12"/>
@@ -1987,9 +2028,9 @@
           <svg width="100" height="40" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg" class="flow-arrow">
             <defs>
               <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.3" />
-                <stop offset="50%" style="stop-color:#2563eb;stop-opacity:0.6" />
-                <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.3" />
+                <stop offset="0%" style="stop-color:#C96A4A;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#C96A4A;stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:#C96A4A;stop-opacity:0.3" />
               </linearGradient>
             </defs>
             <line x1="10" y1="20" x2="70" y2="20" stroke="url(#arrowGrad)" stroke-width="2" class="flow-line"/>
@@ -1999,8 +2040,8 @@
 
         <!-- Step 2 -->
         <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
               <polyline points="7.5 19.79 7.5 14.6 3 12"/>
@@ -2023,8 +2064,8 @@
 
         <!-- Step 3 -->
         <div style="flex: 1; text-align: center; position: relative; z-index: 2;">
-          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div style="width: 120px; height: 120px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, rgba(201, 106, 74, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(201, 106, 74, 0.2); box-shadow: 0 4px 20px rgba(201, 106, 74, 0.1);">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#C96A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               <path d="M13 8H7"/>
               <path d="M17 12H7"/>
@@ -2040,12 +2081,8 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB"/>
-              <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8"/>
-              <path d="M2 16L16 23L30 16" stroke="#60A5FA" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
+        <a href="https://www.atlasynq.com" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Fraunces', sans-serif; font-size: 1.3rem;">
+            <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
             <span>Atla<span style="color: var(--primary);">Synq</span></span>
         </a>
         <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>

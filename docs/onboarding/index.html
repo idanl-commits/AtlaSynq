@@ -1410,16 +1410,7 @@
     </script>
     <div class="header">
       <a href="/" class="header-logo">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB" />
-          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8" />
-          <path
-            d="M2 16L16 23L30 16"
-            stroke="#60A5FA"
-            stroke-width="2"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
         <span>Atla<span style="color: var(--primary)">Synq</span></span>
       </a>
     </div>
@@ -2725,7 +2716,7 @@
           (st.integrations||[]).forEach(function(id){
             rows+='<div class="irow">'+iconHtml(id)+' '+(LBL[id]||id)+'<div class="dot w" id="od_'+id+'"></div></div>';
           });
-          ov.innerHTML='<svg class="logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px"><path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#60A5FA"/><path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#3B82F6"/><path d="M2 16L16 23L30 16" stroke="#93C5FD" stroke-width="2" stroke-linejoin="round"/></svg>'+
+          ov.innerHTML='<img src="/images/atlasynq-logo.svg" width="72" height="72" alt="" aria-hidden="true" />'+
             '<h2 id="ovT">Launching your agent...</h2>'+
             '<div class="stg" id="ovS">Creating workspace</div>'+
             (rows?'<div class="ilist">'+rows+'</div>':'')+

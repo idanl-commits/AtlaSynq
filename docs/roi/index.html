@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROI Calculator — AtlaSynq | Calculate Your AI Agent Savings</title>
+  <meta name="description" content="Calculate the exact ROI of deploying governed AI agents for your enterprise team. Model savings by team size, hourly cost, and hours saved — see payback period in real time.">
+  <link rel="canonical" href="https://www.atlasynq.com/roi/" />
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="ROI Calculator — AtlaSynq | Calculate Your AI Agent Savings">
+  <meta property="og:description" content="Model your team's exact savings from governed AI agents. Interactive calculator with instant results and payback period.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta property="og:url" content="https://www.atlasynq.com/roi/">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.atlasynq.com/roi/",
+    "name": "AtlaSynq ROI Calculator",
+    "url": "https://www.atlasynq.com/roi/",
+    "description": "Interactive ROI calculator for AtlaSynq governed AI agent deployments. Model savings by team size, hourly rate, and hours saved per employee per week.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AtlaSynq",
+      "url": "https://www.atlasynq.com/"
+    }
+  }
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JXPHR1VRHF');</script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
+  <style>
+    :root{--clay-terracotta:#C96A4A;--clay-cream:#F7F1E8;--clay-brown:#3B2A1A;}
+    .roi-page-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .roi-page-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
+<nav class="clay-nav" aria-label="Main navigation">
+  <div class="clay-nav__inner">
+    <a href="/" class="clay-nav__logo">
+      <img src="/images/atlasynq-logo.svg" alt="AtlaSynq logo" width="32" height="32">
+      <span class="clay-nav__logo-text">AtlaSynq</span>
+    </a>
+    <ul class="clay-nav__links">
+      <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/updates/">Updates</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/about/">About</a></li>
+    </ul>
+    <div class="clay-nav__actions">
+      <a href="/login/" class="clay-nav__login">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--sm" target="_blank" rel="noopener">Book Demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────── -->
+<section class="clay-hero" style="padding-bottom:60px;">
+  <div class="container">
+    <span class="clay-hero__eyebrow">ROI Calculator</span>
+    <h1 class="clay-hero__title">Calculate Your Team's AI Savings</h1>
+    <p class="clay-hero__sub">Model the exact productivity value of deploying governed AI agents for your enterprise team — in under 60 seconds.</p>
+  </div>
+</section>
+
+<!-- ── CALCULATOR + FORM ─────────────────────────────────────────────────── -->
+<section class="section" style="padding-top:60px;">
+  <div class="container">
+    <div class="roi-page-layout">
+
+      <!-- Calculator -->
+      <div class="roi-calculator">
+        <h3>Interactive ROI Calculator</h3>
+
+        <div class="roi-slider-group">
+          <div class="roi-slider-label">
+            <span>Number of employees using AtlaSynq</span>
+            <span id="roiEmployees">50</span>
+          </div>
+          <input type="range" id="roiEmployeesInput" min="5" max="500" value="50" step="5" oninput="updateRoi()">
+        </div>
+
+        <div class="roi-slider-group">
+          <div class="roi-slider-label">
+            <span>Hours saved per employee per week</span>
+            <span id="roiHours">10</span>
+          </div>
+          <input type="range" id="roiHoursInput" min="2" max="25" value="10" step="1" oninput="updateRoi()">
+        </div>
+
+        <div class="roi-slider-group">
+          <div class="roi-slider-label">
+            <span>Average fully-loaded cost per hour</span>
+            <span id="roiSalary">$85</span>
+          </div>
+          <input type="range" id="roiSalaryInput" min="40" max="300" value="85" step="5" oninput="updateRoi()">
+        </div>
+
+        <div class="roi-results">
+          <div class="roi-label">Annual Savings</div>
+          <div class="roi-value" id="roiDollars">$2,210,000</div>
+          <div class="roi-sub">Based on 48 work weeks &amp; 80% productivity capture rate</div>
+          <div class="roi-metrics">
+            <div class="roi-metric">
+              <div class="m-val" id="roiHoursSaved">24,000 hrs</div>
+              <div class="m-lbl">Hours recovered / year</div>
+            </div>
+            <div class="roi-metric">
+              <div class="m-val" id="roiPayback">3–5 wks</div>
+              <div class="m-lbl">Typical payback period</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.78rem;color:var(--clay-brown-ll);margin-top:1.25rem;text-align:center;">Methodology: hours × rate × 48 weeks × 80% capture rate. Payback assumes standard enterprise license pricing.</p>
+      </div>
+
+      <!-- Lead Form + Value Props -->
+      <div>
+        <!-- Value props -->
+        <div style="margin-bottom:2rem;">
+          <h2 style="font-size:1.4rem;margin-bottom:1.25rem;">Why Teams Choose AtlaSynq</h2>
+          <div class="value-grid" style="grid-template-columns:1fr;">
+            <div class="value-card">
+              <div class="value-card__icon">🔐</div>
+              <h4>Connector-Level RBAC</h4>
+              <p>Role-based access enforced at every API call — not just the UI. Agents physically cannot retrieve data outside a user's permissions.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-card__icon">📋</div>
+              <h4>Full Audit Trail</h4>
+              <p>Every prompt, tool call, and response is logged with user identity, timestamp, and workspace context. SOC 2 and GDPR ready.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-card__icon">🏢</div>
+              <h4>Department Agents</h4>
+              <p>Pre-built Sales, Marketing, HR, Support, and Admin agents — each with domain-specific intelligence and 50+ native integrations.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-card__icon">⚡</div>
+              <h4>Live in &lt; 1 Day</h4>
+              <p>OAuth connector setup takes minutes. Department agents are pre-built. Most teams are fully operational within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lead Form -->
+        <div class="lead-form">
+          <h3>Get Your Personalized ROI Report</h3>
+          <p class="sub">Enter your details and we'll model your specific numbers — free, no sales pressure.</p>
+          <form id="roiLeadForm" onsubmit="submitRoiLead(event)">
+            <div class="form-row">
+              <div class="form-group"><label for="rFirst">First name *</label><input id="rFirst" name="first_name" type="text" placeholder="Ada" required></div>
+              <div class="form-group"><label for="rLast">Last name *</label><input id="rLast" name="last_name" type="text" placeholder="Lovelace" required></div>
+            </div>
+            <div class="form-group"><label for="rEmail">Work email *</label><input id="rEmail" name="email" type="email" placeholder="ada@company.com" required></div>
+            <div class="form-row">
+              <div class="form-group"><label for="rCompany">Company</label><input id="rCompany" name="company" type="text" placeholder="Acme Corp"></div>
+              <div class="form-group">
+                <label for="rSize">Team size</label>
+                <select id="rSize" name="company_size">
+                  <option value="">Select…</option>
+                  <option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label for="rTitle">Your role</label><input id="rTitle" name="title" type="text" placeholder="VP of Operations"></div>
+            <!-- Honeypot -->
+            <input type="text" name="company_website" style="display:none" tabindex="-1" autocomplete="off">
+            <button type="submit" class="btn btn--primary btn--lg form-submit">Send My ROI Report →</button>
+            <div class="form-msg" id="roiFormMsg"></div>
+          </form>
+          <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--clay-brown-ll);">
+            Or <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">book a 30-min demo</a> directly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STAT STRIP ─────────────────────────────────────────────────────────── -->
+<section class="section--sm" style="background:var(--clay-cream-dd);border-top:1px solid var(--clay-border);border-bottom:1px solid var(--clay-border);">
+  <div class="container">
+    <div class="stat-strip">
+      <div class="stat-item"><div class="stat-val">12+</div><div class="stat-lbl">Avg. hours saved / employee / week</div></div>
+      <div class="stat-item"><div class="stat-val">50+</div><div class="stat-lbl">Native enterprise connectors</div></div>
+      <div class="stat-item"><div class="stat-val">3–6 wks</div><div class="stat-lbl">Typical payback period</div></div>
+      <div class="stat-item"><div class="stat-val">&lt; 1 day</div><div class="stat-lbl">Time to first deployed agent</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS / PROOF ─────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2 class="text-center" style="margin-bottom:2.5rem;">What Customers Say</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;">
+      <div class="clay-card">
+        <p style="font-style:italic;margin-bottom:1rem;">"Our sales team recovered 15 hours per rep per week in the first month. Pipeline reviews that took an hour now take two minutes. The ROI was visible before the pilot even ended."</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--clay-terracotta);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.9rem;">S</div>
+          <div><div style="font-weight:600;font-size:0.875rem;color:var(--clay-brown);">Sarah K.</div><div style="font-size:0.78rem;color:var(--clay-brown-ll);">VP Sales, SaaS Company (200 employees)</div></div>
+        </div>
+      </div>
+      <div class="clay-card">
+        <p style="font-style:italic;margin-bottom:1rem;">"We had 7 different AI tools running without governance. AtlaSynq replaced all of them with governed agents that actually integrate with our stack. Compliance loves the audit trail."</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:38px;height:38px;border-radius:50%;background:var(--clay-brown);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.9rem;">M</div>
+          <div><div style="font-weight:600;font-size:0.875rem;color:var(--clay-brown);">Marcus T.</div><div style="font-size:0.78rem;color:var(--clay-brown-ll);">CTO, Enterprise Software (500 employees)</div></div>
+        </div>
+      </div>
+      <div class="clay-card">
+        <p style="font-style:italic;margin-bottom:1rem;">"The Marketing Agent built our entire Q3 content calendar, ran the keyword research, and published the first three articles — in one afternoon. Our in-house team just reviewed and approved."</p>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div style="width:38px;height:38px;border-radius:50%;background:#6B4F36;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.9rem;">J</div>
+          <div><div style="font-weight:600;font-size:0.875rem;color:var(--clay-brown);">Julia R.</div><div style="font-size:0.78rem;color:var(--clay-brown-ll);">CMO, B2B SaaS (120 employees)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CALENDLY CTA ─────────────────────────────────────────────────────── -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to Deploy Your First Governed Agent?</h2>
+    <p>Book a 30-minute demo with an AtlaSynq solutions engineer. We'll model your specific ROI and have you live by end of week.</p>
+    <div class="cta-actions">
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book on Calendly →</a>
+      <a href="/signup/" class="btn btn--outline btn--lg">Start for Free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
+<footer class="clay-footer">
+  <div class="clay-footer__inner">
+    <div class="clay-footer__brand">
+      <div class="logo-row">
+        <img src="/images/atlasynq-logo.svg" alt="AtlaSynq" width="28" height="28">
+        <span class="logo-text">AtlaSynq</span>
+      </div>
+      <p>The governed AI layer for enterprise teams. Secure agents, full audit trails, real ROI.</p>
+    </div>
+    <div class="clay-footer__col"><h5>Product</h5><ul><li><a href="/features/">Features</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/security/">Security</a></li><li><a href="/integrations/">Integrations</a></li></ul></div>
+    <div class="clay-footer__col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/blog/">Blog</a></li><li><a href="/updates/">Updates</a></li><li><a href="/careers/">Careers</a></li></ul></div>
+    <div class="clay-footer__col"><h5>Legal</h5><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="clay-footer__bottom">
+    <span>© 2026 AtlaSynq, Inc. All rights reserved.</span>
+    <div class="clay-footer__bottom-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@atlasynq.com">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  // ROI Calculator
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+  function fmtHours(n) {
+    if (n >= 1000) return Math.round(n / 1000 * 10) / 10 + 'K hrs';
+    return n + ' hrs';
+  }
+
+  function updateRoi() {
+    const employees = parseInt(document.getElementById('roiEmployeesInput').value);
+    const hours = parseInt(document.getElementById('roiHoursInput').value);
+    const salary = parseInt(document.getElementById('roiSalaryInput').value);
+
+    document.getElementById('roiEmployees').textContent = employees;
+    document.getElementById('roiHours').textContent = hours;
+    document.getElementById('roiSalary').textContent = '$' + salary;
+
+    const annualHours = employees * hours * 48;
+    const annualValue = annualHours * salary * 0.80;
+
+    document.getElementById('roiDollars').textContent = fmt(annualValue);
+    document.getElementById('roiHoursSaved').textContent = fmtHours(annualHours);
+
+    // Payback estimate: assume annual license = employees * $1200 (rough)
+    const license = employees * 1200;
+    const weeklyValue = (annualValue / 48);
+    const paybackWeeks = license / weeklyValue;
+    let paybackText;
+    if (paybackWeeks < 2) paybackText = '< 2 wks';
+    else if (paybackWeeks < 4) paybackText = '2–4 wks';
+    else if (paybackWeeks < 8) paybackText = '4–8 wks';
+    else if (paybackWeeks < 16) paybackText = '8–16 wks';
+    else paybackText = '4+ mo';
+    document.getElementById('roiPayback').textContent = paybackText;
+  }
+
+  // Initialize
+  updateRoi();
+
+  // Lead form
+  async function submitRoiLead(e) {
+    e.preventDefault();
+    const form = e.target;
+    const msg = document.getElementById('roiFormMsg');
+    msg.className = 'form-msg';
+    const btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const employees = document.getElementById('roiEmployeesInput').value;
+    const hours = document.getElementById('roiHoursInput').value;
+    const salary = document.getElementById('roiSalaryInput').value;
+    const roiValue = document.getElementById('roiDollars').textContent;
+
+    const payload = {
+      email: form.email.value,
+      first_name: form.first_name.value,
+      last_name: form.last_name.value,
+      company: form.company.value,
+      company_size: form.company_size.value,
+      title: form.title.value,
+      company_website: form.company_website.value,
+      lead_source: 'roi-calculator',
+      description: `ROI Calculator inputs — Employees: ${employees}, Hrs/wk: ${hours}, $/hr: $${salary}, Est. annual savings: ${roiValue}`,
+    };
+
+    try {
+      const res = await fetch('/api/cp/public/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        msg.textContent = `Thanks! We'll send your personalized ROI report (est. annual savings: ${roiValue}) within one business day.`;
+        msg.classList.add('form-msg--success');
+        form.reset();
+        // GA4 conversion event
+        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead', { event_category: 'roi_calculator', value: 1 });
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      msg.textContent = 'Something went wrong. Please email hello@atlasynq.com directly.';
+      msg.classList.add('form-msg--error');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Send My ROI Report →';
+  }
+</script>
+</body>
+</html>

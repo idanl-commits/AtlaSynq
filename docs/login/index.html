@@ -449,16 +449,7 @@
   <body>
     <div class="login-card">
       <a href="https://www.atlasynq.com" class="logo">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#2563EB" />
-          <path d="M16 30L30 23L16 16L2 23L16 30Z" fill="#1D4ED8" />
-          <path
-            d="M2 16L16 23L30 16"
-            stroke="#60A5FA"
-            stroke-width="2"
-            stroke-linejoin="round"
-          />
-        </svg>
+        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
         <span>Atla<span style="color: var(--primary)">Synq</span></span>
       </a>
 
@@ -737,6 +728,28 @@
           return location.origin;
         }
 
+        function atlasynqIsBareLocalhostUrl(u) {
+          return (u.hostname === 'localhost' || u.hostname === '127.0.0.1') && !u.port;
+        }
+
+        function atlasynqLocalizeSsoRedirectUrl(redirectUrl) {
+          var h = location.hostname;
+          if (h !== 'localhost' && h !== '127.0.0.1') return redirectUrl;
+          if (!redirectUrl || typeof redirectUrl !== 'string') return redirectUrl;
+          try {
+            var base = librechatOriginForBridge().replace(/\/$/, '');
+            var u = new URL(redirectUrl, base + '/');
+            var foreign =
+              /\.atlasynq\.com$/i.test(u.hostname) ||
+              (u.hostname !== 'localhost' && u.hostname !== '127.0.0.1');
+            if (atlasynqIsBareLocalhostUrl(u)) return base + u.pathname + u.search + u.hash;
+            if (!foreign) return redirectUrl;
+            return base + u.pathname + u.search + u.hash;
+          } catch (e) {
+            return redirectUrl;
+          }
+        }
+
         /** When redirected from PlugZap (no AtlaSynq cookies), sync from LibreChat session if user is already logged in. */
         async function trySyncFromLibreChatSession() {
           var next = new URLSearchParams(location.search).get('next');
@@ -783,13 +796,14 @@
                 if (wr.ok) { var wl = await wr.json(); wl0 = wl && wl[0]; }
               } catch (e) { console.warn('[login] me/workspaces for tenant bridge', e); }
               var lcBase = librechatOriginForBridge();
+              var nextSso = atlasynqLocalizeSsoRedirectUrl(data.redirect_url);
               var payload = {
-                token: token,
+                cp_jwt: token,
                 org_id: wl0 && wl0.org_id ? wl0.org_id : null,
                 workspace_id: wl0 && wl0.id ? wl0.id : null,
                 user_id: me && me.id ? me.id : null,
                 email: me && me.email ? me.email : null,
-                next: data.redirect_url
+                next: nextSso
               };
               var bridgeUrl = lcBase + '/atlasynq-tenant-bridge.html#' + encodeURIComponent(JSON.stringify(payload));
               console.log('[login] tenant bridge (LibreChat origin) org_id=', payload.org_id, 'workspace_id=', payload.workspace_id, 'next=', payload.next);
@@ -844,6 +858,68 @@
           var p = String(raw).trim();
           if (p.indexOf('//') !== -1) return '/onboarding/';
           return p.startsWith('/') ? p : '/' + p;
+        }
+
+        function isCpTwoFactorChallenge(data) {
+          return !!(data && (data.two_factor_required || data.status === 'two_factor_required') && data.temp_token);
+        }
+
+        async function completeCpTwoFactorLogin(tempToken, code) {
+          const r = await fetch(CP_BASE + '/api/cp/login/2fa', {
+            method: 'POST',
+            mode: 'cors',
+            credentials: 'omit',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ temp_token: tempToken, code: String(code || '').trim() }),
+          });
+          const data = await r.json().catch(function() { return {}; });
+          if (!r.ok || !data.access_token) {
+            throw new Error(getDetail(data) || 'Invalid authentication code');
+          }
+          return data.access_token;
+        }
+
+        async function promptCpTwoFactorCode(tempToken) {
+          _removeLoginOv();
+          return new Promise(function(resolve, reject) {
+            var wrap = document.createElement('div');
+            wrap.id = '_cp2faOverlay';
+            wrap.style.cssText = 'position:fixed;inset:0;z-index:100000;background:rgba(15,23,42,0.94);display:flex;align-items:center;justify-content:center;padding:1.25rem';
+            wrap.innerHTML =
+              '<div style="max-width:22rem;width:100%;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:1.5rem;color:#f8fafc;font-family:Inter,system-ui,sans-serif">' +
+              '<h2 style="margin:0 0 0.5rem;font-size:1.15rem;font-weight:700">Two-factor authentication</h2>' +
+              '<p style="margin:0 0 1rem;font-size:0.88rem;color:#94a3b8">Enter the 6-digit code from your authenticator app.</p>' +
+              '<input id="_cp2faCode" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="000000" style="width:100%;box-sizing:border-box;padding:0.75rem 1rem;border-radius:10px;border:1px solid #475569;background:#0f172a;color:#fff;font-size:1.1rem;letter-spacing:0.2em;text-align:center" />' +
+              '<p id="_cp2faErr" style="display:none;margin:0.75rem 0 0;font-size:0.82rem;color:#f87171"></p>' +
+              '<button id="_cp2faSubmit" type="button" style="margin-top:1rem;width:100%;padding:0.75rem;border:none;border-radius:10px;background:#4f46e5;color:#fff;font-weight:600;cursor:pointer">Verify</button>' +
+              '</div>';
+            document.body.appendChild(wrap);
+            var input = document.getElementById('_cp2faCode');
+            var err = document.getElementById('_cp2faErr');
+            var btn = document.getElementById('_cp2faSubmit');
+            function cleanup() { var el = document.getElementById('_cp2faOverlay'); if (el) el.remove(); }
+            async function submit() {
+              var code = (input && input.value) ? input.value.trim() : '';
+              if (code.length < 6) {
+                if (err) { err.style.display = 'block'; err.textContent = 'Enter a 6-digit code.'; }
+                return;
+              }
+              if (btn) { btn.disabled = true; btn.textContent = 'Verifying…'; }
+              try {
+                var tok = await completeCpTwoFactorLogin(tempToken, code);
+                cleanup();
+                resolve(tok);
+              } catch (e) {
+                if (err) { err.style.display = 'block'; err.textContent = e.message || 'Invalid code'; }
+                if (btn) { btn.disabled = false; btn.textContent = 'Verify'; }
+              }
+            }
+            if (btn) btn.addEventListener('click', submit);
+            if (input) {
+              input.addEventListener('keydown', function(ev) { if (ev.key === 'Enter') submit(); });
+              input.focus();
+            }
+          });
         }
 
         function finishOAuthFromSignupPopup(dest) {
@@ -1027,7 +1103,7 @@
             var _ov = document.createElement('div');
             _ov.id = '_loginOverlay';
             _ov.style.cssText = 'position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:Inter,system-ui,sans-serif';
-            _ov.innerHTML = '<img src="/assets/images/atlasynq-logo.png" style="width:56px;height:56px;border-radius:12px;animation:_lp 2s ease-in-out infinite" onerror="this.style.display=\'none\'"><style>@keyframes _lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:0.8}}</style><h2 style="margin-top:1rem;font-size:1.3rem;font-weight:700">Signing you in...</h2><p style="color:#94a3b8;font-size:0.88rem;margin-top:0.4rem" id="_loginStage">Connecting to AtlaSynq</p>';
+            _ov.innerHTML = '<img src="/assets/images/atlasynq-logo.svg" alt="" style="width:56px;height:56px;animation:_lp 2s ease-in-out infinite" onerror="this.style.display=\'none\'"><style>@keyframes _lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:0.8}}</style><h2 style="margin-top:1rem;font-size:1.3rem;font-weight:700">Signing you in...</h2><p style="color:#94a3b8;font-size:0.88rem;margin-top:0.4rem" id="_loginStage">Connecting to AtlaSynq</p>';
             document.body.appendChild(_ov);
             function _loginStage(t) { var el = document.getElementById('_loginStage'); if (el) el.textContent = t; }
             function _removeLoginOv() { var el = document.getElementById('_loginOverlay'); if (el) el.remove(); }
@@ -1050,6 +1126,20 @@
                 });
                 const dataCpM = await rCpM.json().catch(function() { return {}; });
                 traceMark('cp_login_marketing', { ok: !!rCpM.ok, status: rCpM.status });
+                if (rCpM.ok && isCpTwoFactorChallenge(dataCpM)) {
+                  try {
+                    var tok2faM = await promptCpTwoFactorCode(dataCpM.temp_token);
+                    localStorage.setItem('cp_token', tok2faM);
+                    localStorage.setItem('atlasynq_token', tok2faM);
+                    _loginStage('Launching AtlaSynq...');
+                    await redirectToLibreChat(tok2faM, '/onboarding/', true);
+                    return;
+                  } catch (e2faM) {
+                    _removeLoginOv();
+                    setMsg((e2faM && e2faM.message) || 'Two-factor verification failed.', 'error');
+                    return;
+                  }
+                }
                 if (rCpM.ok && dataCpM.access_token) {
                   localStorage.setItem('cp_token', dataCpM.access_token);
                   localStorage.setItem('atlasynq_token', dataCpM.access_token);
@@ -1105,6 +1195,12 @@
                       body: JSON.stringify({ email, password }),
                     });
                     var data2Lc = await r2Lc.json().catch(function() { return {}; });
+                    if (r2Lc.ok && isCpTwoFactorChallenge(data2Lc)) {
+                      var tok2faLc = await promptCpTwoFactorCode(data2Lc.temp_token);
+                      localStorage.setItem('cp_token', tok2faLc);
+                      localStorage.setItem('atlasynq_token', tok2faLc);
+                      return;
+                    }
                     if (r2Lc.ok && data2Lc.access_token) {
                       localStorage.setItem('cp_token', data2Lc.access_token);
                       localStorage.setItem('atlasynq_token', data2Lc.access_token);
@@ -1155,6 +1251,20 @@
               });
               const data2Cp = await r2Cp.json().catch(function() { return {}; });
               traceMark('cp_login_fallback_response', { ok: !!r2Cp.ok, status: r2Cp.status });
+              if (r2Cp.ok && isCpTwoFactorChallenge(data2Cp)) {
+                try {
+                  var tok2faCp = await promptCpTwoFactorCode(data2Cp.temp_token);
+                  localStorage.setItem('cp_token', tok2faCp);
+                  localStorage.setItem('atlasynq_token', tok2faCp);
+                  _loginStage('Launching AtlaSynq...');
+                  await redirectToLibreChat(tok2faCp, '/onboarding/', true);
+                  return;
+                } catch (e2faCp) {
+                  _removeLoginOv();
+                  setMsg((e2faCp && e2faCp.message) || 'Two-factor verification failed.', 'error');
+                  return;
+                }
+              }
               if (r2Cp.ok && data2Cp.access_token) {
                 localStorage.setItem('cp_token', data2Cp.access_token);
                 localStorage.setItem('atlasynq_token', data2Cp.access_token);
