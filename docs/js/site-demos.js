@@ -535,7 +535,7 @@
         });
 
         if (res.ok) {
-          msgEl.textContent = '✓ Thanks! We\'ll be in touch shortly.';
+          msgEl.textContent = 'Thanks — we\'ll be in touch shortly.';
           msgEl.classList.add('success');
           form.reset();
         } else {
