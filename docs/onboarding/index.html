@@ -10,28 +10,10 @@
     />
     <style>
       :root {
-        --primary: #0f62fe;
-        --primary-hover: #0353e9;
-        --primary-light: #edf5ff;
-        --accent: #6f6cff;
-        --text: #161616;
-        --text-secondary: #525252;
-        --text-muted: #8d8d8d;
-        --border: #e0e0e0;
-        --border-light: #f4f4f4;
-        --bg: #fafafa;
-        --card: #ffffff;
-        --success: #24a148;
-        --success-bg: #e8f5e9;
-        --warning: #f1c21b;
-        --warning-bg: #fcf4d6;
-        --radius: 12px;
-        --radius-lg: 16px;
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-        --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
-        --surface-elevated: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        --ring-subtle: 0 0 0 1px rgba(15, 98, 254, 0.06);
+        --primary: #C96A4A;
+        --text: #2B1F1A;
+        --text-muted: #5E4B3F;
+        --border: rgba(92,64,51,0.14);
       }
       * {
         box-sizing: border-box;
@@ -1008,9 +990,9 @@
         z-index: 9999;
         background: linear-gradient(
           165deg,
-          #0f172a 0%,
+          #2B1F1A 0%,
           #1e293b 50%,
-          #0f172a 100%
+          #2B1F1A 100%
         );
         display: flex;
         flex-direction: column;
@@ -1088,7 +1070,7 @@
         box-shadow: 0 0 10px rgba(36, 161, 72, 0.5);
       }
       .ov .irow .dot.w {
-        background: #64748b;
+        background: #5E4B3F;
       }
       .ov .err {
         color: #f87171;
@@ -1411,7 +1393,7 @@
     <div class="header">
       <a href="/" class="header-logo">
         <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-        <span>Atla<span style="color: var(--primary)">Synq</span></span>
+        <span class="wordmark-atla" style="font-weight:700;">Atla</span><span class="wordmark-synq" style="font-weight:700;">Synq</span>
       </a>
     </div>
     <div class="progress" id="prog">
@@ -2229,7 +2211,7 @@
                     pw.document.open();
                     pw.document.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>OAuth</title></head><body style="font-family:system-ui;padding:1.5rem;max-width:36rem;line-height:1.45">'
                       +'<h2 style="font-size:1.1rem">Could not start OAuth</h2><p>'+esc+'</p>'
-                      +'<p style="color:#64748b;font-size:0.9rem">Monday: add <code>MONDAY_CLIENT_ID</code> and <code>MONDAY_CLIENT_SECRET</code> to <code>.env</code> for governance-engine; in Developer Center add redirect <code>http://localhost:3080/api/auth/monday/callback</code> (or your public URL) and enable scopes <code>boards:read</code>, <code>boards:write</code>, <code>me:read</code>.</p>'
+                      +'<p style="color:#5E4B3F;font-size:0.9rem">Monday: add <code>MONDAY_CLIENT_ID</code> and <code>MONDAY_CLIENT_SECRET</code> to <code>.env</code> for governance-engine; in Developer Center add redirect <code>http://localhost:3080/api/auth/monday/callback</code> (or your public URL) and enable scopes <code>boards:read</code>, <code>boards:write</code>, <code>me:read</code>.</p>'
                       +'</body></html>');
                     pw.document.close();
                   }catch(e2){if(pw&&!pw.closed)pw.close();}

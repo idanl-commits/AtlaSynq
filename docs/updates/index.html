@@ -39,31 +39,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/clay-marketing.css">
   <style>:root{--clay-terracotta:#C96A4A;--clay-cream:#F7F1E8;--clay-brown:#3B2A1A;}</style>
+
+  <style>
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
+  </style>
+
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
-<nav class="clay-nav" aria-label="Main navigation">
-  <div class="clay-nav__inner">
-    <a href="/" class="clay-nav__logo">
-      <img src="/images/atlasynq-logo.svg" alt="AtlaSynq logo" width="32" height="32">
-      <span class="clay-nav__logo-text">AtlaSynq</span>
+
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
     </a>
-    <ul class="clay-nav__links">
-      <li><a href="/pricing/">Pricing</a></li>
+    <ul class="nav-links" role="list">
+      <li><a href="/#product">Product</a></li>
       <li><a href="/features/">Features</a></li>
       <li><a href="/security/">Security</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/updates/" class="active">Updates</a></li>
       <li><a href="/integrations/">Integrations</a></li>
-      <li><a href="/about/">About</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
     </ul>
-    <div class="clay-nav__actions">
-      <a href="/login/" class="clay-nav__login">Log in</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--sm" target="_blank" rel="noopener">Book Demo</a>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 20px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.84rem;">Start Building</a>
     </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.1rem;">Atla</span><span class="wordmark-synq" style="font-size:1.1rem;">Synq</span>
+      </a>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
+    </div>
+    <a href="/#product">Product</a>
+    <a href="/features/">Features</a>
+    <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
+    <a href="/pricing/">Pricing</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" style="color:var(--clay-primary);font-weight:700;">Book a demo</a>
+    <a href="/signup/">Start Building</a>
   </div>
-</nav>
+</div>
 
 <!-- ── HERO ────────────────────────────────────────────────────────────── -->
 <section class="clay-hero">
@@ -167,31 +196,96 @@
     <h2>Stay Current with AtlaSynq</h2>
     <p>Book a demo to see the latest features live — or start free and explore them yourself.</p>
     <div class="cta-actions">
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a 30-min Demo</a>
-      <a href="/signup/" class="btn btn--outline btn--lg">Start for Free</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="btn btn--outline btn--lg">Start Building</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ───────────────────────────────────────────────────────────── -->
-<footer class="clay-footer">
-  <div class="clay-footer__inner">
-    <div class="clay-footer__brand">
-      <div class="logo-row">
-        <img src="/images/atlasynq-logo.svg" alt="AtlaSynq" width="28" height="28">
-        <span class="logo-text">AtlaSynq</span>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+        </a>
+        <p>Governed department agents for enterprise teams.</p>
       </div>
-      <p>The governed AI layer for enterprise teams. Secure agents, full audit trails, real ROI.</p>
+      <div>
+        <h4>Product</h4>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/security/" class="footer-link">Security</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="/careers/" class="footer-link">Careers</a>
+        <a href="/blog/" class="footer-link">Blog</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+      </div>
     </div>
-    <div class="clay-footer__col"><h5>Product</h5><ul><li><a href="/features/">Features</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/security/">Security</a></li><li><a href="/integrations/">Integrations</a></li><li><a href="/roi/">ROI Calculator</a></li></ul></div>
-    <div class="clay-footer__col"><h5>Company</h5><ul><li><a href="/about/">About</a></li><li><a href="/blog/">Blog</a></li><li><a href="/updates/">Updates</a></li><li><a href="/careers/">Careers</a></li></ul></div>
-    <div class="clay-footer__col"><h5>Legal</h5><ul><li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div>
-  </div>
-  <div class="clay-footer__bottom">
-    <span>© 2026 AtlaSynq, Inc. All rights reserved.</span>
-    <div class="clay-footer__bottom-links"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@atlasynq.com">Contact</a></div>
+    <div class="footer-bottom">
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
+    </div>
   </div>
 </footer>
+
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div class="cookie-content">
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
+  </div>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
+  </div>
+</div>
+
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/site-demos.js" defer></script>
 
 </body>
 </html>

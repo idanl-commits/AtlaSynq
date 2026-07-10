@@ -1,557 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Page Not Found — AtlaSynq</title>
-  <meta name="description" content="Page not found">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | AtlaSynq</title>
+  <meta name="description" content="The page you requested could not be found.">
   <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://www.atlasynq.com/404.html" />
-  
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
-  <link rel="apple-touch-icon" href="/images/icon.png">
-
+  <link rel="canonical" href="https://www.atlasynq.com/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.atlasynq.com/404.html">
+  <meta property="og:title" content="404 — Page Not Found | AtlaSynq">
+  <meta property="og:description" content="The page you requested could not be found.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
+  <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+    gtag('config', 'G-JXPHR1VRHF');
+  </script>
   <style>
-    /* VARIABLES */
-    :root {
-      --bg: #ffffff;
-      --bg-alt: #f8fafc; 
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --primary: #2563eb;
-      --primary-light: #eff6ff;
-      --border: #e2e8f0;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-    
-    body { 
-      font-family: 'Inter', sans-serif; 
-      background-color: var(--bg);
-      color: var(--text); 
-      line-height: 1.7; 
-      overflow-x: hidden;
-    }
-
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.75); 
-      backdrop-filter: blur(16px); 
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.6); 
-      padding: 0;
-    }
-
-    .container {
-      max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
-    }
-
-    .nav {
-      height: 72px; display: flex; align-items: center; justify-content: space-between;
-    }
-
-    .logo { 
-      display: flex; align-items: center; font-weight: 800; font-size: 1.3rem; 
-      color: var(--text); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; gap: 8px; 
-    }
-    .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
-
-    .nav-links {
-      display: flex; gap: 2rem; align-items: center;
-    }
-
-    .nav-link {
-      font-weight: 600;
-      color: #0f172a;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-    }
-
-    .header-actions {
-      display: flex; gap: 10px;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .btn-secondary:hover {
-      background: var(--bg-alt);
-      border-color: var(--text);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
-      background-size: 200% 200%;
-      animation: gradientFlow 4s ease infinite;
-      color: white;
-      border: none;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes gradientFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
-      border: none;
-    }
-
-    /* Hamburger Menu */
-    .hamburger-menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 28px;
-      height: 28px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 1001;
-    }
-
-    .hamburger-menu-btn span {
-      width: 100%;
-      height: 3px;
-      background: #0f172a;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Mobile Menu Overlay */
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu-overlay.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .mobile-menu-content {
-      background: white;
-      width: 80%;
-      max-width: 400px;
-      height: 100%;
-      padding: 2rem;
-      position: fixed;
-      top: 0;
-      right: 0;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-menu-overlay.active .mobile-menu-content {
-      transform: translateX(0);
-    }
-
-    .mobile-menu-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text);
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    .mobile-menu-close:hover {
-      background: var(--bg-alt);
-    }
-
-    .mobile-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-
-    .mobile-nav-link {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s;
-      position: relative;
-      display: block;
-      font-size: 1rem;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .mobile-nav-link::before {
-      content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 0;
-      background: linear-gradient(180deg, #2563EB, #06b6d4);
-      transition: height 0.3s;
-      border-radius: 2px;
-    }
-
-    .mobile-nav-link:hover {
-      color: #2563EB;
-      padding-left: 1rem;
-    }
-
-    .mobile-nav-link:hover::before {
-      height: 60%;
-    }
-
-    .mobile-menu-actions {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .mobile-menu-actions .btn {
-      width: 100%;
-      justify-content: center;
-      padding: 12px 20px;
-      font-size: 1rem;
-    }
-
-    .mobile-menu-actions .btn-primary {
-      background: var(--primary);
-      color: white;
-      border: none;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
-    }
-
-    @media(max-width: 900px) {
-      .nav-links, .header-actions {
-        display: none;
-      }
-      .hamburger-menu-btn {
-        display: flex;
-      }
-    }
-
-    @media(max-width: 480px) {
-      .mobile-menu-content {
-        width: 90%;
-        padding: 1.25rem;
-      }
-
-      .hamburger-menu-btn {
-        width: 32px;
-        height: 32px;
-      }
-
-      .mobile-nav-link {
-        font-size: 0.95rem;
-        padding: 0.875rem 0;
-      }
-    }
-
-    /* 404 Content */
-    .error-section {
-      min-height: calc(100vh - 200px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 1.5rem;
-      text-align: center;
-    }
-
-    .error-content {
-      max-width: 600px;
-    }
-
-    .error-code {
-      font-size: 8rem;
-      font-weight: 800;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .error-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .error-description {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .error-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.2s;
-      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
-    }
-
-    .error-btn:hover {
-      background: #1d4ed8;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--bg-alt);
-      padding: 4rem 0 2rem;
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .footer-grid h4 {
-      color: #0f172a;
-      font-weight: 700;
-      margin-bottom: 16px;
-      font-size: 1rem;
-    }
-
-    .footer-link {
-      color: #000000;
-      font-weight: 500;
-      text-decoration: none;
-      margin-bottom: 12px;
-      display: block;
-      cursor: pointer;
-      transition: color 0.2s ease, transform 0.2s ease;
-      opacity: 0.85;
-    }
-
-    .footer-link:hover {
-      color: var(--primary);
-      opacity: 1;
-      transform: translateX(2px);
-    }
-
-    @media(max-width: 768px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .error-code {
-        font-size: 5rem;
-      }
-      .error-title {
-        font-size: 1.5rem;
-      }
-    }
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="/" class="logo">
-        <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-        <span>Atla<span style="color: var(--primary);">Synq</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="/pricing/" class="nav-link">Pricing</a>
-        <a href="/features/" class="nav-link">Features</a>
-        <a href="/security/" class="nav-link">Security</a>
-        <a href="/#product" class="nav-link">Product</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/integrations/" class="nav-link">Integrations</a>
-      </div>
-      <div class="header-actions">
-        <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
-      </div>
-      <!-- Hamburger Menu Button (Mobile Only) -->
-      <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
-      <nav class="mobile-nav">
-        <a href="/pricing/" class="mobile-nav-link">Pricing</a>
-        <a href="/features/" class="mobile-nav-link">Features</a>
-        <a href="/security/" class="mobile-nav-link">Security</a>
-        <a href="/#product" class="mobile-nav-link">Product</a>
-        <a href="/about/" class="mobile-nav-link">About</a>
-        <a href="/integrations/" class="mobile-nav-link">Integrations</a>
-      </nav>
-      <div class="mobile-menu-actions">
-        <a href="/login/" class="btn btn-secondary">Log in</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" onclick="closeMobileMenuFunc();" class="btn btn-primary" style="text-decoration:none;">Book Demo</a>
-      </div>
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#product">Product</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 20px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.84rem;">Start Building</a>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.1rem;">Atla</span><span class="wordmark-synq" style="font-size:1.1rem;">Synq</span>
+      </a>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
+    </div>
+    <a href="/#product">Product</a>
+    <a href="/features/">Features</a>
+    <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
+    <a href="/pricing/">Pricing</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" style="color:var(--clay-primary);font-weight:700;">Book a demo</a>
+    <a href="/signup/">Start Building</a>
+  </div>
+</div>
+
+<section class="section-hero" style="padding-bottom:2rem;">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-primary);">Error</span>
+    </div>
+    <h1 class="hero-headline">Page not found</h1>
+    <p class="hero-sub">The page you're looking for doesn't exist or has moved.</p>
+    
+  </div>
+</section>
+
+<section>
+  <div class="container error-page">
+    <div class="error-code" aria-hidden="true">404</div>
+    <p style="max-width:420px;margin:0 auto 1.5rem;color:var(--clay-text-sec);font-size:0.95rem;">Try the homepage, product pages, or book a demo with our team.</p>
+    <div class="hero-actions" style="justify-content:center;margin:0;">
+      <a href="/" class="clay-btn clay-btn-primary" style="padding:12px 24px;">Go home</a>
+      <a href="/integrations/" class="clay-btn clay-btn-outline" style="padding:12px 22px;">Integrations</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" style="padding:12px 22px;" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </div>
+</section>
 
-  <section class="error-section">
-    <div class="error-content">
-      <div class="error-code">404</div>
-      <h1 class="error-title">Page Not Found</h1>
-      <p class="error-description">It seems you've ventured into uncharted territory.</p>
-      <a href="/" class="error-btn">Return to Home</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <a href="/" class="logo" style="margin-bottom:1rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
-          <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-          <span>Atla<span style="color: var(--primary);">Synq</span></span>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p style="font-size:0.9rem;">The unified, governed intelligence layer.</p>
+        <p>Governed department agents for enterprise teams.</p>
       </div>
-      <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
-      <div><h4>Company</h4><a href="/about/" class="footer-link">About</a><a href="/careers/" class="footer-link">Careers</a><a href="/#governance" class="footer-link">Governance</a></div>
-      <div><h4>Legal</h4><a href="/privacy/" class="footer-link">Privacy Policy</a><a href="/terms/" class="footer-link">Terms of Service</a></div>
+      <div>
+        <h4>Product</h4>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/security/" class="footer-link">Security</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="/careers/" class="footer-link">Careers</a>
+        <a href="/blog/" class="footer-link">Blog</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+      </div>
     </div>
-    <div class="container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
-  </footer>
+    <div class="footer-bottom">
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    // Mobile Menu Toggle
-    (function() {
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const closeMobileMenu = document.getElementById('closeMobileMenu');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div class="cookie-content">
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
+  </div>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
+  </div>
+</div>
 
-      function openMobileMenu() {
-        if (hamburgerBtn) hamburgerBtn.classList.add('active');
-        if (mobileMenu) mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance.</p>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
+    </div>
+  </div>
+</div>
 
-      function closeMobileMenuFunc() {
-        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
-        if (mobileMenu) mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-
-      if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', openMobileMenu);
-      }
-
-      if (closeMobileMenu) {
-        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-      }
-
-      mobileNavLinks.forEach(function(link) {
-        link.addEventListener('click', closeMobileMenuFunc);
-      });
-
-      if (mobileMenu) {
-        mobileMenu.addEventListener('click', function(e) {
-          if (e.target === mobileMenu) {
-            closeMobileMenuFunc();
-          }
-        });
-      }
-    })();
-  </script>
+<script src="/js/site-demos.js" defer></script>
 </body>
 </html>

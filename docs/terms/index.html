@@ -1,1598 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      const CANONICAL_URL = "https://www.atlasynq.com/terms/";
-      const OG_IMAGE_URL = "https://www.atlasynq.com/images/atlasynq-logo.png";
-      const PAGE_TITLE = "Terms of Service — AtlaSynq";
-      const PAGE_DESCRIPTION = "AtlaSynq Terms of Service and User Agreement.";
-    </script>
-    <title>Terms of Service — AtlaSynq</title>
-    <meta name="description" content="AtlaSynq Terms of Service and User Agreement.">
-    <link rel="canonical" href="https://www.atlasynq.com/terms/" />
-    <meta name="robots" content="index,follow">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JXPHR1VRHF');
-    </script>
-    
-
-    <meta property="og:title" content="Terms of Service — AtlaSynq" />
-    <meta
-      property="og:description"
-      content="AtlaSynq Terms of Service and User Agreement."
-    />
-    <meta
-      property="og:image"
-      content="https://www.atlasynq.com/images/atlasynq-logo.png"
-    />
-    <meta property="og:url" content="https://www.atlasynq.com/terms/" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Terms of Service — AtlaSynq">
-    <meta name="twitter:description" content="AtlaSynq Terms of Service and User Agreement.">
-    <meta name="twitter:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.atlasynq.com/#organization",
-      "name": "AtlaSynq",
-      "url": "https://www.atlasynq.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.atlasynq.com/images/icon.png",
-        "caption": "AtlaSynq Logo"
-      },
-      "description": "Build secure, internal AI agents for every department.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "idanl@atlasynq.com",
-        "contactType": "sales",
-        "areaServed": "Worldwide"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.atlasynq.com/#website",
-      "url": "https://www.atlasynq.com/",
-      "name": "AtlaSynq",
-      "publisher": {
-        "@id": "https://www.atlasynq.com/#organization"
-      }
-    }
-  ]
-}
-</script>
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
-    <link rel="apple-touch-icon" href="/images/icon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      /* VARIABLES */
-      :root {
-        --bg: #ffffff;
-        --bg-alt: #f8fafc;
-        --text: #0f172a;
-        --text-muted: #64748b;
-        --primary: #2563eb;
-        --primary-light: #eff6ff;
-        --border: #e2e8f0;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        outline: none;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--bg);
-        color: var(--text);
-        line-height: 1.7;
-        overflow-x: hidden;
-        background-size: 32px 32px;
-        background-image: linear-gradient(
-            to right,
-            rgba(226, 232, 240, 0.6) 1px,
-            transparent 1px
-          ),
-          linear-gradient(
-            to bottom,
-            rgba(226, 232, 240, 0.6) 1px,
-            transparent 1px
-          );
-      }
-
-      /* Ambient Glows */
-      .ambient-glow {
-        position: fixed;
-        width: 600px;
-        height: 600px;
-        border-radius: 50%;
-        filter: blur(90px);
-        opacity: 0.35;
-        z-index: -1;
-        pointer-events: none;
-      }
-      .glow-1 {
-        top: -150px;
-        left: -150px;
-        background: radial-gradient(
-          circle,
-          rgba(37, 99, 235, 0.3) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-      }
-      .glow-2 {
-        bottom: -100px;
-        right: -100px;
-        background: radial-gradient(
-          circle,
-          rgba(168, 85, 247, 0.2) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-      }
-
-      /* Header */
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-        padding: 0;
-      }
-
-      .nav-container {
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .nav-link {
-        font-weight: 600;
-        color: #0f172a;
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.2s;
-      }
-
-      .nav-link:hover {
-        color: var(--primary);
-      }
-
-      /* Active Navigation State */
-      .nav-link.active, .nav-links a.active, .mobile-nav-link.active {
-        color: var(--primary) !important;
-        font-weight: 700;
-        position: relative;
-      }
-
-      .nav-link.active::after, .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--primary);
-        border-radius: 1px;
-      }
-
-      .btn {
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        border: none;
-        font-family: "Inter", sans-serif;
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var(--border);
-      }
-
-      .btn-secondary:hover {
-        background: var(--bg-alt);
-        border-color: var(--text);
-      }
-
-          .btn-primary { 
-      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #06b6d4 100%);
-      background-size: 200% 200%;
-      animation: gradientFlow 4s ease infinite;
-      color: white;
-      border: none;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes gradientFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-    .btn-primary:hover { 
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
-      border: none;
-    }
-
-      .btn-primary:hover {
-        background: #1d4ed8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        border: none;
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 2rem;
-        align-items: start;
-      }
-
-      .footer-grid h4 {
-        color: #0f172a;
-        font-weight: 700;
-        margin-bottom: 16px;
-        font-size: 1rem;
-      }
-
-      .footer-link {
-        color: #000000;
-        font-weight: 500;
-        text-decoration: none;
-        margin-bottom: 12px;
-        display: block;
-        cursor: pointer;
-        transition: color 0.2s ease, transform 0.2s ease;
-        opacity: 0.85;
-      }
-
-      .footer-link:hover {
-        color: var(--primary);
-        opacity: 1;
-        transform: translateX(2px);
-      }
-
-      /* Footer layout fix: nav-container is used in footer but has header height (72px) */
-      footer .nav-container {
-        height: auto;
-      }
-      footer .nav-container.text-center {
-        display: block;
-      }
-
-      /* Logo Styles */
-      .logo {
-        display: flex;
-        align-items: center;
-        font-weight: 800;
-        font-size: 1.3rem;
-        color: var(--text);
-        text-decoration: none;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        gap: 8px;
-      }
-      .logo svg {
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-      }
-
-      .back-link {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        text-decoration: none;
-        font-weight: 600;
-        padding: 8px 16px;
-        border-radius: 6px;
-        transition: 0.2s;
-        border: 1px solid transparent;
-        font-family: "Inter", sans-serif;
-      }
-      .back-link:hover {
-        color: var(--text);
-        background: rgba(0, 0, 0, 0.05);
-      }
-
-      /* =========================================================
-         Legal Pages (Makeover)
-      ========================================================= */
-      .legal-hero {
-        padding: 5rem 0 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-      .legal-hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(circle at 12% 12%, rgba(37,99,235,0.10), transparent 45%),
-          radial-gradient(circle at 88% 8%, rgba(59,130,246,0.10), transparent 55%),
-          linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,250,252,0.85));
-        pointer-events: none;
-      }
-      .legal-hero-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 2rem;
-        align-items: center;
-      }
-      .legal-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.75);
-        border: 1px solid rgba(226, 232, 240, 0.9);
-        font-size: 0.8rem;
-        color: #334155;
-        font-weight: 600;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-      .legal-title {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 3rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-        margin: 1rem 0 0.75rem;
-        color: var(--text);
-      }
-      .legal-subtitle {
-        max-width: 780px;
-        color: var(--text-muted);
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin: 0;
-      }
-      .legal-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 1.25rem;
-        color: #475569;
-        font-size: 0.9rem;
-      }
-      .meta-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 10px;
-        border: 1px solid rgba(226, 232, 240, 0.9);
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-      .hero-illustration {
-        width: 220px;
-        height: 220px;
-        border-radius: 24px;
-        border: 1px solid rgba(226, 232, 240, 0.9);
-        background:
-          radial-gradient(circle at 25% 25%, rgba(37,99,235,0.14), transparent 55%),
-          radial-gradient(circle at 75% 70%, rgba(14,165,233,0.12), transparent 60%),
-          rgba(255, 255, 255, 0.82);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        box-shadow: 0 28px 70px -30px rgba(15, 23, 42, 0.35);
-        display: grid;
-        place-items: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .hero-illustration svg {
-        width: 120px;
-        height: 120px;
-        position: relative;
-        z-index: 2;
-      }
-      .hero-illustration::before {
-        content: "";
-        position: absolute;
-        inset: -40%;
-        z-index: 1;
-        background: conic-gradient(
-          from 180deg,
-          rgba(37, 99, 235, 0),
-          rgba(37, 99, 235, 0.14),
-          rgba(168, 85, 247, 0.12),
-          rgba(37, 99, 235, 0)
-        );
-        animation: spin 14s linear infinite;
-        opacity: 0.65;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* Subtle motion (alive, premium) */
-      @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-      @keyframes shimmer { 0% { transform: translateX(-30%) rotate(12deg); opacity: 0; } 20% { opacity: .55; } 100% { transform: translateX(130%) rotate(12deg); opacity: 0; } }
-      @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes pagePulse { 0%,100% { opacity: .45; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-1px); } }
-
-      .legal-badge, .legal-title, .legal-subtitle, .legal-meta { animation: fadeUp .7s ease both; }
-      .legal-title { animation-delay: .05s; }
-      .legal-subtitle { animation-delay: .12s; }
-      .legal-meta { animation-delay: .18s; }
-
-      .hero-illustration { animation: floaty 6s ease-in-out infinite; }
-      .hero-illustration::after {
-        content:"";
-        position:absolute;
-        inset:-40%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
-        transform: rotate(12deg);
-        animation: shimmer 5.5s ease-in-out infinite;
-        z-index: 1;
-        pointer-events: none;
-        mix-blend-mode: soft-light;
-      }
-
-      .legal-card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-      .legal-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(37,99,235,0.25);
-        box-shadow: 0 26px 70px -40px rgba(15,23,42,0.35);
-      }
-      .section-icon svg { transition: transform .25s ease; }
-      .legal-card:hover .section-icon svg { transform: rotate(-6deg) scale(1.06); }
-
-      /* SVG micro-animations */
-      .doc-line { stroke-dasharray: 14 6; animation: pagePulse 1.9s ease-in-out infinite; }
-      .doc-line.l2 { animation-delay: .35s; }
-      .doc-line.l3 { animation-delay: .7s; }
-
-      @media (prefers-reduced-motion: reduce) {
-        .hero-illustration, .hero-illustration::before, .hero-illustration::after,
-        .legal-badge, .legal-title, .legal-subtitle, .legal-meta,
-        .doc-line { animation: none !important; }
-        .legal-card, .section-icon svg { transition: none !important; }
-      }
-
-      /* Main Layout (single-column, no left menu) */
-      .legal-wrapper {
-        max-width: 920px;
-        margin: 0 auto;
-        padding: 20px 24px 100px;
-        display: block;
-      }
-
-      /* (Removed) Jump links */
-
-      /* Content */
-      .content {
-        min-width: 0;
-      }
-      .legal-card {
-        background: rgba(255, 255, 255, 0.92);
-        border: 1px solid rgba(226, 232, 240, 0.95);
-        border-radius: 18px;
-        padding: 22px 22px;
-        box-shadow: 0 20px 48px -28px rgba(15, 23, 42, 0.18);
-        margin-bottom: 16px;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-      .section-title {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: var(--text);
-        margin: 0 0 12px;
-        letter-spacing: -0.02em;
-      }
-      .section-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        border: 1px solid rgba(226, 232, 240, 0.9);
-        background: linear-gradient(
-          135deg,
-          rgba(37, 99, 235, 0.14),
-          rgba(168, 85, 247, 0.1)
-        );
-        display: grid;
-        place-items: center;
-        flex-shrink: 0;
-      }
-      .section-icon svg {
-        width: 20px;
-        height: 20px;
-        stroke: #1e40af;
-      }
-
-      .content p,
-      .content li {
-        color: #475569;
-        font-size: 1rem;
-        margin-bottom: 12px;
-        line-height: 1.75;
-      }
-      .content ul {
-        padding-left: 20px;
-        margin: 10px 0 0;
-      }
-
-      .highlight-box {
-        background: linear-gradient(
-          180deg,
-          rgba(239, 246, 255, 0.9),
-          rgba(255, 255, 255, 0.9)
-        );
-        border: 1px solid rgba(37, 99, 235, 0.22);
-        border-left: 4px solid var(--primary);
-        border-radius: 14px;
-        padding: 16px;
-        margin: 16px 0;
-      }
-      .highlight-box strong {
-        color: var(--primary);
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-weight: 800;
-      }
-
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 4rem 0 2rem;
-        margin-top: 4rem;
-        background: white;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-      }
-
-      /* Hamburger Menu Button (Hidden on Desktop) */
-      .hamburger-menu-btn {
-        display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 28px;
-        height: 28px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 1001;
-      }
-
-      .hamburger-menu-btn span {
-        width: 100%;
-        height: 3px;
-        background: #0f172a;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger-menu-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-      }
-
-      .hamburger-menu-btn.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger-menu-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
-
-      /* Mobile Menu Overlay */
-      .mobile-menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: 1000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .mobile-menu-overlay.active {
-        display: block;
-        opacity: 1;
-      }
-
-      .mobile-menu-content {
-        background: white;
-        width: 80%;
-        max-width: 400px;
-        height: 100%;
-        padding: 2rem;
-        position: fixed;
-        top: 0;
-        right: 0;
-        overflow-y: auto;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .mobile-menu-overlay.active .mobile-menu-content {
-        transform: translateX(0);
-      }
-
-      .mobile-menu-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-        color: var(--text);
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        transition: background 0.2s;
-      }
-
-      .mobile-menu-close:hover {
-        background: var(--bg-alt);
-      }
-
-      .mobile-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 3rem;
-      }
-
-      .mobile-nav-link {
-        text-decoration: none;
-        color: var(--text);
-        font-weight: 500;
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--border);
-        transition: all 0.3s;
-        position: relative;
-        display: block;
-        font-size: 1rem;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .mobile-nav-link::before {
-        content: '';
-        position: absolute;
-        left: -1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 0;
-        background: linear-gradient(180deg, #2563EB, #06b6d4);
-        transition: height 0.3s;
-        border-radius: 2px;
-      }
-
-      .mobile-nav-link:hover {
-        color: #2563EB;
-        padding-left: 1rem;
-      }
-
-      .mobile-nav-link:hover::before {
-        height: 60%;
-      }
-
-      .mobile-menu-actions {
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--border);
-      }
-
-      .mobile-menu-actions .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-        font-size: 1rem;
-      }
-
-      @media (max-width: 900px) {
-        /* Header */
-        .nav-links { display: none !important; }
-        .header-actions { display: none !important; }
-        .hamburger-menu-btn { display: flex !important; }
-        .nav-container { height: 64px; padding: 0 1rem; }
-        .logo { font-size: 1.1rem; }
-        header .nav-container > div[style*="display:flex"] {
-            flex-wrap: wrap !important;
-            justify-content: flex-end;
-        }
-
-        /* Hero + content */
-        .legal-hero-inner { grid-template-columns: 1fr; }
-        .hero-illustration { width: 180px; height: 180px; justify-self: start; }
-        .legal-wrapper { padding-top: 10px; }
-
-        /* Footer */
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem 1.25rem;
-        }
-        .footer-grid > div:first-child {
-            grid-column: span 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        .footer-grid > div:not(:first-child) { min-width: 0; }
-        .footer-grid h4 { text-align: left; }
-
-        /* Buttons */
-        .btn {
-            padding: 12px 18px;
-            font-size: 0.9rem;
-            min-height: 44px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .mobile-menu-content {
-          width: 90%;
-          padding: 1.25rem;
-        }
-
-        .hamburger-menu-btn {
-          width: 32px;
-          height: 32px;
-        }
-
-        .mobile-nav-link {
-          font-size: 0.95rem;
-          padding: 0.875rem 0;
-        }
-
-        .legal-hero { padding: 4rem 0 1.5rem; }
-        .legal-title { font-size: 2.25rem; }
-        .legal-subtitle { font-size: 1rem; }
-        .legal-wrapper { padding-left: 16px; padding-right: 16px; }
-        .legal-card { padding: 18px; }
-        .content, .content * { overflow-wrap: anywhere; }
-
-        .nav-container { padding: 0 1rem; height: auto; }
-        header .nav-container > div[style*="display:flex"] {
-          flex-wrap: wrap !important;
-          justify-content: flex-end;
-          gap: 10px !important;
-        }
-        .btn {
-          margin: 0;
-          padding: 10px 14px;
-          font-size: 0.9rem;
-          min-height: 42px;
-          white-space: nowrap;
-        }
-        .highlight-box { padding: 16px; }
-      }
-
-      /* Quote Modal - Smart Lead Flow */
-      #quoteModal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        align-items: center;
-        justify-content: center;
-        font-family: 'Inter', sans-serif;
-      }
-
-      #quoteModal.active {
-        display: flex;
-      }
-
-      .quote-modal-container {
-        background: white;
-        border-radius: 16px;
-        padding: 2.5rem;
-        max-width: 500px;
-        width: 90%;
-        max-height: 90vh;
-        overflow-y: auto;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        position: relative;
-        animation: modalFadeIn 0.3s ease-out;
-      }
-
-      @keyframes modalFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.95) translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-        }
-      }
-
-      .quote-modal-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #64748b;
-        cursor: pointer;
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        transition: all 0.2s;
-      }
-
-      .quote-modal-close:hover {
-        background: #f1f5f9;
-        color: #0f172a;
-      }
-
-      .quote-modal-title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #0f172a;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-      }
-
-      .quote-modal-subtitle {
-        color: #64748b;
-        margin-bottom: 1.5rem;
-        font-size: 0.95rem;
-      }
-
-      .quote-form-group {
-        margin-bottom: 1.25rem;
-      }
-
-      .quote-form-group label {
-        display: block;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: #0f172a;
-        margin-bottom: 0.5rem;
-      }
-
-      .quote-form-group input,
-      .quote-form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        transition: all 0.2s;
-        box-sizing: border-box;
-      }
-
-      .quote-form-group input:focus,
-      .quote-form-group textarea:focus {
-        outline: none;
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-      }
-
-      .quote-form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-
-      .quote-submit-btn {
-        width: 100%;
-        padding: 14px;
-        background: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        margin-top: 0.5rem;
-      }
-
-      .quote-submit-btn:hover:not(:disabled) {
-        background: #1d4ed8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      }
-
-      .quote-submit-btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      .quote-success-message {
-        display: none;
-        text-align: center;
-        padding: 2rem 0;
-      }
-
-      .quote-success-message.active {
-        display: block;
-      }
-
-      .quote-success-icon {
-        width: 64px;
-        height: 64px;
-        background: rgba(37, 99, 235, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-        color: #2563eb;
-      }
-
-      .quote-success-message h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: #0f172a;
-      }
-
-      .quote-success-message p {
-        color: #64748b;
-        font-size: 1rem;
-      }
-
-      .quote-form-fields {
-        transition: opacity 0.3s;
-      }
-
-      .quote-form-fields.hidden {
-        display: none;
-      }
-
-      @media(max-width: 768px) {
-        .quote-modal-container {
-          padding: 1.5rem;
-          width: 95%;
-        }
-      }
-      
-      /* Mobile Menu Actions - Button Styling */
-      .mobile-menu-actions {
-        margin-top: 2rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      
-      .mobile-menu-actions .btn {
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 10px;
-        text-align: center;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s ease;
-        margin: 0;
-        min-height: 48px;
-      }
-      
-      .mobile-menu-actions .btn-secondary {
-        background: white;
-        border: 2px solid var(--border);
-        color: var(--text);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      }
-      
-      .mobile-menu-actions .btn-secondary:hover {
-        background: var(--bg-alt);
-        border-color: var(--primary);
-        color: var(--primary);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.15);
-      }
-      
-      .mobile-menu-actions .btn-primary {
-        background: var(--primary);
-        color: white;
-        border: none;
-        box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
-      }
-      
-      .mobile-menu-actions .btn-primary:hover {
-        background: #1d4ed8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="ambient-glow glow-1"></div>
-    <div class="ambient-glow glow-2"></div>
-
-    <header>
-      <div class="nav-container">
-        <a href="https://www.atlasynq.com" class="logo">
-          <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-          <span>Atla<span style="color: var(--primary)">Synq</span></span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — AtlaSynq</title>
+  <meta name="description" content="AtlaSynq Terms of Service and user agreement.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.atlasynq.com/terms/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.atlasynq.com/terms/">
+  <meta property="og:title" content="Terms of Service — AtlaSynq">
+  <meta property="og:description" content="AtlaSynq Terms of Service and user agreement.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
+  <link rel="alternate icon" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
+    gtag('config', 'G-JXPHR1VRHF');
+  </script>
+  <style>
+    .wordmark-atla { color: #2B1F1A; }
+    .wordmark-synq { color: #C96A4A; }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <nav class="container nav-inner" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/#product">Product</a></li>
+      <li><a href="/features/">Features</a></li>
+      <li><a href="/security/">Security</a></li>
+      <li><a href="/integrations/">Integrations</a></li>
+      <li><a href="/pricing/">Pricing</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 20px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:9px 18px;font-size:0.84rem;">Start Building</a>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="mobile-menu-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
+      <a href="/" class="nav-logo" style="gap:8px;">
+        <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+        <span class="wordmark-atla" style="font-size:1.1rem;">Atla</span><span class="wordmark-synq" style="font-size:1.1rem;">Synq</span>
+      </a>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1.5px solid var(--clay-border);border-radius:8px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--clay-text-sec);display:flex;align-items:center;justify-content:center;">&#x2715;</button>
+    </div>
+    <a href="/#product">Product</a>
+    <a href="/features/">Features</a>
+    <a href="/security/">Security</a>
+    <a href="/integrations/">Integrations</a>
+    <a href="/pricing/">Pricing</a>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <a href="/login/">Log in</a>
+    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener" style="color:var(--clay-primary);font-weight:700;">Book a demo</a>
+    <a href="/signup/">Start Building</a>
+  </div>
+</div>
+
+<section class="section-hero" style="padding-bottom:2rem;">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-primary);">Legal</span>
+    </div>
+    <h1 class="hero-headline">Terms of Service</h1>
+    <p class="hero-sub">The rules for using AtlaSynq — accounts, billing, and platform integrity.</p>
+    <span class="legal-meta-pill">Last updated: January 15, 2026</span>
+  </div>
+</section>
+
+<section>
+  <div class="container legal-layout">
+    <aside class="legal-toc" aria-label="Table of contents">
+      <h2>On this page</h2>
+      <a href="#acceptance">Acceptance</a>
+      <a href="#service">Service</a>
+      <a href="#account">Accounts</a>
+      <a href="#usage">Acceptable use</a>
+      <a href="#payment">Payment</a>
+      <a href="#intellectual">IP</a>
+      <a href="#termination">Termination</a>
+      <a href="#liability">Liability</a>
+      <a href="#changes">Changes</a>
+      <a href="#contact">Contact</a>
+    </aside>
+    <main class="legal-prose" aria-label="Terms of Service">
+      <section id="acceptance">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using AtlaSynq ("the Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, you may not use the Service.</p>
+        <p>If you use the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+      </section>
+      <section id="service">
+        <h2>2. Description of Service</h2>
+        <p>AtlaSynq provides a unified intelligence layer that connects to your existing business tools to enable AI-powered querying and synthesis across your organization's knowledge base.</p>
+        <div class="legal-callout"><strong>Service availability:</strong> We strive for high availability but do not guarantee uninterrupted access. Maintenance, updates, or external circumstances may cause downtime.</div>
+      </section>
+      <section id="account">
+        <h2>3. User Accounts</h2>
+        <p><strong>Account creation:</strong> You must create an account and provide accurate, complete information. You are responsible for maintaining credential confidentiality.</p>
+        <p><strong>Account security:</strong> You are responsible for activities under your account and must promptly notify us of unauthorized use or security breaches.</p>
+      </section>
+      <section id="usage">
+        <h2>4. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use the Service for illegal purposes or in violation of laws.</li>
+          <li>Attempt unauthorized access to the Service or related systems.</li>
+          <li>Interfere with integrity or performance of the Service.</li>
+          <li>Transmit malicious code, viruses, or harmful data.</li>
+          <li>Reverse engineer or decompile any part of the Service.</li>
+          <li>Violate others' rights or infringe intellectual property.</li>
+        </ul>
+      </section>
+      <section id="payment">
+        <h2>5. Payment &amp; Billing</h2>
+        <p><strong>Subscription fees:</strong> Access requires a paid subscription billed in advance (monthly or annual), as selected during signup.</p>
+        <p><strong>Payment terms:</strong> You agree to pay all applicable fees. Fees are non-refundable except where required by law or explicitly stated.</p>
+        <p><strong>Price changes:</strong> We may modify pricing with advance notice; changes apply to future billing cycles.</p>
+      </section>
+      <section id="intellectual">
+        <h2>6. Intellectual Property</h2>
+        <p>The Service and its features are owned by AtlaSynq Inc. and protected by applicable intellectual property laws.</p>
+        <p>You retain ownership of data you provide. You grant us a limited license to process it solely to provide the Service.</p>
+      </section>
+      <section id="termination">
+        <h2>7. Termination</h2>
+        <p><strong>By you:</strong> You may cancel at any time through your account settings. Cancellation takes effect at the end of the current billing period.</p>
+        <p><strong>By us:</strong> We may suspend or terminate access if you violate these Terms or engage in fraudulent, abusive, or illegal activity.</p>
+      </section>
+      <section id="liability">
+        <h2>8. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, AtlaSynq Inc. is not liable for indirect, incidental, special, consequential, or punitive damages, or loss of profits, revenues, data, use, goodwill, or other intangible losses resulting from your use of the Service.</p>
+        <div class="legal-callout"><strong>Disclaimer:</strong> The Service is provided "as is" and "as available" without warranties of any kind, express or implied.</div>
+      </section>
+      <section id="changes">
+        <h2>9. Changes to Terms</h2>
+        <p>We may modify these Terms at any time. We will post updates on our website and update the "Last Updated" date. Continued use after changes constitutes acceptance of the updated Terms.</p>
+      </section>
+      <section id="contact">
+        <h2>10. Contact Us</h2>
+        <p>If you have questions about these Terms, contact <a href="mailto:idanl@atlasynq.com" style="color:var(--clay-primary);">idanl@atlasynq.com</a>.</p>
+      </section>
+    </main>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
+          <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
+          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <div class="nav-links">
-          <a href="/pricing/" class="nav-link">Pricing</a>
-          <a href="/features/" class="nav-link">Features</a>
-          <a href="/security/" class="nav-link">Security</a>
-          <a href="/#product" class="nav-link">Product</a>
-          <a href="/about/" class="nav-link">About</a>
-          <a href="/#integrations" class="nav-link">Integrations</a>
-        </div>
-        <div class="header-actions" style="display:flex; gap:10px;">
-          <a href="/login/" class="btn btn-secondary" style="text-decoration:none; display:flex; align-items:center;">Log in</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/idanl-atlasynq/30min" class="btn btn-primary" style="text-decoration:none; display:flex; align-items:center;">Book Demo</a>
-        </div>
-      <!-- Hamburger Menu Button (Mobile Only) -->
-        <button class="hamburger-menu-btn" id="hamburgerBtn" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <p>Governed department agents for enterprise teams.</p>
       </div>
-    </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobileMenu">
-      <div class="mobile-menu-content">
-        <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close menu">×</button>
-        <nav class="mobile-nav">
-          <a href="/pricing/" class="mobile-nav-link">Pricing</a>
-          <a href="/features/" class="mobile-nav-link">Features</a>
-          <a href="/security/" class="mobile-nav-link">Security</a>
-          <a href="/#product" class="mobile-nav-link">Product</a>
-          <a href="/about/" class="mobile-nav-link">About</a>
-          <a href="/#integrations" class="mobile-nav-link">Integrations</a>
-        </nav>
-        <div class="mobile-menu-actions">
-          <a href="/login/" class="btn btn-secondary">Log in</a>
-          <a href="https://calendly.com/idanl-atlasynq/30min" onclick="closeMobileMenuFunc();" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book Demo</a>
-        </div>
+      <div>
+        <h4>Product</h4>
+        <a href="/features/" class="footer-link">Features</a>
+        <a href="/security/" class="footer-link">Security</a>
+        <a href="/integrations/" class="footer-link">Integrations</a>
+        <a href="/pricing/" class="footer-link">Pricing</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="/careers/" class="footer-link">Careers</a>
+        <a href="/blog/" class="footer-link">Blog</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="footer-link" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
       </div>
     </div>
-
-    <section class="legal-hero">
-      <div class="legal-hero-inner">
-        <div>
-          <div class="legal-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <path d="M14 2v6h6"></path>
-            </svg>
-            Terms & User Agreement
-          </div>
-          <div class="legal-title">Terms of Service</div>
-          <p class="legal-subtitle">The rules for using AtlaSynq—what you can do, what you can’t, and how we handle account, billing, and platform integrity.</p>
-          <div class="legal-meta">
-            <span class="meta-pill">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 6v6l4 2"></path>
-              </svg>
-              Last Updated: January 15, 2026
-            </span>
-            
-          </div>
-        </div>
-        <div class="hero-illustration" aria-hidden="true">
-          <!-- Animated document mark -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <path d="M14 2v6h6"></path>
-            <path class="doc-line" d="M8 13h8"></path>
-            <path class="doc-line l2" d="M8 16h7"></path>
-            <path class="doc-line l3" d="M8 19h5"></path>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <div class="legal-wrapper">
-      <main class="content" aria-label="Terms of Service">
-        <section id="acceptance" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <path d="M14 2v6h6"></path>
-              </svg>
-            </span>
-            1. Acceptance of Terms
-          </div>
-          <p>By accessing or using AtlaSynq (“the Service”), you agree to be bound by these Terms of Service (“Terms”). If you do not agree, you may not use the Service.</p>
-          <p>If you use the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
-        </section>
-
-        <section id="service" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 6h16"></path>
-                <path d="M4 12h16"></path>
-                <path d="M4 18h10"></path>
-              </svg>
-            </span>
-            2. Description of Service
-          </div>
-          <p>AtlaSynq provides a unified intelligence layer that connects to your existing business tools to enable AI-powered querying and synthesis across your organization’s knowledge base.</p>
-          <div class="highlight-box">
-            <strong>Service availability:</strong> We strive for high availability but do not guarantee uninterrupted access. Maintenance, updates, or external circumstances may cause downtime.
-          </div>
-        </section>
-
-        <section id="account" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5z"></path>
-                <path d="M3 22a9 9 0 0 1 18 0"></path>
-              </svg>
-            </span>
-            3. User Accounts
-          </div>
-          <p><strong>Account creation:</strong> You must create an account and provide accurate, complete information. You are responsible for maintaining credential confidentiality.</p>
-          <p><strong>Account security:</strong> You are responsible for activities under your account and must promptly notify us of unauthorized use or security breaches.</p>
-        </section>
-
-        <section id="usage" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 2l8 4v6c0 6-8 10-8 10S4 18 4 12V6l8-4z"></path>
-              </svg>
-            </span>
-            4. Acceptable Use
-          </div>
-          <p>You agree not to:</p>
-          <ul>
-            <li>Use the Service for illegal purposes or in violation of laws.</li>
-            <li>Attempt unauthorized access to the Service or related systems.</li>
-            <li>Interfere with integrity or performance of the Service.</li>
-            <li>Transmit malicious code, viruses, or harmful data.</li>
-            <li>Reverse engineer or decompile any part of the Service.</li>
-            <li>Violate others’ rights or infringe intellectual property.</li>
-          </ul>
-        </section>
-
-        <section id="payment" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M21 8H3"></path>
-                <path d="M7 12h2"></path>
-                <path d="M3 6h18v12H3z"></path>
-              </svg>
-            </span>
-            5. Payment & Billing
-          </div>
-          <p><strong>Subscription fees:</strong> Access requires a paid subscription billed in advance (monthly or annual), as selected during signup.</p>
-          <p><strong>Payment terms:</strong> You agree to pay all applicable fees. Fees are non-refundable except where required by law or explicitly stated.</p>
-          <p><strong>Price changes:</strong> We may modify pricing with advance notice; changes apply to future billing cycles.</p>
-        </section>
-
-        <section id="intellectual" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"></path>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-              </svg>
-            </span>
-            6. Intellectual Property
-          </div>
-          <p>The Service and its features are owned by AtlaSynq Inc. and protected by applicable intellectual property laws.</p>
-          <p>You retain ownership of data you provide. You grant us a limited license to process it solely to provide the Service.</p>
-        </section>
-
-        <section id="termination" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M10 12H6"></path>
-                <path d="M14 12h8"></path>
-                <path d="M12 2a10 10 0 1 0 10 10"></path>
-              </svg>
-            </span>
-            7. Termination
-          </div>
-          <p><strong>By you:</strong> You may cancel at any time through your account settings. Cancellation takes effect at the end of the current billing period.</p>
-          <p><strong>By us:</strong> We may suspend or terminate access if you violate these Terms or engage in fraudulent, abusive, or illegal activity.</p>
-        </section>
-
-        <section id="liability" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 9v4"></path>
-                <path d="M12 17h.01"></path>
-                <path d="M10.3 4.3L2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0z"></path>
-              </svg>
-            </span>
-            8. Limitation of Liability
-          </div>
-          <p>To the maximum extent permitted by law, AtlaSynq Inc. is not liable for indirect, incidental, special, consequential, or punitive damages, or loss of profits, revenues, data, use, goodwill, or other intangible losses resulting from your use of the Service.</p>
-          <div class="highlight-box">
-            <strong>Disclaimer:</strong> The Service is provided “as is” and “as available” without warranties of any kind, express or implied.
-          </div>
-        </section>
-
-        <section id="changes" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M21 12a9 9 0 1 1-3-6.7"></path>
-                <path d="M21 3v7h-7"></path>
-              </svg>
-            </span>
-            9. Changes to Terms
-          </div>
-          <p>We may modify these Terms at any time. We will post updates on our website and update the “Last Updated” date. Continued use after changes constitutes acceptance of the updated Terms.</p>
-        </section>
-
-        <section id="contact" class="legal-card">
-          <div class="section-title">
-            <span class="section-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
-              </svg>
-            </span>
-            10. Contact Us
-          </div>
-          <p>If you have any questions about these Terms, contact:</p>
-          <p><strong>Email:</strong> [remove]</p>
-          <p><strong>Address:</strong> AtlaSynq Inc., [Your Business Address]</p>
-        </section>
-      </main>
+    <div class="footer-bottom">
+      <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
     </div>
+  </div>
+</footer>
 
-    <footer>
-      <div class="nav-container footer-grid">
-        <div style="display: flex; flex-direction: column;">
-          <a href="https://www.atlasynq.com" class="logo" style="margin-bottom:0.5rem; display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem;">
-            <img src="/images/atlasynq-logo.svg" width="32" height="32" alt="" aria-hidden="true" />
-            <span>Atla<span style="color: var(--primary)">Synq</span></span>
-          </a>
-          <p style="font-size:0.9rem; color: var(--text-muted); margin: 0; padding: 0; text-align: left; width: 100%;">The unified, governed intelligence layer.</p>
+<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div class="cookie-content">
+    <strong style="color:var(--clay-text);">We use cookies</strong> to improve your experience. <a href="/privacy/" style="color:var(--clay-primary);">Privacy Policy</a>
+  </div>
+  <div class="cookie-buttons">
+    <button class="btn-cookie-accept">Accept all</button>
+    <button class="btn-cookie-decline">Decline</button>
+    <a href="#" class="cookie-manage-link" id="cookieManageLink">Manage</a>
+  </div>
+</div>
+
+<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal">
+    <div class="cookie-modal-header">
+      <h3 id="cookieModalTitle">Cookie preferences</h3>
+      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cookie-preferences">
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Essential <span class="locked-badge">Required</span></h4>
+          <p>Authentication, security, and core functionality.</p>
         </div>
-        <div><h4>Product</h4><a href="/pricing/" class="footer-link">Pricing</a><a href="/features/" class="footer-link">Features</a><a href="/security/" class="footer-link">Security</a></div>
-        <div><h4>Company</h4><a href="../about/" class="footer-link">About</a><a href="../careers/" class="footer-link">Careers</a></div>
-        <div><h4>Legal</h4><a href="/privacy/" class="footer-link">Privacy Policy</a><a href="/terms/" class="footer-link">Terms of Service</a></div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
       </div>
-      <div class="nav-container text-center" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-muted);">© 2026 AtlaSynq Inc. All rights reserved.</div>
-    </footer>
-
-    <!-- Quote Modal -->
-    <div id="quoteModal">
-      <div class="quote-modal-container">
-        <button class="quote-modal-close" onclick="closeQuoteModal()" aria-label="Close">×</button>
-        
-        <!-- Form Step -->
-        <div id="formStep">
-          <h2 class="quote-modal-title">Request a Quote</h2>
-          <p class="quote-modal-subtitle">Tell us about your needs and we'll get back to you shortly.</p>
-          
-          <form id="quoteForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" target="hidden_iframe">
-            <input type="hidden" name="oid" value="00D9k000001jUUP">
-            <input type="hidden" name="retURL" value="https://www.atlasynq.com">
-            <input type="hidden" name="debug" value="1">
-            
-            <div class="quote-form-group">
-              <label for="first_name">First Name *</label>
-              <input type="text" name="first_name" id="first_name" required>
-            </div>
-            
-            <div class="quote-form-group">
-              <label for="last_name">Last Name *</label>
-              <input type="text" name="last_name" id="last_name" required>
-            </div>
-            
-            <div class="quote-form-group">
-              <label for="email">Email *</label>
-              <input type="email" name="email" id="email" required>
-            </div>
-            
-            <div class="quote-form-group">
-              <label for="company">Company *</label>
-              <input type="text" name="company" id="company" required>
-            </div>
-            
-            <div class="quote-form-group">
-              <label for="description">Message *</label>
-              <textarea name="description" id="description" placeholder="Tell us about your requirements..." required></textarea>
-            </div>
-            
-            <button type="submit" class="quote-submit-btn" id="leadSubmitBtn">Request Quote</button>
-          </form>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Analytics</h4>
+          <p>Helps us understand how visitors use the site.</p>
         </div>
-        
-        <!-- Success Step -->
-        <div id="successStep" class="quote-success-container" style="display: none;">
-          <div class="quote-success-icon-large">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
-          <h3 class="quote-success-title">Thank you! Request Received.</h3>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-preference-item">
+        <div class="cookie-preference-info">
+          <h4>Marketing</h4>
+          <p>Used to measure ad performance.</p>
         </div>
+        <label class="cookie-toggle"><input type="checkbox" id="cookieMarketing"><span class="cookie-toggle-slider"></span></label>
       </div>
     </div>
+    <div class="cookie-modal-actions">
+      <button class="cookie-save-btn" id="cookieSaveBtn">Save preferences</button>
+    </div>
+  </div>
+</div>
 
-    <!-- Hidden iframe for Salesforce form submission -->
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-
-    <script>
-      // Quote Modal Functions
-      function openQuoteModal() {
-        const modal = document.getElementById('quoteModal');
-        const formStep = document.getElementById('formStep');
-        const successStep = document.getElementById('successStep');
-        const submitBtn = document.getElementById('leadSubmitBtn');
-        
-        if (!modal || !formStep || !successStep || !submitBtn) return;
-        
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Reset UI state
-        formStep.style.display = 'block';
-        successStep.style.display = 'none';
-        submitBtn.textContent = 'Request Quote';
-        
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'generate_lead', {'send_to': 'G-JXPHR1VRHF'});
-        }
-      }
-
-      function closeQuoteModal() {
-        const modal = document.getElementById('quoteModal');
-        if (!modal) return;
-        
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Reset form after a delay
-        setTimeout(() => {
-          const form = document.getElementById('quoteForm');
-          const formStep = document.getElementById('formStep');
-          const successStep = document.getElementById('successStep');
-          const submitBtn = document.getElementById('leadSubmitBtn');
-          
-          if (form) form.reset();
-          if (formStep) formStep.style.display = 'block';
-          if (successStep) successStep.style.display = 'none';
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Request Quote';
-          }
-        }, 300);
-      }
-
-      // Split Behavior Script - Runs on DOMContentLoaded
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('quoteForm');
-        const formStep = document.getElementById('formStep');
-        const successStep = document.getElementById('successStep');
-        const submitBtn = document.getElementById('leadSubmitBtn');
-        
-        // Handle form submission (Quote Modal only)
-        if (form) {
-          form.addEventListener('submit', function(e) {
-            // Do NOT prevent default - let it post to iframe
-            if (submitBtn) {
-              submitBtn.disabled = true;
-              submitBtn.textContent = 'Sending...';
-            }
-            
-            // Immediately hide form and show success
-            if (formStep) formStep.style.display = 'none';
-            if (successStep) successStep.style.display = 'block';
-            
-            // Wait 3s, then close modal
-            setTimeout(function() {
-              closeQuoteModal();
-            }, 3000);
-          });
-        }
-
-        // Split Detection: Find ALL buttons and links by TEXT content
-        const allButtons = document.querySelectorAll('button, a');
-        allButtons.forEach(function(btn) {
-          const btnText = btn.textContent.trim().toLowerCase();
-          
-          // Clean up: Remove old event listeners and onclick handlers
-          if (btn.getAttribute('onclick')) {
-            btn.removeAttribute('onclick');
-          }
-          
-          
-          // CASE B: "Request Quote" or "Contact Sales" - Open Quote Modal
-          if (btnText.includes('request quote') || btnText.includes('contact sales')) {
-            btn.addEventListener('click', function(e) {
-              // Only handle if it's a button or a link without a real href
-              if (btn.tagName === 'BUTTON' || (btn.tagName === 'A' && (!btn.href || btn.href === '#' || btn.href.includes('javascript:')))) {
-                e.preventDefault();
-                e.stopPropagation();
-                openQuoteModal();
-                return false;
-              }
-            }, true);
-          }
-        });
-      });
-
-      document.addEventListener('click', function(e) {
-        const modal = document.getElementById('quoteModal');
-        if (e.target === modal) {
-          closeQuoteModal();
-        }
-      });
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          const modal = document.getElementById('quoteModal');
-          if (modal && modal.classList.contains('active')) {
-            closeQuoteModal();
-          }
-        }
-      });
-
-  </script>
-  <script>
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMobileMenu = document.getElementById('closeMobileMenu');
-
-    function openMobileMenu() {
-      mobileMenu.classList.add('active');
-      hamburgerBtn.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenuFunc() {
-      mobileMenu.classList.remove('active');
-      hamburgerBtn.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    if (hamburgerBtn) {
-      hamburgerBtn.addEventListener('click', openMobileMenu);
-    }
-    if (closeMobileMenu) {
-      closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-    }
-    
-    mobileMenu.addEventListener('click', function(e) {
-      if (e.target === mobileMenu) {
-        closeMobileMenuFunc();
-      }
-    });
-
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', closeMobileMenuFunc);
-    });
-  </script>
-
-  <script>
-    // Active Navigation State
-    (function() {
-      const currentPath = window.location.pathname;
-      const navLinks = document.querySelectorAll('.nav-link, .nav-links a, .mobile-nav-link');
-      
-      // Normalize current path (remove trailing slash except for root)
-      const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-      
-      navLinks.forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (!href || href.startsWith('#')) return;
-        
-        // Normalize link path
-        let linkPath = href;
-        if (href.startsWith('/')) {
-          linkPath = href;
-        } else if (href.startsWith('../')) {
-          // Convert relative paths to absolute
-          const segments = href.split('/').filter(s => s && s !== '..');
-          linkPath = '/' + segments[segments.length - 1];
-        } else {
-          return; // Skip other relative paths
-        }
-        
-        // Normalize link path (remove trailing slash except for root)
-        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, '');
-        
-        // Check for exact match or if current path starts with link path
-        if (normalizedCurrentPath === normalizedLinkPath || 
-            (normalizedLinkPath !== '/' && normalizedCurrentPath.startsWith(normalizedLinkPath + '/'))) {
-          link.classList.add('active');
-        }
-      });
-    })();
-  </script>
+<script src="/js/site-demos.js" defer></script>
 </body>
 </html>
