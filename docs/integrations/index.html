@@ -58,6 +58,7 @@
       width: 40px; height: 40px;
       object-fit: contain;
       border-radius: 8px;
+      mix-blend-mode: multiply; /* hides white boxes on JPG logo assets */
     }
     .int-card h3 {
       font-family: 'Sora', sans-serif;
@@ -82,6 +83,20 @@
       display: flex; align-items: center; justify-content: center;
     }
     .int-card-openapi .openapi-icon svg { width: 22px; height: 22px; fill: currentColor; }
+
+    /* Monogram tiles for connectors without a local logo asset */
+    .int-mono {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .int-mono.terra { background: var(--clay-primary-lt); color: var(--clay-primary); }
+    .int-mono.denim { background: var(--clay-blue-lt);    color: var(--clay-blue); }
+    .int-mono.sage  { background: var(--clay-sage-lt);    color: var(--clay-sage); }
+    .int-mono.amber { background: var(--clay-amber-lt);   color: var(--clay-amber); }
 
     .dept-grid {
       display: grid;
@@ -247,9 +262,40 @@
       <div class="int-card"><img src="/images/gmail.jpg" alt="" loading="lazy"><h3>Gmail</h3><span class="int-meta">Email</span></div>
       <div class="int-card"><img src="/images/netsuite.png" alt="" loading="lazy"><h3>NetSuite</h3><span class="int-meta">Finance</span></div>
       <div class="int-card"><img src="/images/quickbooks.png" alt="" loading="lazy"><h3>QuickBooks</h3><span class="int-meta">Finance</span></div>
+      <div class="int-card"><img src="/images/stripe.jpg" alt="" loading="lazy"><h3>Stripe</h3><span class="int-meta">Payments</span></div>
       <div class="int-card"><img src="/images/zendesk.png" alt="" loading="lazy"><h3>Zendesk</h3><span class="int-meta">Support</span></div>
       <div class="int-card"><img src="/images/gong.png" alt="" loading="lazy"><h3>Gong</h3><span class="int-meta">Revenue</span></div>
       <div class="int-card"><img src="/images/excel.png" alt="" loading="lazy"><h3>Excel / Sheets</h3><span class="int-meta">Data</span></div>
+      <div class="int-card"><img src="/images/linkedin.png" alt="" loading="lazy"><h3>LinkedIn</h3><span class="int-meta">Social</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">C</div><h3>Confluence</h3><span class="int-meta">Knowledge</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">A</div><h3>Asana</h3><span class="int-meta">Projects</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">M</div><h3>Monday.com</h3><span class="int-meta">Projects</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">T</div><h3>Trello</h3><span class="int-meta">Projects</span></div>
+      <div class="int-card"><div class="int-mono amber" aria-hidden="true">G</div><h3>GitLab</h3><span class="int-meta">Engineering</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">B</div><h3>Bitbucket</h3><span class="int-meta">Engineering</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">A</div><h3>Azure DevOps</h3><span class="int-meta">Engineering</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">S</div><h3>ServiceNow</h3><span class="int-meta">ITSM</span></div>
+      <div class="int-card"><div class="int-mono amber" aria-hidden="true">W</div><h3>Workday</h3><span class="int-meta">HR</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">B</div><h3>BambooHR</h3><span class="int-meta">HR</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">G</div><h3>Greenhouse</h3><span class="int-meta">Recruiting</span></div>
+      <div class="int-card"><div class="int-mono amber" aria-hidden="true">D</div><h3>DocuSign</h3><span class="int-meta">Legal</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">D</div><h3>Dropbox</h3><span class="int-meta">Files</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">B</div><h3>Box</h3><span class="int-meta">Files</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">S</div><h3>SharePoint</h3><span class="int-meta">Files</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">O</div><h3>Outlook</h3><span class="int-meta">Email</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">Z</div><h3>Zoom</h3><span class="int-meta">Meetings</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">I</div><h3>Intercom</h3><span class="int-meta">Support</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">S</div><h3>Snowflake</h3><span class="int-meta">Data</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">T</div><h3>Tableau</h3><span class="int-meta">Analytics</span></div>
+      <div class="int-card"><div class="int-mono amber" aria-hidden="true">P</div><h3>Power BI</h3><span class="int-meta">Analytics</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">L</div><h3>Looker</h3><span class="int-meta">Analytics</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">D</div><h3>Datadog</h3><span class="int-meta">Observability</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">P</div><h3>PagerDuty</h3><span class="int-meta">Incidents</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">O</div><h3>Outreach</h3><span class="int-meta">Revenue</span></div>
+      <div class="int-card"><div class="int-mono amber" aria-hidden="true">A</div><h3>Airtable</h3><span class="int-meta">Data</span></div>
+      <div class="int-card"><div class="int-mono denim" aria-hidden="true">S</div><h3>SAP</h3><span class="int-meta">ERP</span></div>
+      <div class="int-card"><div class="int-mono sage" aria-hidden="true">O</div><h3>Okta</h3><span class="int-meta">Identity</span></div>
+      <div class="int-card"><div class="int-mono terra" aria-hidden="true">C</div><h3>Coralogix</h3><span class="int-meta">Observability</span></div>
       <div class="int-card int-card-openapi">
         <div class="openapi-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -257,6 +303,7 @@
         <h3>Open API</h3><span class="int-meta">Custom</span>
       </div>
     </div>
+    <p style="text-align:center;margin-top:1.5rem;font-family:'Sora',sans-serif;font-size:0.85rem;color:var(--clay-text-muted);">45+ connectors and growing. Every connector enforces role-based access on each query.</p>
   </div>
 </section>
 

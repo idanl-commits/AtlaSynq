@@ -222,20 +222,30 @@
       text-transform: uppercase; letter-spacing: 0.1em; color: var(--clay-text-muted);
     }
     .hero-logo-row {
-      display: flex; align-items: center; gap: 1.5rem;
+      display: flex; align-items: center; gap: 2.25rem;
       flex-wrap: wrap; justify-content: center;
     }
+    /* Logo assets are full lockups (mark + wordmark) — show image only,
+       uniform height, grayscale, multiply to erase white JPG boxes. */
     .hero-logo-item {
-      display: flex; align-items: center; gap: 6px;
-      opacity: 0.55; filter: sepia(0.15) saturate(0.5);
+      display: flex; align-items: center;
+      opacity: 0.62;
+      filter: grayscale(1);
+      mix-blend-mode: multiply;
       transition: opacity 0.2s, filter 0.2s;
     }
-    .hero-logo-item:hover { opacity: 0.85; filter: none; }
-    .hero-logo-item img { height: 22px; width: auto; object-fit: contain; }
-    .hero-logo-item span {
-      font-family: 'Sora', sans-serif; font-size: 0.78rem; font-weight: 600;
-      color: var(--clay-text-sec);
+    .hero-logo-item:hover { opacity: 1; filter: none; }
+    .hero-logo-item img { height: 24px; width: auto; max-width: 110px; object-fit: contain; }
+    /* HubSpot asset is a padded square lockup — render taller, crop margins */
+    .hero-logo-item img.sq { height: 60px; margin: -18px 0; }
+    .hero-logo-more {
+      font-family: 'Sora', sans-serif; font-size: 0.8rem; font-weight: 600;
+      color: var(--clay-text-muted); text-decoration: none;
+      border-bottom: 1px solid var(--clay-border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
     }
+    .hero-logo-more:hover { color: var(--clay-primary); border-color: var(--clay-primary); }
     .hero-security-badges {
       display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center;
     }
@@ -364,13 +374,14 @@
     <div class="hero-trust-strip" data-fade>
       <div class="hero-trust-label">Built for teams that already run</div>
       <div class="hero-logo-row" aria-label="Integrated tools">
-        <div class="hero-logo-item"><img src="/images/salesforce.png" alt="Salesforce" loading="lazy"><span>Salesforce</span></div>
-        <div class="hero-logo-item"><img src="/images/slack.png" alt="Slack" loading="lazy"><span>Slack</span></div>
-        <div class="hero-logo-item"><img src="/images/jira.png" alt="Jira" loading="lazy"><span>Jira</span></div>
-        <div class="hero-logo-item"><img src="/images/hubspot.png" alt="HubSpot" loading="lazy"><span>HubSpot</span></div>
-        <div class="hero-logo-item"><img src="/images/netsuite.png" alt="NetSuite" loading="lazy"><span>NetSuite</span></div>
-        <div class="hero-logo-item"><img src="/images/github.jpg" alt="GitHub" loading="lazy"><span>GitHub</span></div>
-        <div class="hero-logo-item"><img src="/images/notion.png" alt="Notion" loading="lazy"><span>Notion</span></div>
+        <div class="hero-logo-item"><img src="/images/salesforce.png" alt="Salesforce" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/slack.png" alt="Slack" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/jira.png" alt="Jira" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/hubspot.png" alt="HubSpot" class="sq" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/netsuite.png" alt="NetSuite" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/github.jpg" alt="GitHub" loading="lazy"></div>
+        <div class="hero-logo-item"><img src="/images/notion.png" alt="Notion" loading="lazy"></div>
+        <a href="/integrations/" class="hero-logo-more">+ 40 more</a>
       </div>
       <div class="hero-security-badges" role="list" aria-label="Security certifications">
         <span>SOC 2 Type II</span>
