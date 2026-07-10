@@ -1589,6 +1589,7 @@
       }
     });
 
+  </script>
   <script>
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -1624,156 +1625,7 @@
     });
   </script>
 
-    // Global Cookie Banner Logic - Granular Consent
-    (function() {
-      function getCookiePreferences() {
-        const stored = localStorage.getItem('cookiePreferences');
-        if (stored) {
-          try {
-            return JSON.parse(stored);
-          } catch(e) {
-            return null;
-          }
-        }
-        return null;
-      }
-
-      function saveCookiePreferences(prefs) {
-        localStorage.setItem('cookiePreferences', JSON.stringify(prefs));
-        if (prefs.essential) {
-          localStorage.setItem('cookieConsent', 'true');
-        }
-      }
-
-      function hideBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.style.display = 'none';
-          cookieBanner.style.setProperty('display', 'none', 'important');
-        }
-      }
-
-      function showBanner() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        if (cookieBanner) {
-          cookieBanner.classList.add('visible');
-        }
-      }
-
-      const existingPrefs = getCookiePreferences();
-      if (existingPrefs && existingPrefs.essential) {
-        hideBanner();
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        const cookieModal = document.getElementById('cookieModal');
-        const cookieManageLink = document.getElementById('cookieManageLink');
-        const cookieModalClose = document.getElementById('cookieModalClose');
-        const cookieSaveBtn = document.getElementById('cookieSaveBtn');
-        const cookieEssential = document.getElementById('cookieEssential');
-        const cookieAnalytics = document.getElementById('cookieAnalytics');
-        const cookieMarketing = document.getElementById('cookieMarketing');
-        const btnAccept = document.querySelector('.btn-cookie-accept');
-        const btnDecline = document.querySelector('.btn-cookie-decline');
-
-        if (!cookieBanner) return;
-
-        const existingPrefs = getCookiePreferences();
-        if (existingPrefs && existingPrefs.essential) {
-          hideBanner();
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-          return;
-        }
-
-        if (existingPrefs) {
-          if (cookieAnalytics) cookieAnalytics.checked = existingPrefs.analytics || false;
-          if (cookieMarketing) cookieMarketing.checked = existingPrefs.marketing || false;
-        }
-
-        if (btnAccept) {
-          btnAccept.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const prefs = { essential: true, analytics: true, marketing: true };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            return false;
-          });
-        }
-
-        if (btnDecline) {
-          btnDecline.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const prefs = { essential: true, analytics: false, marketing: false };
-            saveCookiePreferences(prefs);
-            hideBanner();
-            return false;
-          });
-        }
-
-        if (cookieManageLink) {
-          cookieManageLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (cookieModal) {
-              cookieModal.classList.add('active');
-              document.body.style.overflow = 'hidden';
-            }
-          });
-        }
-
-        if (cookieModalClose) {
-          cookieModalClose.addEventListener('click', function() {
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        if (cookieModal) {
-          cookieModal.addEventListener('click', function(e) {
-            if (e.target === cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-          });
-        }
-
-        if (cookieSaveBtn) {
-          cookieSaveBtn.addEventListener('click', function() {
-            const prefs = {
-              essential: true,
-              analytics: cookieAnalytics ? cookieAnalytics.checked : false,
-              marketing: cookieMarketing ? cookieMarketing.checked : false
-            };
-            saveCookiePreferences(prefs);
-            if (cookieModal) {
-              cookieModal.classList.remove('active');
-              document.body.style.overflow = '';
-            }
-            hideBanner();
-          });
-        }
-
-        document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape' && cookieModal && cookieModal.classList.contains('active')) {
-            cookieModal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-
-        setTimeout(function() {
-          const existingPrefs = getCookiePreferences();
-          if (!existingPrefs || !existingPrefs.essential) {
-            showBanner();
-          }
-        }, 1500);
-      });
-    })();
-
+  <script>
     // Global Cookie Banner Logic - Granular Consent
     (function() {
       function getCookiePreferences() {
@@ -1983,7 +1835,6 @@
   </div>
 
   <script>
-  <script>
     // Active Navigation State
     (function() {
       const currentPath = window.location.pathname;
@@ -2018,7 +1869,6 @@
         }
       });
     })();
-  </script>
   </script>
 </body>
 </html>
