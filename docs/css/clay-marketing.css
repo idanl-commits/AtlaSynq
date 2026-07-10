@@ -19,10 +19,10 @@
   --clay-border:      rgba(92, 64, 51, 0.13);
   --clay-border-soft: rgba(92, 64, 51, 0.07);
 
-  /* Text */
+  /* Text — sec darkened for body-copy contrast on cream (WCAG AA) */
   --clay-text:        #2B1F1A;
-  --clay-text-sec:    #7D675A;
-  --clay-text-muted:  #A08B7D;
+  --clay-text-sec:    #5E4B3F;
+  --clay-text-muted:  #8F7B6D;
 
   /* Brand */
   --clay-primary:     #C96A4A;
@@ -118,13 +118,16 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* H1 only uses Fraunces — quieter weight so it doesn't read as costume AI */
+h1, h2 { text-wrap: balance; }
+
+/* Headlines are Sora — clean geometric sans reads institutional,
+   not template-AI. Serif reserved for long-form blog content only. */
 h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2.1rem, 4.5vw, 3.15rem);
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 2.9rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
 }
 
 h2 {
@@ -349,7 +352,7 @@ nav, header.site-nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0; /* no gap — wordmark must read as one word: AtlaSynq */
   font-family: 'Sora', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
@@ -357,6 +360,8 @@ nav, header.site-nav {
   text-decoration: none;
   letter-spacing: -0.02em;
 }
+
+.nav-logo img { margin-right: 9px; }
 
 .nav-logo .wordmark-atla { color: var(--clay-text); }
 .nav-logo .wordmark-synq { color: var(--clay-primary); }
@@ -501,9 +506,10 @@ nav, header.site-nav {
 }
 
 .hero-sub {
-  max-width: 600px;
+  max-width: 660px;
   margin: 0 auto 2.5rem;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  text-wrap: pretty;
 }
 
 .hero-actions {
@@ -707,7 +713,7 @@ nav, header.site-nav {
   color: #fff;
   border-radius: var(--radius) var(--radius) 4px var(--radius);
   border-color: transparent;
-  box-shadow: 3px 4px 10px rgba(201,106,74,0.35);
+  box-shadow: 0 2px 6px rgba(201,106,74,0.22);
 }
 
 .msg-avatar {
@@ -825,8 +831,8 @@ nav, header.site-nav {
   display: flex;
   align-items: center;
   gap: 8px;
-  opacity: 0.55;
-  filter: sepia(0.2) saturate(0.6);
+  opacity: 0.6;
+  filter: grayscale(1);
   transition: opacity 0.2s, filter 0.2s;
 }
 
@@ -969,8 +975,8 @@ nav, header.site-nav {
 }
 
 .c-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--clay-text);
   margin-bottom: 1.25rem;
@@ -1010,9 +1016,9 @@ nav, header.site-nav {
 }
 
 .stat-val {
-  font-family: 'Fraunces', serif;
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
   color: var(--clay-text);
   line-height: 1;
   display: flex;
@@ -1164,9 +1170,9 @@ nav, header.site-nav {
 }
 
 .roi-result-value {
-  font-family: 'Fraunces', serif;
-  font-size: 1.85rem;
-  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
   color: var(--clay-text);
 }
 
@@ -1478,8 +1484,7 @@ footer {
 }
 
 .cookie-modal-header h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 .cookie-modal-close {
@@ -1686,13 +1691,18 @@ footer {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Chat preview (builder step 4) */
+/* Chat preview (builder step 4) — #chatResult becomes display:flex
+   via JS, so the preview must claim full width or it collapses. */
+#chatResult { justify-content: center; }
+
 .chat-preview {
   background: var(--clay-surface);
   border-radius: var(--radius-lg);
   border: 1.5px solid var(--clay-border-soft);
   box-shadow: var(--shadow);
   overflow: hidden;
+  width: 100%;
+  max-width: 640px;
 }
 
 .chat-preview-header {
@@ -1822,16 +1832,11 @@ footer {
 
 .fade-up { animation: fadeUp 0.5s ease both; }
 
-[data-fade] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-[data-fade].visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Scroll fades removed: content must never render invisible if JS
+   stalls, and entrance animations read as template AI. Keep the
+   .visible hook harmless for the existing observer. */
+[data-fade] { opacity: 1; transform: none; }
+[data-fade].visible { opacity: 1; transform: none; }
 
 /* Press animation */
 @keyframes press {
@@ -1894,9 +1899,9 @@ footer {
 .pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 
 .pricing-price {
-  font-family: 'Fraunces', serif;
-  font-size: 3rem;
-  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 700;
   color: var(--clay-text);
   line-height: 1;
 }
@@ -2058,10 +2063,10 @@ footer {
   gap: 9px;
   text-decoration: none;
   color: var(--clay-text);
-  font-family: 'Fraunces', serif;
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: -0.03em;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
 }
 .clay-nav__logo-text { color: inherit; }
 .clay-nav__logo-text::after { content: none; }
@@ -2117,12 +2122,12 @@ footer {
   margin-bottom: 1rem;
 }
 .clay-hero__title {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(2.1rem, 4.5vw, 3.15rem);
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 2.9rem);
   font-weight: 700;
   color: var(--clay-text);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  line-height: 1.14;
+  letter-spacing: -0.035em;
   margin-bottom: 1rem;
 }
 .clay-hero__sub {
@@ -2233,7 +2238,6 @@ footer {
   border-bottom: 1px solid var(--clay-border-soft);
 }
 .cta-band h2 {
-  font-family: 'Fraunces', serif;
   margin-bottom: 0.75rem;
 }
 .cta-band p {
@@ -2268,9 +2272,9 @@ footer {
   margin-bottom: 0.75rem;
 }
 .clay-footer__brand .logo-text {
-  font-family: 'Fraunces', serif;
-  font-weight: 800;
-  font-size: 1.15rem;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: var(--clay-text);
 }
 .clay-footer__brand p {

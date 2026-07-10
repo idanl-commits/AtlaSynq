@@ -259,7 +259,7 @@
     }
     .metric-item:last-child { border-right: none; }
     .metric-val {
-      font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 800;
+      font-family: 'Sora', sans-serif; font-size: 1.85rem; font-weight: 700; letter-spacing: -0.02em;
       color: #F7F1E8; line-height: 1.1; margin-bottom: 4px;
     }
     .metric-val em { font-style: normal; color: var(--clay-primary); }
@@ -448,15 +448,10 @@
             <div class="chat-feed" id="heroFeed" aria-live="polite"></div>
             <div style="padding:9px 12px;border-top:1px solid var(--clay-border-soft);background:var(--clay-elevated);">
               <div class="chat-input-box" id="heroInputBox">
-                <span id="heroTyper" style="font-family:'Sora',sans-serif;font-size:0.82rem;color:var(--clay-text);"></span>
-                <span class="cursor-blink" aria-hidden="true"></span>
-                <span id="heroPlaceholder" style="color:var(--clay-text-muted);font-size:0.82rem;font-family:'Sora',sans-serif;">Ask your agent...</span>
+                <span style="color:var(--clay-text-muted);font-size:0.82rem;font-family:'Sora',sans-serif;">Ask your agent&hellip;</span>
+                <svg style="margin-left:auto;flex-shrink:0;" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8L2 2l3 6-3 6 12-6z" fill="var(--clay-primary)" opacity=".8"/></svg>
               </div>
             </div>
-          </div>
-          <!-- Fake cursor overlay -->
-          <div class="cursor-overlay" aria-hidden="true">
-            <div class="fake-mouse" id="heroCursor"></div>
           </div>
         </div>
       </div>
@@ -913,10 +908,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- Fake cursor overlay -->
-      <div class="cursor-overlay" aria-hidden="true">
-        <div class="fake-mouse" id="builderCursor"></div>
       </div>
     </div>
   </div>

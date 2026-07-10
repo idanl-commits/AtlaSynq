@@ -176,17 +176,19 @@
   let heroTimeout  = null;
   let heroRunId    = 0; // cancels in-flight scenario when a newer one starts
 
-  async function runHeroScenario(scenario) {
+  /**
+   * Runs one hero chat scenario.
+   * `instant` renders the full conversation with no delays — used for
+   * the first paint so the demo never looks empty or broken.
+   */
+  async function runHeroScenario(scenario, instant) {
     const runId = ++heroRunId;
     const stillActive = () => runId === heroRunId;
 
     const feed        = $('heroFeed');
-    const typer       = $('heroTyper');
-    const placeholder = $('heroPlaceholder');
     const agentName   = $('heroAgentName');
     const heroZero    = $('heroZero');
     const heroChatUI  = $('heroChatUI');
-    const cursor      = $('heroCursor');
 
     if (!feed) return;
 
@@ -201,46 +203,29 @@
     if (heroChatUI) heroChatUI.style.display = 'flex';
     if (agentName)  agentName.textContent    = scenario.agent;
 
-    // Clear feed
     feed.innerHTML = '';
 
-    // Move fake cursor to input area
-    moveCursor(cursor, 82, 55);
-    await sleep(400);
-    if (!stillActive()) return;
+    if (instant) {
+      appendMsg(feed, scenario.question, 'user');
+      appendMsg(feed, scenario.answer, 'agent', scenario.tool);
+      return;
+    }
 
-    // Type user question into input box
-    if (placeholder) placeholder.style.display = 'none';
-    await typeText(typer, scenario.question, 42, stillActive);
-    if (!stillActive()) return;
-    await sleep(350);
-    if (!stillActive()) return;
-    if (typer) typer.textContent = '';
-    if (placeholder) placeholder.style.display = '';
-
-    // Add user message
+    // User question appears immediately — no fake typing theater
     appendMsg(feed, scenario.question, 'user');
 
-    // Typing indicator
+    // Brief typing indicator, then the cited answer
     const typingEl = document.createElement('div');
     typingEl.className = 'msg';
     typingEl.innerHTML = '<div class="msg-bubble"><span class="typing-dots"><span></span><span></span><span></span></span></div>';
     feed.appendChild(typingEl);
     feed.scrollTop = feed.scrollHeight;
 
-    await sleep(1400);
+    await sleep(900);
     if (!stillActive()) return;
     if (typingEl.parentNode) typingEl.remove();
 
-    // Move cursor to response area
-    moveCursor(cursor, 55, 45);
-    await sleep(200);
-    if (!stillActive()) return;
-
-    // Add agent response
     appendMsg(feed, scenario.answer, 'agent', scenario.tool);
-    await sleep(200);
-    if (!stillActive()) return;
     feed.scrollTop = feed.scrollHeight;
   }
 
@@ -272,8 +257,8 @@
       });
     });
 
-    // Start first scenario, then schedule next only after it finishes
-    runHeroScenario(HERO_SCENARIOS[0]).then(() => {
+    // First paint is instant so the demo is never empty; loop animates after
+    runHeroScenario(HERO_SCENARIOS[0], true).then(() => {
       if (!heroPaused) scheduleNextHero(6500);
     });
   }
@@ -474,8 +459,8 @@
       const hoursSaved   = Math.round(weeklyHours * 0.30 * 52);
       const dollarsSaved = Math.round(hoursSaved * hourlyRate);
 
-      // Rough AtlaSynq cost estimate for payback
-      const annualCost   = employees * 14 * 12; // $14/user/month
+      // Payback vs Team plan pricing ($49/user/month)
+      const annualCost   = employees * 49 * 12;
       const paybackMths  = dollarsSaved > 0
         ? Math.max(1, Math.round((annualCost / dollarsSaved) * 12))
         : 0;
