@@ -257,10 +257,19 @@
       });
     });
 
-    // First paint is instant so the demo is never empty; loop animates after
-    runHeroScenario(HERO_SCENARIOS[0], true).then(() => {
-      if (!heroPaused) scheduleNextHero(6500);
-    });
+    // First paint: keep server-rendered demo if present; otherwise render instantly
+    const feed = $('heroFeed');
+    if (feed && feed.children.length > 0) {
+      HERO_SCENARIOS.forEach((s, i) => {
+        const el = $(s.id);
+        if (el) el.classList.toggle('active', i === 0);
+      });
+      scheduleNextHero(6500);
+    } else {
+      runHeroScenario(HERO_SCENARIOS[0], true).then(() => {
+        if (!heroPaused) scheduleNextHero(6500);
+      });
+    }
   }
 
   /* ─── BUILDER LOOP STATE ─────────────────────────────────── */

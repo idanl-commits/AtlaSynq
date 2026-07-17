@@ -255,33 +255,7 @@
     }
     .hero-security-badges .sep { margin: 0 8px; color: var(--clay-border); }
 
-    /* Metrics bar */
-    .metrics-bar {
-      background: #2B1F1A; padding: 2rem 0;
-    }
-    .metrics-bar-inner {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; max-width: 1160px; margin: 0 auto; padding: 0 1.5rem;
-    }
-    .metric-item {
-      text-align: center; padding: 0 1.5rem;
-      border-right: 1px solid rgba(255,248,235,0.10);
-    }
-    .metric-item:last-child { border-right: none; }
-    .metric-val {
-      font-family: 'Sora', sans-serif; font-size: 1.85rem; font-weight: 700; letter-spacing: -0.02em;
-      color: #F7F1E8; line-height: 1.1; margin-bottom: 4px;
-    }
-    .metric-val em { font-style: normal; color: var(--clay-primary); }
-    .metric-label {
-      font-family: 'Sora', sans-serif; font-size: 0.78rem; font-weight: 500;
-      color: rgba(247,241,232,0.55); line-height: 1.4;
-    }
-    .metrics-footnote {
-      text-align: center; margin-top: 1rem;
-      font-family: 'Sora', sans-serif; font-size: 0.7rem;
-      color: rgba(247,241,232,0.35);
-    }
+    /* Metrics bar — styles in clay-marketing.css */
 
     @media (max-width: 900px) {
       .workflow-row { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -289,8 +263,7 @@
       .tour-panel.active { grid-template-columns: 1fr; }
       .security-checklist-grid { grid-template-columns: 1fr 1fr; }
       .prob-sol-grid { grid-template-columns: 1fr; }
-      .metrics-bar-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-      .metric-item { border-right: none; border-bottom: 1px solid rgba(255,248,235,0.10); padding-bottom: 1.25rem; }
+      .metrics-bar-inner { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     }
     @media (max-width: 640px) {
       .security-checklist-grid { grid-template-columns: 1fr 1fr; }
@@ -353,121 +326,107 @@
 </div>
 
 <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
-<section class="section-hero">
+<section class="section-hero section-hero--split">
   <div class="container">
-    <div class="hero-eyebrow" data-fade>
-      <span style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-primary);">Governed AI Agents</span>
-    </div>
-    <h1 class="hero-headline" data-fade>AI agents every department can use.<br>Permissions every CISO can trust.</h1>
-    <p class="hero-sub" data-fade>Connect Salesforce, Jira, NetSuite and more. Each agent inherits RBAC, cites sources, and waits for approval on write actions.</p>
-    <div class="hero-actions" data-fade>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:13px 28px;" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M5 2v12M11 2v12M2 8h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".7"/></svg>
-        Book a demo
-      </a>
-      <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:13px 24px;font-size:0.9rem;">
-        Start Building
-      </a>
-    </div>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span style="font-family:'Sora',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay-primary);">Governed AI Agents</span>
+        </div>
+        <h1 class="hero-headline">AI agents every department can use.<br>Permissions every CISO can trust.</h1>
+        <p class="hero-sub">Connect Salesforce, Jira, NetSuite and more. Each agent inherits RBAC, cites sources, and waits for approval on write actions.</p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:12px 24px;" target="_blank" rel="noopener">Book a demo</a>
+          <a href="/signup/" class="clay-btn clay-btn-outline" style="padding:12px 22px;font-size:0.9rem;">Start Building</a>
+        </div>
+        <div class="hero-trust-strip">
+          <div class="hero-trust-label">Built for teams that already run</div>
+          <div class="hero-logo-row" aria-label="Integrated tools">
+            <div class="hero-logo-item"><img src="/images/salesforce.png" alt="Salesforce" loading="lazy"></div>
+            <div class="hero-logo-item"><img src="/images/slack.png" alt="Slack" loading="lazy"></div>
+            <div class="hero-logo-item"><img src="/images/jira.png" alt="Jira" loading="lazy"></div>
+            <div class="hero-logo-item"><img src="/images/hubspot.png" alt="HubSpot" class="sq" loading="lazy"></div>
+            <div class="hero-logo-item"><img src="/images/netsuite.png" alt="NetSuite" loading="lazy"></div>
+            <a href="/integrations/" class="hero-logo-more">+ 40 more</a>
+          </div>
+          <div class="hero-security-badges" role="list" aria-label="Security certifications">
+            <span>SOC 2 Type II</span>
+            <span class="sep" aria-hidden="true">&middot;</span>
+            <span>SSO / SAML</span>
+            <span class="sep" aria-hidden="true">&middot;</span>
+            <span>Zero training on your data</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- Trust strip -->
-    <div class="hero-trust-strip" data-fade>
-      <div class="hero-trust-label">Built for teams that already run</div>
-      <div class="hero-logo-row" aria-label="Integrated tools">
-        <div class="hero-logo-item"><img src="/images/salesforce.png" alt="Salesforce" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/slack.png" alt="Slack" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/jira.png" alt="Jira" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/hubspot.png" alt="HubSpot" class="sq" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/netsuite.png" alt="NetSuite" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/github.jpg" alt="GitHub" loading="lazy"></div>
-        <div class="hero-logo-item"><img src="/images/notion.png" alt="Notion" loading="lazy"></div>
-        <a href="/integrations/" class="hero-logo-more">+ 40 more</a>
-      </div>
-      <div class="hero-security-badges" role="list" aria-label="Security certifications">
-        <span>SOC 2 Type II</span>
-        <span class="sep" aria-hidden="true">&middot;</span>
-        <span>SSO / SAML</span>
-        <span class="sep" aria-hidden="true">&middot;</span>
-        <span>Zero training on your data</span>
-      </div>
-    </div>
-
-    <!-- Hero product demo -->
-    <div class="window-frame" id="heroApp" style="max-width:900px;margin:3rem auto 0;text-align:left;position:relative;" data-fade>
-      <div class="window-chrome">
-        <div class="window-dot window-dot-red"></div>
-        <div class="window-dot window-dot-amber"></div>
-        <div class="window-dot window-dot-green"></div>
-        <span class="window-title">AtlaSynq — Department Workspace</span>
-      </div>
-      <div style="display:flex;height:380px;overflow:hidden;">
-        <!-- Sidebar -->
-        <aside style="width:164px;min-width:164px;border-right:1px solid var(--clay-border-soft);padding:0.5rem 0.35rem;display:flex;flex-direction:column;gap:2px;background:var(--clay-elevated);" aria-label="Agent selector">
-          <div style="padding:5px 10px;margin-bottom:4px;">
-            <span style="font-family:'Sora',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.11em;color:var(--clay-text-muted);">Agents</span>
+      <div class="hero-demo-col">
+        <div class="window-frame" id="heroApp">
+          <div class="window-chrome">
+            <span class="window-title">Department workspace</span>
           </div>
-          <div class="sb-item" id="sb-sales" role="button" tabindex="0" aria-label="Sales Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="9" width="3" height="6" rx="1" fill="currentColor" opacity=".55"/><rect x="6.5" y="6" width="3" height="9" rx="1" fill="currentColor" opacity=".75"/><rect x="12" y="3" width="3" height="12" rx="1" fill="currentColor"/></svg>
-            <span class="sb-label">Sales</span>
-          </div>
-          <div class="sb-item" id="sb-finance" role="button" tabindex="0" aria-label="Finance Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5v7M6 6.5c0-.8.9-1.5 2-1.5s2 .7 2 1.5-.9 1.5-2 1.5-2 .7-2 1.5.9 1.5 2 1.5 2-.7 2-1.5"/></svg>
-            <span class="sb-label">Finance</span>
-          </div>
-          <div class="sb-item" id="sb-eng" role="button" tabindex="0" aria-label="Engineering Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4L1 8l4 4M11 4l4 4-4 4M10 3l-4 10"/></svg>
-            <span class="sb-label">Engineering</span>
-          </div>
-          <div class="sb-item" id="sb-hr" role="button" tabindex="0" aria-label="HR Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="4" r="2.5"/><path d="M1 13c0-2.5 2-4.5 4.5-4.5S10 10.5 10 13"/><circle cx="12" cy="4.5" r="2"/><path d="M12.5 9.5c1.5.5 2.5 1.8 2.5 3.5"/></svg>
-            <span class="sb-label">HR</span>
-          </div>
-          <div class="sb-item" id="sb-marketing" role="button" tabindex="0" aria-label="Marketing Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3v10L5 9.5V6.5L13 3zM5 6.5H3a1.5 1.5 0 000 3h2"/><path d="M3 9.5l1.5 3.5"/></svg>
-            <span class="sb-label">Marketing</span>
-          </div>
-          <div class="sb-item" id="sb-legal" role="button" tabindex="0" aria-label="Legal Agent">
-            <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v12M5 14h6M4.5 3.5L2 8l2.5 1L8 8M11.5 3.5L14 8l-2.5 1L8 8"/></svg>
-            <span class="sb-label">Legal</span>
-          </div>
-          <div style="margin-top:auto;padding:8px 10px;border-top:1px solid var(--clay-border-soft);">
-            <div style="display:flex;align-items:center;gap:5px;">
-              <div style="width:6px;height:6px;border-radius:50%;background:var(--clay-sage);flex-shrink:0;"></div>
-              <span style="font-family:'Sora',sans-serif;font-size:0.65rem;color:var(--clay-text-muted);">RBAC enforced</span>
-            </div>
-          </div>
-        </aside>
-        <!-- Main chat area -->
-        <div style="flex:1;display:flex;flex-direction:column;position:relative;min-width:0;">
-          <!-- Zero state -->
-          <div id="heroZero" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;">
-            <div style="width:40px;height:40px;border-radius:10px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;box-shadow:var(--shadow-sm);">
-              <img src="/images/atlasynq-logo.svg" alt="" width="22" height="22" aria-hidden="true">
-            </div>
-            <p style="font-family:'Sora',sans-serif;font-size:0.85rem;font-weight:600;color:var(--clay-text-sec);margin:0;">Select a department agent</p>
-            <p style="font-family:'Sora',sans-serif;font-size:0.76rem;color:var(--clay-text-muted);margin:4px 0 0;">Each agent has governed access to its tools only</p>
-          </div>
-          <!-- Chat UI (hidden until JS activates) -->
-          <div id="heroChatUI" style="display:none;flex-direction:column;height:100%;">
-            <div style="display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-surface);">
-              <div style="width:26px;height:26px;border-radius:7px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);">
-                <img src="/images/atlasynq-logo.svg" alt="" width="15" height="15" aria-hidden="true">
+          <div style="display:flex;height:360px;overflow:hidden;">
+            <aside style="width:148px;min-width:148px;border-right:1px solid var(--clay-border-soft);padding:0.5rem 0.35rem;display:flex;flex-direction:column;gap:2px;background:var(--clay-elevated);" aria-label="Agent selector">
+              <div style="padding:5px 10px;margin-bottom:4px;">
+                <span style="font-family:'Sora',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.11em;color:var(--clay-text-muted);">Agents</span>
               </div>
-              <span id="heroAgentName" style="font-family:'Sora',sans-serif;font-size:0.84rem;font-weight:700;color:var(--clay-text);">Sales Agent</span>
-              <span class="gov-badge" style="margin-left:auto;">Governed</span>
-            </div>
-            <div class="chat-feed" id="heroFeed" aria-live="polite"></div>
-            <div style="padding:9px 12px;border-top:1px solid var(--clay-border-soft);background:var(--clay-elevated);">
-              <div class="chat-input-box" id="heroInputBox">
-                <span style="color:var(--clay-text-muted);font-size:0.82rem;font-family:'Sora',sans-serif;">Ask your agent&hellip;</span>
-                <svg style="margin-left:auto;flex-shrink:0;" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8L2 2l3 6-3 6 12-6z" fill="var(--clay-primary)" opacity=".8"/></svg>
+              <div class="sb-item active" id="sb-sales" role="button" tabindex="0" aria-label="Sales Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="9" width="3" height="6" rx="1" fill="currentColor" opacity=".55"/><rect x="6.5" y="6" width="3" height="9" rx="1" fill="currentColor" opacity=".75"/><rect x="12" y="3" width="3" height="12" rx="1" fill="currentColor"/></svg>
+                <span class="sb-label">Sales</span>
+              </div>
+              <div class="sb-item" id="sb-finance" role="button" tabindex="0" aria-label="Finance Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5v7M6 6.5c0-.8.9-1.5 2-1.5s2 .7 2 1.5-.9 1.5-2 1.5-2 .7-2 1.5.9 1.5 2 1.5 2-.7 2-1.5"/></svg>
+                <span class="sb-label">Finance</span>
+              </div>
+              <div class="sb-item" id="sb-eng" role="button" tabindex="0" aria-label="Engineering Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4L1 8l4 4M11 4l4 4-4 4M10 3l-4 10"/></svg>
+                <span class="sb-label">Engineering</span>
+              </div>
+              <div class="sb-item" id="sb-hr" role="button" tabindex="0" aria-label="HR Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="4" r="2.5"/><path d="M1 13c0-2.5 2-4.5 4.5-4.5S10 10.5 10 13"/><circle cx="12" cy="4.5" r="2"/><path d="M12.5 9.5c1.5.5 2.5 1.8 2.5 3.5"/></svg>
+                <span class="sb-label">HR</span>
+              </div>
+              <div class="sb-item" id="sb-marketing" role="button" tabindex="0" aria-label="Marketing Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3v10L5 9.5V6.5L13 3zM5 6.5H3a1.5 1.5 0 000 3h2"/><path d="M3 9.5l1.5 3.5"/></svg>
+                <span class="sb-label">Marketing</span>
+              </div>
+              <div class="sb-item" id="sb-legal" role="button" tabindex="0" aria-label="Legal Agent">
+                <svg class="sb-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v12M5 14h6M4.5 3.5L2 8l2.5 1L8 8M11.5 3.5L14 8l-2.5 1L8 8"/></svg>
+                <span class="sb-label">Legal</span>
+              </div>
+              <div style="margin-top:auto;padding:8px 10px;border-top:1px solid var(--clay-border-soft);">
+                <div style="display:flex;align-items:center;gap:5px;">
+                  <div style="width:6px;height:6px;border-radius:50%;background:var(--clay-sage);flex-shrink:0;"></div>
+                  <span style="font-family:'Sora',sans-serif;font-size:0.65rem;color:var(--clay-text-muted);">RBAC enforced</span>
+                </div>
+              </div>
+            </aside>
+            <div style="flex:1;display:flex;flex-direction:column;position:relative;min-width:0;">
+              <div id="heroZero" style="display:none;" aria-hidden="true"></div>
+              <div id="heroChatUI" style="display:flex;flex-direction:column;height:100%;">
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 14px;border-bottom:1px solid var(--clay-border-soft);background:var(--clay-surface);">
+                  <div style="width:26px;height:26px;border-radius:7px;background:var(--clay-primary-lt);display:flex;align-items:center;justify-content:center;">
+                    <img src="/images/atlasynq-logo.svg" alt="" width="15" height="15" aria-hidden="true">
+                  </div>
+                  <span id="heroAgentName" style="font-family:'Sora',sans-serif;font-size:0.84rem;font-weight:700;color:var(--clay-text);">Sales Agent</span>
+                  <span class="gov-badge" style="margin-left:auto;">Governed</span>
+                </div>
+                <div class="chat-feed" id="heroFeed" aria-live="polite">
+                  <div class="msg user"><div class="msg-bubble">Which deals are at risk of slipping this quarter?</div></div>
+                  <div class="msg"><div class="msg-bubble"><strong>3 deals are at risk</strong> this quarter. Acme Corp ($120k) hasn't had activity in 14 days. Beta Industries closed-lost probability jumped to 62%. TechFlow Ltd needs a revised proposal by Friday or they re-evaluate in Q3.<span class="cite-tag">Salesforce CRM</span></div></div>
+                </div>
+                <div style="padding:9px 12px;border-top:1px solid var(--clay-border-soft);background:var(--clay-elevated);">
+                  <div class="chat-input-box" id="heroInputBox">
+                    <span style="color:var(--clay-text-muted);font-size:0.82rem;font-family:'Sora',sans-serif;">Ask your agent&hellip;</span>
+                    <svg style="margin-left:auto;flex-shrink:0;" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8L2 2l3 6-3 6 12-6z" fill="var(--clay-primary)" opacity=".8"/></svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <p class="hero-demo-caption">Click a department agent to see governed answers with citations.</p>
       </div>
     </div>
-    <p style="text-align:center;font-family:'Sora',sans-serif;font-size:0.77rem;color:var(--clay-text-muted);margin-top:0.75rem;">Click a department agent to see governed answers with citations.</p>
   </div>
 </section>
 
@@ -1134,7 +1093,7 @@
     </div>
     <div class="footer-bottom">
       <span>&#169; 2026 AtlaSynq, Inc. All rights reserved.</span>
-      <span style="margin-left:1rem;">SOC 2 Type II &middot; GDPR Ready &middot; <a id="cookieManageLink" href="#" style="color:inherit;text-decoration:underline;">Cookie preferences</a></span>
+      <span style="margin-left:1rem;">SOC 2 Type II &middot; GDPR Ready &middot; <a href="#" class="cookie-manage-link" style="color:inherit;text-decoration:underline;">Cookie preferences</a></span>
     </div>
   </div>
 </footer>
