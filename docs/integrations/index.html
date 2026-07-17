@@ -58,7 +58,15 @@
       width: 40px; height: 40px;
       object-fit: contain;
       border-radius: 8px;
-      mix-blend-mode: multiply; /* hides white boxes on JPG logo assets */
+      background: #fff;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+    .int-card img[src$=".jpg"],
+    .int-card img[src$=".png"] {
+      mix-blend-mode: multiply;
+      background: transparent;
+      padding: 0;
     }
     .int-card h3 {
       font-family: 'Sora', sans-serif;
