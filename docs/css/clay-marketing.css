@@ -5,37 +5,37 @@
 
 /* ─── GOOGLE FONTS REMINDER ─────────────────────────────────
    Load in <head> before this sheet:
-   Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900
-   Sora:wght@300;400;500;600;700
+   IBM+Plex+Sans:wght@400;500;600;700
    ─────────────────────────────────────────────────────────── */
 
-/* ─── 1. CLAY TOKEN VARIABLES ────────────────────────────── */
+/* ─── 1. DESIGN TOKENS ───────────────────────────────────── */
 :root {
-  /* Neutral enterprise palette — white base, charcoal type, terracotta accent only */
-  --clay-bg:          #FFFFFF;
+  /* Institutional: cool paper + ink. Terracotta reserved for Synq wordmark. */
+  --clay-bg:          #F6F7F9;
   --clay-surface:     #FFFFFF;
-  --clay-elevated:    #F7F7F5;
-  --clay-pressed:     #EEEDE8;
-  --clay-border:      rgba(17, 17, 17, 0.10);
-  --clay-border-soft: rgba(17, 17, 17, 0.06);
+  --clay-elevated:    #EEF1F5;
+  --clay-pressed:     #E2E6EC;
+  --clay-border:      rgba(15, 39, 68, 0.12);
+  --clay-border-soft: rgba(15, 39, 68, 0.07);
 
-  --clay-text:        #111111;
-  --clay-text-sec:    #444444;
-  --clay-text-muted:  #737373;
+  --clay-text:        #0F1724;
+  --clay-text-sec:    #3D4A5C;
+  --clay-text-muted:  #6B7789;
 
-  --clay-accent:      #C96A4A;
-  --clay-primary:     #C96A4A;
-  --clay-primary-dk:  #A85540;
-  --clay-primary-lt:  #F5EFEB;
-  --clay-cta:         #111111;
-  --clay-cta-hover:   #333333;
-  --clay-blue:        #3D5A80;
-  --clay-blue-lt:     #E8EEF4;
-  --clay-sage:        #5C6B4A;
-  --clay-sage-lt:     #EEF0EA;
-  --clay-amber:       #9A7340;
-  --clay-amber-lt:    #F5F0E6;
-  --clay-brown:       #111111;
+  --clay-accent:      #C96A4A; /* wordmark Synq only */
+  --clay-primary:     #163A5F;
+  --clay-primary-dk:  #0F2744;
+  --clay-primary-lt:  #E6EEF6;
+  --clay-cta:         #0F2744;
+  --clay-cta-hover:   #163A5F;
+  --clay-blue:        #163A5F;
+  --clay-blue-lt:     #E6EEF6;
+  --clay-sage:        #3D6B5A;
+  --clay-sage-lt:     #E6F0EB;
+  --clay-amber:       #8A6A2F;
+  --clay-amber-lt:    #F5EFE0;
+  --clay-brown:       #0F1724;
+  --font:             'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 
   /* Blog/subpage aliases used in article HTML */
   --clay-terracotta:  var(--clay-primary);
@@ -100,10 +100,10 @@ html {
 }
 
 body {
-  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  font-family: var(--font);
   background-color: var(--clay-bg);
   color: var(--clay-text);
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -116,40 +116,38 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2 { text-wrap: balance; }
 
-/* Headlines are Sora — clean geometric sans reads institutional,
-   not template-AI. Serif reserved for long-form blog content only. */
 h1 {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(2rem, 4.2vw, 2.9rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1.14;
+  font-family: var(--font);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
 h2 {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-family: var(--font);
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-family: var(--font);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   font-weight: 600;
   letter-spacing: -0.015em;
 }
 
-h4 { font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 600; }
+h4 { font-family: var(--font); font-size: 0.95rem; font-weight: 600; }
 
 p {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   color: var(--clay-text-sec);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
-a { color: var(--clay-accent); text-decoration: none; transition: color 0.15s; }
+a { color: var(--clay-primary); text-decoration: none; transition: color 0.15s; }
 a:hover { color: var(--clay-primary-dk); }
 
 .text-gradient {
@@ -212,7 +210,7 @@ a:hover { color: var(--clay-primary-dk); }
   background: var(--clay-elevated);
   border: 1.5px solid var(--clay-border);
   box-shadow: var(--shadow-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--clay-text-sec);
@@ -249,7 +247,7 @@ a:hover { color: var(--clay-primary-dk); }
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--clay-text-sec);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
@@ -261,15 +259,15 @@ a:hover { color: var(--clay-primary-dk); }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 26px;
-  border-radius: var(--radius);
-  font-family: 'Sora', sans-serif;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-family: var(--font);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   cursor: pointer;
   border: none;
-  transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
-  letter-spacing: 0.01em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  letter-spacing: -0.01em;
   position: relative;
   white-space: nowrap;
   text-decoration: none;
@@ -345,12 +343,12 @@ nav, header.site-nav {
   display: flex;
   align-items: center;
   gap: 0; /* no gap — wordmark must read as one word: AtlaSynq */
-  font-family: 'Sora', sans-serif;
-  font-size: 1.15rem;
+  font-family: var(--font);
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--clay-text);
   text-decoration: none;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .nav-logo img { margin-right: 8px; }
@@ -359,7 +357,7 @@ nav, header.site-nav {
 .nav-logo .wordmark-synq { color: var(--clay-accent); margin-left: -0.06em; }
 
 .nav-login {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--clay-text-sec);
@@ -378,7 +376,7 @@ nav, header.site-nav {
 .nav-links a {
   padding: 7px 14px;
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--clay-text-sec);
@@ -459,7 +457,7 @@ nav, header.site-nav {
 .mobile-menu-panel a {
   padding: 12px 16px;
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--clay-text);
@@ -500,7 +498,7 @@ nav, header.site-nav {
 
 .hero-demo-caption {
   text-align: center;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.76rem;
   color: var(--clay-text-muted);
   margin-top: 0.75rem;
@@ -581,7 +579,7 @@ nav, header.site-nav {
 .window-dot { display: none; }
 
 .window-title {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--clay-text-muted);
@@ -602,7 +600,7 @@ nav, header.site-nav {
 /* Builder tabs */
 .b-tab {
   padding: 10px 18px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--clay-text-muted);
@@ -690,7 +688,7 @@ nav, header.site-nav {
 }
 
 .sb-label {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.83rem;
   font-weight: 600;
   color: var(--clay-text-sec);
@@ -729,7 +727,7 @@ nav, header.site-nav {
   border-radius: var(--radius) var(--radius) var(--radius) 4px;
   box-shadow: var(--shadow-sm);
   padding: 10px 14px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.84rem;
   line-height: 1.6;
   color: var(--clay-text);
@@ -774,7 +772,7 @@ nav, header.site-nav {
   color: var(--clay-blue);
   margin-left: 6px;
   vertical-align: middle;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
 }
 
 /* Chat input box */
@@ -787,7 +785,7 @@ nav, header.site-nav {
   border-radius: var(--radius);
   border: 1.5px solid var(--clay-border);
   box-shadow: var(--shadow-inset);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   position: relative;
   min-height: 42px;
@@ -813,7 +811,7 @@ nav, header.site-nav {
   text-align: center;
   padding: 2.5rem;
   color: var(--clay-text-muted);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.9rem;
 }
 
@@ -834,7 +832,7 @@ nav, header.site-nav {
 
 .logos-label {
   text-align: center;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -918,7 +916,7 @@ nav, header.site-nav {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1004,7 +1002,7 @@ nav, header.site-nav {
 }
 
 .c-title {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1017,7 +1015,7 @@ nav, header.site-nav {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--clay-text-sec);
   line-height: 1.5;
@@ -1045,7 +1043,7 @@ nav, header.site-nav {
 }
 
 .stat-val {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 2.25rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1063,7 +1061,7 @@ nav, header.site-nav {
 }
 
 .stat-label {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-sec);
 }
@@ -1103,7 +1101,7 @@ nav, header.site-nav {
 }
 
 .e-title {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1144,7 +1142,7 @@ nav, header.site-nav {
 }
 
 .roi-field label {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--clay-text-sec);
@@ -1158,7 +1156,7 @@ nav, header.site-nav {
   border: 1.5px solid var(--clay-border);
   background: var(--clay-elevated);
   box-shadow: var(--shadow-inset);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 600;
   color: var(--clay-text);
@@ -1189,7 +1187,7 @@ nav, header.site-nav {
 }
 
 .roi-result-label {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1199,7 +1197,7 @@ nav, header.site-nav {
 }
 
 .roi-result-value {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1.7rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1252,7 +1250,7 @@ nav, header.site-nav {
 
 .blog-category {
   display: inline-block;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1271,7 +1269,7 @@ nav, header.site-nav {
 }
 
 .blog-excerpt {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-sec);
   line-height: 1.6;
@@ -1286,7 +1284,7 @@ nav, header.site-nav {
   align-items: center;
   gap: 8px;
   margin-top: 1rem;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   color: var(--clay-text-muted);
 }
@@ -1320,7 +1318,7 @@ nav, header.site-nav {
   justify-content: space-between;
   padding: 18px 20px;
   cursor: pointer;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--clay-text);
@@ -1343,7 +1341,7 @@ nav, header.site-nav {
 
 .faq-item p {
   padding: 0 20px 18px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.9rem;
   color: var(--clay-text-sec);
   line-height: 1.7;
@@ -1367,7 +1365,7 @@ footer {
 }
 
 .footer-grid h4 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -1378,7 +1376,7 @@ footer {
 
 .footer-link {
   display: block;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   color: var(--clay-text-sec);
   text-decoration: none;
@@ -1393,7 +1391,7 @@ footer {
   padding-top: 2rem;
   border-top: 1px solid var(--clay-border-soft);
   text-align: center;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-muted);
 }
@@ -1428,7 +1426,7 @@ footer {
 
 .cookie-content {
   flex: 1;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-sec);
   line-height: 1.5;
@@ -1448,7 +1446,7 @@ footer {
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
@@ -1463,7 +1461,7 @@ footer {
   color: var(--clay-text-sec);
   border: 1.5px solid var(--clay-border);
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
@@ -1474,7 +1472,7 @@ footer {
 .btn-cookie-decline:hover { background: var(--clay-pressed); }
 
 .cookie-manage-link {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.8rem;
   color: var(--clay-text-muted);
   text-decoration: underline;
@@ -1547,7 +1545,7 @@ footer {
 }
 
 .cookie-preference-info h4 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1618,7 +1616,7 @@ footer {
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
@@ -1656,7 +1654,7 @@ footer {
   border: 1.5px solid var(--clay-border);
   background: var(--clay-surface);
   box-shadow: var(--shadow-inset);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.95rem;
   color: var(--clay-text);
   outline: none;
@@ -1670,7 +1668,7 @@ footer {
 
 .lead-form-msg {
   margin-top: 10px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-sec);
   min-height: 1.3em;
@@ -1761,7 +1759,7 @@ footer {
   padding: 10px 14px;
   background: var(--clay-elevated);
   border-top: 1px solid var(--clay-border-soft);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text);
   min-height: 40px;
@@ -1783,7 +1781,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--clay-text-sec);
@@ -1813,7 +1811,7 @@ footer {
   color: #fff;
   padding: 14px 32px;
   border-radius: var(--radius);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-weight: 700;
   font-size: 0.95rem;
   border: none;
@@ -1929,7 +1927,7 @@ footer {
 .pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
 
 .pricing-price {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 2.7rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -1937,7 +1935,7 @@ footer {
 }
 
 .pricing-period {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   color: var(--clay-text-muted);
   margin-left: 4px;
@@ -1955,7 +1953,7 @@ footer {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   color: var(--clay-text-sec);
 }
@@ -1994,7 +1992,7 @@ footer {
 }
 
 .testimonial-body {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.92rem;
   color: var(--clay-text-sec);
   line-height: 1.7;
@@ -2016,7 +2014,7 @@ footer {
 }
 
 .testimonial-name {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -2093,7 +2091,7 @@ footer {
   gap: 9px;
   text-decoration: none;
   color: var(--clay-text);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
@@ -2111,7 +2109,7 @@ footer {
 .clay-nav__links a {
   padding: 7px 12px;
   border-radius: var(--radius-sm);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--clay-text-sec);
@@ -2129,7 +2127,7 @@ footer {
   gap: 0.75rem;
 }
 .clay-nav__login {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--clay-text-sec);
@@ -2143,7 +2141,7 @@ footer {
 }
 .clay-hero__eyebrow {
   display: inline-block;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -2152,7 +2150,7 @@ footer {
   margin-bottom: 1rem;
 }
 .clay-hero__title {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: clamp(2rem, 4.2vw, 2.9rem);
   font-weight: 700;
   color: var(--clay-text);
@@ -2182,7 +2180,7 @@ footer {
   gap: 8px;
   padding: 12px 22px;
   border-radius: var(--radius);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-weight: 600;
   font-size: 0.92rem;
   cursor: pointer;
@@ -2202,7 +2200,7 @@ footer {
   gap: 8px;
   padding: 12px 22px;
   border-radius: var(--radius);
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-weight: 600;
   font-size: 0.92rem;
   cursor: pointer;
@@ -2219,7 +2217,7 @@ footer {
 .blog-card__tag,
 .blog-card .blog-card__tag {
   display: inline-block;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2236,7 +2234,7 @@ footer {
   margin: 0 1.25rem 0.6rem;
 }
 .blog-card__excerpt {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   color: var(--clay-text-sec);
   line-height: 1.55;
@@ -2302,7 +2300,7 @@ footer {
   margin-bottom: 0.75rem;
 }
 .clay-footer__brand .logo-text {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--clay-text);
@@ -2313,7 +2311,7 @@ footer {
   max-width: 280px;
 }
 .clay-footer__col h5 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2419,7 +2417,7 @@ footer {
 .metric-item:last-child { border-right: none; }
 
 .metric-val {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1.65rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -2431,7 +2429,7 @@ footer {
 .metric-val em { font-style: normal; color: var(--clay-primary); }
 
 .metric-label {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--clay-text-muted);
@@ -2441,7 +2439,7 @@ footer {
 .metrics-footnote {
   text-align: center;
   margin-top: 1rem;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.7rem;
   color: var(--clay-text-muted);
 }
@@ -2469,7 +2467,7 @@ footer {
   padding: 1.25rem;
 }
 .legal-toc h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -2479,7 +2477,7 @@ footer {
 }
 .legal-toc a {
   display: block;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.84rem;
   font-weight: 500;
   color: var(--clay-text-sec);
@@ -2503,7 +2501,7 @@ footer {
   scroll-margin-top: 96px;
 }
 .legal-prose h2 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--clay-text);
@@ -2511,7 +2509,7 @@ footer {
 }
 .legal-prose p,
 .legal-prose li {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.92rem;
   color: var(--clay-text-sec);
   line-height: 1.65;
@@ -2533,7 +2531,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--clay-text-muted);
@@ -2557,13 +2555,13 @@ footer {
   padding: 1.75rem;
 }
 .company-card h3 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 0.5rem;
 }
 .company-card p {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.88rem;
   color: var(--clay-text-sec);
   line-height: 1.6;
@@ -2582,13 +2580,13 @@ footer {
   margin-bottom: 1rem;
 }
 .role-card h3 {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 0.25rem;
 }
 .role-card p {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 0.86rem;
   color: var(--clay-text-sec);
   margin: 0;
@@ -2598,7 +2596,7 @@ footer {
   padding: 5rem 0 6rem;
 }
 .error-code {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font);
   font-size: 5rem;
   font-weight: 700;
   color: var(--clay-primary);

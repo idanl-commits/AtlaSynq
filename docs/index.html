@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtlaSynq — Governed agents for enterprise teams</title>
-  <meta name="description" content="AtlaSynq connects your business tools into role-scoped agents. RBAC on every query, cited answers, and admin approval before anything writes back.">
+  <title>AtlaSynq — Enterprise knowledge agents with governance</title>
+  <meta name="description" content="AtlaSynq gives every department a role-scoped agent over Salesforce, Jira, NetSuite, and 40+ tools — with RBAC at query time, cited answers, and approval before writes.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
-  <meta property="og:title" content="AtlaSynq — Governed agents for enterprise teams">
-  <meta property="og:description" content="Role-scoped agents over Salesforce, Jira, NetSuite, and 40+ tools. Permissions enforced at query time.">
+  <meta property="og:title" content="AtlaSynq — Enterprise knowledge agents with governance">
+  <meta property="og:description" content="Role-scoped agents over your stack. Permissions enforced on every query.">
   <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
   <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/clay-marketing.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
@@ -27,151 +27,433 @@
     gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "AtlaSynq",
-        "url": "https://www.atlasynq.com/",
-        "logo": "https://www.atlasynq.com/images/atlasynq-logo.png"
-      },
-      {
-        "@type": "WebSite",
-        "name": "AtlaSynq",
-        "url": "https://www.atlasynq.com/"
-      }
-    ]
-  }
-  </script>
   <style>
     .wordmark-atla { color: var(--clay-text); }
-    .wordmark-synq { color: var(--clay-accent); margin-left: -0.06em; }
+    .wordmark-synq { color: var(--clay-accent); margin-left: -0.04em; }
 
-    .home-hero {
-      padding: 4.5rem 0 3.5rem;
-      border-bottom: 1px solid var(--clay-border-soft);
+    /* ── Hero ── */
+    .hq-hero {
+      position: relative;
+      padding: 3.25rem 0 0;
+      background:
+        linear-gradient(180deg, #EEF2F7 0%, var(--clay-bg) 42%, var(--clay-bg) 100%);
+      overflow: hidden;
     }
-    .home-hero h1 {
-      max-width: 14ch;
-      font-size: clamp(2.1rem, 4vw, 3rem);
+    .hq-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: 2.5rem;
+      align-items: end;
+    }
+    .hq-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.35rem;
+      line-height: 1;
+    }
+    .hq-brand img { width: 40px; height: 40px; margin-right: 10px; }
+    .hq-hero h1 {
+      font-size: clamp(1.85rem, 3.4vw, 2.65rem);
       font-weight: 600;
       letter-spacing: -0.03em;
-      line-height: 1.12;
-      margin-bottom: 1.25rem;
+      line-height: 1.15;
+      max-width: 16ch;
+      margin-bottom: 1rem;
+      color: var(--clay-text);
     }
-    .home-hero .lead {
-      max-width: 52ch;
+    .hq-hero .hq-sub {
       font-size: 1.05rem;
-      line-height: 1.65;
+      line-height: 1.6;
       color: var(--clay-text-sec);
-      margin-bottom: 2rem;
+      max-width: 38ch;
+      margin-bottom: 1.75rem;
     }
-    .home-actions {
+    .hq-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 2.5rem;
+      gap: 10px;
+      margin-bottom: 1.75rem;
     }
-    .home-meta {
-      font-size: 0.8rem;
+    .hq-trust {
+      font-size: 0.78rem;
+      font-weight: 500;
       color: var(--clay-text-muted);
-      line-height: 1.6;
+      letter-spacing: 0.01em;
     }
-    .home-meta strong { color: var(--clay-text-sec); font-weight: 600; }
+    .hq-trust span { color: var(--clay-text-sec); }
 
-    .home-section { padding: 4rem 0; }
-    .home-section + .home-section { border-top: 1px solid var(--clay-border-soft); }
-    .home-section h2 {
-      font-size: 1.35rem;
+    /* Product surface — dense, real UI, not chat toy */
+    .hq-product {
+      background: var(--clay-surface);
+      border: 1px solid var(--clay-border);
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 -8px 40px rgba(15, 39, 68, 0.08);
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hq-prod-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--clay-border-soft);
+      background: #FAFBFC;
+    }
+    .hq-prod-tabs {
+      display: flex;
+      gap: 2px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .hq-prod-tabs span {
+      padding: 6px 12px;
+      border-radius: 5px;
+      color: var(--clay-text-muted);
+    }
+    .hq-prod-tabs span.on {
+      background: var(--clay-primary-lt);
+      color: var(--clay-primary);
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
     }
-    .home-section .intro {
-      max-width: 58ch;
-      color: var(--clay-text-sec);
-      font-size: 0.95rem;
-      line-height: 1.65;
-      margin-bottom: 2rem;
-    }
-
-    .home-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .home-grid-3 h3 {
-      font-size: 0.95rem;
+    .hq-role {
+      font-size: 0.7rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      color: var(--clay-sage);
+      background: var(--clay-sage-lt);
+      border: 1px solid rgba(61,107,90,0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
-    .home-grid-3 p {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--clay-text-sec);
-    }
-
-    .home-dept-list {
+    .hq-prod-body {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem 2.5rem;
-      list-style: none;
+      grid-template-columns: 168px 1fr;
+      flex: 1;
+      min-height: 0;
     }
-    .home-dept-list li {
-      font-size: 0.88rem;
-      line-height: 1.55;
+    .hq-side {
+      border-right: 1px solid var(--clay-border-soft);
+      background: #FAFBFC;
+      padding: 12px 8px;
+    }
+    .hq-side-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clay-text-muted);
+      padding: 4px 8px 8px;
+    }
+    .hq-side-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: 500;
       color: var(--clay-text-sec);
-      padding-left: 1rem;
-      border-left: 2px solid var(--clay-border);
     }
-    .home-dept-list strong {
-      display: block;
+    .hq-side-item.on {
+      background: var(--clay-surface);
       color: var(--clay-text);
       font-weight: 600;
-      margin-bottom: 0.2rem;
+      box-shadow: 0 0 0 1px var(--clay-border-soft);
+    }
+    .hq-side-item img { width: 16px; height: 16px; object-fit: contain; opacity: 0.85; }
+    .hq-main { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+    .hq-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border: 1px solid var(--clay-border);
+      border-radius: 8px;
+      background: #FAFBFC;
+      font-size: 0.88rem;
+      color: var(--clay-text);
+      font-weight: 500;
+    }
+    .hq-search svg { flex-shrink: 0; color: var(--clay-text-muted); }
+    .hq-answer {
+      border: 1px solid var(--clay-border-soft);
+      border-radius: 8px;
+      padding: 14px 16px;
+      background: var(--clay-surface);
+    }
+    .hq-answer-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clay-primary);
+      margin-bottom: 8px;
+    }
+    .hq-answer p {
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--clay-text);
+      margin: 0;
+    }
+    .hq-answer p strong { font-weight: 600; }
+    .hq-sources {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .hq-src {
+      display: grid;
+      grid-template-columns: 20px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--clay-border-soft);
+      background: #FAFBFC;
+      font-size: 0.78rem;
+    }
+    .hq-src img { width: 16px; height: 16px; object-fit: contain; }
+    .hq-src .name { font-weight: 600; color: var(--clay-text); }
+    .hq-src .meta { color: var(--clay-text-muted); font-weight: 400; }
+    .hq-src .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--clay-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .home-security {
+    /* Logo strip */
+    .hq-logos {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--clay-border-soft);
+      background: var(--clay-surface);
+    }
+    .hq-logos-inner {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
-    .home-security p {
-      max-width: 62ch;
-      font-size: 0.92rem;
-      line-height: 1.65;
+    .hq-logos-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--clay-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .hq-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .hq-logo-row img {
+      height: 22px;
+      width: auto;
+      max-width: 96px;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.55;
+      mix-blend-mode: multiply;
+    }
+    .hq-logo-row a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--clay-text-muted);
+      border-bottom: 1px solid transparent;
+    }
+    .hq-logo-row a:hover { color: var(--clay-primary); border-color: var(--clay-primary); }
+
+    /* Sections */
+    .hq-section { padding: 4.5rem 0; }
+    .hq-section.alt { background: var(--clay-surface); border-top: 1px solid var(--clay-border-soft); border-bottom: 1px solid var(--clay-border-soft); }
+    .hq-section-head {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      align-items: start;
+    }
+    .hq-section-head h2 { margin: 0; max-width: 16ch; }
+    .hq-section-head p { margin: 0; font-size: 0.95rem; color: var(--clay-text-sec); max-width: 48ch; }
+
+    .hq-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--clay-border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--clay-surface);
+    }
+    .hq-step {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid var(--clay-border-soft);
+    }
+    .hq-step:last-child { border-right: none; }
+    .hq-step-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--clay-primary);
+      margin-bottom: 0.75rem;
+    }
+    .hq-step h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .hq-step p { font-size: 0.88rem; margin: 0; line-height: 1.55; }
+
+    .hq-dept {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr;
+      gap: 1rem;
+      padding: 1.15rem 0;
+      border-bottom: 1px solid var(--clay-border-soft);
+      align-items: baseline;
+    }
+    .hq-dept:first-of-type { border-top: 1px solid var(--clay-border-soft); }
+    .hq-dept .role {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--clay-text);
+    }
+    .hq-dept .desc {
+      font-size: 0.88rem;
       color: var(--clay-text-sec);
+      line-height: 1.5;
+    }
+    .hq-dept .tools {
+      font-size: 0.8rem;
+      color: var(--clay-text-muted);
+      font-weight: 500;
     }
 
-    .home-cta {
-      padding: 3.5rem 0 4rem;
+    .hq-secure {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hq-secure h2 { margin-bottom: 0.75rem; }
+    .hq-secure p { font-size: 0.95rem; margin-bottom: 1.25rem; max-width: 48ch; }
+    .hq-secure-list {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .hq-secure-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--clay-text-sec);
+      line-height: 1.45;
+    }
+    .hq-secure-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      margin-top: 0.45em;
+      border-radius: 50%;
+      background: var(--clay-primary);
+      flex-shrink: 0;
+    }
+    .hq-secure-panel {
+      background: var(--clay-primary-dk);
+      color: #E8EEF4;
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+    }
+    .hq-secure-panel h3 {
+      color: #fff;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .hq-secure-panel ul {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .hq-secure-panel li {
+      font-size: 0.86rem;
+      color: rgba(232,238,244,0.82);
+      padding-left: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 0.85rem;
+    }
+    .hq-secure-panel li:last-child { border-bottom: none; padding-bottom: 0; }
+    .hq-secure-panel strong { color: #fff; font-weight: 600; display: block; margin-bottom: 2px; }
+
+    .hq-cta {
+      padding: 4rem 0;
+      background: var(--clay-surface);
       border-top: 1px solid var(--clay-border-soft);
     }
-    .home-cta-inner {
+    .hq-cta-box {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 2rem;
       flex-wrap: wrap;
+      padding: 2rem 2.25rem;
+      background: var(--clay-primary-dk);
+      border-radius: 12px;
     }
-    .home-cta h2 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+    .hq-cta-box h2 { color: #fff; font-size: 1.35rem; margin-bottom: 0.35rem; }
+    .hq-cta-box p { color: rgba(232,238,244,0.75); font-size: 0.92rem; margin: 0; }
+    .hq-cta-box .clay-btn-primary {
+      background: #fff;
+      color: var(--clay-primary-dk);
     }
-    .home-cta p {
-      font-size: 0.9rem;
-      color: var(--clay-text-sec);
+    .hq-cta-box .clay-btn-primary:hover {
+      background: #E6EEF6;
+      color: var(--clay-primary-dk);
     }
+    .hq-cta-box .clay-btn-outline {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+    }
+    .hq-cta-box .clay-btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+    .hq-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    @media (max-width: 768px) {
-      .home-grid-3 { grid-template-columns: 1fr; gap: 1.5rem; }
-      .home-dept-list { grid-template-columns: 1fr; }
-      .home-cta-inner { flex-direction: column; align-items: flex-start; }
+    .nav-login {
+      font-family: var(--font);
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--clay-text-sec);
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+    .nav-login:hover { color: var(--clay-text); }
+
+    @media (max-width: 960px) {
+      .hq-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hq-hero { padding-top: 2.5rem; }
+      .hq-hero h1 { max-width: none; }
+      .hq-product { min-height: 380px; }
+      .hq-section-head { grid-template-columns: 1fr; gap: 0.75rem; }
+      .hq-steps { grid-template-columns: 1fr; }
+      .hq-step { border-right: none; border-bottom: 1px solid var(--clay-border-soft); }
+      .hq-step:last-child { border-bottom: none; }
+      .hq-dept { grid-template-columns: 1fr; gap: 0.35rem; }
+      .hq-secure { grid-template-columns: 1fr; gap: 2rem; }
+      .hq-logo-row { justify-content: flex-start; }
+      .hq-prod-body { grid-template-columns: 1fr; }
+      .hq-side { display: none; }
     }
   </style>
 </head>
@@ -180,18 +462,18 @@
 <header class="site-header" role="banner">
   <nav class="container nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="AtlaSynq home">
-      <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
+      <img src="/images/atlasynq-logo.svg" alt="" width="30" height="30" aria-hidden="true">
       <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
     </a>
     <ul class="nav-links" role="list">
-      <li><a href="/features/">Features</a></li>
+      <li><a href="/features/">Product</a></li>
       <li><a href="/security/">Security</a></li>
       <li><a href="/integrations/">Integrations</a></li>
       <li><a href="/pricing/">Pricing</a></li>
     </ul>
     <div class="nav-cta">
       <a href="/login/" class="nav-login">Log in</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
     </div>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -206,9 +488,9 @@
         <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
         <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
       </a>
-      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.2rem;cursor:pointer;color:var(--clay-text-sec);">&#x2715;</button>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.1rem;cursor:pointer;color:var(--clay-text-sec);">&#x2715;</button>
     </div>
-    <a href="/features/">Features</a>
+    <a href="/features/">Product</a>
     <a href="/security/">Security</a>
     <a href="/integrations/">Integrations</a>
     <a href="/pricing/">Pricing</a>
@@ -219,69 +501,186 @@
 </div>
 
 <main>
-  <section class="home-hero">
+  <!-- HERO: brand + one claim + product surface -->
+  <section class="hq-hero">
     <div class="container">
-      <h1>Governed agents for your enterprise stack</h1>
-      <p class="lead">AtlaSynq connects the tools your company already runs — CRM, ERP, issue trackers, docs — into department-scoped agents. Permissions are enforced on every query. Answers cite the source. Writes wait for admin approval.</p>
-      <div class="home-actions">
-        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-        <a href="/features/" class="clay-btn clay-btn-outline">See how it works</a>
+      <div class="hq-hero-grid">
+        <div>
+          <div class="hq-brand" aria-label="AtlaSynq">
+            <img src="/images/atlasynq-logo.svg" alt="" aria-hidden="true">
+            <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+          </div>
+          <h1>Enterprise knowledge agents that stay inside your permissions</h1>
+          <p class="hq-sub">Connect Salesforce, Jira, NetSuite, and the rest of your stack. Each department agent only sees what its role can access — and every answer cites the source.</p>
+          <div class="hq-actions">
+            <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+            <a href="/security/" class="clay-btn clay-btn-outline">Security &amp; compliance</a>
+          </div>
+          <p class="hq-trust"><span>SOC 2 Type II</span> · SSO / SAML · Zero training on customer data</p>
+        </div>
+
+        <div class="hq-product" aria-label="Product preview">
+          <div class="hq-prod-bar">
+            <div class="hq-prod-tabs">
+              <span class="on">Ask</span>
+              <span>Sources</span>
+              <span>Approvals</span>
+              <span>Audit</span>
+            </div>
+            <span class="hq-role">Sales · RBAC on</span>
+          </div>
+          <div class="hq-prod-body">
+            <aside class="hq-side" aria-hidden="true">
+              <div class="hq-side-label">Connected</div>
+              <div class="hq-side-item on"><img src="/images/salesforce.png" alt="">Salesforce</div>
+              <div class="hq-side-item"><img src="/images/gong.png" alt="">Gong</div>
+              <div class="hq-side-item"><img src="/images/slack.png" alt="">Slack</div>
+              <div class="hq-side-item"><img src="/images/hubspot.png" alt="">HubSpot</div>
+              <div class="hq-side-label" style="margin-top:12px;">Blocked</div>
+              <div class="hq-side-item" style="opacity:0.45;"><img src="/images/netsuite.png" alt="">NetSuite</div>
+              <div class="hq-side-item" style="opacity:0.45;"><img src="/images/quickbooks.png" alt="">QuickBooks</div>
+            </aside>
+            <div class="hq-main">
+              <div class="hq-search">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Which deals are at risk of slipping this quarter?
+              </div>
+              <div class="hq-answer">
+                <div class="hq-answer-label">Answer · 3 sources</div>
+                <p><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.</p>
+              </div>
+              <div class="hq-sources">
+                <div class="hq-src">
+                  <img src="/images/salesforce.png" alt="">
+                  <div><span class="name">Acme Corp — Opportunity</span><br><span class="meta">Last activity · 14 days ago</span></div>
+                  <span class="badge">CRM</span>
+                </div>
+                <div class="hq-src">
+                  <img src="/images/gong.png" alt="">
+                  <div><span class="name">Beta Industries — Call notes</span><br><span class="meta">Risk language flagged</span></div>
+                  <span class="badge">Call</span>
+                </div>
+                <div class="hq-src">
+                  <img src="/images/slack.png" alt="">
+                  <div><span class="name">#enterprise-deals</span><br><span class="meta">TechFlow proposal thread</span></div>
+                  <span class="badge">Chat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="home-meta"><strong>Integrations include</strong> Salesforce, Slack, Jira, HubSpot, NetSuite, GitHub, Notion, and 40+ more via OAuth. <a href="/integrations/">View all</a></p>
     </div>
   </section>
 
-  <section class="home-section">
+  <section class="hq-logos" aria-label="Integrations">
+    <div class="container hq-logos-inner">
+      <div class="hq-logos-label">Works with your stack</div>
+      <div class="hq-logo-row">
+        <img src="/images/salesforce.png" alt="Salesforce">
+        <img src="/images/slack.png" alt="Slack">
+        <img src="/images/jira.png" alt="Jira">
+        <img src="/images/hubspot.png" alt="HubSpot" style="height:36px;margin:-6px 0;">
+        <img src="/images/netsuite.png" alt="NetSuite">
+        <img src="/images/github.jpg" alt="GitHub">
+        <img src="/images/notion.png" alt="Notion">
+        <a href="/integrations/">+ 40 more</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hq-section" id="product">
     <div class="container">
-      <h2>What the platform does</h2>
-      <p class="intro">Not a shared chatbot with plugins. A governance layer between your stack and your teams.</p>
-      <div class="home-grid-3">
-        <div>
-          <h3>Connect once, scope by role</h3>
-          <p>Admins authorize tools with OAuth. Each agent role — Sales, Finance, Engineering, HR — only sees the connectors and fields its policy allows.</p>
+      <div class="hq-section-head">
+        <h2>How governance actually works</h2>
+        <p>AtlaSynq is not a shared chat window with plugins. It is a permission layer between your tools and your teams — enforced on every request.</p>
+      </div>
+      <div class="hq-steps">
+        <div class="hq-step">
+          <div class="hq-step-num">01</div>
+          <h3>Connect with OAuth</h3>
+          <p>Admins authorize tools once. Scoped tokens per role — never credentials pasted into prompts.</p>
         </div>
-        <div>
-          <h3>Answers with sources</h3>
-          <p>When someone asks a question, AtlaSynq retrieves from permitted systems and returns an answer tied to the exact record or document. No invented citations.</p>
+        <div class="hq-step">
+          <div class="hq-step-num">02</div>
+          <h3>Enforce RBAC at query time</h3>
+          <p>Sales cannot query NetSuite. Finance cannot open Salesforce opportunities. Policies run before the model sees data.</p>
         </div>
-        <div>
-          <h3>Approval before action</h3>
-          <p>Read access is automatic within policy. Updates to CRM, tickets, or documents go to an admin queue first. Full audit trail on every request.</p>
+        <div class="hq-step">
+          <div class="hq-step-num">03</div>
+          <h3>Cite, then approve writes</h3>
+          <p>Answers link to source records. CRM updates, ticket changes, and outbound messages wait in an admin queue.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="home-section">
+  <section class="hq-section alt">
     <div class="container">
-      <h2>By department</h2>
-      <p class="intro">Same platform, different tool boundaries per team. Details on the <a href="/features/">features page</a>.</p>
-      <ul class="home-dept-list">
-        <li><strong>Sales</strong>Pipeline status, account context, and follow-ups from CRM and call recordings — without finance or HR data.</li>
-        <li><strong>Finance</strong>Runway, variance, and vendor questions from ERP and accounting tools — scoped away from sales pipeline.</li>
-        <li><strong>Engineering</strong>Release blockers, PR status, and incident context from Jira, GitHub, and observability — repo permissions respected.</li>
-        <li><strong>HR &amp; Legal</strong>Policy lookup and contract questions from HRIS and document stores — with stricter write controls.</li>
-      </ul>
+      <div class="hq-section-head">
+        <h2>One platform. Different boundaries per team.</h2>
+        <p>Same governance model across departments — different tool scopes, different write policies. <a href="/features/">See the full product →</a></p>
+      </div>
+      <div class="hq-dept">
+        <div class="role">Sales</div>
+        <div class="desc">Pipeline risk, account briefs, and follow-ups from CRM and call intel — without finance or HR data.</div>
+        <div class="tools">Salesforce · HubSpot · Gong · Slack</div>
+      </div>
+      <div class="hq-dept">
+        <div class="role">Finance</div>
+        <div class="desc">Runway, variance, and vendor questions from ERP and accounting — scoped away from pipeline.</div>
+        <div class="tools">NetSuite · QuickBooks · Excel · Drive</div>
+      </div>
+      <div class="hq-dept">
+        <div class="role">Engineering</div>
+        <div class="desc">Release blockers, PR status, and incident context — repo and project permissions respected.</div>
+        <div class="tools">Jira · GitHub · Linear · Notion</div>
+      </div>
+      <div class="hq-dept">
+        <div class="role">HR &amp; Legal</div>
+        <div class="desc">Policy lookup and contract questions from HRIS and document stores — stricter write controls.</div>
+        <div class="tools">Workday · SharePoint · DocuSign</div>
+      </div>
     </div>
   </section>
 
-  <section class="home-section">
-    <div class="container home-security">
+  <section class="hq-section" id="security">
+    <div class="container hq-secure">
       <div>
-        <h2>Security and compliance</h2>
-        <p>SOC 2 Type II, SSO/SAML, encryption in transit and at rest, zero training on customer data. RBAC is checked at query time, not only at login. Enterprise plans support VPC and on-premises deployment.</p>
+        <h2>Built for security and IT buyers</h2>
+        <p>Enterprise buyers evaluate AtlaSynq the same way they evaluate any system that touches production data. We designed for that review.</p>
+        <ul class="hq-secure-list">
+          <li>RBAC enforced on every agent request — not only at session start</li>
+          <li>Full audit trail: who asked, which tools were queried, what was returned</li>
+          <li>Customer data is never used to train foundation models</li>
+          <li>SSO / SAML, encryption in transit and at rest</li>
+          <li>VPC and on-premises options on Enterprise</li>
+        </ul>
+        <p style="margin-top:1.5rem;"><a href="/security/" class="clay-btn clay-btn-outline">Read the security overview</a></p>
       </div>
-      <a href="/security/" class="clay-btn clay-btn-outline">Security overview</a>
+      <div class="hq-secure-panel">
+        <h3>What CISOs ask first</h3>
+        <ul>
+          <li><strong>Does it respect source permissions?</strong>Yes. If a user cannot see a record in Salesforce, the agent cannot either.</li>
+          <li><strong>Can we control write actions?</strong>Yes. Writes enter an approval queue with an audit log attached.</li>
+          <li><strong>Where does data go?</strong>Retrieved context is sent to your chosen model provider over TLS. No training on your data.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="home-cta">
-    <div class="container home-cta-inner">
-      <div>
-        <h2>Talk to us about your stack</h2>
-        <p>30-minute walkthrough with your tools and roles in mind.</p>
+  <section class="hq-cta">
+    <div class="container">
+      <div class="hq-cta-box">
+        <div>
+          <h2>See AtlaSynq on your stack</h2>
+          <p>30 minutes. Your tools, your roles, your security constraints.</p>
+        </div>
+        <div class="hq-cta-actions">
+          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+          <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
+        </div>
       </div>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </section>
 </main>
@@ -294,7 +693,7 @@
           <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
           <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p>Role-scoped agents over your existing business tools.</p>
+        <p>Role-scoped agents over your enterprise stack — with governance built in.</p>
       </div>
       <div>
         <h4>Product</h4>
@@ -323,7 +722,7 @@
 
 <div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
   <div class="cookie-content">
-    We use cookies for analytics. <a href="/privacy/">Privacy Policy</a>
+    We use cookies for analytics. <a href="/privacy/">Privacy</a>
   </div>
   <div class="cookie-buttons">
     <button class="btn-cookie-accept">Accept</button>
