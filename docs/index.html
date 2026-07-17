@@ -17,8 +17,8 @@
   <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717b">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -86,149 +86,286 @@
     }
     .hq-trust span { color: var(--clay-text-sec); }
 
-    /* Product surface — dense, real UI, not chat toy */
+    /* Demo = clay product UI (matches app). Site chrome stays institutional ink. */
     .hq-product {
-      background: var(--clay-surface);
-      border: 1px solid var(--clay-border);
+      --p-bg: #F7F1E8;
+      --p-surface: #FFFDF8;
+      --p-elevated: #FBF6ED;
+      --p-border: rgba(92, 64, 51, 0.12);
+      --p-text: #2B1F1A;
+      --p-muted: #8F7B6D;
+      --p-sec: #5E4B3F;
+      --p-terra: #C96A4A;
+      --p-terra-lt: #F5E0D8;
+      --p-sage: #8A8F62;
+      --p-sage-lt: #E3E5D0;
+      --p-shadow: 6px 8px 20px rgba(92,64,51,0.12), -2px -2px 10px rgba(255,248,235,0.9);
+      background: var(--p-bg);
+      border: 1.5px solid var(--p-border);
       border-bottom: none;
-      border-radius: 12px 12px 0 0;
-      box-shadow: 0 -8px 40px rgba(15, 39, 68, 0.08);
+      border-radius: 18px 18px 0 0;
+      box-shadow: 0 -10px 48px rgba(15, 39, 68, 0.10);
       overflow: hidden;
-      min-height: 420px;
+      min-height: 460px;
       display: flex;
       flex-direction: column;
+      font-family: 'Sora', var(--font);
     }
-    .hq-prod-bar {
+    .hq-prod-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--clay-border-soft);
-      background: #FAFBFC;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--p-elevated);
+      border-bottom: 1px solid var(--p-border);
     }
-    .hq-prod-tabs {
-      display: flex;
-      gap: 2px;
-      font-size: 0.78rem;
-      font-weight: 500;
-    }
-    .hq-prod-tabs span {
-      padding: 6px 12px;
-      border-radius: 5px;
-      color: var(--clay-text-muted);
-    }
-    .hq-prod-tabs span.on {
-      background: var(--clay-primary-lt);
-      color: var(--clay-primary);
-      font-weight: 600;
-    }
-    .hq-role {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--clay-sage);
-      background: var(--clay-sage-lt);
-      border: 1px solid rgba(61,107,90,0.2);
-      padding: 4px 8px;
-      border-radius: 4px;
+    .hq-prod-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      color: var(--p-muted);
+    }
+    .hq-prod-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--p-sage);
+      background: var(--p-sage-lt);
+      border: 1px solid rgba(138,143,98,0.28);
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+    .hq-prod-status i {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--p-sage);
+      display: block;
+    }
+    .hq-config {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid var(--p-border);
+      background: linear-gradient(180deg, var(--p-elevated), var(--p-bg));
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hq-config-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hq-config-label {
+      width: 52px;
+      flex-shrink: 0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--p-muted);
+    }
+    .hq-pill {
+      appearance: none;
+      border: 1.5px solid var(--p-border);
+      background: var(--p-surface);
+      color: var(--p-sec);
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+    .hq-pill:hover { border-color: rgba(201,106,74,0.35); }
+    .hq-pill.on {
+      background: var(--p-terra-lt);
+      border-color: rgba(201,106,74,0.4);
+      color: var(--p-terra);
+      box-shadow: 2px 3px 8px rgba(201,106,74,0.15);
+    }
+    .hq-model {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1.5px solid var(--p-border);
+      background: var(--p-surface);
+      color: var(--p-sec);
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 6px 10px 6px 7px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
+    }
+    .hq-model img {
+      width: 18px; height: 18px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .hq-model:hover { border-color: rgba(201,106,74,0.35); transform: translateY(-1px); }
+    .hq-model.on {
+      background: var(--p-surface);
+      border-color: var(--p-terra);
+      box-shadow: 3px 4px 12px rgba(201,106,74,0.18), inset 0 0 0 1px rgba(201,106,74,0.08);
+      color: var(--p-text);
     }
     .hq-prod-body {
       display: grid;
-      grid-template-columns: 168px 1fr;
+      grid-template-columns: 158px 1fr;
       flex: 1;
       min-height: 0;
+      background: var(--p-bg);
     }
     .hq-side {
-      border-right: 1px solid var(--clay-border-soft);
-      background: #FAFBFC;
+      border-right: 1px solid var(--p-border);
+      background: var(--p-elevated);
       padding: 12px 8px;
     }
     .hq-side-label {
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--clay-text-muted);
+      color: var(--p-muted);
       padding: 4px 8px 8px;
     }
     .hq-side-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--clay-text-sec);
+      padding: 8px 9px;
+      border-radius: 9px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--p-sec);
     }
     .hq-side-item.on {
-      background: var(--clay-surface);
-      color: var(--clay-text);
-      font-weight: 600;
-      box-shadow: 0 0 0 1px var(--clay-border-soft);
+      background: var(--p-surface);
+      color: var(--p-text);
+      box-shadow: var(--p-shadow);
     }
-    .hq-side-item img { width: 16px; height: 16px; object-fit: contain; opacity: 0.85; }
-    .hq-main { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 14px; }
-    .hq-search {
+    .hq-side-item.blocked {
+      opacity: 0.42;
+      text-decoration: line-through;
+      text-decoration-color: rgba(92,64,51,0.35);
+    }
+    .hq-side-item img { width: 16px; height: 16px; object-fit: contain; }
+    .hq-main {
+      padding: 14px 16px 16px;
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background:
+        radial-gradient(ellipse 70% 50% at 90% 0%, rgba(201,106,74,0.08), transparent 55%),
+        var(--p-bg);
+    }
+    .hq-query {
+      background: var(--p-surface);
+      border: 1.5px solid var(--p-border);
+      border-radius: 14px;
+      box-shadow: var(--p-shadow);
+      padding: 12px 14px;
+    }
+    .hq-query-meta {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      padding: 11px 14px;
-      border: 1px solid var(--clay-border);
-      border-radius: 8px;
-      background: #FAFBFC;
-      font-size: 0.88rem;
-      color: var(--clay-text);
-      font-weight: 500;
+      gap: 8px;
+      margin-bottom: 8px;
     }
-    .hq-search svg { flex-shrink: 0; color: var(--clay-text-muted); }
-    .hq-answer {
-      border: 1px solid var(--clay-border-soft);
-      border-radius: 8px;
-      padding: 14px 16px;
-      background: var(--clay-surface);
-    }
-    .hq-answer-label {
+    .hq-query-meta span {
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--clay-primary);
+      color: var(--p-muted);
+    }
+    .hq-model-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--p-terra);
+      background: var(--p-terra-lt);
+      border: 1px solid rgba(201,106,74,0.25);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .hq-model-chip img { width: 13px; height: 13px; object-fit: contain; }
+    .hq-query p {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--p-text);
+      line-height: 1.4;
+    }
+    .hq-answer {
+      background: var(--p-surface);
+      border: 1.5px solid var(--p-border);
+      border-radius: 14px;
+      box-shadow: var(--p-shadow);
+      padding: 13px 14px;
+      transition: opacity 0.18s ease;
+    }
+    .hq-answer.is-switching { opacity: 0.35; }
+    .hq-answer-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 8px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--p-terra);
+    }
+    .hq-answer-label em {
+      font-style: normal;
+      color: var(--p-muted);
+      font-weight: 600;
     }
     .hq-answer p {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       line-height: 1.55;
-      color: var(--clay-text);
+      color: var(--p-sec);
       margin: 0;
     }
-    .hq-answer p strong { font-weight: 600; }
-    .hq-sources {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    .hq-answer p strong { color: var(--p-text); font-weight: 700; }
+    .hq-sources { display: flex; flex-direction: column; gap: 6px; }
     .hq-src {
       display: grid;
-      grid-template-columns: 20px 1fr auto;
-      gap: 10px;
+      grid-template-columns: 18px 1fr auto;
+      gap: 9px;
       align-items: center;
       padding: 8px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--clay-border-soft);
-      background: #FAFBFC;
-      font-size: 0.78rem;
+      border-radius: 10px;
+      border: 1.5px solid var(--p-border);
+      background: var(--p-surface);
+      box-shadow: 2px 3px 8px rgba(92,64,51,0.06);
+      font-size: 0.76rem;
     }
-    .hq-src img { width: 16px; height: 16px; object-fit: contain; }
-    .hq-src .name { font-weight: 600; color: var(--clay-text); }
-    .hq-src .meta { color: var(--clay-text-muted); font-weight: 400; }
+    .hq-src img { width: 15px; height: 15px; object-fit: contain; }
+    .hq-src .name { font-weight: 700; color: var(--p-text); }
+    .hq-src .meta { color: var(--p-muted); }
     .hq-src .badge {
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--clay-text-muted);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--p-muted);
       text-transform: uppercase;
       letter-spacing: 0.04em;
+    }
+    .hq-demo-hint {
+      font-size: 0.72rem;
+      color: var(--p-muted);
+      text-align: center;
+      padding: 0 8px 10px;
+      background: var(--p-bg);
     }
 
     /* Logo strip */
@@ -454,6 +591,8 @@
       .hq-logo-row { justify-content: flex-start; }
       .hq-prod-body { grid-template-columns: 1fr; }
       .hq-side { display: none; }
+      .hq-model { padding: 6px 8px; }
+      .hq-model span, .hq-model { font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -510,81 +649,100 @@
             <img src="/images/atlasynq-logo.svg" alt="" aria-hidden="true">
             <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
           </div>
-          <h1>Enterprise knowledge agents that stay inside your permissions</h1>
-          <p class="hq-sub">Connect Salesforce, Jira, NetSuite, and the rest of your stack. Each department agent only sees what its role can access — and every answer cites the source.</p>
+          <h1>One governance layer. Any model. Your tools.</h1>
+          <p class="hq-sub">Route Sales to GPT-4o, Finance to Claude, Engineering to Gemini — same RBAC, same citations, same approval queue. Not locked to a single LLM vendor.</p>
           <div class="hq-actions">
             <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-            <a href="/security/" class="clay-btn clay-btn-outline">Security &amp; compliance</a>
+            <a href="/features/" class="clay-btn clay-btn-outline">See the product</a>
           </div>
           <p class="hq-trust"><span>SOC 2 Type II</span> · SSO / SAML · Zero training on customer data</p>
         </div>
 
-        <div class="hq-product" aria-label="Product preview">
-          <div class="hq-prod-bar">
-            <div class="hq-prod-tabs">
-              <span class="on">Ask</span>
-              <span>Sources</span>
-              <span>Approvals</span>
-              <span>Audit</span>
-            </div>
-            <span class="hq-role">Sales · RBAC on</span>
+        <div class="hq-product" id="productDemo" aria-label="AtlaSynq product demo">
+          <div class="hq-prod-top">
+            <div class="hq-prod-title">Department agent</div>
+            <div class="hq-prod-status"><i aria-hidden="true"></i> RBAC enforced</div>
           </div>
+
+          <div class="hq-config">
+            <div class="hq-config-row" role="group" aria-label="Department">
+              <div class="hq-config-label">Role</div>
+              <button type="button" class="hq-pill on" data-role="sales">Sales</button>
+              <button type="button" class="hq-pill" data-role="finance">Finance</button>
+              <button type="button" class="hq-pill" data-role="eng">Engineering</button>
+            </div>
+            <div class="hq-config-row" role="group" aria-label="Model provider">
+              <div class="hq-config-label">Model</div>
+              <button type="button" class="hq-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
+              <button type="button" class="hq-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
+              <button type="button" class="hq-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
+              <button type="button" class="hq-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
+              <button type="button" class="hq-model" data-model="copilot" aria-pressed="false"><img src="/images/copilot.png" alt="">Copilot</button>
+              <button type="button" class="hq-model" data-model="pplx" aria-pressed="false"><img src="/images/pplx.png" alt="">Perplexity</button>
+            </div>
+          </div>
+
           <div class="hq-prod-body">
-            <aside class="hq-side" aria-hidden="true">
-              <div class="hq-side-label">Connected</div>
-              <div class="hq-side-item on"><img src="/images/salesforce.png" alt="">Salesforce</div>
-              <div class="hq-side-item"><img src="/images/gong.png" alt="">Gong</div>
-              <div class="hq-side-item"><img src="/images/slack.png" alt="">Slack</div>
-              <div class="hq-side-item"><img src="/images/hubspot.png" alt="">HubSpot</div>
-              <div class="hq-side-label" style="margin-top:12px;">Blocked</div>
-              <div class="hq-side-item" style="opacity:0.45;"><img src="/images/netsuite.png" alt="">NetSuite</div>
-              <div class="hq-side-item" style="opacity:0.45;"><img src="/images/quickbooks.png" alt="">QuickBooks</div>
+            <aside class="hq-side" aria-label="Tool access for selected role">
+              <div class="hq-side-label">Allowed</div>
+              <div class="hq-side-item on" data-tool="a0"><img src="/images/salesforce.png" alt=""><span>Salesforce</span></div>
+              <div class="hq-side-item" data-tool="a1"><img src="/images/gong.png" alt=""><span>Gong</span></div>
+              <div class="hq-side-item" data-tool="a2"><img src="/images/slack.png" alt=""><span>Slack</span></div>
+              <div class="hq-side-item" data-tool="a3"><img src="/images/hubspot.png" alt=""><span>HubSpot</span></div>
+              <div class="hq-side-label" style="margin-top:10px;">Blocked</div>
+              <div class="hq-side-item blocked" data-tool="b0"><img src="/images/netsuite.png" alt=""><span>NetSuite</span></div>
+              <div class="hq-side-item blocked" data-tool="b1"><img src="/images/quickbooks.png" alt=""><span>QuickBooks</span></div>
             </aside>
             <div class="hq-main">
-              <div class="hq-search">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                Which deals are at risk of slipping this quarter?
+              <div class="hq-query">
+                <div class="hq-query-meta">
+                  <span>Query</span>
+                  <span class="hq-model-chip" id="demoModelChip"><img src="/images/gpt.png" alt="" id="demoModelChipImg"><span id="demoModelChipName">GPT-4o</span></span>
+                </div>
+                <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
               </div>
-              <div class="hq-answer">
-                <div class="hq-answer-label">Answer · 3 sources</div>
-                <p><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.</p>
+              <div class="hq-answer" id="demoAnswer">
+                <div class="hq-answer-label">Governed answer <em id="demoSourceCount">3 sources</em></div>
+                <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.</p>
               </div>
-              <div class="hq-sources">
-                <div class="hq-src">
-                  <img src="/images/salesforce.png" alt="">
-                  <div><span class="name">Acme Corp — Opportunity</span><br><span class="meta">Last activity · 14 days ago</span></div>
-                  <span class="badge">CRM</span>
-                </div>
-                <div class="hq-src">
-                  <img src="/images/gong.png" alt="">
-                  <div><span class="name">Beta Industries — Call notes</span><br><span class="meta">Risk language flagged</span></div>
-                  <span class="badge">Call</span>
-                </div>
-                <div class="hq-src">
-                  <img src="/images/slack.png" alt="">
-                  <div><span class="name">#enterprise-deals</span><br><span class="meta">TechFlow proposal thread</span></div>
-                  <span class="badge">Chat</span>
-                </div>
+              <div class="hq-sources" id="demoSources">
+                <div class="hq-src"><img src="/images/salesforce.png" alt=""><div><span class="name">Acme Corp — Opportunity</span><br><span class="meta">Last activity · 14 days ago</span></div><span class="badge">CRM</span></div>
+                <div class="hq-src"><img src="/images/gong.png" alt=""><div><span class="name">Beta Industries — Call notes</span><br><span class="meta">Risk language flagged</span></div><span class="badge">Call</span></div>
+                <div class="hq-src"><img src="/images/slack.png" alt=""><div><span class="name">#enterprise-deals</span><br><span class="meta">TechFlow proposal thread</span></div><span class="badge">Chat</span></div>
               </div>
             </div>
           </div>
+          <p class="hq-demo-hint">Switch role or model — governance stays; routing and tool scope change.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="hq-logos" aria-label="Integrations">
-    <div class="container hq-logos-inner">
-      <div class="hq-logos-label">Works with your stack</div>
-      <div class="hq-logo-row">
-        <img src="/images/salesforce.png" alt="Salesforce">
-        <img src="/images/slack.png" alt="Slack">
-        <img src="/images/jira.png" alt="Jira">
-        <img src="/images/hubspot.png" alt="HubSpot" style="height:36px;margin:-6px 0;">
-        <img src="/images/netsuite.png" alt="NetSuite">
-        <img src="/images/github.jpg" alt="GitHub">
-        <img src="/images/notion.png" alt="Notion">
-        <a href="/integrations/">+ 40 more</a>
+  <section class="hq-logos" aria-label="Models and integrations">
+    <div class="container" style="display:flex;flex-direction:column;gap:1.15rem;">
+      <div class="hq-logos-inner">
+        <div class="hq-logos-label">Models you choose</div>
+        <div class="hq-logo-row">
+          <img src="/images/gpt.png" alt="GPT">
+          <img src="/images/claude.png" alt="Claude">
+          <img src="/images/gemini.png" alt="Gemini">
+          <img src="/images/llama.png" alt="Llama">
+          <img src="/images/copilot.png" alt="Copilot">
+          <img src="/images/pplx.png" alt="Perplexity">
+        </div>
+      </div>
+      <div class="hq-logos-inner">
+        <div class="hq-logos-label">Tools you already run</div>
+        <div class="hq-logo-row">
+          <img src="/images/salesforce.png" alt="Salesforce">
+          <img src="/images/slack.png" alt="Slack">
+          <img src="/images/jira.png" alt="Jira">
+          <img src="/images/hubspot.png" alt="HubSpot" style="height:36px;margin:-6px 0;">
+          <img src="/images/netsuite.png" alt="NetSuite">
+          <img src="/images/github.jpg" alt="GitHub">
+          <img src="/images/notion.png" alt="Notion">
+          <a href="/integrations/">+ 40 more</a>
+        </div>
       </div>
     </div>
   </section>
@@ -593,23 +751,23 @@
     <div class="container">
       <div class="hq-section-head">
         <h2>How governance actually works</h2>
-        <p>AtlaSynq is not a shared chat window with plugins. It is a permission layer between your tools and your teams — enforced on every request.</p>
+        <p>Pick the model that fits the department. Keep one policy layer for tools, citations, and write approvals — regardless of whether the answer is from GPT, Claude, Gemini, or Llama.</p>
       </div>
       <div class="hq-steps">
         <div class="hq-step">
           <div class="hq-step-num">01</div>
-          <h3>Connect with OAuth</h3>
-          <p>Admins authorize tools once. Scoped tokens per role — never credentials pasted into prompts.</p>
+          <h3>Assign model per role</h3>
+          <p>Sales on GPT-4o, Finance on Claude, Engineering on Gemini or self-hosted Llama. Switch providers without rebuilding connectors.</p>
         </div>
         <div class="hq-step">
           <div class="hq-step-num">02</div>
-          <h3>Enforce RBAC at query time</h3>
-          <p>Sales cannot query NetSuite. Finance cannot open Salesforce opportunities. Policies run before the model sees data.</p>
+          <h3>Enforce RBAC before the model</h3>
+          <p>Tool scope is checked first. If Finance cannot see Salesforce, that context never reaches any LLM.</p>
         </div>
         <div class="hq-step">
           <div class="hq-step-num">03</div>
           <h3>Cite, then approve writes</h3>
-          <p>Answers link to source records. CRM updates, ticket changes, and outbound messages wait in an admin queue.</p>
+          <p>Answers link to source records. CRM updates and outbound messages wait in an admin queue — model-agnostic audit trail.</p>
         </div>
       </div>
     </div>
@@ -758,6 +916,180 @@
   </div>
 </div>
 
+<script>
+(function () {
+  var MODELS = {
+    gpt:     { name: 'GPT-4o',      icon: '/images/gpt.png' },
+    claude:  { name: 'Claude 3.5',  icon: '/images/claude.png' },
+    gemini:  { name: 'Gemini 1.5',  icon: '/images/gemini.png' },
+    llama:   { name: 'Llama 3',     icon: '/images/llama.png' },
+    copilot: { name: 'Copilot',     icon: '/images/copilot.png' },
+    pplx:    { name: 'Perplexity',  icon: '/images/pplx.png' }
+  };
+
+  var ROLES = {
+    sales: {
+      question: 'Which deals are at risk of slipping this quarter?',
+      answers: {
+        gpt: '<strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.',
+        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme Corp stalled after the last Gong call. Beta Industries shows procurement pushback. TechFlow is waiting on a revised SOW before end of week.',
+        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and an open proposal deadline on TechFlow.',
+        llama: '<strong>3 deals flagged.</strong> Acme: 14-day inactivity. Beta: 62% closed-lost probability. TechFlow: proposal due Friday.',
+        copilot: '<strong>Sales Agent summary.</strong> Prioritize Acme re-engage, Beta executive alignment, and TechFlow proposal revision before Friday.',
+        pplx: '<strong>Cross-tool risk brief.</strong> Salesforce + Gong + Slack agree: Acme, Beta, and TechFlow need owner action this week.'
+      },
+      allowed: [
+        { icon: '/images/salesforce.png', name: 'Salesforce' },
+        { icon: '/images/gong.png', name: 'Gong' },
+        { icon: '/images/slack.png', name: 'Slack' },
+        { icon: '/images/hubspot.png', name: 'HubSpot' }
+      ],
+      blocked: [
+        { icon: '/images/netsuite.png', name: 'NetSuite' },
+        { icon: '/images/quickbooks.png', name: 'QuickBooks' }
+      ],
+      sources: [
+        { icon: '/images/salesforce.png', name: 'Acme Corp — Opportunity', meta: 'Last activity · 14 days ago', badge: 'CRM' },
+        { icon: '/images/gong.png', name: 'Beta Industries — Call notes', meta: 'Risk language flagged', badge: 'Call' },
+        { icon: '/images/slack.png', name: '#enterprise-deals', meta: 'TechFlow proposal thread', badge: 'Chat' }
+      ]
+    },
+    finance: {
+      question: 'What is our cash runway at current burn?',
+      answers: {
+        gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx. Series A close by Aug 15 extends runway to ~31 months.',
+        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; the lever is OpEx mix — Engineering dominates. A timely Series A roughly doubles runway.',
+        gemini: '<strong>Cash: $5.7M · Burn: $310k/mo · Runway: 18.4 mo.</strong> Largest cost center Engineering (44%). Upside scenario: 31 months post-raise.',
+        llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.',
+        copilot: '<strong>Finance Agent briefing.</strong> Maintain current burn; model Series A close as the primary runway extender.',
+        pplx: '<strong>Cited runway view.</strong> NetSuite + QuickBooks + Stripe agree on ~18 months at current spend.'
+      },
+      allowed: [
+        { icon: '/images/netsuite.png', name: 'NetSuite' },
+        { icon: '/images/quickbooks.png', name: 'QuickBooks' },
+        { icon: '/images/stripe.jpg', name: 'Stripe' },
+        { icon: '/images/excel.png', name: 'Excel' }
+      ],
+      blocked: [
+        { icon: '/images/salesforce.png', name: 'Salesforce' },
+        { icon: '/images/gong.png', name: 'Gong' }
+      ],
+      sources: [
+        { icon: '/images/netsuite.png', name: 'GL cash position', meta: 'As of this morning', badge: 'ERP' },
+        { icon: '/images/quickbooks.png', name: 'Monthly OpEx rollup', meta: 'Engineering 44%', badge: 'Books' },
+        { icon: '/images/stripe.jpg', name: 'Recurring revenue', meta: 'Trailing 30 days', badge: 'Billing' }
+      ]
+    },
+    eng: {
+      question: 'What is blocking the v2.4 release?',
+      answers: {
+        gpt: '<strong>4 P1 bugs block v2.4.0.</strong> AUTH-881 (login timeout), API-1204 (rate limiter), UI-390 (Safari blank state), INFRA-77 (Redis failover lag). Clearance estimate July 14.',
+        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity. Safari blank dashboard and Redis lag remain in progress.',
+        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; remaining three in progress against current sprint velocity.',
+        llama: '<strong>4 P1 blockers.</strong> AUTH-881, API-1204, UI-390, INFRA-77. Target clear date July 14.',
+        copilot: '<strong>Engineering Agent status.</strong> Keep AUTH-881 as the critical path; other P1s track to mid-July clearance.',
+        pplx: '<strong>Release risk brief.</strong> Jira + GitHub + Linear point to four P1s before v2.4 ships.'
+      },
+      allowed: [
+        { icon: '/images/jira.png', name: 'Jira' },
+        { icon: '/images/github.jpg', name: 'GitHub' },
+        { icon: '/images/linear.png', name: 'Linear' },
+        { icon: '/images/notion.png', name: 'Notion' }
+      ],
+      blocked: [
+        { icon: '/images/salesforce.png', name: 'Salesforce' },
+        { icon: '/images/netsuite.png', name: 'NetSuite' }
+      ],
+      sources: [
+        { icon: '/images/jira.png', name: 'AUTH-881 — Login timeout', meta: 'In review · @maya', badge: 'P1' },
+        { icon: '/images/github.jpg', name: 'api-rate-limiter PR', meta: 'Open · needs approve', badge: 'PR' },
+        { icon: '/images/linear.png', name: 'v2.4 milestone', meta: '4 blockers linked', badge: 'Plan' }
+      ]
+    }
+  };
+
+  var state = { role: 'sales', model: 'gpt' };
+
+  function el(id) { return document.getElementById(id); }
+
+  function renderTools(role) {
+    var data = ROLES[role];
+    var side = document.querySelector('#productDemo .hq-side');
+    if (!side || !data) return;
+    var html = '<div class="hq-side-label">Allowed</div>';
+    data.allowed.forEach(function (t, i) {
+      html += '<div class="hq-side-item' + (i === 0 ? ' on' : '') + '"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
+    });
+    html += '<div class="hq-side-label" style="margin-top:10px;">Blocked</div>';
+    data.blocked.forEach(function (t) {
+      html += '<div class="hq-side-item blocked"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
+    });
+    side.innerHTML = html;
+  }
+
+  function renderSources(role) {
+    var data = ROLES[role];
+    var box = el('demoSources');
+    if (!box || !data) return;
+    box.innerHTML = data.sources.map(function (s) {
+      return '<div class="hq-src"><img src="' + s.icon + '" alt=""><div><span class="name">' + s.name + '</span><br><span class="meta">' + s.meta + '</span></div><span class="badge">' + s.badge + '</span></div>';
+    }).join('');
+  }
+
+  function render() {
+    var role = ROLES[state.role];
+    var model = MODELS[state.model];
+    if (!role || !model) return;
+
+    var answer = el('demoAnswer');
+    if (answer) answer.classList.add('is-switching');
+
+    window.setTimeout(function () {
+      el('demoQuestion').textContent = role.question;
+      el('demoAnswerText').innerHTML = role.answers[state.model] || role.answers.gpt;
+      el('demoSourceCount').textContent = role.sources.length + ' sources';
+      el('demoModelChipName').textContent = model.name;
+      el('demoModelChipImg').src = model.icon;
+      renderTools(state.role);
+      renderSources(state.role);
+      if (answer) answer.classList.remove('is-switching');
+    }, 120);
+  }
+
+  function bind() {
+    var root = el('productDemo');
+    if (!root) return;
+
+    root.querySelectorAll('[data-role]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.role = btn.getAttribute('data-role');
+        root.querySelectorAll('[data-role]').forEach(function (b) {
+          b.classList.toggle('on', b === btn);
+        });
+        render();
+      });
+    });
+
+    root.querySelectorAll('[data-model]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.model = btn.getAttribute('data-model');
+        root.querySelectorAll('[data-model]').forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('on', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        render();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+})();
+</script>
 <script src="/js/site-demos.js" defer></script>
 </body>
 </html>
