@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717c">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717d">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,190 +52,147 @@
       padding: 8px 12px;
     }
 
-    /* ── Hero ── */
+    /* One hero composition: copy + product */
     .hero {
-      padding: 4rem 0 3rem;
+      padding: 3.25rem 0 3.5rem;
     }
-    .hero-inner {
-      max-width: 720px;
-      margin: 0 auto;
+    .hero-copy {
+      max-width: 640px;
+      margin: 0 auto 2rem;
       text-align: center;
     }
     .hero h1 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-size: clamp(2rem, 4vw, 2.65rem);
       font-weight: 600;
       letter-spacing: -0.03em;
       line-height: 1.15;
-      margin: 0 0 1rem;
+      margin: 0 0 0.85rem;
       color: #0F1724;
     }
-    .hero p {
-      font-size: 1.08rem;
-      line-height: 1.6;
+    .hero-copy > p {
+      font-size: 1.05rem;
+      line-height: 1.55;
       color: var(--ink-soft);
-      max-width: 34em;
-      margin: 0 auto 1.75rem;
+      margin: 0 auto 1.5rem;
+      max-width: 32em;
     }
     .hero-actions {
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.9rem;
     }
     .hero-trust {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       font-weight: 500;
+      margin: 0;
     }
 
-    /* ── Demo (clay product) ── */
-    .demo-wrap {
-      padding: 0 0 3.5rem;
-    }
+    /* Clay product — flat, one panel */
     .demo {
       --p-bg: #F7F1E8;
       --p-surface: #FFFDF8;
-      --p-border: rgba(92, 64, 51, 0.13);
+      --p-border: rgba(92, 64, 51, 0.14);
       --p-text: #2B1F1A;
       --p-sec: #5E4B3F;
       --p-muted: #8F7B6D;
       --p-terra: #C96A4A;
-      --p-terra-lt: #F5E0D8;
-      max-width: 880px;
+      max-width: 860px;
       margin: 0 auto;
       background: var(--p-bg);
-      border: 1.5px solid var(--p-border);
-      border-radius: 16px;
-      box-shadow: 0 16px 40px rgba(15, 39, 68, 0.08);
+      border: 1px solid var(--p-border);
+      border-radius: 14px;
       overflow: hidden;
       font-family: 'Sora', var(--font);
+      box-shadow: 0 12px 32px rgba(15, 39, 68, 0.07);
     }
-    .demo-bar {
+    .demo-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--p-border);
+      gap: 12px;
+      padding: 12px 14px;
       background: #FBF6ED;
-    }
-    .demo-bar-title {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--p-muted);
-    }
-    .demo-tabs {
-      display: flex;
-      gap: 6px;
-      padding: 12px 16px;
       border-bottom: 1px solid var(--p-border);
-      overflow-x: auto;
+      flex-wrap: wrap;
     }
-    .demo-tab {
+    .demo-tabs,
+    .demo-models {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .demo-tab,
+    .demo-model {
       appearance: none;
-      border: 1.5px solid transparent;
+      border: 1px solid transparent;
       background: transparent;
       color: var(--p-sec);
       font: inherit;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      padding: 7px 12px;
+      padding: 6px 11px;
       border-radius: 8px;
       cursor: pointer;
       white-space: nowrap;
     }
-    .demo-tab:hover { background: rgba(255,253,248,0.7); }
-    .demo-tab.on {
+    .demo-model {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+    }
+    .demo-model img { width: 15px; height: 15px; object-fit: contain; border-radius: 3px; }
+    .demo-tab:hover,
+    .demo-model:hover { background: rgba(255,253,248,0.75); }
+    .demo-tab.on,
+    .demo-model.on {
       background: var(--p-surface);
       border-color: var(--p-border);
       color: var(--p-text);
-      box-shadow: 2px 3px 8px rgba(92,64,51,0.08);
     }
-    .demo-body {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      min-height: 340px;
-    }
-    .demo-side {
-      padding: 16px 14px;
-      border-right: 1px solid var(--p-border);
-      background: #FBF6ED;
-    }
-    .demo-side h4 {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--p-muted);
-      margin: 0 0 10px;
-    }
-    .demo-models {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 1.25rem;
-    }
-    .demo-model {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      appearance: none;
-      border: 1.5px solid transparent;
-      background: transparent;
-      color: var(--p-sec);
-      font: inherit;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 8px 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      text-align: left;
-    }
-    .demo-model img { width: 18px; height: 18px; object-fit: contain; border-radius: 4px; }
-    .demo-model:hover { background: rgba(255,253,248,0.8); }
-    .demo-model.on {
-      background: var(--p-surface);
-      border-color: rgba(201,106,74,0.35);
-      color: var(--p-text);
-      box-shadow: 2px 3px 10px rgba(201,106,74,0.12);
-    }
-    .demo-tools { display: flex; flex-direction: column; gap: 6px; }
-    .demo-tool {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--p-sec);
-      padding: 4px 2px;
-    }
-    .demo-tool img { width: 15px; height: 15px; object-fit: contain; }
-    .demo-tool.blocked { opacity: 0.4; text-decoration: line-through; }
+    .demo-model.on { border-color: rgba(201,106,74,0.35); }
+
     .demo-main {
-      padding: 18px 20px 20px;
-      background: var(--p-bg);
+      padding: 18px 18px 16px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-    .demo-q {
+    .demo-q,
+    .demo-a {
       background: var(--p-surface);
-      border: 1.5px solid var(--p-border);
-      border-radius: 12px;
+      border: 1px solid var(--p-border);
+      border-radius: 10px;
       padding: 14px 16px;
-      box-shadow: 4px 6px 14px rgba(92,64,51,0.08);
     }
-    .demo-q-label {
-      font-size: 0.68rem;
+    .demo-label {
+      font-size: 0.66rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--p-muted);
       margin-bottom: 6px;
     }
+    .demo-a .demo-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--p-terra);
+    }
+    .demo-a .demo-label span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--p-muted);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 600;
+      font-size: 0.72rem;
+    }
+    .demo-a .demo-label img { width: 13px; height: 13px; object-fit: contain; }
     .demo-q p {
       margin: 0;
       font-size: 0.95rem;
@@ -243,38 +200,6 @@
       color: var(--p-text);
       line-height: 1.4;
     }
-    .demo-a {
-      background: var(--p-surface);
-      border: 1.5px solid var(--p-border);
-      border-radius: 12px;
-      padding: 14px 16px;
-      box-shadow: 4px 6px 14px rgba(92,64,51,0.08);
-      flex: 1;
-      transition: opacity 0.15s;
-    }
-    .demo-a.is-switching { opacity: 0.4; }
-    .demo-a-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--p-terra);
-      margin-bottom: 8px;
-    }
-    .demo-a-label span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--p-muted);
-      font-weight: 600;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.75rem;
-    }
-    .demo-a-label img { width: 14px; height: 14px; object-fit: contain; }
     .demo-a p {
       margin: 0 0 12px;
       font-size: 0.88rem;
@@ -282,41 +207,61 @@
       color: var(--p-sec);
     }
     .demo-a p strong { color: var(--p-text); }
+    .demo-a.is-switching { opacity: 0.45; transition: opacity 0.12s; }
+
     .demo-sources {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
+      margin-bottom: 12px;
     }
     .demo-src {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: #FBF6ED;
+      gap: 5px;
+      background: #F7F1E8;
       border: 1px solid var(--p-border);
-      border-radius: 8px;
-      padding: 5px 9px;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--p-sec);
+    }
+    .demo-src img { width: 12px; height: 12px; object-fit: contain; }
+
+    .demo-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      padding-top: 2px;
+      border-top: 1px solid var(--p-border);
+    }
+    .demo-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.72rem;
       font-weight: 600;
       color: var(--p-sec);
     }
-    .demo-src img { width: 13px; height: 13px; object-fit: contain; }
+    .demo-tool img { width: 14px; height: 14px; object-fit: contain; }
+    .demo-tool.blocked { opacity: 0.38; text-decoration: line-through; }
 
-    /* ── Strip ── */
+    /* Integrations line */
     .strip {
       background: var(--white);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      padding: 1.5rem 0;
+      padding: 1.35rem 0;
     }
     .strip-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
     .strip-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
@@ -326,38 +271,37 @@
     .strip-logos {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.35rem;
       flex-wrap: wrap;
-      justify-content: flex-end;
       flex: 1;
     }
     .strip-logos img {
-      height: 22px;
+      height: 20px;
       width: auto;
-      max-width: 90px;
+      max-width: 84px;
       object-fit: contain;
       filter: grayscale(1);
-      opacity: 0.55;
+      opacity: 0.5;
       mix-blend-mode: multiply;
     }
     .strip-logos a {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--muted);
     }
 
-    /* ── Steps ── */
+    /* How it works — no cards */
     .steps {
-      padding: 4rem 0;
+      padding: 3.75rem 0;
     }
     .steps-head {
-      text-align: center;
-      margin-bottom: 2rem;
+      max-width: 480px;
+      margin: 0 0 2rem;
     }
     .steps-head h2 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.4rem;
     }
     .steps-head p {
       margin: 0;
@@ -367,25 +311,21 @@
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-    .step {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 1.5rem;
+      gap: 2rem 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 2rem;
     }
     .step-num {
       font-size: 0.72rem;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--muted);
       letter-spacing: 0.06em;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.55rem;
     }
     .step h3 {
       font-size: 1rem;
       font-weight: 600;
-      margin: 0 0 0.45rem;
+      margin: 0 0 0.4rem;
     }
     .step p {
       margin: 0;
@@ -394,29 +334,26 @@
       color: var(--ink-soft);
     }
 
-    /* ── CTA ── */
-    .cta {
-      padding: 0 0 4.5rem;
-    }
+    .cta { padding: 0 0 4rem; }
     .cta-box {
       background: var(--ink);
       border-radius: 12px;
-      padding: 2rem 2.25rem;
+      padding: 1.75rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
     .cta-box h2 {
       color: #fff;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin: 0 0 0.3rem;
+      margin: 0 0 0.25rem;
     }
     .cta-box p {
       margin: 0;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.7);
       font-size: 0.9rem;
     }
     .cta-box .clay-btn-primary {
@@ -429,16 +366,8 @@
     }
 
     @media (max-width: 800px) {
-      .demo-body { grid-template-columns: 1fr; }
-      .demo-side {
-        border-right: none;
-        border-bottom: 1px solid var(--p-border);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      .steps-grid { grid-template-columns: 1fr; }
-      .strip-logos { justify-content: flex-start; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .demo-top { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
@@ -487,57 +416,44 @@
 
 <main>
   <section class="hero">
-    <div class="container hero-inner">
-      <h1>Governed agents for every department</h1>
-      <p>Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
-      <div class="hero-actions">
-        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-        <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
-      </div>
-      <p class="hero-trust">SOC 2 Type II · SSO / SAML · Zero training on customer data</p>
-    </div>
-  </section>
-
-  <section class="demo-wrap">
     <div class="container">
+      <div class="hero-copy">
+        <h1>Governed agents for every department</h1>
+        <p>Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+          <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
+        </div>
+        <p class="hero-trust">SOC 2 Type II · SSO / SAML · Zero training on customer data</p>
+      </div>
+
       <div class="demo" id="productDemo" aria-label="Product demo">
-        <div class="demo-bar">
-          <div class="demo-bar-title">AtlaSynq · Department agent</div>
+        <div class="demo-top">
+          <div class="demo-tabs" role="tablist" aria-label="Department">
+            <button type="button" class="demo-tab on" data-role="sales">Sales</button>
+            <button type="button" class="demo-tab" data-role="finance">Finance</button>
+            <button type="button" class="demo-tab" data-role="eng">Engineering</button>
+          </div>
+          <div class="demo-models" role="group" aria-label="Model">
+            <button type="button" class="demo-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
+            <button type="button" class="demo-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
+            <button type="button" class="demo-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
+            <button type="button" class="demo-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
+          </div>
         </div>
-        <div class="demo-tabs" role="tablist" aria-label="Department">
-          <button type="button" class="demo-tab on" data-role="sales">Sales</button>
-          <button type="button" class="demo-tab" data-role="finance">Finance</button>
-          <button type="button" class="demo-tab" data-role="eng">Engineering</button>
-        </div>
-        <div class="demo-body">
-          <aside class="demo-side">
-            <div>
-              <h4>Model</h4>
-              <div class="demo-models" role="group" aria-label="LLM provider">
-                <button type="button" class="demo-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
-                <button type="button" class="demo-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
-                <button type="button" class="demo-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
-                <button type="button" class="demo-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
-              </div>
+        <div class="demo-main">
+          <div class="demo-q">
+            <div class="demo-label">Question</div>
+            <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
+          </div>
+          <div class="demo-a" id="demoAnswer">
+            <div class="demo-label">
+              Answer
+              <span><img src="/images/gpt.png" alt="" id="demoModelIcon"> <span id="demoModelName">GPT-4o</span></span>
             </div>
-            <div>
-              <h4>Tools</h4>
-              <div class="demo-tools" id="demoTools"></div>
-            </div>
-          </aside>
-          <div class="demo-main">
-            <div class="demo-q">
-              <div class="demo-q-label">Question</div>
-              <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
-            </div>
-            <div class="demo-a" id="demoAnswer">
-              <div class="demo-a-label">
-                Answer
-                <span><img src="/images/gpt.png" alt="" id="demoModelIcon"> <span id="demoModelName">GPT-4o</span></span>
-              </div>
-              <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
-              <div class="demo-sources" id="demoSources"></div>
-            </div>
+            <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
+            <div class="demo-sources" id="demoSources"></div>
+            <div class="demo-tools" id="demoTools" aria-label="Connected tools"></div>
           </div>
         </div>
       </div>
@@ -551,7 +467,7 @@
         <img src="/images/salesforce.png" alt="Salesforce">
         <img src="/images/slack.png" alt="Slack">
         <img src="/images/jira.png" alt="Jira">
-        <img src="/images/hubspot.png" alt="HubSpot" style="height:34px;margin:-6px 0;">
+        <img src="/images/hubspot.png" alt="HubSpot" style="height:32px;margin:-6px 0;">
         <img src="/images/netsuite.png" alt="NetSuite">
         <img src="/images/github.jpg" alt="GitHub">
         <img src="/images/notion.png" alt="Notion">
@@ -767,7 +683,7 @@
       }).join('');
 
       if (panel) panel.classList.remove('is-switching');
-    }, 100);
+    }, 90);
   }
 
   function bind() {
