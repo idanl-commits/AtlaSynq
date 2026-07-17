@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AtlaSynq — Governed agents for every department</title>
-  <meta name="description" content="AtlaSynq connects your enterprise tools into role-scoped agents. Choose GPT, Claude, Gemini, or Llama per department — with RBAC, citations, and approval before writes.">
+  <meta name="description" content="AtlaSynq connects your enterprise tools into role-scoped agents. Choose GPT, Claude, Gemini, or Llama per team — with RBAC, citations, and approval before writes.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
   <meta property="og:title" content="AtlaSynq — Governed agents for every department">
-  <meta property="og:description" content="Role-scoped agents over your stack. Any model. Permissions enforced on every query.">
+  <meta property="og:description" content="Role-scoped agents over your stack. Any model. Permissions on every query.">
   <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
   <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717c">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
@@ -29,383 +29,416 @@
   </script>
   <style>
     :root {
-      --bg: #F7F1E8;
-      --surface: #FFFDF8;
-      --elevated: #FBF6ED;
-      --border: rgba(92,64,51,0.12);
-      --text: #2B1F1A;
-      --sec: #5E4B3F;
-      --muted: #8F7B6D;
+      --ink: #0F2744;
+      --ink-soft: #3D4A5C;
+      --muted: #6B7789;
+      --line: rgba(15, 39, 68, 0.10);
+      --paper: #F4F6F9;
+      --white: #FFFFFF;
       --terra: #C96A4A;
-      --terra-lt: #F5E0D8;
-      --sage: #8A8F62;
-      --sage-lt: #E3E5D0;
-      --shadow: 6px 8px 22px rgba(92,64,51,0.10);
-      --font: 'Sora', system-ui, sans-serif;
+      --font: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
     }
 
-    body {
-      font-family: var(--font) !important;
-      background: var(--bg) !important;
-      color: var(--text) !important;
-      background-image: none !important;
-    }
+    body { font-family: var(--font); background: var(--paper); color: #0F1724; }
 
-    .wordmark-atla { color: var(--text); }
+    .wordmark-atla { color: #0F1724; }
     .wordmark-synq { color: var(--terra); margin-left: -0.04em; }
 
-    .site-header,
-    header.site-header {
-      background: rgba(251,246,237,0.92) !important;
-      border-bottom: 1px solid var(--border) !important;
-      box-shadow: none !important;
-    }
-    .nav-links a { font-family: var(--font) !important; }
-    .clay-btn-primary,
-    .btn-primary {
-      background: var(--terra) !important;
-      color: #fff !important;
-    }
-    .clay-btn-primary:hover { background: #B5533D !important; }
-    .clay-btn-outline {
-      background: var(--surface) !important;
-      border-color: var(--border) !important;
-      color: var(--text) !important;
-    }
     .nav-login {
-      font-family: var(--font);
       font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--sec);
+      font-weight: 500;
+      color: var(--ink-soft);
       text-decoration: none;
       padding: 8px 12px;
     }
 
     /* ── Hero ── */
-    .home {
-      padding: 3.5rem 0 0;
+    .hero {
+      padding: 4rem 0 3rem;
     }
-    .home-inner {
+    .hero-inner {
       max-width: 720px;
       margin: 0 auto;
       text-align: center;
-      padding: 0 1.5rem;
     }
-    .home-brand {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1.65rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-    }
-    .home-brand img { width: 36px; height: 36px; margin-right: 9px; }
-    .home h1 {
-      font-family: var(--font);
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      font-weight: 700;
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
       letter-spacing: -0.03em;
       line-height: 1.15;
-      margin: 0 auto 1rem;
-      max-width: 18ch;
-      color: var(--text);
+      margin: 0 0 1rem;
+      color: #0F1724;
     }
-    .home .lead {
-      font-size: 1.05rem;
+    .hero p {
+      font-size: 1.08rem;
       line-height: 1.6;
-      color: var(--sec);
-      max-width: 40ch;
+      color: var(--ink-soft);
+      max-width: 34em;
       margin: 0 auto 1.75rem;
     }
-    .home-actions {
+    .hero-actions {
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 2.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero-trust {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
     }
 
-    /* ── Demo (simple, one job) ── */
+    /* ── Demo (clay product) ── */
     .demo-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 1.5rem 3.5rem;
+      padding: 0 0 3.5rem;
     }
     .demo {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
+      --p-bg: #F7F1E8;
+      --p-surface: #FFFDF8;
+      --p-border: rgba(92, 64, 51, 0.13);
+      --p-text: #2B1F1A;
+      --p-sec: #5E4B3F;
+      --p-muted: #8F7B6D;
+      --p-terra: #C96A4A;
+      --p-terra-lt: #F5E0D8;
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--p-bg);
+      border: 1.5px solid var(--p-border);
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(15, 39, 68, 0.08);
       overflow: hidden;
-      text-align: left;
+      font-family: 'Sora', var(--font);
     }
     .demo-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 18px;
-      background: var(--elevated);
-      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--p-border);
+      background: #FBF6ED;
     }
     .demo-bar-title {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--p-muted);
     }
-    .demo-bar-badge {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: var(--sage);
-      background: var(--sage-lt);
-      border: 1px solid rgba(138,143,98,0.25);
-      padding: 4px 9px;
-      border-radius: 999px;
-    }
-    .demo-controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
-      background: var(--elevated);
-    }
-    .demo-roles {
+    .demo-tabs {
       display: flex;
       gap: 6px;
-      flex-wrap: wrap;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--p-border);
+      overflow-x: auto;
     }
-    .demo-roles button {
+    .demo-tab {
       appearance: none;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      color: var(--sec);
+      border: 1.5px solid transparent;
+      background: transparent;
+      color: var(--p-sec);
       font: inherit;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 999px;
+      padding: 7px 12px;
+      border-radius: 8px;
       cursor: pointer;
+      white-space: nowrap;
     }
-    .demo-roles button.on {
-      background: var(--terra-lt);
-      border-color: rgba(201,106,74,0.4);
-      color: var(--terra);
+    .demo-tab:hover { background: rgba(255,253,248,0.7); }
+    .demo-tab.on {
+      background: var(--p-surface);
+      border-color: var(--p-border);
+      color: var(--p-text);
+      box-shadow: 2px 3px 8px rgba(92,64,51,0.08);
+    }
+    .demo-body {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: 340px;
+    }
+    .demo-side {
+      padding: 16px 14px;
+      border-right: 1px solid var(--p-border);
+      background: #FBF6ED;
+    }
+    .demo-side h4 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--p-muted);
+      margin: 0 0 10px;
     }
     .demo-models {
       display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+    .demo-model {
+      display: flex;
       align-items: center;
       gap: 8px;
+      width: 100%;
+      appearance: none;
+      border: 1.5px solid transparent;
+      background: transparent;
+      color: var(--p-sec);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
     }
-    .demo-models-label {
-      font-size: 0.7rem;
+    .demo-model img { width: 18px; height: 18px; object-fit: contain; border-radius: 4px; }
+    .demo-model:hover { background: rgba(255,253,248,0.8); }
+    .demo-model.on {
+      background: var(--p-surface);
+      border-color: rgba(201,106,74,0.35);
+      color: var(--p-text);
+      box-shadow: 2px 3px 10px rgba(201,106,74,0.12);
+    }
+    .demo-tools { display: flex; flex-direction: column; gap: 6px; }
+    .demo-tool {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--p-sec);
+      padding: 4px 2px;
+    }
+    .demo-tool img { width: 15px; height: 15px; object-fit: contain; }
+    .demo-tool.blocked { opacity: 0.4; text-decoration: line-through; }
+    .demo-main {
+      padding: 18px 20px 20px;
+      background: var(--p-bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .demo-q {
+      background: var(--p-surface);
+      border: 1.5px solid var(--p-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 4px 6px 14px rgba(92,64,51,0.08);
+    }
+    .demo-q-label {
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-right: 2px;
+      color: var(--p-muted);
+      margin-bottom: 6px;
     }
-    .demo-models button {
-      appearance: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      padding: 6px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .demo-models button img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-    }
-    .demo-models button.on {
-      border-color: var(--terra);
-      box-shadow: 0 0 0 2px var(--terra-lt);
-    }
-    .demo-models button:hover { border-color: rgba(201,106,74,0.4); }
-
-    .demo-body { padding: 1.35rem 1.35rem 1.5rem; }
-    .demo-q {
+    .demo-q p {
+      margin: 0;
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      padding: 12px 14px;
-      background: var(--elevated);
-      border-radius: 12px;
-      border: 1px solid var(--border);
+      color: var(--p-text);
+      line-height: 1.4;
     }
     .demo-a {
-      margin-bottom: 1rem;
+      background: var(--p-surface);
+      border: 1.5px solid var(--p-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 4px 6px 14px rgba(92,64,51,0.08);
+      flex: 1;
+      transition: opacity 0.15s;
     }
+    .demo-a.is-switching { opacity: 0.4; }
     .demo-a-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--terra);
-      margin-bottom: 0.45rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--p-terra);
+      margin-bottom: 8px;
     }
     .demo-a-label span {
-      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--p-muted);
       font-weight: 600;
-      letter-spacing: 0.04em;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.75rem;
     }
+    .demo-a-label img { width: 14px; height: 14px; object-fit: contain; }
     .demo-a p {
-      margin: 0;
-      font-size: 0.9rem;
+      margin: 0 0 12px;
+      font-size: 0.88rem;
       line-height: 1.55;
-      color: var(--sec);
+      color: var(--p-sec);
     }
-    .demo-a p strong { color: var(--text); }
+    .demo-a p strong { color: var(--p-text); }
     .demo-sources {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
     .demo-src {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 10px;
-      background: var(--elevated);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.75rem;
-      line-height: 1.35;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FBF6ED;
+      border: 1px solid var(--p-border);
+      border-radius: 8px;
+      padding: 5px 9px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--p-sec);
     }
-    .demo-src img { width: 16px; height: 16px; object-fit: contain; margin-top: 1px; flex-shrink: 0; }
-    .demo-src strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
-    .demo-src span { color: var(--muted); }
+    .demo-src img { width: 13px; height: 13px; object-fit: contain; }
 
-    /* ── Rest of page ── */
+    /* ── Strip ── */
     .strip {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--elevated);
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       padding: 1.5rem 0;
     }
     .strip-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.75rem;
+      justify-content: space-between;
+      gap: 1.5rem;
       flex-wrap: wrap;
     }
-    .strip-inner img {
+    .strip-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .strip-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex: 1;
+    }
+    .strip-logos img {
       height: 22px;
       width: auto;
       max-width: 90px;
       object-fit: contain;
-      opacity: 0.55;
       filter: grayscale(1);
+      opacity: 0.55;
       mix-blend-mode: multiply;
     }
-    .strip-inner a {
+    .strip-logos a {
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--muted);
     }
-    .strip-inner a:hover { color: var(--terra); }
 
-    .block { padding: 4rem 0; }
-    .block-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
-    .block h2 {
-      font-family: var(--font);
+    /* ── Steps ── */
+    .steps {
+      padding: 4rem 0;
+    }
+    .steps-head {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .steps-head h2 {
       font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
+      font-weight: 600;
       margin: 0 0 0.5rem;
-      color: var(--text);
     }
-    .block .sub {
-      text-align: center;
-      color: var(--sec);
+    .steps-head p {
+      margin: 0;
+      color: var(--ink-soft);
       font-size: 0.95rem;
-      max-width: 44ch;
-      margin: 0 auto 2rem;
     }
-    .cols {
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
-    .col {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
+    .step {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
       padding: 1.5rem;
     }
-    .col h3 {
-      font-size: 0.95rem;
+    .step-num {
+      font-size: 0.72rem;
       font-weight: 700;
-      margin: 0 0 0.5rem;
-      color: var(--text);
+      color: var(--ink);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.65rem;
     }
-    .col p {
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.45rem;
+    }
+    .step p {
       margin: 0;
       font-size: 0.88rem;
       line-height: 1.55;
-      color: var(--sec);
+      color: var(--ink-soft);
     }
 
-    .cta-block {
-      padding: 0 1.5rem 4.5rem;
-      max-width: 960px;
-      margin: 0 auto;
+    /* ── CTA ── */
+    .cta {
+      padding: 0 0 4.5rem;
     }
-    .cta-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 2.25rem;
-      text-align: center;
+    .cta-box {
+      background: var(--ink);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
-    .cta-card h2 {
-      font-size: 1.35rem;
-      margin: 0 0 0.4rem;
-      color: var(--text);
+    .cta-box h2 {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.3rem;
     }
-    .cta-card p {
-      margin: 0 0 1.25rem;
-      color: var(--sec);
-      font-size: 0.95rem;
+    .cta-box p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.9rem;
     }
-
-    footer.site-footer,
-    footer {
-      background: var(--elevated) !important;
-      border-top: 1px solid var(--border) !important;
+    .cta-box .clay-btn-primary {
+      background: #fff;
+      color: var(--ink);
     }
-    .footer-link { color: var(--sec) !important; }
-    .footer-link:hover { color: var(--terra) !important; }
-
-    .cookie-banner {
-      background: var(--surface) !important;
-      border-color: var(--border) !important;
-    }
-    .btn-cookie-accept {
-      background: var(--terra) !important;
+    .cta-box .clay-btn-primary:hover {
+      background: #E6EEF6;
+      color: var(--ink);
     }
 
     @media (max-width: 800px) {
-      .cols { grid-template-columns: 1fr; }
-      .demo-sources { grid-template-columns: 1fr; }
-      .demo-controls { flex-direction: column; align-items: flex-start; }
+      .demo-body { grid-template-columns: 1fr; }
+      .demo-side {
+        border-right: none;
+        border-bottom: 1px solid var(--p-border);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .steps-grid { grid-template-columns: 1fr; }
+      .strip-logos { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -440,65 +473,71 @@
         <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
         <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
       </a>
-      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--elevated);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;cursor:pointer;">&#x2715;</button>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.1rem;cursor:pointer;">&#x2715;</button>
     </div>
     <a href="/features/">Product</a>
     <a href="/security/">Security</a>
     <a href="/integrations/">Integrations</a>
     <a href="/pricing/">Pricing</a>
-    <div style="height:1px;background:var(--border);margin:0.5rem 0;"></div>
+    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
     <a href="/login/">Log in</a>
     <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
   </div>
 </div>
 
 <main>
-  <section class="home">
-    <div class="home-inner">
-      <div class="home-brand">
-        <img src="/images/atlasynq-logo.svg" alt="" aria-hidden="true">
-        <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
-      </div>
+  <section class="hero">
+    <div class="container hero-inner">
       <h1>Governed agents for every department</h1>
-      <p class="lead">Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
-      <div class="home-actions">
+      <p>Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
+      <div class="hero-actions">
         <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
         <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
       </div>
+      <p class="hero-trust">SOC 2 Type II · SSO / SAML · Zero training on customer data</p>
     </div>
+  </section>
 
-    <div class="demo-wrap">
-      <div class="demo" id="productDemo">
+  <section class="demo-wrap">
+    <div class="container">
+      <div class="demo" id="productDemo" aria-label="Product demo">
         <div class="demo-bar">
-          <div class="demo-bar-title" id="demoAgentTitle">Sales Agent</div>
-          <div class="demo-bar-badge">RBAC on</div>
+          <div class="demo-bar-title">AtlaSynq · Department agent</div>
         </div>
-
-        <div class="demo-controls">
-          <div class="demo-roles" role="group" aria-label="Department">
-            <button type="button" class="on" data-role="sales">Sales</button>
-            <button type="button" data-role="finance">Finance</button>
-            <button type="button" data-role="eng">Engineering</button>
-          </div>
-          <div class="demo-models" role="group" aria-label="Model">
-            <span class="demo-models-label">Model</span>
-            <button type="button" class="on" data-model="gpt" title="GPT-4o" aria-label="GPT-4o" aria-pressed="true"><img src="/images/gpt.png" alt=""></button>
-            <button type="button" data-model="claude" title="Claude" aria-label="Claude" aria-pressed="false"><img src="/images/claude.png" alt=""></button>
-            <button type="button" data-model="gemini" title="Gemini" aria-label="Gemini" aria-pressed="false"><img src="/images/gemini.png" alt=""></button>
-            <button type="button" data-model="llama" title="Llama" aria-label="Llama" aria-pressed="false"><img src="/images/llama.png" alt=""></button>
-          </div>
+        <div class="demo-tabs" role="tablist" aria-label="Department">
+          <button type="button" class="demo-tab on" data-role="sales">Sales</button>
+          <button type="button" class="demo-tab" data-role="finance">Finance</button>
+          <button type="button" class="demo-tab" data-role="eng">Engineering</button>
         </div>
-
         <div class="demo-body">
-          <div class="demo-q" id="demoQuestion">Which deals are at risk of slipping this quarter?</div>
-          <div class="demo-a">
-            <div class="demo-a-label">Answer <span id="demoModelName">via GPT-4o</span></div>
-            <p id="demoAnswer"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
-          </div>
-          <div class="demo-sources" id="demoSources">
-            <div class="demo-src"><img src="/images/salesforce.png" alt=""><div><strong>Acme Corp</strong><span>Salesforce · 14 days idle</span></div></div>
-            <div class="demo-src"><img src="/images/gong.png" alt=""><div><strong>Beta Industries</strong><span>Gong · risk flagged</span></div></div>
-            <div class="demo-src"><img src="/images/slack.png" alt=""><div><strong>#enterprise-deals</strong><span>Slack · TechFlow thread</span></div></div>
+          <aside class="demo-side">
+            <div>
+              <h4>Model</h4>
+              <div class="demo-models" role="group" aria-label="LLM provider">
+                <button type="button" class="demo-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
+                <button type="button" class="demo-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
+                <button type="button" class="demo-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
+                <button type="button" class="demo-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
+              </div>
+            </div>
+            <div>
+              <h4>Tools</h4>
+              <div class="demo-tools" id="demoTools"></div>
+            </div>
+          </aside>
+          <div class="demo-main">
+            <div class="demo-q">
+              <div class="demo-q-label">Question</div>
+              <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
+            </div>
+            <div class="demo-a" id="demoAnswer">
+              <div class="demo-a-label">
+                Answer
+                <span><img src="/images/gpt.png" alt="" id="demoModelIcon"> <span id="demoModelName">GPT-4o</span></span>
+              </div>
+              <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
+              <div class="demo-sources" id="demoSources"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -506,44 +545,56 @@
   </section>
 
   <section class="strip" aria-label="Integrations">
-    <div class="strip-inner">
-      <img src="/images/salesforce.png" alt="Salesforce">
-      <img src="/images/slack.png" alt="Slack">
-      <img src="/images/jira.png" alt="Jira">
-      <img src="/images/hubspot.png" alt="HubSpot" style="height:34px;">
-      <img src="/images/netsuite.png" alt="NetSuite">
-      <img src="/images/github.jpg" alt="GitHub">
-      <img src="/images/notion.png" alt="Notion">
-      <a href="/integrations/">+ 40 more</a>
+    <div class="container strip-inner">
+      <div class="strip-label">Works with</div>
+      <div class="strip-logos">
+        <img src="/images/salesforce.png" alt="Salesforce">
+        <img src="/images/slack.png" alt="Slack">
+        <img src="/images/jira.png" alt="Jira">
+        <img src="/images/hubspot.png" alt="HubSpot" style="height:34px;margin:-6px 0;">
+        <img src="/images/netsuite.png" alt="NetSuite">
+        <img src="/images/github.jpg" alt="GitHub">
+        <img src="/images/notion.png" alt="Notion">
+        <a href="/integrations/">+ 40 more</a>
+      </div>
     </div>
   </section>
 
-  <section class="block">
-    <div class="block-inner">
-      <h2>How it works</h2>
-      <p class="sub">Same governance for every department — pick the model that fits the job.</p>
-      <div class="cols">
-        <div class="col">
-          <h3>1. Connect tools</h3>
+  <section class="steps">
+    <div class="container">
+      <div class="steps-head">
+        <h2>How it works</h2>
+        <p>Same governance for every department — pick the model that fits the job.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Connect tools</h3>
           <p>OAuth to Salesforce, Jira, NetSuite, Slack, and 40+ more. Scoped tokens per role — not shared passwords in prompts.</p>
         </div>
-        <div class="col">
-          <h3>2. Choose a model</h3>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Choose a model</h3>
           <p>Route Sales to GPT-4o, Finance to Claude, Engineering to Gemini or Llama. Switch anytime without rebuilding connectors.</p>
         </div>
-        <div class="col">
-          <h3>3. Stay in control</h3>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Stay in control</h3>
           <p>RBAC before the model sees data. Cited sources on every answer. Writes wait for admin approval.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-block">
-    <div class="cta-card">
-      <h2>See it on your stack</h2>
-      <p>30 minutes. Your tools, your roles, your model preferences.</p>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h2>See it on your stack</h2>
+          <p>30 minutes. Your tools, your roles, your model preferences.</p>
+        </div>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+      </div>
     </div>
   </section>
 </main>
@@ -577,9 +628,7 @@
         <a href="/terms/" class="footer-link">Terms</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>&#169; 2026 AtlaSynq, Inc.</span>
-    </div>
+    <div class="footer-bottom"><span>&#169; 2026 AtlaSynq, Inc.</span></div>
   </div>
 </footer>
 
@@ -622,84 +671,119 @@
 <script>
 (function () {
   var MODELS = {
-    gpt: 'GPT-4o',
-    claude: 'Claude',
-    gemini: 'Gemini',
-    llama: 'Llama 3'
+    gpt:    { name: 'GPT-4o', icon: '/images/gpt.png' },
+    claude: { name: 'Claude', icon: '/images/claude.png' },
+    gemini: { name: 'Gemini', icon: '/images/gemini.png' },
+    llama:  { name: 'Llama',  icon: '/images/llama.png' }
   };
 
-  var DATA = {
+  var ROLES = {
     sales: {
-      title: 'Sales Agent',
-      q: 'Which deals are at risk of slipping this quarter?',
-      a: {
+      question: 'Which deals are at risk of slipping this quarter?',
+      answers: {
         gpt: '<strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.',
-        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme stalled after the last call. Beta shows procurement pushback. TechFlow is waiting on a revised SOW.',
-        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and TechFlow’s proposal deadline.',
+        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme stalled after the last Gong call. Beta shows procurement pushback. TechFlow is waiting on a revised SOW.',
+        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and an open proposal deadline on TechFlow.',
         llama: '<strong>3 deals flagged.</strong> Acme: 14-day inactivity. Beta: 62% closed-lost probability. TechFlow: proposal due Friday.'
       },
+      tools: [
+        { icon: '/images/salesforce.png', name: 'Salesforce', ok: true },
+        { icon: '/images/gong.png', name: 'Gong', ok: true },
+        { icon: '/images/slack.png', name: 'Slack', ok: true },
+        { icon: '/images/netsuite.png', name: 'NetSuite', ok: false }
+      ],
       sources: [
-        ['/images/salesforce.png', 'Acme Corp', 'Salesforce · 14 days idle'],
-        ['/images/gong.png', 'Beta Industries', 'Gong · risk flagged'],
-        ['/images/slack.png', '#enterprise-deals', 'Slack · TechFlow thread']
+        { icon: '/images/salesforce.png', name: 'Acme Corp' },
+        { icon: '/images/gong.png', name: 'Beta call notes' },
+        { icon: '/images/slack.png', name: '#enterprise-deals' }
       ]
     },
     finance: {
-      title: 'Finance Agent',
-      q: 'What is our cash runway at current burn?',
-      a: {
+      question: 'What is our cash runway at current burn?',
+      answers: {
         gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx.',
         claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; Engineering dominates OpEx. A timely Series A roughly doubles runway.',
-        gemini: '<strong>Cash $5.7M · Burn $310k/mo · Runway 18.4 mo.</strong> Largest cost center: Engineering (44%).',
+        gemini: '<strong>Cash $5.7M · Burn $310k/mo · Runway 18.4 mo.</strong> Largest cost center: Engineering at 44%.',
         llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.'
       },
+      tools: [
+        { icon: '/images/netsuite.png', name: 'NetSuite', ok: true },
+        { icon: '/images/quickbooks.png', name: 'QuickBooks', ok: true },
+        { icon: '/images/stripe.jpg', name: 'Stripe', ok: true },
+        { icon: '/images/salesforce.png', name: 'Salesforce', ok: false }
+      ],
       sources: [
-        ['/images/netsuite.png', 'GL cash position', 'NetSuite · this morning'],
-        ['/images/quickbooks.png', 'Monthly OpEx', 'QuickBooks · Eng 44%'],
-        ['/images/stripe.jpg', 'Recurring revenue', 'Stripe · trailing 30d']
+        { icon: '/images/netsuite.png', name: 'GL cash position' },
+        { icon: '/images/quickbooks.png', name: 'OpEx rollup' },
+        { icon: '/images/stripe.jpg', name: 'Recurring revenue' }
       ]
     },
     eng: {
-      title: 'Engineering Agent',
-      q: 'What is blocking the v2.4 release?',
-      a: {
+      question: 'What is blocking the v2.4 release?',
+      answers: {
         gpt: '<strong>4 P1 bugs block v2.4.0.</strong> AUTH-881, API-1204, UI-390, and INFRA-77. Clearance estimate July 14.',
-        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity. Safari blank state and Redis lag remain in progress.',
-        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; three others track to mid-July.',
+        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity.',
+        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; remaining three in progress.',
         llama: '<strong>4 P1 blockers.</strong> AUTH-881, API-1204, UI-390, INFRA-77. Target clear date July 14.'
       },
+      tools: [
+        { icon: '/images/jira.png', name: 'Jira', ok: true },
+        { icon: '/images/github.jpg', name: 'GitHub', ok: true },
+        { icon: '/images/linear.png', name: 'Linear', ok: true },
+        { icon: '/images/salesforce.png', name: 'Salesforce', ok: false }
+      ],
       sources: [
-        ['/images/jira.png', 'AUTH-881', 'Jira · in review'],
-        ['/images/github.jpg', 'api-rate-limiter', 'GitHub · open PR'],
-        ['/images/linear.png', 'v2.4 milestone', 'Linear · 4 blockers']
+        { icon: '/images/jira.png', name: 'AUTH-881' },
+        { icon: '/images/github.jpg', name: 'api-rate-limiter PR' },
+        { icon: '/images/linear.png', name: 'v2.4 milestone' }
       ]
     }
   };
 
   var state = { role: 'sales', model: 'gpt' };
 
+  function $(id) { return document.getElementById(id); }
+
   function render() {
-    var d = DATA[state.role];
-    if (!d) return;
-    document.getElementById('demoAgentTitle').textContent = d.title;
-    document.getElementById('demoQuestion').textContent = d.q;
-    document.getElementById('demoModelName').textContent = 'via ' + MODELS[state.model];
-    document.getElementById('demoAnswer').innerHTML = d.a[state.model] || d.a.gpt;
-    document.getElementById('demoSources').innerHTML = d.sources.map(function (s) {
-      return '<div class="demo-src"><img src="' + s[0] + '" alt=""><div><strong>' + s[1] + '</strong><span>' + s[2] + '</span></div></div>';
-    }).join('');
+    var role = ROLES[state.role];
+    var model = MODELS[state.model];
+    if (!role || !model) return;
+
+    var panel = $('demoAnswer');
+    if (panel) panel.classList.add('is-switching');
+
+    setTimeout(function () {
+      $('demoQuestion').textContent = role.question;
+      $('demoAnswerText').innerHTML = role.answers[state.model];
+      $('demoModelName').textContent = model.name;
+      $('demoModelIcon').src = model.icon;
+
+      $('demoTools').innerHTML = role.tools.map(function (t) {
+        return '<div class="demo-tool' + (t.ok ? '' : ' blocked') + '"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
+      }).join('');
+
+      $('demoSources').innerHTML = role.sources.map(function (s) {
+        return '<span class="demo-src"><img src="' + s.icon + '" alt="">' + s.name + '</span>';
+      }).join('');
+
+      if (panel) panel.classList.remove('is-switching');
+    }, 100);
   }
 
   function bind() {
-    var root = document.getElementById('productDemo');
+    var root = $('productDemo');
     if (!root) return;
+
     root.querySelectorAll('[data-role]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.role = btn.getAttribute('data-role');
-        root.querySelectorAll('[data-role]').forEach(function (b) { b.classList.toggle('on', b === btn); });
+        root.querySelectorAll('[data-role]').forEach(function (b) {
+          b.classList.toggle('on', b === btn);
+        });
         render();
       });
     });
+
     root.querySelectorAll('[data-model]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.model = btn.getAttribute('data-model');
@@ -711,6 +795,8 @@
         render();
       });
     });
+
+    render();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
