@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtlaSynq — Enterprise knowledge agents with governance</title>
-  <meta name="description" content="AtlaSynq gives every department a role-scoped agent over Salesforce, Jira, NetSuite, and 40+ tools — with RBAC at query time, cited answers, and approval before writes.">
+  <title>AtlaSynq — Governed agents for every department</title>
+  <meta name="description" content="AtlaSynq connects your enterprise tools into role-scoped agents. Choose GPT, Claude, Gemini, or Llama per department — with RBAC, citations, and approval before writes.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
-  <meta property="og:title" content="AtlaSynq — Enterprise knowledge agents with governance">
-  <meta property="og:description" content="Role-scoped agents over your stack. Permissions enforced on every query.">
+  <meta property="og:title" content="AtlaSynq — Governed agents for every department">
+  <meta property="og:description" content="Role-scoped agents over your stack. Any model. Permissions enforced on every query.">
   <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
   <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717b">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717c">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,571 +28,384 @@
     gtag('config', 'G-JXPHR1VRHF');
   </script>
   <style>
-    .wordmark-atla { color: var(--clay-text); }
-    .wordmark-synq { color: var(--clay-accent); margin-left: -0.04em; }
+    :root {
+      --bg: #F7F1E8;
+      --surface: #FFFDF8;
+      --elevated: #FBF6ED;
+      --border: rgba(92,64,51,0.12);
+      --text: #2B1F1A;
+      --sec: #5E4B3F;
+      --muted: #8F7B6D;
+      --terra: #C96A4A;
+      --terra-lt: #F5E0D8;
+      --sage: #8A8F62;
+      --sage-lt: #E3E5D0;
+      --shadow: 6px 8px 22px rgba(92,64,51,0.10);
+      --font: 'Sora', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--font) !important;
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      background-image: none !important;
+    }
+
+    .wordmark-atla { color: var(--text); }
+    .wordmark-synq { color: var(--terra); margin-left: -0.04em; }
+
+    .site-header,
+    header.site-header {
+      background: rgba(251,246,237,0.92) !important;
+      border-bottom: 1px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    .nav-links a { font-family: var(--font) !important; }
+    .clay-btn-primary,
+    .btn-primary {
+      background: var(--terra) !important;
+      color: #fff !important;
+    }
+    .clay-btn-primary:hover { background: #B5533D !important; }
+    .clay-btn-outline {
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+    .nav-login {
+      font-family: var(--font);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--sec);
+      text-decoration: none;
+      padding: 8px 12px;
+    }
 
     /* ── Hero ── */
-    .hq-hero {
-      position: relative;
-      padding: 3.25rem 0 0;
-      background:
-        linear-gradient(180deg, #EEF2F7 0%, var(--clay-bg) 42%, var(--clay-bg) 100%);
-      overflow: hidden;
+    .home {
+      padding: 3.5rem 0 0;
     }
-    .hq-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: 2.5rem;
-      align-items: end;
+    .home-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 1.5rem;
     }
-    .hq-brand {
-      display: flex;
+    .home-brand {
+      display: inline-flex;
       align-items: center;
-      gap: 0;
-      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      font-size: 1.65rem;
       font-weight: 700;
-      letter-spacing: -0.035em;
-      margin-bottom: 1.35rem;
-      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
     }
-    .hq-brand img { width: 40px; height: 40px; margin-right: 10px; }
-    .hq-hero h1 {
-      font-size: clamp(1.85rem, 3.4vw, 2.65rem);
-      font-weight: 600;
+    .home-brand img { width: 36px; height: 36px; margin-right: 9px; }
+    .home h1 {
+      font-family: var(--font);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.15;
-      max-width: 16ch;
-      margin-bottom: 1rem;
-      color: var(--clay-text);
+      margin: 0 auto 1rem;
+      max-width: 18ch;
+      color: var(--text);
     }
-    .hq-hero .hq-sub {
+    .home .lead {
       font-size: 1.05rem;
       line-height: 1.6;
-      color: var(--clay-text-sec);
-      max-width: 38ch;
-      margin-bottom: 1.75rem;
+      color: var(--sec);
+      max-width: 40ch;
+      margin: 0 auto 1.75rem;
     }
-    .hq-actions {
+    .home-actions {
       display: flex;
-      flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
     }
-    .hq-trust {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--clay-text-muted);
-      letter-spacing: 0.01em;
-    }
-    .hq-trust span { color: var(--clay-text-sec); }
 
-    /* Demo = clay product UI (matches app). Site chrome stays institutional ink. */
-    .hq-product {
-      --p-bg: #F7F1E8;
-      --p-surface: #FFFDF8;
-      --p-elevated: #FBF6ED;
-      --p-border: rgba(92, 64, 51, 0.12);
-      --p-text: #2B1F1A;
-      --p-muted: #8F7B6D;
-      --p-sec: #5E4B3F;
-      --p-terra: #C96A4A;
-      --p-terra-lt: #F5E0D8;
-      --p-sage: #8A8F62;
-      --p-sage-lt: #E3E5D0;
-      --p-shadow: 6px 8px 20px rgba(92,64,51,0.12), -2px -2px 10px rgba(255,248,235,0.9);
-      background: var(--p-bg);
-      border: 1.5px solid var(--p-border);
-      border-bottom: none;
-      border-radius: 18px 18px 0 0;
-      box-shadow: 0 -10px 48px rgba(15, 39, 68, 0.10);
-      overflow: hidden;
-      min-height: 460px;
-      display: flex;
-      flex-direction: column;
-      font-family: 'Sora', var(--font);
+    /* ── Demo (simple, one job) ── */
+    .demo-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3.5rem;
     }
-    .hq-prod-top {
+    .demo {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-align: left;
+    }
+    .demo-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: var(--p-elevated);
-      border-bottom: 1px solid var(--p-border);
+      padding: 12px 18px;
+      background: var(--elevated);
+      border-bottom: 1px solid var(--border);
     }
-    .hq-prod-title {
-      font-size: 0.72rem;
+    .demo-bar-title {
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--p-muted);
+      color: var(--text);
     }
-    .hq-prod-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.7rem;
+    .demo-bar-badge {
+      font-size: 0.68rem;
       font-weight: 700;
-      color: var(--p-sage);
-      background: var(--p-sage-lt);
-      border: 1px solid rgba(138,143,98,0.28);
+      color: var(--sage);
+      background: var(--sage-lt);
+      border: 1px solid rgba(138,143,98,0.25);
       padding: 4px 9px;
       border-radius: 999px;
     }
-    .hq-prod-status i {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--p-sage);
-      display: block;
-    }
-    .hq-config {
-      padding: 12px 14px 10px;
-      border-bottom: 1px solid var(--p-border);
-      background: linear-gradient(180deg, var(--p-elevated), var(--p-bg));
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .hq-config-row {
+    .demo-controls {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--elevated);
+    }
+    .demo-roles {
+      display: flex;
+      gap: 6px;
       flex-wrap: wrap;
     }
-    .hq-config-label {
-      width: 52px;
-      flex-shrink: 0;
+    .demo-roles button {
+      appearance: none;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--sec);
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .demo-roles button.on {
+      background: var(--terra-lt);
+      border-color: rgba(201,106,74,0.4);
+      color: var(--terra);
+    }
+    .demo-models {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .demo-models-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+    .demo-models button {
+      appearance: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      padding: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo-models button img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    .demo-models button.on {
+      border-color: var(--terra);
+      box-shadow: 0 0 0 2px var(--terra-lt);
+    }
+    .demo-models button:hover { border-color: rgba(201,106,74,0.4); }
+
+    .demo-body { padding: 1.35rem 1.35rem 1.5rem; }
+    .demo-q {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding: 12px 14px;
+      background: var(--elevated);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .demo-a {
+      margin-bottom: 1rem;
+    }
+    .demo-a-label {
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.07em;
       text-transform: uppercase;
-      color: var(--p-muted);
-    }
-    .hq-pill {
-      appearance: none;
-      border: 1.5px solid var(--p-border);
-      background: var(--p-surface);
-      color: var(--p-sec);
-      font: inherit;
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 11px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
-    }
-    .hq-pill:hover { border-color: rgba(201,106,74,0.35); }
-    .hq-pill.on {
-      background: var(--p-terra-lt);
-      border-color: rgba(201,106,74,0.4);
-      color: var(--p-terra);
-      box-shadow: 2px 3px 8px rgba(201,106,74,0.15);
-    }
-    .hq-model {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1.5px solid var(--p-border);
-      background: var(--p-surface);
-      color: var(--p-sec);
-      font: inherit;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 6px 10px 6px 7px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s, transform 0.15s;
-    }
-    .hq-model img {
-      width: 18px; height: 18px;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-    .hq-model:hover { border-color: rgba(201,106,74,0.35); transform: translateY(-1px); }
-    .hq-model.on {
-      background: var(--p-surface);
-      border-color: var(--p-terra);
-      box-shadow: 3px 4px 12px rgba(201,106,74,0.18), inset 0 0 0 1px rgba(201,106,74,0.08);
-      color: var(--p-text);
-    }
-    .hq-prod-body {
-      display: grid;
-      grid-template-columns: 158px 1fr;
-      flex: 1;
-      min-height: 0;
-      background: var(--p-bg);
-    }
-    .hq-side {
-      border-right: 1px solid var(--p-border);
-      background: var(--p-elevated);
-      padding: 12px 8px;
-    }
-    .hq-side-label {
-      font-size: 0.64rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--p-muted);
-      padding: 4px 8px 8px;
-    }
-    .hq-side-item {
+      color: var(--terra);
+      margin-bottom: 0.45rem;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 9px;
-      border-radius: 9px;
-      font-size: 0.78rem;
+    }
+    .demo-a-label span {
+      color: var(--muted);
       font-weight: 600;
-      color: var(--p-sec);
-    }
-    .hq-side-item.on {
-      background: var(--p-surface);
-      color: var(--p-text);
-      box-shadow: var(--p-shadow);
-    }
-    .hq-side-item.blocked {
-      opacity: 0.42;
-      text-decoration: line-through;
-      text-decoration-color: rgba(92,64,51,0.35);
-    }
-    .hq-side-item img { width: 16px; height: 16px; object-fit: contain; }
-    .hq-main {
-      padding: 14px 16px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background:
-        radial-gradient(ellipse 70% 50% at 90% 0%, rgba(201,106,74,0.08), transparent 55%),
-        var(--p-bg);
-    }
-    .hq-query {
-      background: var(--p-surface);
-      border: 1.5px solid var(--p-border);
-      border-radius: 14px;
-      box-shadow: var(--p-shadow);
-      padding: 12px 14px;
-    }
-    .hq-query-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .hq-query-meta span {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--p-muted);
-    }
-    .hq-model-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--p-terra);
-      background: var(--p-terra-lt);
-      border: 1px solid rgba(201,106,74,0.25);
-      padding: 3px 8px;
-      border-radius: 999px;
-    }
-    .hq-model-chip img { width: 13px; height: 13px; object-fit: contain; }
-    .hq-query p {
-      margin: 0;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--p-text);
-      line-height: 1.4;
-    }
-    .hq-answer {
-      background: var(--p-surface);
-      border: 1.5px solid var(--p-border);
-      border-radius: 14px;
-      box-shadow: var(--p-shadow);
-      padding: 13px 14px;
-      transition: opacity 0.18s ease;
-    }
-    .hq-answer.is-switching { opacity: 0.35; }
-    .hq-answer-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--p-terra);
-    }
-    .hq-answer-label em {
-      font-style: normal;
-      color: var(--p-muted);
-      font-weight: 600;
-    }
-    .hq-answer p {
-      font-size: 0.84rem;
-      line-height: 1.55;
-      color: var(--p-sec);
-      margin: 0;
-    }
-    .hq-answer p strong { color: var(--p-text); font-weight: 700; }
-    .hq-sources { display: flex; flex-direction: column; gap: 6px; }
-    .hq-src {
-      display: grid;
-      grid-template-columns: 18px 1fr auto;
-      gap: 9px;
-      align-items: center;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1.5px solid var(--p-border);
-      background: var(--p-surface);
-      box-shadow: 2px 3px 8px rgba(92,64,51,0.06);
-      font-size: 0.76rem;
-    }
-    .hq-src img { width: 15px; height: 15px; object-fit: contain; }
-    .hq-src .name { font-weight: 700; color: var(--p-text); }
-    .hq-src .meta { color: var(--p-muted); }
-    .hq-src .badge {
-      font-size: 0.62rem;
-      font-weight: 700;
-      color: var(--p-muted);
-      text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .hq-demo-hint {
-      font-size: 0.72rem;
-      color: var(--p-muted);
-      text-align: center;
-      padding: 0 8px 10px;
-      background: var(--p-bg);
+    .demo-a p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--sec);
     }
-
-    /* Logo strip */
-    .hq-logos {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--clay-border-soft);
-      background: var(--clay-surface);
-    }
-    .hq-logos-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .hq-logos-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--clay-text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-    }
-    .hq-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-      flex: 1;
-      justify-content: flex-end;
-    }
-    .hq-logo-row img {
-      height: 22px;
-      width: auto;
-      max-width: 96px;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.55;
-      mix-blend-mode: multiply;
-    }
-    .hq-logo-row a {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--clay-text-muted);
-      border-bottom: 1px solid transparent;
-    }
-    .hq-logo-row a:hover { color: var(--clay-primary); border-color: var(--clay-primary); }
-
-    /* Sections */
-    .hq-section { padding: 4.5rem 0; }
-    .hq-section.alt { background: var(--clay-surface); border-top: 1px solid var(--clay-border-soft); border-bottom: 1px solid var(--clay-border-soft); }
-    .hq-section-head {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-      align-items: start;
-    }
-    .hq-section-head h2 { margin: 0; max-width: 16ch; }
-    .hq-section-head p { margin: 0; font-size: 0.95rem; color: var(--clay-text-sec); max-width: 48ch; }
-
-    .hq-steps {
+    .demo-a p strong { color: var(--text); }
+    .demo-sources {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--clay-border);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--clay-surface);
+      gap: 8px;
     }
-    .hq-step {
-      padding: 1.75rem 1.5rem;
-      border-right: 1px solid var(--clay-border-soft);
-    }
-    .hq-step:last-child { border-right: none; }
-    .hq-step-num {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--clay-primary);
-      margin-bottom: 0.75rem;
-    }
-    .hq-step h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-    .hq-step p { font-size: 0.88rem; margin: 0; line-height: 1.55; }
-
-    .hq-dept {
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 1rem;
-      padding: 1.15rem 0;
-      border-bottom: 1px solid var(--clay-border-soft);
-      align-items: baseline;
-    }
-    .hq-dept:first-of-type { border-top: 1px solid var(--clay-border-soft); }
-    .hq-dept .role {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--clay-text);
-    }
-    .hq-dept .desc {
-      font-size: 0.88rem;
-      color: var(--clay-text-sec);
-      line-height: 1.5;
-    }
-    .hq-dept .tools {
-      font-size: 0.8rem;
-      color: var(--clay-text-muted);
-      font-weight: 500;
-    }
-
-    .hq-secure {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .hq-secure h2 { margin-bottom: 0.75rem; }
-    .hq-secure p { font-size: 0.95rem; margin-bottom: 1.25rem; max-width: 48ch; }
-    .hq-secure-list {
-      list-style: none;
-      display: grid;
-      gap: 0.65rem;
-    }
-    .hq-secure-list li {
+    .demo-src {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--clay-text-sec);
-      line-height: 1.45;
-    }
-    .hq-secure-list li::before {
-      content: '';
-      width: 6px; height: 6px;
-      margin-top: 0.45em;
-      border-radius: 50%;
-      background: var(--clay-primary);
-      flex-shrink: 0;
-    }
-    .hq-secure-panel {
-      background: var(--clay-primary-dk);
-      color: #E8EEF4;
+      gap: 8px;
+      padding: 10px;
+      background: var(--elevated);
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 1.75rem 1.5rem;
+      font-size: 0.75rem;
+      line-height: 1.35;
     }
-    .hq-secure-panel h3 {
-      color: #fff;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-    .hq-secure-panel ul {
-      list-style: none;
-      display: grid;
-      gap: 0.85rem;
-    }
-    .hq-secure-panel li {
-      font-size: 0.86rem;
-      color: rgba(232,238,244,0.82);
-      padding-left: 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-bottom: 0.85rem;
-    }
-    .hq-secure-panel li:last-child { border-bottom: none; padding-bottom: 0; }
-    .hq-secure-panel strong { color: #fff; font-weight: 600; display: block; margin-bottom: 2px; }
+    .demo-src img { width: 16px; height: 16px; object-fit: contain; margin-top: 1px; flex-shrink: 0; }
+    .demo-src strong { display: block; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+    .demo-src span { color: var(--muted); }
 
-    .hq-cta {
-      padding: 4rem 0;
-      background: var(--clay-surface);
-      border-top: 1px solid var(--clay-border-soft);
+    /* ── Rest of page ── */
+    .strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--elevated);
+      padding: 1.5rem 0;
     }
-    .hq-cta-box {
+    .strip-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+      justify-content: center;
+      gap: 1.75rem;
       flex-wrap: wrap;
-      padding: 2rem 2.25rem;
-      background: var(--clay-primary-dk);
-      border-radius: 12px;
     }
-    .hq-cta-box h2 { color: #fff; font-size: 1.35rem; margin-bottom: 0.35rem; }
-    .hq-cta-box p { color: rgba(232,238,244,0.75); font-size: 0.92rem; margin: 0; }
-    .hq-cta-box .clay-btn-primary {
-      background: #fff;
-      color: var(--clay-primary-dk);
+    .strip-inner img {
+      height: 22px;
+      width: auto;
+      max-width: 90px;
+      object-fit: contain;
+      opacity: 0.55;
+      filter: grayscale(1);
+      mix-blend-mode: multiply;
     }
-    .hq-cta-box .clay-btn-primary:hover {
-      background: #E6EEF6;
-      color: var(--clay-primary-dk);
+    .strip-inner a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
     }
-    .hq-cta-box .clay-btn-outline {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,0.3);
-    }
-    .hq-cta-box .clay-btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-    }
-    .hq-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .strip-inner a:hover { color: var(--terra); }
 
-    .nav-login {
+    .block { padding: 4rem 0; }
+    .block-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .block h2 {
       font-family: var(--font);
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--clay-text-sec);
-      text-decoration: none;
-      padding: 8px 12px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 0.5rem;
+      color: var(--text);
     }
-    .nav-login:hover { color: var(--clay-text); }
+    .block .sub {
+      text-align: center;
+      color: var(--sec);
+      font-size: 0.95rem;
+      max-width: 44ch;
+      margin: 0 auto 2rem;
+    }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .col {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+    .col h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--text);
+    }
+    .col p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--sec);
+    }
 
-    @media (max-width: 960px) {
-      .hq-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hq-hero { padding-top: 2.5rem; }
-      .hq-hero h1 { max-width: none; }
-      .hq-product { min-height: 380px; }
-      .hq-section-head { grid-template-columns: 1fr; gap: 0.75rem; }
-      .hq-steps { grid-template-columns: 1fr; }
-      .hq-step { border-right: none; border-bottom: 1px solid var(--clay-border-soft); }
-      .hq-step:last-child { border-bottom: none; }
-      .hq-dept { grid-template-columns: 1fr; gap: 0.35rem; }
-      .hq-secure { grid-template-columns: 1fr; gap: 2rem; }
-      .hq-logo-row { justify-content: flex-start; }
-      .hq-prod-body { grid-template-columns: 1fr; }
-      .hq-side { display: none; }
-      .hq-model { padding: 6px 8px; }
-      .hq-model span, .hq-model { font-size: 0.72rem; }
+    .cta-block {
+      padding: 0 1.5rem 4.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cta-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 2.25rem;
+      text-align: center;
+    }
+    .cta-card h2 {
+      font-size: 1.35rem;
+      margin: 0 0 0.4rem;
+      color: var(--text);
+    }
+    .cta-card p {
+      margin: 0 0 1.25rem;
+      color: var(--sec);
+      font-size: 0.95rem;
+    }
+
+    footer.site-footer,
+    footer {
+      background: var(--elevated) !important;
+      border-top: 1px solid var(--border) !important;
+    }
+    .footer-link { color: var(--sec) !important; }
+    .footer-link:hover { color: var(--terra) !important; }
+
+    .cookie-banner {
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+    }
+    .btn-cookie-accept {
+      background: var(--terra) !important;
+    }
+
+    @media (max-width: 800px) {
+      .cols { grid-template-columns: 1fr; }
+      .demo-sources { grid-template-columns: 1fr; }
+      .demo-controls { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -627,218 +440,110 @@
         <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
         <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
       </a>
-      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.1rem;cursor:pointer;color:var(--clay-text-sec);">&#x2715;</button>
+      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--elevated);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;cursor:pointer;">&#x2715;</button>
     </div>
     <a href="/features/">Product</a>
     <a href="/security/">Security</a>
     <a href="/integrations/">Integrations</a>
     <a href="/pricing/">Pricing</a>
-    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
+    <div style="height:1px;background:var(--border);margin:0.5rem 0;"></div>
     <a href="/login/">Log in</a>
     <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
   </div>
 </div>
 
 <main>
-  <!-- HERO: brand + one claim + product surface -->
-  <section class="hq-hero">
-    <div class="container">
-      <div class="hq-hero-grid">
-        <div>
-          <div class="hq-brand" aria-label="AtlaSynq">
-            <img src="/images/atlasynq-logo.svg" alt="" aria-hidden="true">
-            <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
-          </div>
-          <h1>One governance layer. Any model. Your tools.</h1>
-          <p class="hq-sub">Route Sales to GPT-4o, Finance to Claude, Engineering to Gemini — same RBAC, same citations, same approval queue. Not locked to a single LLM vendor.</p>
-          <div class="hq-actions">
-            <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-            <a href="/features/" class="clay-btn clay-btn-outline">See the product</a>
-          </div>
-          <p class="hq-trust"><span>SOC 2 Type II</span> · SSO / SAML · Zero training on customer data</p>
+  <section class="home">
+    <div class="home-inner">
+      <div class="home-brand">
+        <img src="/images/atlasynq-logo.svg" alt="" aria-hidden="true">
+        <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+      </div>
+      <h1>Governed agents for every department</h1>
+      <p class="lead">Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
+      <div class="home-actions">
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+        <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
+      </div>
+    </div>
+
+    <div class="demo-wrap">
+      <div class="demo" id="productDemo">
+        <div class="demo-bar">
+          <div class="demo-bar-title" id="demoAgentTitle">Sales Agent</div>
+          <div class="demo-bar-badge">RBAC on</div>
         </div>
 
-        <div class="hq-product" id="productDemo" aria-label="AtlaSynq product demo">
-          <div class="hq-prod-top">
-            <div class="hq-prod-title">Department agent</div>
-            <div class="hq-prod-status"><i aria-hidden="true"></i> RBAC enforced</div>
+        <div class="demo-controls">
+          <div class="demo-roles" role="group" aria-label="Department">
+            <button type="button" class="on" data-role="sales">Sales</button>
+            <button type="button" data-role="finance">Finance</button>
+            <button type="button" data-role="eng">Engineering</button>
           </div>
+          <div class="demo-models" role="group" aria-label="Model">
+            <span class="demo-models-label">Model</span>
+            <button type="button" class="on" data-model="gpt" title="GPT-4o" aria-label="GPT-4o" aria-pressed="true"><img src="/images/gpt.png" alt=""></button>
+            <button type="button" data-model="claude" title="Claude" aria-label="Claude" aria-pressed="false"><img src="/images/claude.png" alt=""></button>
+            <button type="button" data-model="gemini" title="Gemini" aria-label="Gemini" aria-pressed="false"><img src="/images/gemini.png" alt=""></button>
+            <button type="button" data-model="llama" title="Llama" aria-label="Llama" aria-pressed="false"><img src="/images/llama.png" alt=""></button>
+          </div>
+        </div>
 
-          <div class="hq-config">
-            <div class="hq-config-row" role="group" aria-label="Department">
-              <div class="hq-config-label">Role</div>
-              <button type="button" class="hq-pill on" data-role="sales">Sales</button>
-              <button type="button" class="hq-pill" data-role="finance">Finance</button>
-              <button type="button" class="hq-pill" data-role="eng">Engineering</button>
-            </div>
-            <div class="hq-config-row" role="group" aria-label="Model provider">
-              <div class="hq-config-label">Model</div>
-              <button type="button" class="hq-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
-              <button type="button" class="hq-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
-              <button type="button" class="hq-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
-              <button type="button" class="hq-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
-              <button type="button" class="hq-model" data-model="copilot" aria-pressed="false"><img src="/images/copilot.png" alt="">Copilot</button>
-              <button type="button" class="hq-model" data-model="pplx" aria-pressed="false"><img src="/images/pplx.png" alt="">Perplexity</button>
-            </div>
+        <div class="demo-body">
+          <div class="demo-q" id="demoQuestion">Which deals are at risk of slipping this quarter?</div>
+          <div class="demo-a">
+            <div class="demo-a-label">Answer <span id="demoModelName">via GPT-4o</span></div>
+            <p id="demoAnswer"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
           </div>
-
-          <div class="hq-prod-body">
-            <aside class="hq-side" aria-label="Tool access for selected role">
-              <div class="hq-side-label">Allowed</div>
-              <div class="hq-side-item on" data-tool="a0"><img src="/images/salesforce.png" alt=""><span>Salesforce</span></div>
-              <div class="hq-side-item" data-tool="a1"><img src="/images/gong.png" alt=""><span>Gong</span></div>
-              <div class="hq-side-item" data-tool="a2"><img src="/images/slack.png" alt=""><span>Slack</span></div>
-              <div class="hq-side-item" data-tool="a3"><img src="/images/hubspot.png" alt=""><span>HubSpot</span></div>
-              <div class="hq-side-label" style="margin-top:10px;">Blocked</div>
-              <div class="hq-side-item blocked" data-tool="b0"><img src="/images/netsuite.png" alt=""><span>NetSuite</span></div>
-              <div class="hq-side-item blocked" data-tool="b1"><img src="/images/quickbooks.png" alt=""><span>QuickBooks</span></div>
-            </aside>
-            <div class="hq-main">
-              <div class="hq-query">
-                <div class="hq-query-meta">
-                  <span>Query</span>
-                  <span class="hq-model-chip" id="demoModelChip"><img src="/images/gpt.png" alt="" id="demoModelChipImg"><span id="demoModelChipName">GPT-4o</span></span>
-                </div>
-                <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
-              </div>
-              <div class="hq-answer" id="demoAnswer">
-                <div class="hq-answer-label">Governed answer <em id="demoSourceCount">3 sources</em></div>
-                <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.</p>
-              </div>
-              <div class="hq-sources" id="demoSources">
-                <div class="hq-src"><img src="/images/salesforce.png" alt=""><div><span class="name">Acme Corp — Opportunity</span><br><span class="meta">Last activity · 14 days ago</span></div><span class="badge">CRM</span></div>
-                <div class="hq-src"><img src="/images/gong.png" alt=""><div><span class="name">Beta Industries — Call notes</span><br><span class="meta">Risk language flagged</span></div><span class="badge">Call</span></div>
-                <div class="hq-src"><img src="/images/slack.png" alt=""><div><span class="name">#enterprise-deals</span><br><span class="meta">TechFlow proposal thread</span></div><span class="badge">Chat</span></div>
-              </div>
-            </div>
+          <div class="demo-sources" id="demoSources">
+            <div class="demo-src"><img src="/images/salesforce.png" alt=""><div><strong>Acme Corp</strong><span>Salesforce · 14 days idle</span></div></div>
+            <div class="demo-src"><img src="/images/gong.png" alt=""><div><strong>Beta Industries</strong><span>Gong · risk flagged</span></div></div>
+            <div class="demo-src"><img src="/images/slack.png" alt=""><div><strong>#enterprise-deals</strong><span>Slack · TechFlow thread</span></div></div>
           </div>
-          <p class="hq-demo-hint">Switch role or model — governance stays; routing and tool scope change.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="hq-logos" aria-label="Models and integrations">
-    <div class="container" style="display:flex;flex-direction:column;gap:1.15rem;">
-      <div class="hq-logos-inner">
-        <div class="hq-logos-label">Models you choose</div>
-        <div class="hq-logo-row">
-          <img src="/images/gpt.png" alt="GPT">
-          <img src="/images/claude.png" alt="Claude">
-          <img src="/images/gemini.png" alt="Gemini">
-          <img src="/images/llama.png" alt="Llama">
-          <img src="/images/copilot.png" alt="Copilot">
-          <img src="/images/pplx.png" alt="Perplexity">
+  <section class="strip" aria-label="Integrations">
+    <div class="strip-inner">
+      <img src="/images/salesforce.png" alt="Salesforce">
+      <img src="/images/slack.png" alt="Slack">
+      <img src="/images/jira.png" alt="Jira">
+      <img src="/images/hubspot.png" alt="HubSpot" style="height:34px;">
+      <img src="/images/netsuite.png" alt="NetSuite">
+      <img src="/images/github.jpg" alt="GitHub">
+      <img src="/images/notion.png" alt="Notion">
+      <a href="/integrations/">+ 40 more</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-inner">
+      <h2>How it works</h2>
+      <p class="sub">Same governance for every department — pick the model that fits the job.</p>
+      <div class="cols">
+        <div class="col">
+          <h3>1. Connect tools</h3>
+          <p>OAuth to Salesforce, Jira, NetSuite, Slack, and 40+ more. Scoped tokens per role — not shared passwords in prompts.</p>
         </div>
-      </div>
-      <div class="hq-logos-inner">
-        <div class="hq-logos-label">Tools you already run</div>
-        <div class="hq-logo-row">
-          <img src="/images/salesforce.png" alt="Salesforce">
-          <img src="/images/slack.png" alt="Slack">
-          <img src="/images/jira.png" alt="Jira">
-          <img src="/images/hubspot.png" alt="HubSpot" style="height:36px;margin:-6px 0;">
-          <img src="/images/netsuite.png" alt="NetSuite">
-          <img src="/images/github.jpg" alt="GitHub">
-          <img src="/images/notion.png" alt="Notion">
-          <a href="/integrations/">+ 40 more</a>
+        <div class="col">
+          <h3>2. Choose a model</h3>
+          <p>Route Sales to GPT-4o, Finance to Claude, Engineering to Gemini or Llama. Switch anytime without rebuilding connectors.</p>
+        </div>
+        <div class="col">
+          <h3>3. Stay in control</h3>
+          <p>RBAC before the model sees data. Cited sources on every answer. Writes wait for admin approval.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="hq-section" id="product">
-    <div class="container">
-      <div class="hq-section-head">
-        <h2>How governance actually works</h2>
-        <p>Pick the model that fits the department. Keep one policy layer for tools, citations, and write approvals — regardless of whether the answer is from GPT, Claude, Gemini, or Llama.</p>
-      </div>
-      <div class="hq-steps">
-        <div class="hq-step">
-          <div class="hq-step-num">01</div>
-          <h3>Assign model per role</h3>
-          <p>Sales on GPT-4o, Finance on Claude, Engineering on Gemini or self-hosted Llama. Switch providers without rebuilding connectors.</p>
-        </div>
-        <div class="hq-step">
-          <div class="hq-step-num">02</div>
-          <h3>Enforce RBAC before the model</h3>
-          <p>Tool scope is checked first. If Finance cannot see Salesforce, that context never reaches any LLM.</p>
-        </div>
-        <div class="hq-step">
-          <div class="hq-step-num">03</div>
-          <h3>Cite, then approve writes</h3>
-          <p>Answers link to source records. CRM updates and outbound messages wait in an admin queue — model-agnostic audit trail.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hq-section alt">
-    <div class="container">
-      <div class="hq-section-head">
-        <h2>One platform. Different boundaries per team.</h2>
-        <p>Same governance model across departments — different tool scopes, different write policies. <a href="/features/">See the full product →</a></p>
-      </div>
-      <div class="hq-dept">
-        <div class="role">Sales</div>
-        <div class="desc">Pipeline risk, account briefs, and follow-ups from CRM and call intel — without finance or HR data.</div>
-        <div class="tools">Salesforce · HubSpot · Gong · Slack</div>
-      </div>
-      <div class="hq-dept">
-        <div class="role">Finance</div>
-        <div class="desc">Runway, variance, and vendor questions from ERP and accounting — scoped away from pipeline.</div>
-        <div class="tools">NetSuite · QuickBooks · Excel · Drive</div>
-      </div>
-      <div class="hq-dept">
-        <div class="role">Engineering</div>
-        <div class="desc">Release blockers, PR status, and incident context — repo and project permissions respected.</div>
-        <div class="tools">Jira · GitHub · Linear · Notion</div>
-      </div>
-      <div class="hq-dept">
-        <div class="role">HR &amp; Legal</div>
-        <div class="desc">Policy lookup and contract questions from HRIS and document stores — stricter write controls.</div>
-        <div class="tools">Workday · SharePoint · DocuSign</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hq-section" id="security">
-    <div class="container hq-secure">
-      <div>
-        <h2>Built for security and IT buyers</h2>
-        <p>Enterprise buyers evaluate AtlaSynq the same way they evaluate any system that touches production data. We designed for that review.</p>
-        <ul class="hq-secure-list">
-          <li>RBAC enforced on every agent request — not only at session start</li>
-          <li>Full audit trail: who asked, which tools were queried, what was returned</li>
-          <li>Customer data is never used to train foundation models</li>
-          <li>SSO / SAML, encryption in transit and at rest</li>
-          <li>VPC and on-premises options on Enterprise</li>
-        </ul>
-        <p style="margin-top:1.5rem;"><a href="/security/" class="clay-btn clay-btn-outline">Read the security overview</a></p>
-      </div>
-      <div class="hq-secure-panel">
-        <h3>What CISOs ask first</h3>
-        <ul>
-          <li><strong>Does it respect source permissions?</strong>Yes. If a user cannot see a record in Salesforce, the agent cannot either.</li>
-          <li><strong>Can we control write actions?</strong>Yes. Writes enter an approval queue with an audit log attached.</li>
-          <li><strong>Where does data go?</strong>Retrieved context is sent to your chosen model provider over TLS. No training on your data.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="hq-cta">
-    <div class="container">
-      <div class="hq-cta-box">
-        <div>
-          <h2>See AtlaSynq on your stack</h2>
-          <p>30 minutes. Your tools, your roles, your security constraints.</p>
-        </div>
-        <div class="hq-cta-actions">
-          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-          <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
-        </div>
-      </div>
+  <section class="cta-block">
+    <div class="cta-card">
+      <h2>See it on your stack</h2>
+      <p>30 minutes. Your tools, your roles, your model preferences.</p>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </section>
 </main>
@@ -851,7 +556,7 @@
           <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
           <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
         </a>
-        <p>Role-scoped agents over your enterprise stack — with governance built in.</p>
+        <p>Governed department agents over your enterprise stack.</p>
       </div>
       <div>
         <h4>Product</h4>
@@ -879,9 +584,7 @@
 </footer>
 
 <div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
-  <div class="cookie-content">
-    We use cookies for analytics. <a href="/privacy/">Privacy</a>
-  </div>
+  <div class="cookie-content">We use cookies for analytics. <a href="/privacy/">Privacy</a></div>
   <div class="cookie-buttons">
     <button class="btn-cookie-accept">Accept</button>
     <button class="btn-cookie-decline">Decline</button>
@@ -919,157 +622,84 @@
 <script>
 (function () {
   var MODELS = {
-    gpt:     { name: 'GPT-4o',      icon: '/images/gpt.png' },
-    claude:  { name: 'Claude 3.5',  icon: '/images/claude.png' },
-    gemini:  { name: 'Gemini 1.5',  icon: '/images/gemini.png' },
-    llama:   { name: 'Llama 3',     icon: '/images/llama.png' },
-    copilot: { name: 'Copilot',     icon: '/images/copilot.png' },
-    pplx:    { name: 'Perplexity',  icon: '/images/pplx.png' }
+    gpt: 'GPT-4o',
+    claude: 'Claude',
+    gemini: 'Gemini',
+    llama: 'Llama 3'
   };
 
-  var ROLES = {
+  var DATA = {
     sales: {
-      question: 'Which deals are at risk of slipping this quarter?',
-      answers: {
-        gpt: '<strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday or they re-evaluate in Q3.',
-        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme Corp stalled after the last Gong call. Beta Industries shows procurement pushback. TechFlow is waiting on a revised SOW before end of week.',
-        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and an open proposal deadline on TechFlow.',
-        llama: '<strong>3 deals flagged.</strong> Acme: 14-day inactivity. Beta: 62% closed-lost probability. TechFlow: proposal due Friday.',
-        copilot: '<strong>Sales Agent summary.</strong> Prioritize Acme re-engage, Beta executive alignment, and TechFlow proposal revision before Friday.',
-        pplx: '<strong>Cross-tool risk brief.</strong> Salesforce + Gong + Slack agree: Acme, Beta, and TechFlow need owner action this week.'
+      title: 'Sales Agent',
+      q: 'Which deals are at risk of slipping this quarter?',
+      a: {
+        gpt: '<strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.',
+        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme stalled after the last call. Beta shows procurement pushback. TechFlow is waiting on a revised SOW.',
+        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and TechFlow’s proposal deadline.',
+        llama: '<strong>3 deals flagged.</strong> Acme: 14-day inactivity. Beta: 62% closed-lost probability. TechFlow: proposal due Friday.'
       },
-      allowed: [
-        { icon: '/images/salesforce.png', name: 'Salesforce' },
-        { icon: '/images/gong.png', name: 'Gong' },
-        { icon: '/images/slack.png', name: 'Slack' },
-        { icon: '/images/hubspot.png', name: 'HubSpot' }
-      ],
-      blocked: [
-        { icon: '/images/netsuite.png', name: 'NetSuite' },
-        { icon: '/images/quickbooks.png', name: 'QuickBooks' }
-      ],
       sources: [
-        { icon: '/images/salesforce.png', name: 'Acme Corp — Opportunity', meta: 'Last activity · 14 days ago', badge: 'CRM' },
-        { icon: '/images/gong.png', name: 'Beta Industries — Call notes', meta: 'Risk language flagged', badge: 'Call' },
-        { icon: '/images/slack.png', name: '#enterprise-deals', meta: 'TechFlow proposal thread', badge: 'Chat' }
+        ['/images/salesforce.png', 'Acme Corp', 'Salesforce · 14 days idle'],
+        ['/images/gong.png', 'Beta Industries', 'Gong · risk flagged'],
+        ['/images/slack.png', '#enterprise-deals', 'Slack · TechFlow thread']
       ]
     },
     finance: {
-      question: 'What is our cash runway at current burn?',
-      answers: {
-        gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx. Series A close by Aug 15 extends runway to ~31 months.',
-        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; the lever is OpEx mix — Engineering dominates. A timely Series A roughly doubles runway.',
-        gemini: '<strong>Cash: $5.7M · Burn: $310k/mo · Runway: 18.4 mo.</strong> Largest cost center Engineering (44%). Upside scenario: 31 months post-raise.',
-        llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.',
-        copilot: '<strong>Finance Agent briefing.</strong> Maintain current burn; model Series A close as the primary runway extender.',
-        pplx: '<strong>Cited runway view.</strong> NetSuite + QuickBooks + Stripe agree on ~18 months at current spend.'
+      title: 'Finance Agent',
+      q: 'What is our cash runway at current burn?',
+      a: {
+        gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx.',
+        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; Engineering dominates OpEx. A timely Series A roughly doubles runway.',
+        gemini: '<strong>Cash $5.7M · Burn $310k/mo · Runway 18.4 mo.</strong> Largest cost center: Engineering (44%).',
+        llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.'
       },
-      allowed: [
-        { icon: '/images/netsuite.png', name: 'NetSuite' },
-        { icon: '/images/quickbooks.png', name: 'QuickBooks' },
-        { icon: '/images/stripe.jpg', name: 'Stripe' },
-        { icon: '/images/excel.png', name: 'Excel' }
-      ],
-      blocked: [
-        { icon: '/images/salesforce.png', name: 'Salesforce' },
-        { icon: '/images/gong.png', name: 'Gong' }
-      ],
       sources: [
-        { icon: '/images/netsuite.png', name: 'GL cash position', meta: 'As of this morning', badge: 'ERP' },
-        { icon: '/images/quickbooks.png', name: 'Monthly OpEx rollup', meta: 'Engineering 44%', badge: 'Books' },
-        { icon: '/images/stripe.jpg', name: 'Recurring revenue', meta: 'Trailing 30 days', badge: 'Billing' }
+        ['/images/netsuite.png', 'GL cash position', 'NetSuite · this morning'],
+        ['/images/quickbooks.png', 'Monthly OpEx', 'QuickBooks · Eng 44%'],
+        ['/images/stripe.jpg', 'Recurring revenue', 'Stripe · trailing 30d']
       ]
     },
     eng: {
-      question: 'What is blocking the v2.4 release?',
-      answers: {
-        gpt: '<strong>4 P1 bugs block v2.4.0.</strong> AUTH-881 (login timeout), API-1204 (rate limiter), UI-390 (Safari blank state), INFRA-77 (Redis failover lag). Clearance estimate July 14.',
-        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity. Safari blank dashboard and Redis lag remain in progress.',
-        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; remaining three in progress against current sprint velocity.',
-        llama: '<strong>4 P1 blockers.</strong> AUTH-881, API-1204, UI-390, INFRA-77. Target clear date July 14.',
-        copilot: '<strong>Engineering Agent status.</strong> Keep AUTH-881 as the critical path; other P1s track to mid-July clearance.',
-        pplx: '<strong>Release risk brief.</strong> Jira + GitHub + Linear point to four P1s before v2.4 ships.'
+      title: 'Engineering Agent',
+      q: 'What is blocking the v2.4 release?',
+      a: {
+        gpt: '<strong>4 P1 bugs block v2.4.0.</strong> AUTH-881, API-1204, UI-390, and INFRA-77. Clearance estimate July 14.',
+        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity. Safari blank state and Redis lag remain in progress.',
+        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; three others track to mid-July.',
+        llama: '<strong>4 P1 blockers.</strong> AUTH-881, API-1204, UI-390, INFRA-77. Target clear date July 14.'
       },
-      allowed: [
-        { icon: '/images/jira.png', name: 'Jira' },
-        { icon: '/images/github.jpg', name: 'GitHub' },
-        { icon: '/images/linear.png', name: 'Linear' },
-        { icon: '/images/notion.png', name: 'Notion' }
-      ],
-      blocked: [
-        { icon: '/images/salesforce.png', name: 'Salesforce' },
-        { icon: '/images/netsuite.png', name: 'NetSuite' }
-      ],
       sources: [
-        { icon: '/images/jira.png', name: 'AUTH-881 — Login timeout', meta: 'In review · @maya', badge: 'P1' },
-        { icon: '/images/github.jpg', name: 'api-rate-limiter PR', meta: 'Open · needs approve', badge: 'PR' },
-        { icon: '/images/linear.png', name: 'v2.4 milestone', meta: '4 blockers linked', badge: 'Plan' }
+        ['/images/jira.png', 'AUTH-881', 'Jira · in review'],
+        ['/images/github.jpg', 'api-rate-limiter', 'GitHub · open PR'],
+        ['/images/linear.png', 'v2.4 milestone', 'Linear · 4 blockers']
       ]
     }
   };
 
   var state = { role: 'sales', model: 'gpt' };
 
-  function el(id) { return document.getElementById(id); }
-
-  function renderTools(role) {
-    var data = ROLES[role];
-    var side = document.querySelector('#productDemo .hq-side');
-    if (!side || !data) return;
-    var html = '<div class="hq-side-label">Allowed</div>';
-    data.allowed.forEach(function (t, i) {
-      html += '<div class="hq-side-item' + (i === 0 ? ' on' : '') + '"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
-    });
-    html += '<div class="hq-side-label" style="margin-top:10px;">Blocked</div>';
-    data.blocked.forEach(function (t) {
-      html += '<div class="hq-side-item blocked"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
-    });
-    side.innerHTML = html;
-  }
-
-  function renderSources(role) {
-    var data = ROLES[role];
-    var box = el('demoSources');
-    if (!box || !data) return;
-    box.innerHTML = data.sources.map(function (s) {
-      return '<div class="hq-src"><img src="' + s.icon + '" alt=""><div><span class="name">' + s.name + '</span><br><span class="meta">' + s.meta + '</span></div><span class="badge">' + s.badge + '</span></div>';
+  function render() {
+    var d = DATA[state.role];
+    if (!d) return;
+    document.getElementById('demoAgentTitle').textContent = d.title;
+    document.getElementById('demoQuestion').textContent = d.q;
+    document.getElementById('demoModelName').textContent = 'via ' + MODELS[state.model];
+    document.getElementById('demoAnswer').innerHTML = d.a[state.model] || d.a.gpt;
+    document.getElementById('demoSources').innerHTML = d.sources.map(function (s) {
+      return '<div class="demo-src"><img src="' + s[0] + '" alt=""><div><strong>' + s[1] + '</strong><span>' + s[2] + '</span></div></div>';
     }).join('');
   }
 
-  function render() {
-    var role = ROLES[state.role];
-    var model = MODELS[state.model];
-    if (!role || !model) return;
-
-    var answer = el('demoAnswer');
-    if (answer) answer.classList.add('is-switching');
-
-    window.setTimeout(function () {
-      el('demoQuestion').textContent = role.question;
-      el('demoAnswerText').innerHTML = role.answers[state.model] || role.answers.gpt;
-      el('demoSourceCount').textContent = role.sources.length + ' sources';
-      el('demoModelChipName').textContent = model.name;
-      el('demoModelChipImg').src = model.icon;
-      renderTools(state.role);
-      renderSources(state.role);
-      if (answer) answer.classList.remove('is-switching');
-    }, 120);
-  }
-
   function bind() {
-    var root = el('productDemo');
+    var root = document.getElementById('productDemo');
     if (!root) return;
-
     root.querySelectorAll('[data-role]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.role = btn.getAttribute('data-role');
-        root.querySelectorAll('[data-role]').forEach(function (b) {
-          b.classList.toggle('on', b === btn);
-        });
+        root.querySelectorAll('[data-role]').forEach(function (b) { b.classList.toggle('on', b === btn); });
         render();
       });
     });
-
     root.querySelectorAll('[data-model]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         state.model = btn.getAttribute('data-model');
@@ -1083,11 +713,8 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bind);
-  } else {
-    bind();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
 })();
 </script>
 <script src="/js/site-demos.js" defer></script>
