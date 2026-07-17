@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717d">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717e">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -88,6 +88,42 @@
       color: var(--muted);
       font-weight: 500;
       margin: 0;
+    }
+
+    .demo-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 860px;
+      margin: 0 auto 10px;
+      flex-wrap: wrap;
+    }
+    .demo-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .demo-live i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2F8F5B;
+      box-shadow: 0 0 0 0 rgba(47,143,91,0.5);
+      animation: livePulse 1.8s ease-out infinite;
+    }
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(47,143,91,0.45); }
+      70% { box-shadow: 0 0 0 8px rgba(47,143,91,0); }
+      100% { box-shadow: 0 0 0 0 rgba(47,143,91,0); }
+    }
+    .demo-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
     }
 
     /* Clay product — flat, one panel */
@@ -384,6 +420,7 @@
       <li><a href="/security/">Security</a></li>
       <li><a href="/integrations/">Integrations</a></li>
       <li><a href="/pricing/">Pricing</a></li>
+      <li><a href="/blog/">Blog</a></li>
     </ul>
     <div class="nav-cta">
       <a href="/login/" class="nav-login">Log in</a>
@@ -408,6 +445,7 @@
     <a href="/security/">Security</a>
     <a href="/integrations/">Integrations</a>
     <a href="/pricing/">Pricing</a>
+    <a href="/blog/">Blog</a>
     <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
     <a href="/login/">Log in</a>
     <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
@@ -422,12 +460,16 @@
         <p>Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
         <div class="hero-actions">
           <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-          <a href="/pricing/" class="clay-btn clay-btn-outline">View pricing</a>
+          <a href="#product" class="clay-btn clay-btn-outline">Try live demo</a>
         </div>
         <p class="hero-trust">SOC 2 Type II · SSO / SAML · Zero training on customer data</p>
       </div>
 
-      <div class="demo" id="productDemo" aria-label="Product demo">
+      <div class="demo-caption" id="product">
+        <div class="demo-live"><i aria-hidden="true"></i> Live product demo</div>
+        <div class="demo-hint">Click a department or model — or watch it cycle</div>
+      </div>
+      <div class="demo" id="productDemo" aria-label="Live product demo">
         <div class="demo-top">
           <div class="demo-tabs" role="tablist" aria-label="Department">
             <button type="button" class="demo-tab on" data-role="sales">Sales</button>
@@ -536,6 +578,7 @@
         <h4>Company</h4>
         <a href="/about/" class="footer-link">About</a>
         <a href="/blog/" class="footer-link">Blog</a>
+        <a href="/roi/" class="footer-link">ROI calculator</a>
         <a href="/careers/" class="footer-link">Careers</a>
       </div>
       <div>
@@ -657,8 +700,23 @@
   };
 
   var state = { role: 'sales', model: 'gpt' };
+  var roleOrder = ['sales', 'finance', 'eng'];
+  var modelOrder = ['gpt', 'claude', 'gemini', 'llama'];
+  var timer = null;
+  var paused = false;
 
   function $(id) { return document.getElementById(id); }
+
+  function syncButtons(root) {
+    root.querySelectorAll('[data-role]').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-role') === state.role);
+    });
+    root.querySelectorAll('[data-model]').forEach(function (b) {
+      var on = b.getAttribute('data-model') === state.model;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
 
   function render() {
     var role = ROLES[state.role];
@@ -686,33 +744,61 @@
     }, 90);
   }
 
+  function advance() {
+    if (paused) return;
+    var mi = modelOrder.indexOf(state.model);
+    if (mi < modelOrder.length - 1) {
+      state.model = modelOrder[mi + 1];
+    } else {
+      state.model = modelOrder[0];
+      var ri = roleOrder.indexOf(state.role);
+      state.role = roleOrder[(ri + 1) % roleOrder.length];
+    }
+    var root = $('productDemo');
+    if (root) syncButtons(root);
+    render();
+  }
+
+  function startAuto() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(advance, 4200);
+  }
+
+  function pauseAuto() {
+    paused = true;
+    if (timer) clearInterval(timer);
+    timer = null;
+    // Resume after idle so the page still feels alive
+    setTimeout(function () {
+      paused = false;
+      startAuto();
+    }, 12000);
+  }
+
   function bind() {
     var root = $('productDemo');
     if (!root) return;
 
     root.querySelectorAll('[data-role]').forEach(function (btn) {
       btn.addEventListener('click', function () {
+        pauseAuto();
         state.role = btn.getAttribute('data-role');
-        root.querySelectorAll('[data-role]').forEach(function (b) {
-          b.classList.toggle('on', b === btn);
-        });
+        syncButtons(root);
         render();
       });
     });
 
     root.querySelectorAll('[data-model]').forEach(function (btn) {
       btn.addEventListener('click', function () {
+        pauseAuto();
         state.model = btn.getAttribute('data-model');
-        root.querySelectorAll('[data-model]').forEach(function (b) {
-          var on = b === btn;
-          b.classList.toggle('on', on);
-          b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
+        syncButtons(root);
         render();
       });
     });
 
     render();
+    startAuto();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);

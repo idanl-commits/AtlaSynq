@@ -446,6 +446,9 @@
 
   /* ─── ROI CALCULATOR ─────────────────────────────────────── */
   function initROI() {
+    // Dedicated ROI page has its own calculator (roiEmployeesInput).
+    if ($('roiEmployeesInput')) return;
+
     const empEl      = $('roiEmployees');
     const hoursEl    = $('roiHours');
     const salaryEl   = $('roiSalary');
