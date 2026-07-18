@@ -54,17 +54,9 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717">
-  <style>
-    /* Inline fallback if CSS file missing */
-    :root{--clay-terracotta:#C96A4A;--clay-cream:#F7F1E8;--clay-brown:#3B2A1A;}
-  </style>
-
-  <style>
-    .wordmark-atla { color: #2B1F1A; }
-    .wordmark-synq { color: #C96A4A; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718">
 
 </head>
 <body>
@@ -74,14 +66,14 @@
   <nav class="container nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="AtlaSynq home">
       <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
-      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+      <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/features/">Product</a></li>
-      <li><a href="/security/">Security</a></li>
       <li><a href="/integrations/">Integrations</a></li>
       <li><a href="/pricing/">Pricing</a></li>
-      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/blog/" class="active">Insights</a></li>
+      <li><a href="/security/">Security</a></li>
     </ul>
     <div class="nav-cta">
       <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
@@ -115,73 +107,74 @@
   </div>
 </div>
 
-<!-- ── HERO ────────────────────────────────────────────────────────────── -->
-<section class="clay-hero">
+<section class="g-blog-hero">
   <div class="container">
-    <span class="clay-hero__eyebrow">AtlaSynq Blog</span>
-    <h1 class="clay-hero__title">Insights on Governed AI<br>for Enterprise Teams</h1>
-    <p class="clay-hero__sub">Practical guides on AI governance, ROI of enterprise automation, and how to win in the age of answer engines. Written by the AtlaSynq CMO Agent and team.</p>
-    <div class="clay-hero__actions">
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a Demo</a>
-      <a href="/signup/" class="btn btn--outline btn--lg">Start Building</a>
+    <div class="g-eyebrow">AtlaSynq Insights</div>
+    <h1>Guides for teams deploying governed AI</h1>
+    <p style="max-width:36em;color:var(--g-body);font-size:1.05rem;line-height:1.6;margin:0;">ROI math, governance playbooks, and answer-engine strategy — written for revenue ops, security, and engineering leaders evaluating enterprise AI.</p>
+    <div class="g-blog-topics">
+      <a href="/blog/governed-ai-agents-roi/" class="g-blog-topic">ROI</a>
+      <a href="/blog/what-is-ai-governance/" class="g-blog-topic">Governance</a>
+      <a href="/blog/aeo-for-b2b-saas/" class="g-blog-topic">AEO</a>
+      <a href="/roi/" class="g-blog-topic">ROI calculator</a>
+      <a href="/security/" class="g-blog-topic">Security</a>
     </div>
   </div>
 </section>
 
-<!-- ── ARTICLES ─────────────────────────────────────────────────────────── -->
-<section class="section">
+<section class="g-blog-featured-wrap">
   <div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem;margin-bottom:0.5rem;">
-      <h2>Latest Articles</h2>
-      <span style="font-size:0.85rem;color:var(--clay-brown-ll);">3 articles</span>
-    </div>
-    <div class="blog-grid">
+    <a href="/blog/governed-ai-agents-roi/" class="g-blog-featured">
+      <div class="g-blog-featured-img">
+        <img src="/images/blog-roi.svg" alt="" loading="lazy">
+      </div>
+      <div class="g-blog-featured-body">
+        <div class="g-insight-tag" style="color:var(--g-muted);">Featured · ROI &amp; Productivity</div>
+        <h2 style="font-family:var(--g-serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;line-height:1.2;margin:0.5rem 0 0.75rem;">The ROI of governed AI agents: how teams save 12+ hours per week</h2>
+        <p style="color:var(--g-body);line-height:1.6;margin:0 0 1rem;">Shadow AI is costing enterprises thousands per employee annually. Learn how governed agents with RBAC and audit trails deliver measurable, compounding ROI — with real math you can take to your CFO.</p>
+        <span style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">Jul 1, 2026 · 7 min read →</span>
+      </div>
+    </a>
+  </div>
+</section>
 
-      <a href="/blog/governed-ai-agents-roi/" class="blog-card">
-        <div class="blog-thumb"><img src="/images/blog-roi.svg" alt="" loading="lazy"></div>
-        <div class="blog-card__tag">ROI &amp; Productivity</div>
-        <h3 class="blog-card__title">The ROI of Governed AI Agents: How Teams Save 12+ Hours Per Week</h3>
-        <p class="blog-card__excerpt">Shadow AI is costing enterprises thousands per employee annually. Learn how governed agents with RBAC and audit trails deliver measurable, compounding ROI — with real math.</p>
-        <div class="blog-card__footer">
-          <span>Jul 1, 2026 · 7 min read</span>
-          <span class="blog-card__read">Read article →</span>
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <h2 style="font-family:var(--g-serif);font-size:1.35rem;font-weight:400;margin-bottom:1.25rem;">More to read</h2>
+    <div class="g-blog-grid-light">
+      <a href="/blog/what-is-ai-governance/" class="g-blog-card-light">
+        <img src="/images/blog-governance.svg" alt="" loading="lazy">
+        <div class="body">
+          <div class="g-insight-tag" style="color:var(--g-muted);font-size:0.68rem;">AI Governance</div>
+          <h3>What is AI governance? A practical guide for enterprise teams</h3>
+          <p>RBAC, audit trails, human-in-the-loop controls — and how AtlaSynq compares to ChatGPT Enterprise.</p>
+          <span style="display:block;margin-top:0.75rem;font-size:0.78rem;color:var(--g-muted);">Jun 20 · 6 min read</span>
         </div>
       </a>
-
-      <a href="/blog/what-is-ai-governance/" class="blog-card">
-        <div class="blog-thumb"><img src="/images/blog-governance.svg" alt="" loading="lazy"></div>
-        <div class="blog-card__tag">AI Governance</div>
-        <h3 class="blog-card__title">What Is AI Governance? A Practical Guide for Enterprise Teams</h3>
-        <p class="blog-card__excerpt">A clear, answer-engine-friendly definition plus a real-world breakdown of RBAC, audit trails, human-in-the-loop controls, and how AtlaSynq compares to ChatGPT Enterprise.</p>
-        <div class="blog-card__footer">
-          <span>Jun 20, 2026 · 6 min read</span>
-          <span class="blog-card__read">Read article →</span>
+      <a href="/blog/aeo-for-b2b-saas/" class="g-blog-card-light">
+        <img src="/images/blog-aeo.svg" alt="" loading="lazy">
+        <div class="body">
+          <div class="g-insight-tag" style="color:var(--g-muted);font-size:0.68rem;">AEO Strategy</div>
+          <h3>Answer engine optimization for B2B SaaS</h3>
+          <p>How structured answers and schema markup help products get cited by AI assistants — not buried in blue links.</p>
+          <span style="display:block;margin-top:0.75rem;font-size:0.78rem;color:var(--g-muted);">Jun 10 · 5 min read</span>
         </div>
       </a>
-
-      <a href="/blog/aeo-for-b2b-saas/" class="blog-card">
-        <div class="blog-thumb"><img src="/images/blog-aeo.svg" alt="" loading="lazy"></div>
-        <div class="blog-card__tag">SEO / AEO Strategy</div>
-        <h3 class="blog-card__title">Answer Engine Optimization (AEO) for B2B SaaS: How AtlaSynq Wins Citations</h3>
-        <p class="blog-card__excerpt">AEO is the new SEO. Learn how structured answers, schema markup, and position-zero thinking help B2B SaaS products get cited by AI assistants instead of buried in blue links.</p>
-        <div class="blog-card__footer">
-          <span>Jun 10, 2026 · 5 min read</span>
-          <span class="blog-card__read">Read article →</span>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
 
-<!-- ── CTA BAND ─────────────────────────────────────────────────────────── -->
-<section class="cta-band">
+<section class="g-roi-band">
   <div class="container">
-    <h2>See AtlaSynq in Action</h2>
-    <p>Deploy governed AI agents for your sales, HR, and operations teams in under a day. No shadow AI, no ungoverned prompts.</p>
-    <div class="cta-actions">
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--primary btn--lg" target="_blank" rel="noopener">Book a demo</a>
-      <a href="/signup/" class="btn btn--outline btn--lg">Start Building</a>
+    <div class="g-roi-inner">
+      <div>
+        <div class="g-roi-stat">12<span>+</span> hrs</div>
+        <p style="margin:0;color:var(--g-body);font-size:0.95rem;">Weekly time reclaimed per team member. Model your team's number with our ROI calculator.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="/roi/" class="clay-btn clay-btn-primary">Run ROI estimate</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" target="_blank" rel="noopener">Book a demo</a>
+      </div>
     </div>
   </div>
 </section>

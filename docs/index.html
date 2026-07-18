@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtlaSynq — Governed agents for every department</title>
-  <meta name="description" content="AtlaSynq connects your enterprise tools into role-scoped agents. Choose GPT, Claude, Gemini, or Llama per team — with RBAC, citations, and approval before writes.">
+  <title>AtlaSynq — Governed AI agents for your enterprise stack</title>
+  <meta name="description" content="Give Sales, Finance, and Engineering role-scoped AI agents over Salesforce, Jira, NetSuite, and 45+ tools. Any LLM. RBAC on every query. Citations and approval before writes.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
-  <meta property="og:title" content="AtlaSynq — Governed agents for every department">
-  <meta property="og:description" content="Role-scoped agents over your stack. Any model. Permissions on every query.">
-  <meta property="og:image" content="https://www.atlasynq.com/images/atlasynq-logo.png">
+  <meta property="og:title" content="AtlaSynq — Governed AI agents for your enterprise stack">
+  <meta property="og:description" content="Role-scoped agents over your tools. Pick GPT, Claude, Gemini, or Llama per team — with governance built in.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/blog-roi.svg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/images/atlasynq-logo.svg">
   <link rel="alternate icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717e">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,383 +29,8 @@
     gtag('config', 'G-JXPHR1VRHF');
   </script>
   <style>
-    :root {
-      --ink: #0F2744;
-      --ink-soft: #3D4A5C;
-      --muted: #6B7789;
-      --line: rgba(15, 39, 68, 0.10);
-      --paper: #F4F6F9;
-      --white: #FFFFFF;
-      --terra: #C96A4A;
-      --font: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-    }
-
-    body { font-family: var(--font); background: var(--paper); color: #0F1724; }
-
-    .wordmark-atla { color: #0F1724; }
-    .wordmark-synq { color: var(--terra); margin-left: -0.04em; }
-
-    .nav-login {
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      text-decoration: none;
-      padding: 8px 12px;
-    }
-
-    /* One hero composition: copy + product */
-    .hero {
-      padding: 3.25rem 0 3.5rem;
-    }
-    .hero-copy {
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 2.65rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin: 0 0 0.85rem;
-      color: #0F1724;
-    }
-    .hero-copy > p {
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--ink-soft);
-      margin: 0 auto 1.5rem;
-      max-width: 32em;
-    }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 0.9rem;
-    }
-    .hero-trust {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-weight: 500;
-      margin: 0;
-    }
-
-    .demo-caption {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      max-width: 860px;
-      margin: 0 auto 10px;
-      flex-wrap: wrap;
-    }
-    .demo-live {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--ink-soft);
-    }
-    .demo-live i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #2F8F5B;
-      box-shadow: 0 0 0 0 rgba(47,143,91,0.5);
-      animation: livePulse 1.8s ease-out infinite;
-    }
-    @keyframes livePulse {
-      0% { box-shadow: 0 0 0 0 rgba(47,143,91,0.45); }
-      70% { box-shadow: 0 0 0 8px rgba(47,143,91,0); }
-      100% { box-shadow: 0 0 0 0 rgba(47,143,91,0); }
-    }
-    .demo-hint {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    /* Clay product — flat, one panel */
-    .demo {
-      --p-bg: #F7F1E8;
-      --p-surface: #FFFDF8;
-      --p-border: rgba(92, 64, 51, 0.14);
-      --p-text: #2B1F1A;
-      --p-sec: #5E4B3F;
-      --p-muted: #8F7B6D;
-      --p-terra: #C96A4A;
-      max-width: 860px;
-      margin: 0 auto;
-      background: var(--p-bg);
-      border: 1px solid var(--p-border);
-      border-radius: 14px;
-      overflow: hidden;
-      font-family: 'Sora', var(--font);
-      box-shadow: 0 12px 32px rgba(15, 39, 68, 0.07);
-    }
-    .demo-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: #FBF6ED;
-      border-bottom: 1px solid var(--p-border);
-      flex-wrap: wrap;
-    }
-    .demo-tabs,
-    .demo-models {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .demo-tab,
-    .demo-model {
-      appearance: none;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--p-sec);
-      font: inherit;
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 11px;
-      border-radius: 8px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .demo-model {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-    }
-    .demo-model img { width: 15px; height: 15px; object-fit: contain; border-radius: 3px; }
-    .demo-tab:hover,
-    .demo-model:hover { background: rgba(255,253,248,0.75); }
-    .demo-tab.on,
-    .demo-model.on {
-      background: var(--p-surface);
-      border-color: var(--p-border);
-      color: var(--p-text);
-    }
-    .demo-model.on { border-color: rgba(201,106,74,0.35); }
-
-    .demo-main {
-      padding: 18px 18px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .demo-q,
-    .demo-a {
-      background: var(--p-surface);
-      border: 1px solid var(--p-border);
-      border-radius: 10px;
-      padding: 14px 16px;
-    }
-    .demo-label {
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--p-muted);
-      margin-bottom: 6px;
-    }
-    .demo-a .demo-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--p-terra);
-    }
-    .demo-a .demo-label span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--p-muted);
-      text-transform: none;
-      letter-spacing: 0;
-      font-weight: 600;
-      font-size: 0.72rem;
-    }
-    .demo-a .demo-label img { width: 13px; height: 13px; object-fit: contain; }
-    .demo-q p {
-      margin: 0;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--p-text);
-      line-height: 1.4;
-    }
-    .demo-a p {
-      margin: 0 0 12px;
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: var(--p-sec);
-    }
-    .demo-a p strong { color: var(--p-text); }
-    .demo-a.is-switching { opacity: 0.45; transition: opacity 0.12s; }
-
-    .demo-sources {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .demo-src {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #F7F1E8;
-      border: 1px solid var(--p-border);
-      border-radius: 6px;
-      padding: 4px 8px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--p-sec);
-    }
-    .demo-src img { width: 12px; height: 12px; object-fit: contain; }
-
-    .demo-tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      padding-top: 2px;
-      border-top: 1px solid var(--p-border);
-    }
-    .demo-tool {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--p-sec);
-    }
-    .demo-tool img { width: 14px; height: 14px; object-fit: contain; }
-    .demo-tool.blocked { opacity: 0.38; text-decoration: line-through; }
-
-    /* Integrations line */
-    .strip {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 1.35rem 0;
-    }
-    .strip-inner {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .strip-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .strip-logos {
-      display: flex;
-      align-items: center;
-      gap: 1.35rem;
-      flex-wrap: wrap;
-      flex: 1;
-    }
-    .strip-logos img {
-      height: 20px;
-      width: auto;
-      max-width: 84px;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.5;
-      mix-blend-mode: multiply;
-    }
-    .strip-logos a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    /* How it works — no cards */
-    .steps {
-      padding: 3.75rem 0;
-    }
-    .steps-head {
-      max-width: 480px;
-      margin: 0 0 2rem;
-    }
-    .steps-head h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0 0 0.4rem;
-    }
-    .steps-head p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem 2.5rem;
-      border-top: 1px solid var(--line);
-      padding-top: 2rem;
-    }
-    .step-num {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      margin-bottom: 0.55rem;
-    }
-    .step h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0 0 0.4rem;
-    }
-    .step p {
-      margin: 0;
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-
-    .cta { padding: 0 0 4rem; }
-    .cta-box {
-      background: var(--ink);
-      border-radius: 12px;
-      padding: 1.75rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .cta-box h2 {
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0 0 0.25rem;
-    }
-    .cta-box p {
-      margin: 0;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
-    }
-    .cta-box .clay-btn-primary {
-      background: #fff;
-      color: var(--ink);
-    }
-    .cta-box .clay-btn-primary:hover {
-      background: #E6EEF6;
-      color: var(--ink);
-    }
-
-    @media (max-width: 800px) {
-      .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .demo-top { flex-direction: column; align-items: stretch; }
-    }
+    body { background: var(--g-paper, #FAFBFC); }
+    .nav-login { font-size: 0.86rem; font-weight: 500; color: var(--g-body); text-decoration: none; padding: 8px 12px; }
   </style>
 </head>
 <body>
@@ -413,14 +39,14 @@
   <nav class="container nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="AtlaSynq home">
       <img src="/images/atlasynq-logo.svg" alt="" width="30" height="30" aria-hidden="true">
-      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+      <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/features/">Product</a></li>
-      <li><a href="/security/">Security</a></li>
       <li><a href="/integrations/">Integrations</a></li>
       <li><a href="/pricing/">Pricing</a></li>
-      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/blog/">Insights</a></li>
+      <li><a href="/security/">Security</a></li>
     </ul>
     <div class="nav-cta">
       <a href="/login/" class="nav-login">Log in</a>
@@ -437,15 +63,15 @@
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
       <a href="/" class="nav-logo">
         <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
-        <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+        <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
       </a>
       <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.1rem;cursor:pointer;">&#x2715;</button>
     </div>
     <a href="/features/">Product</a>
-    <a href="/security/">Security</a>
     <a href="/integrations/">Integrations</a>
     <a href="/pricing/">Pricing</a>
-    <a href="/blog/">Blog</a>
+    <a href="/blog/">Insights</a>
+    <a href="/security/">Security</a>
     <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
     <a href="/login/">Log in</a>
     <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
@@ -453,105 +79,186 @@
 </div>
 
 <main>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-copy">
-        <h1>Governed agents for every department</h1>
-        <p>Connect your tools. Assign a model per team. Enforce permissions on every query — with citations and approval before anything writes back.</p>
-        <div class="hero-actions">
-          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-          <a href="#product" class="clay-btn clay-btn-outline">Try live demo</a>
+  <section class="g-hero">
+    <div class="container g-hero-grid">
+      <div>
+        <div class="g-eyebrow">Enterprise AI platform</div>
+        <h1>Your stack. Your models.<br>One agent per team.</h1>
+        <p class="g-hero-lead">Sales asks about pipeline. Finance asks about runway. Engineering asks about blockers — each through a governed agent that only sees what their role allows, cites every answer, and never writes without approval.</p>
+        <div class="g-hero-actions">
+          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
+          <a href="/signup/" class="clay-btn clay-btn-outline">Start building free</a>
         </div>
-        <p class="hero-trust">SOC 2 Type II · SSO / SAML · Zero training on customer data</p>
+        <div class="g-trust-row">
+          <span>SOC 2 Type II</span>
+          <span>SSO / SAML</span>
+          <span>Zero training on your data</span>
+          <span>45+ connectors</span>
+        </div>
       </div>
 
-      <div class="demo-caption" id="product">
-        <div class="demo-live"><i aria-hidden="true"></i> Live product demo</div>
-        <div class="demo-hint">Click a department or model — or watch it cycle</div>
-      </div>
-      <div class="demo" id="productDemo" aria-label="Live product demo">
-        <div class="demo-top">
-          <div class="demo-tabs" role="tablist" aria-label="Department">
-            <button type="button" class="demo-tab on" data-role="sales">Sales</button>
-            <button type="button" class="demo-tab" data-role="finance">Finance</button>
-            <button type="button" class="demo-tab" data-role="eng">Engineering</button>
+      <div class="g-product" id="productDemo" aria-label="Interactive product preview">
+        <div class="g-product-bar">
+          <div class="g-product-tabs" role="tablist" aria-label="Department">
+            <button type="button" class="g-product-tab on" data-role="sales">Sales</button>
+            <button type="button" class="g-product-tab" data-role="finance">Finance</button>
+            <button type="button" class="g-product-tab" data-role="eng">Engineering</button>
           </div>
-          <div class="demo-models" role="group" aria-label="Model">
-            <button type="button" class="demo-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
-            <button type="button" class="demo-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
-            <button type="button" class="demo-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
-            <button type="button" class="demo-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
+          <div class="g-product-models" role="group" aria-label="Model">
+            <button type="button" class="g-product-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
+            <button type="button" class="g-product-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
+            <button type="button" class="g-product-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
+            <button type="button" class="g-product-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
           </div>
         </div>
-        <div class="demo-main">
-          <div class="demo-q">
-            <div class="demo-label">Question</div>
+        <div class="g-product-body">
+          <div class="g-product-q">
+            <div class="g-product-label">Question</div>
             <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
           </div>
-          <div class="demo-a" id="demoAnswer">
-            <div class="demo-label">
-              Answer
-              <span><img src="/images/gpt.png" alt="" id="demoModelIcon"> <span id="demoModelName">GPT-4o</span></span>
-            </div>
+          <div class="g-product-a" id="demoAnswer">
+            <div class="g-product-label">Answer · <span id="demoModelName">GPT-4o</span></div>
             <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
-            <div class="demo-sources" id="demoSources"></div>
-            <div class="demo-tools" id="demoTools" aria-label="Connected tools"></div>
+            <div class="g-product-sources" id="demoSources"></div>
+            <div class="g-product-tools" id="demoTools" aria-label="Connected tools"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="strip" aria-label="Integrations">
-    <div class="container strip-inner">
-      <div class="strip-label">Works with</div>
-      <div class="strip-logos">
-        <img src="/images/salesforce.png" alt="Salesforce">
-        <img src="/images/slack.png" alt="Slack">
-        <img src="/images/jira.png" alt="Jira">
-        <img src="/images/hubspot.png" alt="HubSpot" style="height:32px;margin:-6px 0;">
-        <img src="/images/netsuite.png" alt="NetSuite">
-        <img src="/images/github.jpg" alt="GitHub">
-        <img src="/images/notion.png" alt="Notion">
-        <a href="/integrations/">+ 40 more</a>
+  <section class="g-logos" aria-label="Integrations">
+    <div class="container g-logos-inner">
+      <div class="g-logos-label">Connects to</div>
+      <img src="/images/salesforce.png" alt="Salesforce" height="22">
+      <img src="/images/slack.png" alt="Slack" height="22">
+      <img src="/images/jira.png" alt="Jira" height="22">
+      <img src="/images/hubspot.png" alt="HubSpot" height="28">
+      <img src="/images/netsuite.png" alt="NetSuite" height="22">
+      <img src="/images/notion.png" alt="Notion" height="22">
+      <img src="/images/github.jpg" alt="GitHub" height="22">
+      <a href="/integrations/" style="font-size:0.8rem;font-weight:600;color:var(--g-muted);">+ 38 more →</a>
+    </div>
+  </section>
+
+  <section class="g-contrast">
+    <div class="container">
+      <div class="g-section-head" style="margin-bottom:2rem;">
+        <h2>Why teams leave shadow AI behind</h2>
+        <p>Pasting CRM exports into ChatGPT works until legal, security, or a bad answer breaks trust. AtlaSynq is built for the second scenario.</p>
+      </div>
+      <div class="g-contrast-grid">
+        <div class="g-contrast-card bad">
+          <h3>Shadow AI today</h3>
+          <ul>
+            <li>Shared ChatGPT accounts with no audit trail</li>
+            <li>Sensitive data copied into public model prompts</li>
+            <li>Every team reinvents the same connectors</li>
+            <li>No citations — answers you can't verify</li>
+            <li>Writes happen with no approval workflow</li>
+          </ul>
+        </div>
+        <div class="g-contrast-card good">
+          <h3>AtlaSynq</h3>
+          <ul>
+            <li>Role-scoped agents — Sales never sees finance GL</li>
+            <li>OAuth connectors; data stays in your tools</li>
+            <li>Pick GPT, Claude, Gemini, or Llama per department</li>
+            <li>Every answer links to Salesforce, Jira, Gong, etc.</li>
+            <li>Admin approval queue before any write action</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="steps">
+  <section class="g-usecases">
     <div class="container">
-      <div class="steps-head">
-        <h2>How it works</h2>
-        <p>Same governance for every department — pick the model that fits the job.</p>
+      <div class="g-section-head">
+        <h2>Built for how departments actually work</h2>
+        <p>Not a generic chatbot — scoped agents with the tools and models each team needs.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Connect tools</h3>
-          <p>OAuth to Salesforce, Jira, NetSuite, Slack, and 40+ more. Scoped tokens per role — not shared passwords in prompts.</p>
+      <div class="g-use-grid">
+        <div class="g-use-card">
+          <h3>Sales &amp; revenue</h3>
+          <p>Pipeline risk, account briefs, and next-step drafts from CRM and call intel — without exposing finance or HR data.</p>
+          <div class="g-use-tools"><span>Salesforce</span><span>HubSpot</span><span>Gong</span><span>Slack</span></div>
         </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>Choose a model</h3>
-          <p>Route Sales to GPT-4o, Finance to Claude, Engineering to Gemini or Llama. Switch anytime without rebuilding connectors.</p>
+        <div class="g-use-card">
+          <h3>Finance &amp; ops</h3>
+          <p>Runway, vendor lookups, and variance explanations with citations from ERP and billing — scoped to what finance can access.</p>
+          <div class="g-use-tools"><span>NetSuite</span><span>QuickBooks</span><span>Stripe</span><span>Excel</span></div>
         </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>Stay in control</h3>
-          <p>RBAC before the model sees data. Cited sources on every answer. Writes wait for admin approval.</p>
+        <div class="g-use-card">
+          <h3>Engineering</h3>
+          <p>Release blockers, incident context, and PR summaries from Jira and GitHub — limited to repos and projects the role owns.</p>
+          <div class="g-use-tools"><span>Jira</span><span>GitHub</span><span>Linear</span><span>Datadog</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section class="g-insights" aria-label="Insights and blog">
     <div class="container">
-      <div class="cta-box">
+      <div class="g-insights-head">
+        <div class="g-section-head" style="margin:0;">
+          <h2>Insights for ops, revenue &amp; security leaders</h2>
+          <p>Guides on AI governance, ROI math, and winning citations in the age of answer engines.</p>
+        </div>
+        <a href="/blog/" class="g-insights-link">All articles →</a>
+      </div>
+      <div class="g-insight-grid">
+        <a href="/blog/governed-ai-agents-roi/" class="g-insight-featured">
+          <div class="g-insight-thumb"><img src="/images/blog-roi.svg" alt="" loading="lazy"></div>
+          <div class="g-insight-body">
+            <div class="g-insight-tag">ROI &amp; Productivity</div>
+            <h3 class="g-insight-title">The ROI of governed AI agents: how teams save 12+ hours per week</h3>
+            <p class="g-insight-excerpt">Shadow AI costs enterprises thousands per employee. Here is the math on governed agents with RBAC, audit trails, and compounding time savings.</p>
+            <div class="g-insight-meta">Jul 1, 2026 · 7 min read</div>
+          </div>
+        </a>
+        <a href="/blog/what-is-ai-governance/" class="g-insight-card">
+          <div class="g-insight-thumb"><img src="/images/blog-governance.svg" alt="" loading="lazy"></div>
+          <div class="g-insight-body">
+            <div class="g-insight-tag">AI Governance</div>
+            <h3 class="g-insight-title">What is AI governance? A practical enterprise guide</h3>
+            <div class="g-insight-meta">Jun 20 · 6 min</div>
+          </div>
+        </a>
+        <a href="/blog/aeo-for-b2b-saas/" class="g-insight-card">
+          <div class="g-insight-thumb"><img src="/images/blog-aeo.svg" alt="" loading="lazy"></div>
+          <div class="g-insight-body">
+            <div class="g-insight-tag">AEO Strategy</div>
+            <h3 class="g-insight-title">Answer engine optimization for B2B SaaS</h3>
+            <div class="g-insight-meta">Jun 10 · 5 min</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-roi-band">
+    <div class="container">
+      <div class="g-roi-inner">
         <div>
-          <h2>See it on your stack</h2>
-          <p>30 minutes. Your tools, your roles, your model preferences.</p>
+          <div class="g-roi-stat">12<span>+</span> hrs</div>
+          <p style="margin:0;color:var(--g-body);font-size:0.95rem;">Average weekly time reclaimed per team member when research moves from manual tool-hopping to governed agents.</p>
         </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="/roi/" class="clay-btn clay-btn-primary">Run your ROI estimate</a>
+          <a href="/pricing/" class="clay-btn clay-btn-outline">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g-final-cta">
+    <div class="container">
+      <h2>See it on your stack in 30 minutes</h2>
+      <p>Your tools, your roles, your model preferences. We will walk through a live agent on Salesforce, Jira, or NetSuite — whatever you run today.</p>
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
         <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+        <a href="/blog/" class="clay-btn clay-btn-outline">Read the insights hub</a>
       </div>
     </div>
   </section>
@@ -563,28 +270,29 @@
       <div class="footer-brand">
         <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
           <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
-          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+          <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
         </a>
         <p>Governed department agents over your enterprise stack.</p>
       </div>
       <div>
         <h4>Product</h4>
         <a href="/features/" class="footer-link">Features</a>
-        <a href="/security/" class="footer-link">Security</a>
         <a href="/integrations/" class="footer-link">Integrations</a>
         <a href="/pricing/" class="footer-link">Pricing</a>
+        <a href="/security/" class="footer-link">Security</a>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="/about/" class="footer-link">About</a>
-        <a href="/blog/" class="footer-link">Blog</a>
+        <h4>Resources</h4>
+        <a href="/blog/" class="footer-link">Insights</a>
         <a href="/roi/" class="footer-link">ROI calculator</a>
-        <a href="/careers/" class="footer-link">Careers</a>
+        <a href="/updates/" class="footer-link">Product updates</a>
+        <a href="/about/" class="footer-link">About</a>
       </div>
       <div>
         <h4>Legal</h4>
         <a href="/privacy/" class="footer-link">Privacy</a>
         <a href="/terms/" class="footer-link">Terms</a>
+        <a href="/careers/" class="footer-link">Careers</a>
       </div>
     </div>
     <div class="footer-bottom"><span>&#169; 2026 AtlaSynq, Inc.</span></div>
@@ -599,34 +307,6 @@
   </div>
 </div>
 
-<div class="cookie-modal-overlay" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
-  <div class="cookie-modal">
-    <div class="cookie-modal-header">
-      <h3 id="cookieModalTitle">Cookie preferences</h3>
-      <button class="cookie-modal-close" id="cookieModalClose" aria-label="Close">&#x2715;</button>
-    </div>
-    <div class="cookie-preferences">
-      <div class="cookie-preference-item">
-        <div class="cookie-preference-info">
-          <h4>Essential <span class="locked-badge">Required</span></h4>
-          <p>Core site functionality.</p>
-        </div>
-        <label class="cookie-toggle"><input type="checkbox" checked disabled><span class="cookie-toggle-slider"></span></label>
-      </div>
-      <div class="cookie-preference-item">
-        <div class="cookie-preference-info">
-          <h4>Analytics</h4>
-          <p>Anonymous usage statistics.</p>
-        </div>
-        <label class="cookie-toggle"><input type="checkbox" id="cookieAnalytics"><span class="cookie-toggle-slider"></span></label>
-      </div>
-    </div>
-    <div class="cookie-modal-actions">
-      <button class="cookie-save-btn" id="cookieSaveBtn">Save</button>
-    </div>
-  </div>
-</div>
-
 <script>
 (function () {
   var MODELS = {
@@ -635,7 +315,6 @@
     gemini: { name: 'Gemini', icon: '/images/gemini.png' },
     llama:  { name: 'Llama',  icon: '/images/llama.png' }
   };
-
   var ROLES = {
     sales: {
       question: 'Which deals are at risk of slipping this quarter?',
@@ -661,7 +340,7 @@
       question: 'What is our cash runway at current burn?',
       answers: {
         gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx.',
-        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; Engineering dominates OpEx. A timely Series A roughly doubles runway.',
+        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; Engineering dominates OpEx.',
         gemini: '<strong>Cash $5.7M · Burn $310k/mo · Runway 18.4 mo.</strong> Largest cost center: Engineering at 44%.',
         llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.'
       },
@@ -700,105 +379,53 @@
   };
 
   var state = { role: 'sales', model: 'gpt' };
-  var roleOrder = ['sales', 'finance', 'eng'];
-  var modelOrder = ['gpt', 'claude', 'gemini', 'llama'];
-  var timer = null;
-  var paused = false;
 
   function $(id) { return document.getElementById(id); }
-
-  function syncButtons(root) {
-    root.querySelectorAll('[data-role]').forEach(function (b) {
-      b.classList.toggle('on', b.getAttribute('data-role') === state.role);
-    });
-    root.querySelectorAll('[data-model]').forEach(function (b) {
-      var on = b.getAttribute('data-model') === state.model;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-  }
 
   function render() {
     var role = ROLES[state.role];
     var model = MODELS[state.model];
     if (!role || !model) return;
-
     var panel = $('demoAnswer');
     if (panel) panel.classList.add('is-switching');
-
     setTimeout(function () {
       $('demoQuestion').textContent = role.question;
       $('demoAnswerText').innerHTML = role.answers[state.model];
       $('demoModelName').textContent = model.name;
-      $('demoModelIcon').src = model.icon;
-
       $('demoTools').innerHTML = role.tools.map(function (t) {
-        return '<div class="demo-tool' + (t.ok ? '' : ' blocked') + '"><img src="' + t.icon + '" alt=""><span>' + t.name + '</span></div>';
+        return '<span class="g-product-tool' + (t.ok ? '' : ' blocked') + '"><img src="' + t.icon + '" alt="">' + t.name + '</span>';
       }).join('');
-
       $('demoSources').innerHTML = role.sources.map(function (s) {
-        return '<span class="demo-src"><img src="' + s.icon + '" alt="">' + s.name + '</span>';
+        return '<span class="g-product-src"><img src="' + s.icon + '" alt="">' + s.name + '</span>';
       }).join('');
-
       if (panel) panel.classList.remove('is-switching');
-    }, 90);
-  }
-
-  function advance() {
-    if (paused) return;
-    var mi = modelOrder.indexOf(state.model);
-    if (mi < modelOrder.length - 1) {
-      state.model = modelOrder[mi + 1];
-    } else {
-      state.model = modelOrder[0];
-      var ri = roleOrder.indexOf(state.role);
-      state.role = roleOrder[(ri + 1) % roleOrder.length];
-    }
-    var root = $('productDemo');
-    if (root) syncButtons(root);
-    render();
-  }
-
-  function startAuto() {
-    if (timer) clearInterval(timer);
-    timer = setInterval(advance, 4200);
-  }
-
-  function pauseAuto() {
-    paused = true;
-    if (timer) clearInterval(timer);
-    timer = null;
-    // Resume after idle so the page still feels alive
-    setTimeout(function () {
-      paused = false;
-      startAuto();
-    }, 12000);
+    }, 80);
   }
 
   function bind() {
     var root = $('productDemo');
     if (!root) return;
-
     root.querySelectorAll('[data-role]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        pauseAuto();
         state.role = btn.getAttribute('data-role');
-        syncButtons(root);
+        root.querySelectorAll('[data-role]').forEach(function (b) {
+          b.classList.toggle('on', b === btn);
+        });
         render();
       });
     });
-
     root.querySelectorAll('[data-model]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        pauseAuto();
         state.model = btn.getAttribute('data-model');
-        syncButtons(root);
+        root.querySelectorAll('[data-model]').forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('on', on);
+          b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
         render();
       });
     });
-
     render();
-    startAuto();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
