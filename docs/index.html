@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718c">
-  <link rel="stylesheet" href="/css/growth.css?v=20260718c">
-  <link rel="stylesheet" href="/css/product-mock.css?v=20260718c">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718d">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718d">
+  <link rel="stylesheet" href="/css/product-mock.css?v=20260718d">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -80,11 +80,11 @@
 </div>
 
 <main>
-  <section class="g-hero">
-    <div class="container g-hero-grid">
-      <div>
+  <section class="g-hero g-hero--demo">
+    <div class="container">
+      <div class="g-hero-intro">
         <h1>Work AI your security team can actually approve.</h1>
-        <p class="g-hero-lead">AtlaSynq connects Salesforce, Jira, Slack, and 27+ tools into governed workspace agents — with RBAC on every query, citations on every answer, and approval before anything writes back.</p>
+        <p class="g-hero-lead">Role-scoped agents over Salesforce, Jira, Slack, and 27+ tools — with RBAC on every query, citations on every answer, and approval before writes.</p>
         <div class="g-hero-actions">
           <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
           <a href="/signup/" class="clay-btn clay-btn-outline">Start building free</a>
@@ -97,41 +97,55 @@
         </div>
       </div>
 
-      <div class="ws-mock" id="workspaceMock" aria-label="AtlaSynq workspace preview">
-        <aside class="ws-side">
-          <div class="ws-logo"><img src="/images/atlasynq-logo.svg" alt=""><span>Atla</span><span class="synq">Synq</span></div>
-          <button type="button" class="ws-new-chat">+ New chat</button>
-          <div class="ws-nav-label">Workspace</div>
-          <nav class="ws-nav">
-            <button type="button" class="ws-nav-item on" data-view="overview">Overview</button>
-            <button type="button" class="ws-nav-item" data-view="assistant">AI Assistant</button>
-            <button type="button" class="ws-nav-item" data-view="overview">Integrations</button>
-            <button type="button" class="ws-nav-item" data-view="overview">Workflows</button>
-          </nav>
-        </aside>
-        <div class="ws-main">
-          <div class="ws-dashboard on">
-            <div class="ws-greeting">Good morning<span>Here's your workspace today</span></div>
-            <div class="ws-stats">
-              <div class="ws-stat"><div class="ws-stat-num">4</div><div class="ws-stat-label">Active tools</div></div>
-              <div class="ws-stat"><div class="ws-stat-num">5</div><div class="ws-stat-label">Connected integrations</div></div>
-              <div class="ws-stat"><div class="ws-stat-num">2</div><div class="ws-stat-label">Recent workflows</div></div>
-              <div class="ws-stat"><div class="ws-stat-num">12</div><div class="ws-stat-label">AI actions today</div></div>
+      <div class="g-demo-wrap">
+        <p class="g-demo-label">Interactive preview — click an agent to explore</p>
+        <div class="demo-frame" id="heroApp" aria-label="AtlaSynq workspace demo">
+          <div class="demo-chrome">
+            <span class="demo-chrome-title">AtlaSynq Workspace</span>
+            <span class="demo-chrome-badge">Product preview</span>
+          </div>
+          <div class="demo-body">
+            <aside class="demo-sidebar" aria-label="Department agents">
+              <div class="demo-sidebar-label">Department agents</div>
+              <button type="button" class="sb-item active" id="sb-sales"><span class="sb-dot"></span><span class="sb-label">Sales</span></button>
+              <button type="button" class="sb-item" id="sb-finance"><span class="sb-dot"></span><span class="sb-label">Finance</span></button>
+              <button type="button" class="sb-item" id="sb-eng"><span class="sb-dot"></span><span class="sb-label">Engineering</span></button>
+              <button type="button" class="sb-item" id="sb-hr"><span class="sb-dot"></span><span class="sb-label">HR</span></button>
+              <button type="button" class="sb-item" id="sb-marketing"><span class="sb-dot"></span><span class="sb-label">Marketing</span></button>
+              <button type="button" class="sb-item" id="sb-legal"><span class="sb-dot"></span><span class="sb-label">Legal</span></button>
+            </aside>
+            <div class="demo-main">
+              <div class="hero-zero" id="heroZero" hidden>
+                <p>Select an agent from the sidebar.</p>
+              </div>
+              <div class="demo-chat" id="heroChatUI">
+                <div class="chat-header">
+                  <div id="heroAgentName">Sales Agent</div>
+                  <div class="conf-badge">RBAC enforced</div>
+                </div>
+                <div class="chat-feed" id="heroFeed">
+                  <div class="msg user">
+                    <div class="msg-bubble">Which deals are at risk of slipping this quarter?</div>
+                  </div>
+                  <div class="msg">
+                    <div class="msg-bubble"><strong>3 deals are at risk</strong> this quarter. Acme Corp ($120k) hasn't had activity in 14 days. Beta Industries closed-lost probability jumped to 62%. TechFlow Ltd needs a revised proposal by Friday or they re-evaluate in Q3.<span class="cite-tag">Salesforce CRM</span></div>
+                  </div>
+                </div>
+                <div class="chat-input-area">
+                  <div class="chat-input-box">Ask across your connected tools…</div>
+                </div>
+              </div>
             </div>
+            <aside class="demo-mcp" aria-label="Connected tools">
+              <div class="demo-mcp-label">Connected tools</div>
+              <div class="demo-mcp-row"><img src="/images/salesforce.png" alt=""><span class="demo-mcp-name">Salesforce</span><span class="demo-mcp-dot"></span></div>
+              <div class="demo-mcp-row"><img src="/images/gong.png" alt=""><span class="demo-mcp-name">Gong</span><span class="demo-mcp-dot"></span></div>
+              <div class="demo-mcp-row"><img src="/images/slack.png" alt=""><span class="demo-mcp-name">Slack</span><span class="demo-mcp-dot"></span></div>
+              <div class="demo-mcp-row"><img src="/images/hubspot.png" alt=""><span class="demo-mcp-name">HubSpot</span><span class="demo-mcp-dot"></span></div>
+              <div class="demo-mcp-row"><img src="/images/gmail.jpg" alt=""><span class="demo-mcp-name">Gmail</span><span class="demo-mcp-dot"></span></div>
+            </aside>
           </div>
-          <div class="ws-chat-panel">
-            <div class="ws-bubble-q">Which deals are at risk this quarter?</div>
-            <div class="ws-bubble-a"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) — 14 days silent. Beta Industries at 62% closed-lost. TechFlow needs a revised proposal by Friday.<div class="ws-cites"><span class="ws-cite"><img src="/images/salesforce.png" alt="">Acme Corp</span><span class="ws-cite"><img src="/images/gong.png" alt="">Beta call</span><span class="ws-cite"><img src="/images/slack.png" alt="">#deals</span></div></div>
-          </div>
-          <div class="ws-composer"><span>Ask across your connected tools…</span><button type="button" class="ws-send" aria-label="Send">↑</button></div>
         </div>
-        <aside class="ws-mcp">
-          <h4>MCP tools</h4>
-          <div class="ws-mcp-row"><img src="/images/salesforce.png" alt=""><span class="ws-mcp-name">Salesforce</span><span class="ws-dot" aria-hidden="true"></span></div>
-          <div class="ws-mcp-row"><img src="/images/slack.png" alt=""><span class="ws-mcp-name">Slack</span><span class="ws-dot" aria-hidden="true"></span></div>
-          <div class="ws-mcp-row"><img src="/images/gmail.jpg" alt=""><span class="ws-mcp-name">Gmail</span><span class="ws-dot" aria-hidden="true"></span></div>
-          <div class="ws-mcp-row"><img src="/images/jira.png" alt=""><span class="ws-mcp-name">Jira</span><span class="ws-dot" aria-hidden="true"></span></div>
-        </aside>
       </div>
     </div>
   </section>
@@ -285,7 +299,6 @@
   </div>
 </div>
 
-<script src="/js/growth-ui.js?v=20260718c" defer></script>
 <script src="/js/site-demos.js" defer></script>
 </body>
 </html>
