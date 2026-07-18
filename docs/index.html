@@ -18,8 +18,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Sora:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718">
-  <link rel="stylesheet" href="/css/growth.css?v=20260718">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718b">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718b">
+  <link rel="stylesheet" href="/css/product-mock.css?v=20260718b">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -50,7 +52,7 @@
     </ul>
     <div class="nav-cta">
       <a href="/login/" class="nav-login">Log in</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary nav-demo-cta btn-terra" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
     </div>
     <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -83,10 +85,10 @@
     <div class="container g-hero-grid">
       <div>
         <div class="g-eyebrow">Enterprise AI platform</div>
-        <h1>Your stack. Your models.<br>One agent per team.</h1>
-        <p class="g-hero-lead">Sales asks about pipeline. Finance asks about runway. Engineering asks about blockers — each through a governed agent that only sees what their role allows, cites every answer, and never writes without approval.</p>
+        <h1>Work AI your security team can actually approve.</h1>
+        <p class="g-hero-lead">AtlaSynq connects Salesforce, Jira, Slack, and 27+ tools into governed workspace agents — with RBAC on every query, citations on every answer, and approval before anything writes back.</p>
         <div class="g-hero-actions">
-          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
+          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn btn-terra" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
           <a href="/signup/" class="clay-btn clay-btn-outline">Start building free</a>
         </div>
         <div class="g-trust-row">
@@ -97,31 +99,78 @@
         </div>
       </div>
 
-      <div class="g-product" id="productDemo" aria-label="Interactive product preview">
-        <div class="g-product-bar">
-          <div class="g-product-tabs" role="tablist" aria-label="Department">
-            <button type="button" class="g-product-tab on" data-role="sales">Sales</button>
-            <button type="button" class="g-product-tab" data-role="finance">Finance</button>
-            <button type="button" class="g-product-tab" data-role="eng">Engineering</button>
+      <div class="ws-mock" id="workspaceMock" aria-label="AtlaSynq workspace preview">
+        <aside class="ws-side">
+          <div class="ws-logo"><img src="/images/atlasynq-logo.svg" alt=""><span>Atla</span><span class="synq">Synq</span></div>
+          <button type="button" class="ws-new-chat">+ New chat</button>
+          <div class="ws-nav-label">Workspace</div>
+          <nav class="ws-nav">
+            <button type="button" class="ws-nav-item on" data-view="overview">Overview</button>
+            <button type="button" class="ws-nav-item" data-view="assistant">AI Assistant</button>
+            <button type="button" class="ws-nav-item" data-view="overview">Integrations</button>
+            <button type="button" class="ws-nav-item" data-view="overview">Workflows</button>
+          </nav>
+        </aside>
+        <div class="ws-main">
+          <div class="ws-dashboard on">
+            <div class="ws-greeting">Good morning<span>Here's your workspace today</span></div>
+            <div class="ws-stats">
+              <div class="ws-stat"><div class="ws-stat-icon terra">⚡</div><div class="ws-stat-num">4</div><div class="ws-stat-label">Active tools</div></div>
+              <div class="ws-stat"><div class="ws-stat-icon sage">◆</div><div class="ws-stat-num">5</div><div class="ws-stat-label">Connected integrations</div></div>
+              <div class="ws-stat"><div class="ws-stat-icon amber">◎</div><div class="ws-stat-num">2</div><div class="ws-stat-label">Recent workflows</div></div>
+              <div class="ws-stat"><div class="ws-stat-icon denim">✦</div><div class="ws-stat-num">12</div><div class="ws-stat-label">AI actions today</div></div>
+            </div>
           </div>
-          <div class="g-product-models" role="group" aria-label="Model">
-            <button type="button" class="g-product-model on" data-model="gpt" aria-pressed="true"><img src="/images/gpt.png" alt="">GPT-4o</button>
-            <button type="button" class="g-product-model" data-model="claude" aria-pressed="false"><img src="/images/claude.png" alt="">Claude</button>
-            <button type="button" class="g-product-model" data-model="gemini" aria-pressed="false"><img src="/images/gemini.png" alt="">Gemini</button>
-            <button type="button" class="g-product-model" data-model="llama" aria-pressed="false"><img src="/images/llama.png" alt="">Llama</button>
+          <div class="ws-chat-panel">
+            <div class="ws-bubble-q">Which deals are at risk this quarter?</div>
+            <div class="ws-bubble-a"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) — 14 days silent. Beta Industries at 62% closed-lost. TechFlow needs a revised proposal by Friday.<div class="ws-cites"><span class="ws-cite"><img src="/images/salesforce.png" alt="">Acme Corp</span><span class="ws-cite"><img src="/images/gong.png" alt="">Beta call</span><span class="ws-cite"><img src="/images/slack.png" alt="">#deals</span></div></div>
           </div>
+          <div class="ws-composer"><input type="text" readonly value="Ask across your connected tools…" aria-label="Message"><button type="button" class="ws-send" aria-label="Send">↑</button></div>
         </div>
-        <div class="g-product-body">
-          <div class="g-product-q">
-            <div class="g-product-label">Question</div>
-            <p id="demoQuestion">Which deals are at risk of slipping this quarter?</p>
-          </div>
-          <div class="g-product-a" id="demoAnswer">
-            <div class="g-product-label">Answer · <span id="demoModelName">GPT-4o</span></div>
-            <p id="demoAnswerText"><strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.</p>
-            <div class="g-product-sources" id="demoSources"></div>
-            <div class="g-product-tools" id="demoTools" aria-label="Connected tools"></div>
-          </div>
+        <aside class="ws-mcp">
+          <h4>MCP tools</h4>
+          <div class="ws-mcp-row"><img src="/images/salesforce.png" alt=""><span class="ws-mcp-name">Salesforce</span><span class="ws-toggle" aria-hidden="true"></span></div>
+          <div class="ws-mcp-row"><img src="/images/slack.png" alt=""><span class="ws-mcp-name">Slack</span><span class="ws-toggle" aria-hidden="true"></span></div>
+          <div class="ws-mcp-row"><img src="/images/gmail.jpg" alt=""><span class="ws-mcp-name">Gmail</span><span class="ws-toggle" aria-hidden="true"></span></div>
+          <div class="ws-mcp-row"><img src="/images/jira.png" alt=""><span class="ws-mcp-name">Jira</span><span class="ws-toggle" aria-hidden="true"></span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="g-metrics g-reveal" aria-label="Platform outcomes">
+    <div class="g-metric"><div class="g-metric-val">27+</div><div class="g-metric-label">OAuth connectors in catalog</div></div>
+    <div class="g-metric"><div class="g-metric-val">4</div><div class="g-metric-label">LLM providers per workspace</div></div>
+    <div class="g-metric"><div class="g-metric-val">12+</div><div class="g-metric-label">Hours saved per user / week</div></div>
+    <div class="g-metric"><div class="g-metric-val">&lt;1 day</div><div class="g-metric-label">Typical time to first agent</div></div>
+  </div>
+
+  <section class="g-platform g-reveal">
+    <div class="container">
+      <div class="g-section-head">
+        <h2>The horizontal platform for governed work AI</h2>
+        <p>Connect your stack once. Route any model. Enforce permissions on every query — the way Glean and Writer do for search and content, AtlaSynq does for agents and actions.</p>
+      </div>
+      <div class="g-platform-grid">
+        <div class="g-platform-item">
+          <div class="g-platform-num">01</div>
+          <h3>Connect</h3>
+          <p>OAuth to Salesforce, Jira, Slack, NetSuite, and 27+ tools. Enable per user in chat or Slack.</p>
+        </div>
+        <div class="g-platform-item">
+          <div class="g-platform-num">02</div>
+          <h3>Govern</h3>
+          <p>RBAC before the model sees data. Audit logs, SSO, and zero training on customer data.</p>
+        </div>
+        <div class="g-platform-item">
+          <div class="g-platform-num">03</div>
+          <h3>Answer</h3>
+          <p>Cited responses from live tools — not stale uploads. Pick GPT, Claude, Gemini, or Llama per team.</p>
+        </div>
+        <div class="g-platform-item">
+          <div class="g-platform-num">04</div>
+          <h3>Act</h3>
+          <p>Workflows, App Studio, and write actions — all behind admin approval queues.</p>
         </div>
       </div>
     </div>
@@ -141,7 +190,7 @@
     </div>
   </section>
 
-  <section class="g-contrast">
+  <section class="g-contrast g-reveal">
     <div class="container">
       <div class="g-section-head" style="margin-bottom:2rem;">
         <h2>Why teams leave shadow AI behind</h2>
@@ -307,131 +356,8 @@
   </div>
 </div>
 
-<script>
-(function () {
-  var MODELS = {
-    gpt:    { name: 'GPT-4o', icon: '/images/gpt.png' },
-    claude: { name: 'Claude', icon: '/images/claude.png' },
-    gemini: { name: 'Gemini', icon: '/images/gemini.png' },
-    llama:  { name: 'Llama',  icon: '/images/llama.png' }
-  };
-  var ROLES = {
-    sales: {
-      question: 'Which deals are at risk of slipping this quarter?',
-      answers: {
-        gpt: '<strong>3 opportunities need attention.</strong> Acme Corp ($120k) has had no activity in 14 days. Beta Industries closed-lost probability rose to 62%. TechFlow needs a revised proposal by Friday.',
-        claude: '<strong>Pipeline risk is concentrated in three accounts.</strong> Acme stalled after the last Gong call. Beta shows procurement pushback. TechFlow is waiting on a revised SOW.',
-        gemini: '<strong>At-risk ARR this quarter: ~$310k.</strong> Top drivers: silence on Acme, rising loss probability on Beta, and an open proposal deadline on TechFlow.',
-        llama: '<strong>3 deals flagged.</strong> Acme: 14-day inactivity. Beta: 62% closed-lost probability. TechFlow: proposal due Friday.'
-      },
-      tools: [
-        { icon: '/images/salesforce.png', name: 'Salesforce', ok: true },
-        { icon: '/images/gong.png', name: 'Gong', ok: true },
-        { icon: '/images/slack.png', name: 'Slack', ok: true },
-        { icon: '/images/netsuite.png', name: 'NetSuite', ok: false }
-      ],
-      sources: [
-        { icon: '/images/salesforce.png', name: 'Acme Corp' },
-        { icon: '/images/gong.png', name: 'Beta call notes' },
-        { icon: '/images/slack.png', name: '#enterprise-deals' }
-      ]
-    },
-    finance: {
-      question: 'What is our cash runway at current burn?',
-      answers: {
-        gpt: '<strong>18.4 months of runway</strong> at $310k/mo burn. Cash position $5.7M. Engineering is 44% of OpEx.',
-        claude: '<strong>Runway sits at just over 18 months.</strong> Burn is stable; Engineering dominates OpEx.',
-        gemini: '<strong>Cash $5.7M · Burn $310k/mo · Runway 18.4 mo.</strong> Largest cost center: Engineering at 44%.',
-        llama: '<strong>18.4 months runway.</strong> Cash $5.7M. Burn $310k/mo. Engineering 44% of OpEx.'
-      },
-      tools: [
-        { icon: '/images/netsuite.png', name: 'NetSuite', ok: true },
-        { icon: '/images/quickbooks.png', name: 'QuickBooks', ok: true },
-        { icon: '/images/stripe.jpg', name: 'Stripe', ok: true },
-        { icon: '/images/salesforce.png', name: 'Salesforce', ok: false }
-      ],
-      sources: [
-        { icon: '/images/netsuite.png', name: 'GL cash position' },
-        { icon: '/images/quickbooks.png', name: 'OpEx rollup' },
-        { icon: '/images/stripe.jpg', name: 'Recurring revenue' }
-      ]
-    },
-    eng: {
-      question: 'What is blocking the v2.4 release?',
-      answers: {
-        gpt: '<strong>4 P1 bugs block v2.4.0.</strong> AUTH-881, API-1204, UI-390, and INFRA-77. Clearance estimate July 14.',
-        claude: '<strong>Release is gated on four P1s.</strong> Auth timeout and rate-limiter regression are highest severity.',
-        gemini: '<strong>Blockers: 4 P1 · ETA July 14.</strong> AUTH-881 in review; remaining three in progress.',
-        llama: '<strong>4 P1 blockers.</strong> AUTH-881, API-1204, UI-390, INFRA-77. Target clear date July 14.'
-      },
-      tools: [
-        { icon: '/images/jira.png', name: 'Jira', ok: true },
-        { icon: '/images/github.jpg', name: 'GitHub', ok: true },
-        { icon: '/images/linear.png', name: 'Linear', ok: true },
-        { icon: '/images/salesforce.png', name: 'Salesforce', ok: false }
-      ],
-      sources: [
-        { icon: '/images/jira.png', name: 'AUTH-881' },
-        { icon: '/images/github.jpg', name: 'api-rate-limiter PR' },
-        { icon: '/images/linear.png', name: 'v2.4 milestone' }
-      ]
-    }
-  };
-
-  var state = { role: 'sales', model: 'gpt' };
-
-  function $(id) { return document.getElementById(id); }
-
-  function render() {
-    var role = ROLES[state.role];
-    var model = MODELS[state.model];
-    if (!role || !model) return;
-    var panel = $('demoAnswer');
-    if (panel) panel.classList.add('is-switching');
-    setTimeout(function () {
-      $('demoQuestion').textContent = role.question;
-      $('demoAnswerText').innerHTML = role.answers[state.model];
-      $('demoModelName').textContent = model.name;
-      $('demoTools').innerHTML = role.tools.map(function (t) {
-        return '<span class="g-product-tool' + (t.ok ? '' : ' blocked') + '"><img src="' + t.icon + '" alt="">' + t.name + '</span>';
-      }).join('');
-      $('demoSources').innerHTML = role.sources.map(function (s) {
-        return '<span class="g-product-src"><img src="' + s.icon + '" alt="">' + s.name + '</span>';
-      }).join('');
-      if (panel) panel.classList.remove('is-switching');
-    }, 80);
-  }
-
-  function bind() {
-    var root = $('productDemo');
-    if (!root) return;
-    root.querySelectorAll('[data-role]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        state.role = btn.getAttribute('data-role');
-        root.querySelectorAll('[data-role]').forEach(function (b) {
-          b.classList.toggle('on', b === btn);
-        });
-        render();
-      });
-    });
-    root.querySelectorAll('[data-model]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        state.model = btn.getAttribute('data-model');
-        root.querySelectorAll('[data-model]').forEach(function (b) {
-          var on = b === btn;
-          b.classList.toggle('on', on);
-          b.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        render();
-      });
-    });
-    render();
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
-  else bind();
-})();
-</script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="/js/growth-ui.js?v=20260718b" defer></script>
 <script src="/js/site-demos.js" defer></script>
 </body>
 </html>

@@ -564,4 +564,103 @@
   .g-insight-featured { grid-row: auto; }
   .g-blog-featured { grid-template-columns: 1fr; }
   .g-blog-grid-light { grid-template-columns: 1fr; }
+  .g-platform-grid { grid-template-columns: 1fr 1fr; }
+  .g-metrics { grid-template-columns: 1fr 1fr; }
+}
+
+/* Scroll reveal */
+.g-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.g-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Sticky nav scroll state */
+.site-header.is-scrolled {
+  box-shadow: 0 1px 0 var(--g-line), 0 4px 20px rgba(11, 31, 51, 0.06);
+}
+.site-header.is-scrolled .nav-demo-cta {
+  box-shadow: 0 0 0 3px rgba(201, 106, 74, 0.25);
+}
+
+/* Terracotta CTA — matches product */
+.btn-terra {
+  background: #C96A4A !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-terra:hover {
+  background: #B5533D !important;
+  color: #fff !important;
+}
+
+/* Platform pillars (Glean-style) */
+.g-platform {
+  padding: 4rem 0;
+  background: var(--g-white);
+  border-bottom: 1px solid var(--g-line);
+}
+.g-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.g-platform-item {
+  padding-top: 1rem;
+  border-top: 2px solid var(--g-ink);
+}
+.g-platform-item:nth-child(2) { border-color: var(--g-accent); }
+.g-platform-item:nth-child(3) { border-color: var(--g-green); }
+.g-platform-item:nth-child(4) { border-color: var(--g-ink-2); }
+.g-platform-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--g-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+.g-platform-item h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+.g-platform-item p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--g-body);
+}
+
+/* Outcome metrics strip */
+.g-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--g-line);
+  border-top: 1px solid var(--g-line);
+  border-bottom: 1px solid var(--g-line);
+}
+.g-metric {
+  background: var(--g-white);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+}
+.g-metric-val {
+  font-family: var(--g-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--g-ink);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.g-metric-label {
+  font-size: 0.78rem;
+  color: var(--g-muted);
+  font-weight: 500;
+  line-height: 1.4;
 }
