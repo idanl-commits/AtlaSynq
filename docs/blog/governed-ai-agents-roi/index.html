@@ -31,7 +31,7 @@
         "dateModified": "2026-07-09",
         "author": {
           "@type": "Person",
-          "name": "AtlaSynq CMO Agent",
+          "name": "AtlaSynq Team",
           "url": "https://www.atlasynq.com/about/"
         },
         "publisher": {
@@ -95,14 +95,10 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260717">
-  <style>:root{--clay-terracotta:#C96A4A;--clay-cream:#F7F1E8;--clay-brown:#3B2A1A;}</style>
-
-  <style>
-    .wordmark-atla { color: #2B1F1A; }
-    .wordmark-synq { color: #C96A4A; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718e">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718e">
+  <link rel="stylesheet" href="/css/blog.css?v=20260718e">
 
 </head>
 <body>
@@ -112,14 +108,14 @@
   <nav class="container nav-inner" aria-label="Main navigation">
     <a href="/" class="nav-logo" aria-label="AtlaSynq home">
       <img src="/images/atlasynq-logo.svg" alt="" width="32" height="32" aria-hidden="true">
-      <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+      <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
     </a>
     <ul class="nav-links" role="list">
       <li><a href="/features/">Product</a></li>
       <li><a href="/security/">Security</a></li>
       <li><a href="/integrations/">Integrations</a></li>
       <li><a href="/pricing/">Pricing</a></li>
-      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/blog/" class="active">Insights</a></li>
     </ul>
     <div class="nav-cta">
       <a href="/login/" style="font-family:'Sora',sans-serif;font-size:0.86rem;font-weight:600;color:var(--clay-text-sec);text-decoration:none;padding:8px 12px;">Log in</a>
@@ -159,7 +155,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
       <span class="breadcrumb__sep">›</span>
-      <a href="/blog/">Blog</a>
+      <a href="/blog/">Insights</a>
       <span class="breadcrumb__sep">›</span>
       <span>ROI of Governed AI Agents</span>
     </nav>
@@ -169,19 +165,23 @@
       <span>·</span>
       <span>7 min read</span>
       <span>·</span>
-      <span>By AtlaSynq CMO Agent</span>
+      <span>By AtlaSynq Team</span>
     </div>
     <h1 class="article-hero__title">The ROI of Governed AI Agents: How Teams Save 12+ Hours Per Week</h1>
     <p class="article-hero__summary">Shadow AI is quietly draining thousands of dollars per employee every year. Here's the full cost breakdown — and the ROI math that makes governed AI agents the highest-leverage investment in your 2026 tech stack.</p>
   </div>
 </header>
 
+<div class="article-cover">
+  <img src="/images/blog-roi.svg" alt="" loading="lazy" width="920" height="518">
+</div>
+
 <!-- ── ARTICLE BODY ──────────────────────────────────────────────────────── -->
 <main class="article-body">
   <div class="container--narrow">
 
     <!-- Stat strip -->
-    <div class="stat-strip" style="background:var(--clay-cream-d);border-radius:var(--clay-radius);padding:2rem;margin-bottom:2rem;">
+    <div class="stat-strip">
       <div class="stat-item"><div class="stat-val">12+</div><div class="stat-lbl">Hours saved / employee / week</div></div>
       <div class="stat-item"><div class="stat-val">$2.2M</div><div class="stat-lbl">Annual savings (50-person team)</div></div>
       <div class="stat-item"><div class="stat-val">3–6 wks</div><div class="stat-lbl">Typical payback period</div></div>
@@ -236,9 +236,9 @@
     <h2 id="roi-math">The ROI Math: A Real Example</h2>
     <p>Let's model a 50-person knowledge-worker team: 20 in sales, 15 in marketing, 10 in HR, and 5 in operations. Average fully-loaded cost: $85/hour. Average AI-recoverable hours: 10 per person per week.</p>
 
-    <div style="background:var(--clay-cream-d);border-radius:var(--clay-radius);padding:1.75rem;margin:1.5rem 0;border:1px solid var(--clay-border);">
-      <h4 style="margin-bottom:1rem;font-size:1rem;">Annual Savings Model</h4>
-      <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+    <div class="article-table-wrap">
+      <h4>Annual Savings Model</h4>
+      <table>
         <thead>
           <tr style="border-bottom:2px solid var(--clay-border);">
             <th style="text-align:left;padding:0.5rem 0.75rem;color:var(--clay-brown);">Team</th>
@@ -301,12 +301,12 @@
     <div class="clay-divider"></div>
 
     <!-- Inline CTA -->
-    <div style="background:linear-gradient(135deg,var(--clay-cream-dd),var(--clay-cream));border:1.5px solid var(--clay-border);border-radius:var(--clay-radius);padding:2rem;text-align:center;margin-bottom:2.5rem;">
-      <h3 style="margin-bottom:0.5rem;">Ready to Calculate Your Team's ROI?</h3>
-      <p style="color:var(--clay-brown-l);margin-bottom:1.25rem;">Use our interactive ROI calculator or book a 30-minute demo with an AtlaSynq solution engineer.</p>
+    <div class="article-inline-cta">
+      <h3>Ready to Calculate Your Team's ROI?</h3>
+      <p>Use our interactive ROI calculator or book a 30-minute demo with an AtlaSynq solution engineer.</p>
       <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-        <a href="/roi/" class="btn btn--primary">Open ROI Calculator</a>
-        <a href="https://calendly.com/idanl-atlasynq/30min" class="btn btn--outline" target="_blank" rel="noopener">Book a Demo →</a>
+        <a href="/roi/" class="clay-btn clay-btn-primary">Open ROI Calculator</a>
+        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-outline" target="_blank" rel="noopener">Book a demo</a>
       </div>
     </div>
 
@@ -380,11 +380,10 @@
 
 <!-- ── CTA BAND ─────────────────────────────────────────────────────────── -->
 
-<section style="padding:2.5rem 0 1rem;">
-  <div class="container" style="max-width:720px;">
-    <h2 style="font-size:1.2rem;margin-bottom:0.75rem;">Read next</h2>
-    <a href="/blog/what-is-ai-governance/" style="display:block;padding:0.85rem 0;border-bottom:1px solid var(--clay-border-soft);color:var(--clay-primary);font-weight:600;text-decoration:none;">What Is AI Governance? →</a><a href="/blog/aeo-for-b2b-saas/" style="display:block;padding:0.85rem 0;border-bottom:1px solid var(--clay-border-soft);color:var(--clay-primary);font-weight:600;text-decoration:none;">AEO for B2B SaaS →</a>
-  </div>
+<section class="article-read-next">
+  <h2>Read next</h2>
+  <a href="/blog/what-is-ai-governance/">What is AI governance? A practical enterprise guide →</a>
+  <a href="/blog/aeo-for-b2b-saas/">Answer engine optimization for B2B SaaS →</a>
 </section>
 
 <section class="cta-band">
@@ -405,7 +404,7 @@
       <div class="footer-brand">
         <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
           <img src="/images/atlasynq-logo.svg" alt="" width="28" height="28" aria-hidden="true">
-          <span class="wordmark-atla">Atla</span><span class="wordmark-synq">Synq</span>
+          <span class="g-wordmark-atla">Atla</span><span class="g-wordmark-synq">Synq</span>
         </a>
         <p>Governed department agents for enterprise teams.</p>
       </div>

@@ -54,9 +54,10 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718">
-  <link rel="stylesheet" href="/css/growth.css?v=20260718">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718e">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718e">
+  <link rel="stylesheet" href="/css/blog.css?v=20260718e">
 
 </head>
 <body>
@@ -107,57 +108,53 @@
   </div>
 </div>
 
-<section class="g-blog-hero">
+<section class="blog-hub-hero">
   <div class="container">
-    <div class="g-eyebrow">AtlaSynq Insights</div>
+    <div class="blog-card__tag" style="margin-bottom:0.5rem;">AtlaSynq Insights</div>
     <h1>Guides for teams deploying governed AI</h1>
-    <p style="max-width:36em;color:var(--g-body);font-size:1.05rem;line-height:1.6;margin:0;">ROI math, governance playbooks, and answer-engine strategy — written for revenue ops, security, and engineering leaders evaluating enterprise AI.</p>
-    <div class="g-blog-topics">
-      <a href="/blog/governed-ai-agents-roi/" class="g-blog-topic">ROI</a>
-      <a href="/blog/what-is-ai-governance/" class="g-blog-topic">Governance</a>
-      <a href="/blog/aeo-for-b2b-saas/" class="g-blog-topic">AEO</a>
-      <a href="/roi/" class="g-blog-topic">ROI calculator</a>
-      <a href="/security/" class="g-blog-topic">Security</a>
+    <p>ROI math, governance playbooks, and answer-engine strategy — written for revenue ops, security, and engineering leaders evaluating enterprise AI.</p>
+    <div class="blog-topics">
+      <a href="/blog/governed-ai-agents-roi/" class="blog-topic">ROI</a>
+      <a href="/blog/what-is-ai-governance/" class="blog-topic">Governance</a>
+      <a href="/blog/aeo-for-b2b-saas/" class="blog-topic">AEO</a>
+      <a href="/roi/" class="blog-topic">ROI calculator</a>
+      <a href="/security/" class="blog-topic">Security</a>
     </div>
   </div>
 </section>
 
-<section class="g-blog-featured-wrap">
+<section class="section" style="padding-top:2rem;background:var(--g-paper);">
   <div class="container">
-    <a href="/blog/governed-ai-agents-roi/" class="g-blog-featured">
-      <div class="g-blog-featured-img">
-        <img src="/images/blog-roi.svg" alt="" loading="lazy">
+    <a href="/blog/governed-ai-agents-roi/" class="blog-featured">
+      <div class="blog-featured__media">
+        <img src="/images/blog-roi.svg" alt="" loading="lazy" width="800" height="450">
       </div>
-      <div class="g-blog-featured-body">
-        <div class="g-insight-tag" style="color:var(--g-muted);">Featured · ROI &amp; Productivity</div>
-        <h2 style="font-family:var(--g-serif);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;line-height:1.2;margin:0.5rem 0 0.75rem;">The ROI of governed AI agents: how teams save 12+ hours per week</h2>
-        <p style="color:var(--g-body);line-height:1.6;margin:0 0 1rem;">Shadow AI is costing enterprises thousands per employee annually. Learn how governed agents with RBAC and audit trails deliver measurable, compounding ROI — with real math you can take to your CFO.</p>
-        <span style="font-size:0.8rem;color:var(--g-muted);font-weight:600;">Jul 1, 2026 · 7 min read →</span>
+      <div class="blog-featured__body">
+        <div class="blog-card__tag">Featured · ROI &amp; Productivity</div>
+        <h2 class="blog-card__title">The ROI of governed AI agents: how teams save 12+ hours per week</h2>
+        <p class="blog-card__excerpt">Shadow AI is costing enterprises thousands per employee annually. Learn how governed agents with RBAC and audit trails deliver measurable, compounding ROI — with real math you can take to your CFO.</p>
+        <div class="blog-card__footer"><span>Jul 1, 2026 · 7 min read</span><span class="blog-card__read">Read featured article →</span></div>
       </div>
     </a>
-  </div>
-</section>
 
-<section class="section" style="padding-top:0;">
-  <div class="container">
-    <h2 style="font-family:var(--g-serif);font-size:1.35rem;font-weight:400;margin-bottom:1.25rem;">More to read</h2>
-    <div class="g-blog-grid-light">
-      <a href="/blog/what-is-ai-governance/" class="g-blog-card-light">
-        <img src="/images/blog-governance.svg" alt="" loading="lazy">
-        <div class="body">
-          <div class="g-insight-tag" style="color:var(--g-muted);font-size:0.68rem;">AI Governance</div>
-          <h3>What is AI governance? A practical guide for enterprise teams</h3>
-          <p>RBAC, audit trails, human-in-the-loop controls — and how AtlaSynq compares to ChatGPT Enterprise.</p>
-          <span style="display:block;margin-top:0.75rem;font-size:0.78rem;color:var(--g-muted);">Jun 20 · 6 min read</span>
+    <h2 class="blog-section-label">More to read</h2>
+    <div class="blog-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <a href="/blog/what-is-ai-governance/" class="blog-card">
+        <div class="blog-card__thumb"><img src="/images/blog-governance.svg" alt="" loading="lazy" width="640" height="360"></div>
+        <div class="blog-card__body">
+          <div class="blog-card__tag">AI Governance</div>
+          <h3 class="blog-card__title">What is AI governance? A practical guide for enterprise teams</h3>
+          <p class="blog-card__excerpt">RBAC, audit trails, human-in-the-loop controls — and how AtlaSynq compares to ChatGPT Enterprise.</p>
+          <div class="blog-card__footer"><span>Jun 20 · 6 min read</span><span class="blog-card__read">Read article →</span></div>
         </div>
       </a>
-      <a href="/blog/aeo-for-b2b-saas/" class="g-blog-card-light">
-        <img src="/images/blog-aeo.svg" alt="" loading="lazy">
-        <div class="body">
-          <div class="g-insight-tag" style="color:var(--g-muted);font-size:0.68rem;">AEO Strategy</div>
-          <h3>Answer engine optimization for B2B SaaS</h3>
-          <p>How structured answers and schema markup help products get cited by AI assistants — not buried in blue links.</p>
-          <span style="display:block;margin-top:0.75rem;font-size:0.78rem;color:var(--g-muted);">Jun 10 · 5 min read</span>
+      <a href="/blog/aeo-for-b2b-saas/" class="blog-card">
+        <div class="blog-card__thumb"><img src="/images/blog-aeo.svg" alt="" loading="lazy" width="640" height="360"></div>
+        <div class="blog-card__body">
+          <div class="blog-card__tag">AEO Strategy</div>
+          <h3 class="blog-card__title">Answer engine optimization for B2B SaaS</h3>
+          <p class="blog-card__excerpt">How structured answers and schema markup help products get cited by AI assistants — not buried in blue links.</p>
+          <div class="blog-card__footer"><span>Jun 10 · 5 min read</span><span class="blog-card__read">Read article →</span></div>
         </div>
       </a>
     </div>
