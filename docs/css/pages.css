@@ -1,0 +1,136 @@
+/* Inner marketing pages — shared layout (Security, Features, Pricing, etc.) */
+
+.page-hero {
+  padding: 3.5rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--clay-surface) 0%, var(--clay-bg) 100%);
+  border-bottom: 1px solid var(--clay-border-soft);
+}
+
+.page-hero__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clay-text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.page-hero h1 {
+  max-width: 14em;
+  margin: 0 auto 1rem;
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: var(--clay-primary-dk);
+}
+
+.page-hero p {
+  max-width: 36em;
+  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+  color: var(--clay-text-sec);
+}
+
+.page-hero .hero-actions {
+  margin-bottom: 0;
+}
+
+.page-section {
+  padding: 3.5rem 0;
+}
+
+.page-section--alt {
+  background: var(--clay-bg);
+  border-top: 1px solid var(--clay-border-soft);
+}
+
+.page-section-head {
+  text-align: center;
+  max-width: 36em;
+  margin: 0 auto 2rem;
+}
+
+.page-section-head h2 {
+  margin-bottom: 0.5rem;
+}
+
+.page-section-head p {
+  color: var(--clay-text-sec);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.feature-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.feature-card {
+  background: var(--clay-surface);
+  border: 1px solid var(--clay-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.feature-card:hover {
+  border-color: rgba(15, 39, 68, 0.14);
+  box-shadow: var(--shadow);
+}
+
+.feature-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--clay-primary-lt);
+  color: var(--clay-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-card__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature-card h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--clay-text);
+}
+
+.feature-card p {
+  font-size: 0.84rem;
+  color: var(--clay-text-sec);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.feature-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .feature-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .feature-grid-4 { grid-template-columns: 1fr; }
+}
