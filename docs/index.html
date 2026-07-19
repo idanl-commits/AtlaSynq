@@ -20,11 +20,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718h">
-  <link rel="stylesheet" href="/css/pages.css?v=20260718h">
-  <link rel="stylesheet" href="/css/growth.css?v=20260718h">
-  <link rel="stylesheet" href="/css/product-mock.css?v=20260718h">
-  <link rel="stylesheet" href="/css/blog.css?v=20260718h">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260718i">
+  <link rel="stylesheet" href="/css/pages.css?v=20260718i">
+  <link rel="stylesheet" href="/css/growth.css?v=20260718i">
+  <link rel="stylesheet" href="/css/product-mock.css?v=20260718i">
+  <link rel="stylesheet" href="/css/blog.css?v=20260718i">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -84,9 +84,10 @@
 </div>
 
 <main>
-  <section class="g-hero g-hero--demo">
-    <div class="container">
-      <div class="g-hero-intro">
+  <section class="g-hero g-hero--split">
+    <div class="container g-hero-split">
+      <div class="g-hero-copy">
+        <p class="g-hero-kicker">Governed enterprise AI</p>
         <h1>Work AI your security team can actually approve.</h1>
         <p class="g-hero-lead">Role-scoped agents over Salesforce, Jira, Slack, and 27+ tools — with RBAC on every query, citations on every answer, and approval before writes.</p>
         <div class="g-hero-actions">
@@ -101,13 +102,16 @@
         </div>
       </div>
 
-      <div class="g-demo-wrap">
-        <p class="g-demo-label">Interactive preview — click an agent to explore</p>
-        <div class="demo-frame" id="heroApp" aria-label="AtlaSynq workspace demo">
-          <div class="demo-chrome">
-            <span class="demo-chrome-title">AtlaSynq Workspace</span>
-            <span class="demo-chrome-badge">Product preview</span>
-          </div>
+      <div class="g-demo-stage">
+        <div class="g-demo-glow" aria-hidden="true"></div>
+        <div class="g-demo-wrap">
+          <p class="g-demo-label"><span class="g-demo-pulse"></span> Live workspace — click an agent</p>
+          <div class="demo-frame" id="heroApp" aria-label="AtlaSynq workspace demo">
+            <div class="demo-chrome">
+              <div class="demo-chrome-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span class="demo-chrome-title">AtlaSynq Workspace</span>
+              <span class="demo-chrome-live"><span class="demo-live-dot"></span>Live</span>
+            </div>
           <div class="demo-body">
             <aside class="demo-sidebar" aria-label="Department agents">
               <div class="demo-sidebar-label">Department agents</div>
@@ -142,11 +146,13 @@
             </div>
             <aside class="demo-mcp" aria-label="Connected tools">
               <div class="demo-mcp-label">Connected tools</div>
-              <div class="demo-mcp-row"><img src="/images/salesforce.png" alt=""><span class="demo-mcp-name">Salesforce</span><span class="demo-mcp-dot"></span></div>
-              <div class="demo-mcp-row"><img src="/images/gong.png" alt=""><span class="demo-mcp-name">Gong</span><span class="demo-mcp-dot"></span></div>
-              <div class="demo-mcp-row"><img src="/images/slack.png" alt=""><span class="demo-mcp-name">Slack</span><span class="demo-mcp-dot"></span></div>
-              <div class="demo-mcp-row"><img src="/images/hubspot.png" alt=""><span class="demo-mcp-name">HubSpot</span><span class="demo-mcp-dot"></span></div>
-              <div class="demo-mcp-row"><img src="/images/gmail.jpg" alt=""><span class="demo-mcp-name">Gmail</span><span class="demo-mcp-dot"></span></div>
+              <div id="heroMcpList">
+                <div class="demo-mcp-row"><img src="/images/salesforce.png" alt=""><span class="demo-mcp-name">Salesforce</span><span class="demo-mcp-dot"></span></div>
+                <div class="demo-mcp-row"><img src="/images/gong.png" alt=""><span class="demo-mcp-name">Gong</span><span class="demo-mcp-dot"></span></div>
+                <div class="demo-mcp-row"><img src="/images/slack.png" alt=""><span class="demo-mcp-name">Slack</span><span class="demo-mcp-dot"></span></div>
+                <div class="demo-mcp-row"><img src="/images/hubspot.png" alt=""><span class="demo-mcp-name">HubSpot</span><span class="demo-mcp-dot"></span></div>
+                <div class="demo-mcp-row"><img src="/images/gmail.jpg" alt=""><span class="demo-mcp-name">Gmail</span><span class="demo-mcp-dot"></span></div>
+              </div>
             </aside>
           </div>
         </div>
@@ -235,28 +241,25 @@
     </div>
   </section>
 
-  <section class="g-roi-band">
+  <section class="g-close">
     <div class="container">
-      <div class="g-roi-inner">
-        <div>
+      <div class="g-close-grid">
+        <div class="g-close-stat">
           <div class="g-roi-stat">12<span>+</span> hrs</div>
-          <p style="margin:0;color:var(--g-body);font-size:0.95rem;">Average weekly time reclaimed per team member when research moves from manual tool-hopping to governed agents.</p>
+          <p>Average weekly time reclaimed per team member when research moves from manual tool-hopping to governed agents.</p>
+          <div class="g-close-actions">
+            <a href="/roi/" class="clay-btn clay-btn-primary">Run your ROI estimate</a>
+            <a href="/pricing/" class="clay-btn clay-btn-ghost">See pricing</a>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="/roi/" class="clay-btn clay-btn-primary">Run your ROI estimate</a>
-          <a href="/pricing/" class="clay-btn clay-btn-outline">See pricing</a>
+        <div class="g-close-cta">
+          <h2>See it on your stack in 30 minutes</h2>
+          <p>Your tools, your roles, your model preferences. We walk through a live agent on Salesforce, Jira, or NetSuite — whatever you run today.</p>
+          <div class="g-close-actions">
+            <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
+            <a href="/blog/" class="clay-btn clay-btn-ghost">Read insights</a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="g-final-cta">
-    <div class="container">
-      <h2>See it on your stack in 30 minutes</h2>
-      <p>Your tools, your roles, your model preferences. We will walk through a live agent on Salesforce, Jira, or NetSuite — whatever you run today.</p>
-      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-        <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-        <a href="/blog/" class="clay-btn clay-btn-outline">Read the insights hub</a>
       </div>
     </div>
   </section>

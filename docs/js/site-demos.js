@@ -71,6 +71,13 @@
       question:  'Which deals are at risk of slipping this quarter?',
       answer:    '**3 deals are at risk** this quarter. Acme Corp ($120k) hasn\'t had activity in 14 days. Beta Industries closed-lost probability jumped to 62%. TechFlow Ltd needs a revised proposal by Friday or they re-evaluate in Q3.',
       tool:      'Salesforce CRM',
+      mcps: [
+        { name: 'Salesforce', icon: '/images/salesforce.png' },
+        { name: 'Gong', icon: '/images/gong.png' },
+        { name: 'HubSpot', icon: '/images/hubspot.png' },
+        { name: 'Slack', icon: '/images/slack.png' },
+        { name: 'Gmail', icon: '/images/gmail.jpg' },
+      ],
     },
     {
       id:        'sb-finance',
@@ -78,6 +85,13 @@
       question:  'What\'s our cash runway based on current burn?',
       answer:    '**18.4 months of runway** at current burn rate of $310k/mo. Cash position: $5.7M. Largest cost centre: Engineering at 44% of OpEx. If the Series A closes by Aug 15, runway extends to **31 months**.',
       tool:      'QuickBooks',
+      mcps: [
+        { name: 'QuickBooks', icon: '/images/quickbooks.png' },
+        { name: 'Stripe', icon: '/images/stripe.jpg' },
+        { name: 'NetSuite', icon: '/images/netsuite.png' },
+        { name: 'Excel', icon: '/images/excel.png' },
+        { name: 'Slack', icon: '/images/slack.png' },
+      ],
     },
     {
       id:        'sb-eng',
@@ -85,6 +99,13 @@
       question:  'How many open P1 bugs are blocking the next release?',
       answer:    '**4 P1 bugs** are blocking v2.4.0. AUTH-881 (login timeout), API-1204 (rate limiter regression), UI-390 (blank dashboard on Safari 17), INFRA-77 (Redis failover lag). Estimated clear date: **July 14** based on current sprint velocity.',
       tool:      'Jira',
+      mcps: [
+        { name: 'Jira', icon: '/images/jira.png' },
+        { name: 'GitHub', icon: '/images/github.jpg' },
+        { name: 'Linear', icon: '/images/linear.png' },
+        { name: 'Datadog', icon: '/images/datadog.svg' },
+        { name: 'Slack', icon: '/images/slack.png' },
+      ],
     },
     {
       id:        'sb-hr',
@@ -92,6 +113,13 @@
       question:  'What\'s the current headcount plan for Q3 hiring?',
       answer:    '**Q3 headcount plan:** 7 open reqs — 2 Senior Engineers, 1 Product Designer, 1 Growth PM, 2 AEs, 1 Data Analyst. Current pipeline: 34 candidates in screen, 8 in final round. Projected offer dates: mid-July through August.',
       tool:      'Greenhouse ATS',
+      mcps: [
+        { name: 'Greenhouse', icon: '/images/greenhouse.svg' },
+        { name: 'Workday', icon: '/images/workday.png' },
+        { name: 'Slack', icon: '/images/slack.png' },
+        { name: 'Gmail', icon: '/images/gmail.jpg' },
+        { name: 'Notion', icon: '/images/notion.png' },
+      ],
     },
     {
       id:        'sb-marketing',
@@ -99,6 +127,13 @@
       question:  'How is our latest campaign performing vs target?',
       answer:    'The **"Governed AI" campaign** is at 78% of MQL target (312/400). Top channel: LinkedIn Ads (42% of leads). Email nurture sequence open rate: **34.2%** — 11pts above benchmark. Cost per MQL: $87, target was $95.',
       tool:      'HubSpot',
+      mcps: [
+        { name: 'HubSpot', icon: '/images/hubspot.png' },
+        { name: 'LinkedIn', icon: '/images/linkedin.png' },
+        { name: 'Gmail', icon: '/images/gmail.jpg' },
+        { name: 'Slack', icon: '/images/slack.png' },
+        { name: 'Notion', icon: '/images/notion.png' },
+      ],
     },
     {
       id:        'sb-legal',
@@ -106,8 +141,23 @@
       question:  'Which vendor contracts expire in the next 60 days?',
       answer:    '**5 vendor contracts** expire within 60 days. AWS Enterprise (Aug 2 — $240k/yr), Okta SSO (Aug 9 — auto-renews unless cancelled), Stripe Platform (Aug 14), Datadog Pro (Aug 22), Notion Business (Sep 1). Renewal reminders sent to finance.',
       tool:      'DocuSign CLM',
+      mcps: [
+        { name: 'DocuSign', icon: '/images/docusign.svg' },
+        { name: 'Okta', icon: '/images/okta.svg' },
+        { name: 'SharePoint', icon: '/images/sharepoint.svg' },
+        { name: 'Slack', icon: '/images/slack.png' },
+        { name: 'Gmail', icon: '/images/gmail.jpg' },
+      ],
     },
   ];
+
+  function renderHeroMcps(scenario) {
+    const list = $('heroMcpList');
+    if (!list || !scenario.mcps) return;
+    list.innerHTML = scenario.mcps.map(m =>
+      `<div class="demo-mcp-row"><img src="${m.icon}" alt="" onerror="this.style.opacity='0.3'"><span class="demo-mcp-name">${m.name}</span><span class="demo-mcp-dot"></span></div>`
+    ).join('');
+  }
 
   /* ─── BUILDER SCENARIOS ─────────────────────────────────── */
   const BUILDER_SCENARIOS = [
@@ -202,6 +252,7 @@
     if (heroZero)   heroZero.style.display   = 'none';
     if (heroChatUI) heroChatUI.style.display = 'flex';
     if (agentName)  agentName.textContent    = scenario.agent;
+    renderHeroMcps(scenario);
 
     feed.innerHTML = '';
 

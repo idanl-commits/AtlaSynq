@@ -322,6 +322,20 @@ a:hover { color: var(--clay-primary-dk); }
   transform: translateY(1px);
 }
 
+.clay-btn-ghost {
+  background: transparent;
+  color: var(--clay-text-sec);
+  border: 1.5px solid var(--clay-border);
+  box-shadow: none;
+}
+
+.clay-btn-ghost:hover {
+  background: var(--clay-elevated);
+  color: var(--clay-text);
+  border-color: rgba(15, 39, 68, 0.18);
+  transform: translateY(-1px);
+}
+
 /* ─── 7. NAVIGATION / HEADER ─────────────────────────────── */
 header.site-header,
 nav, header.site-nav {
@@ -1397,6 +1411,18 @@ footer {
   letter-spacing: 0.1em;
   color: var(--clay-text-muted);
   margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  max-width: 260px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--clay-text-sec);
+  margin: 0;
+}
+
+.site-footer {
+  background: var(--clay-bg);
 }
 
 .footer-link {

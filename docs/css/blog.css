@@ -53,6 +53,11 @@
   display: block;
 }
 
+.blog-card__thumb img[src$=".svg"] {
+  object-fit: cover;
+  background: linear-gradient(135deg, #FAFBFC 0%, #EEF1F5 100%);
+}
+
 .blog-card__body {
   display: flex;
   flex-direction: column;
