@@ -346,7 +346,7 @@ nav, header.site-nav {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0; /* no gap — wordmark must read as one word: AtlaSynq */
+  gap: 0;
   font-family: var(--font);
   font-size: 1.2rem;
   font-weight: 700;
@@ -355,10 +355,40 @@ nav, header.site-nav {
   letter-spacing: -0.03em;
 }
 
-.nav-logo img { margin-right: 8px; }
+.nav-logo img {
+  display: block;
+  height: 30px;
+  width: auto;
+  max-width: 180px;
+  margin-right: 0;
+}
 
-.nav-logo .wordmark-atla { color: var(--clay-text); }
-.nav-logo .wordmark-synq { color: var(--clay-accent); margin-left: -0.06em; }
+.footer-brand .nav-logo img,
+.footer-brand img[src*="atlasynq-logo.svg"] {
+  height: 26px;
+  max-width: 160px;
+}
+
+img[src*="atlasynq-mark.svg"] {
+  width: auto;
+  height: auto;
+}
+
+/* Lockup SVG includes wordmark — hide duplicate text spans in markup */
+.nav-logo .wordmark-atla,
+.nav-logo .wordmark-synq,
+.nav-logo .g-wordmark-atla,
+.nav-logo .g-wordmark-synq {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .nav-login {
   font-family: var(--font);

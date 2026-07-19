@@ -1,17 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
   <title>AtlaSynq</title>
-  <defs>
-    <linearGradient id="asq-bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5b21b6"/>
-      <stop offset="0.5" stop-color="#3730a3"/>
-      <stop offset="1" stop-color="#0f4c5c"/>
-    </linearGradient>
-    <linearGradient id="asq-feather" x1="12" y1="54" x2="52" y2="10" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#06b6d4"/>
-      <stop offset="0.45" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#e0f2fe"/>
-    </linearGradient>
-  </defs>
-  <circle cx="32" cy="32" r="22" fill="url(#asq-bg)"/>
-  <path fill="url(#asq-feather)" d="M11 53C13 38 24 24 46 13L49 12 47 16C35 24 26 36 21 48C19 51 16 53 14 52C13 52 12 52 11 53z"/>
+  <path fill="#3D5A7C" d="M6 43 32 55 58 43 32 37Z"/>
+  <path fill="#C96A4A" fill-opacity="0.78" d="M10 34 36 41 62 34 36 29Z"/>
+  <path fill="#C96A4A" d="M14 25 38 31 60 24 38 21Z"/>
 </svg>
