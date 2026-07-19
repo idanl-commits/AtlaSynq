@@ -1423,6 +1423,12 @@ footer {
 
 .site-footer {
   background: var(--clay-bg);
+  margin-top: 0;
+}
+
+footer.site-footer {
+  padding: 2.5rem 0 1.75rem;
+  border-top: none;
 }
 
 .footer-link {
