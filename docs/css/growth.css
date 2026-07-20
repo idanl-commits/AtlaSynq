@@ -97,12 +97,12 @@ html.page-home body {
 .g-demo-wrap {
   position: relative;
   z-index: 1;
-  transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
-  transition: transform 0.4s ease;
+  transform: none;
+  transition: transform 0.35s ease;
 }
 
 .g-demo-stage:hover .g-demo-wrap {
-  transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+  transform: translateY(-2px);
 }
 
 .g-demo-label {
