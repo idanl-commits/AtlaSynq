@@ -291,7 +291,8 @@
   }
 
   function runHeroLoop() {
-    if (!$('heroApp')) return;
+    if (document.documentElement.dataset.heroDemo !== "static") return;
+    if (!$("heroApp")) return;
 
     // Wire sidebar click handlers
     HERO_SCENARIOS.forEach((scenario, i) => {
@@ -819,10 +820,12 @@
     setTimeout(runBuilder,   1200);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
+
+  document.addEventListener("atlasynq-hero-fallback", runHeroLoop);
 
 })();

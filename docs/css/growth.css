@@ -117,6 +117,61 @@ html.page-home body {
   margin: 0 0 0.75rem;
 }
 
+.g-demo-embed {
+  position: relative;
+  min-height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--g-white);
+  border: 1px solid rgba(11, 31, 51, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset,
+    0 24px 64px rgba(11, 31, 51, 0.16),
+    0 4px 16px rgba(11, 31, 51, 0.06);
+}
+
+.g-demo-embed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f4f8 100%);
+  animation: g-demo-shimmer 1.4s ease-in-out infinite;
+  z-index: 0;
+}
+
+.g-demo-embed.is-ready::before,
+.g-demo-embed.is-fallback::before {
+  display: none;
+}
+
+.g-demo-embed iframe {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  min-height: 520px;
+  height: 520px;
+  border: 0;
+  background: transparent;
+}
+
+.g-demo-embed.is-fallback {
+  display: none;
+}
+
+.g-demo-fallback[hidden] {
+  display: none !important;
+}
+
+.g-demo-fallback:not([hidden]) {
+  display: block;
+}
+
+@keyframes g-demo-shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
 .g-demo-pulse {
   width: 7px;
   height: 7px;
