@@ -117,6 +117,23 @@ html.page-home body {
   margin: 0 0 0.75rem;
 }
 
+.g-demo-widget-root {
+  position: relative;
+  min-height: 520px;
+  width: 100%;
+}
+
+.g-demo-widget-root:empty {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f4f8 100%);
+  border: 1px solid rgba(11, 31, 51, 0.1);
+  border-radius: 16px;
+  animation: g-demo-shimmer 1.4s ease-in-out infinite;
+}
+
+.g-demo-widget-root .hgd-frame {
+  min-height: 520px;
+}
+
 .g-demo-embed[hidden] {
   display: none !important;
 }
