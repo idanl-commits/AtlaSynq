@@ -119,7 +119,7 @@ html.page-home body {
 
 .g-demo-widget-root {
   position: relative;
-  min-height: 520px;
+  min-height: 560px;
   width: 100%;
 }
 
@@ -131,7 +131,7 @@ html.page-home body {
 }
 
 .g-demo-widget-root .hgd-frame {
-  min-height: 520px;
+  min-height: 560px;
 }
 
 .g-demo-embed[hidden] {
