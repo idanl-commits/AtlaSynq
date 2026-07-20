@@ -1,49 +1,57 @@
-/* Homepage hero — loads assistant-ui generative demo from control-plane-web embed */
+/* Homepage hero — generative embed on local dev; static demo on production */
 (function () {
   "use strict";
 
   var shell = document.getElementById("heroGenerativeEmbed");
   var frame = document.getElementById("heroGenerativeFrame");
   var fallback = document.getElementById("heroDemoFallback");
-  if (!shell || !frame) return;
+  if (!fallback) return;
 
-  function embedOrigin() {
-    var host = window.location.hostname;
-    if (host === "localhost" || host === "127.0.0.1") {
-      return "http://localhost:3001";
-    }
-    if (host === "www.atlasynq.com" || host === "atlasynq.com") {
-      return "https://app.atlasynq.com";
-    }
-    return "https://app.atlasynq.com";
-  }
+  var host = window.location.hostname;
+  var isLocal = host === "localhost" || host === "127.0.0.1";
 
-  function showFallback() {
-    shell.classList.add("is-fallback");
-    frame.remove();
-    if (fallback) {
-      fallback.hidden = false;
-    }
+  function showStaticDemo() {
     document.documentElement.dataset.heroDemo = "static";
+    if (shell) {
+      shell.hidden = true;
+      shell.classList.add("is-fallback");
+    }
+    if (frame) frame.remove();
+    fallback.hidden = false;
     window.dispatchEvent(new CustomEvent("atlasynq-hero-fallback"));
   }
 
-  var ready = false;
-  var failTimer = window.setTimeout(function () {
-    if (!ready) showFallback();
-  }, 10000);
-
-  window.addEventListener("message", function (event) {
-    if (event.data && event.data.type === "atlasynq-hero-ready") {
-      ready = true;
-      window.clearTimeout(failTimer);
-      shell.classList.add("is-ready");
+  function showEmbed() {
+    if (!shell || !frame) {
+      showStaticDemo();
+      return;
     }
-  });
+    fallback.hidden = true;
+    shell.hidden = false;
 
-  frame.addEventListener("error", function () {
-    if (!ready) showFallback();
-  });
+    var ready = false;
+    var failTimer = window.setTimeout(function () {
+      if (!ready) showStaticDemo();
+    }, 3500);
 
-  frame.src = embedOrigin() + "/embed/hero";
+    window.addEventListener("message", function (event) {
+      if (event.data && event.data.type === "atlasynq-hero-ready") {
+        ready = true;
+        window.clearTimeout(failTimer);
+        shell.classList.add("is-ready");
+      }
+    });
+
+    frame.addEventListener("error", function () {
+      if (!ready) showStaticDemo();
+    });
+
+    frame.src = "http://localhost:3001/embed/hero";
+  }
+
+  if (isLocal) {
+    showEmbed();
+  } else {
+    showStaticDemo();
+  }
 })();

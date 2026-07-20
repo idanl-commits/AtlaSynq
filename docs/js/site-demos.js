@@ -44,6 +44,34 @@
     return wrap;
   }
 
+  /** Generative UI analytics card (matches assistant-ui AnalyticsCard on homepage) */
+  function appendGenAnalyticsCard(feed) {
+    if (!feed) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'msg';
+    wrap.innerHTML =
+      '<div class="msg-bubble msg-bubble--gen">' +
+      '<article class="demo-gen-card" aria-label="Workspace analytics">' +
+      '<header class="demo-gen-card__head">' +
+      '<div><div class="demo-gen-card__kicker">Generative UI</div>' +
+      '<h4 class="demo-gen-card__title">Workspace analytics</h4>' +
+      '<p class="demo-gen-card__period">Last 30 days</p></div>' +
+      '<span class="demo-gen-card__live">Live</span></header>' +
+      '<div class="demo-gen-card__metrics">' +
+      '<div><span>Queries run</span><strong>12,842</strong><em>+18%</em></div>' +
+      '<div><span>Avg. response</span><strong>1.2s</strong><em>-14%</em></div>' +
+      '<div><span>Tool calls</span><strong>4,903</strong><em>+9%</em></div>' +
+      '<div><span>Approval rate</span><strong>96%</strong><em>+2%</em></div>' +
+      '</div>' +
+      '<div class="demo-gen-card__trend"><span>Query volume trend</span>' +
+      '<div class="demo-gen-card__bars" aria-hidden="true">' +
+      '<i style="height:42%"></i><i style="height:58%"></i><i style="height:44%"></i>' +
+      '<i style="height:71%"></i><i style="height:65%"></i><i style="height:82%"></i><i style="height:76%"></i>' +
+      '</div></div></article></div>';
+    feed.appendChild(wrap);
+    feed.scrollTop = feed.scrollHeight;
+  }
+
   /** Typing effect — writes text char-by-char into a span. Optional shouldContinue() aborts early. */
   async function typeText(el, text, speed, shouldContinue) {
     if (!el) return;
@@ -71,6 +99,7 @@
       question:  'Which deals are at risk of slipping this quarter?',
       answer:    '**3 deals are at risk** this quarter. Acme Corp ($120k) hasn\'t had activity in 14 days. Beta Industries closed-lost probability jumped to 62%. TechFlow Ltd needs a revised proposal by Friday or they re-evaluate in Q3.',
       tool:      'Salesforce CRM',
+      generative: true,
       mcps: [
         { name: 'Salesforce', icon: '/images/salesforce.png' },
         { name: 'Gong', icon: '/images/gong.png' },
@@ -259,6 +288,7 @@
     if (instant) {
       appendMsg(feed, scenario.question, 'user');
       appendMsg(feed, scenario.answer, 'agent', scenario.tool);
+      if (scenario.generative) appendGenAnalyticsCard(feed);
       return;
     }
 
@@ -277,6 +307,7 @@
     if (typingEl.parentNode) typingEl.remove();
 
     appendMsg(feed, scenario.answer, 'agent', scenario.tool);
+    if (scenario.generative) appendGenAnalyticsCard(feed);
     feed.scrollTop = feed.scrollHeight;
   }
 
@@ -309,19 +340,10 @@
       });
     });
 
-    // First paint: keep server-rendered demo if present; otherwise render instantly
-    const feed = $('heroFeed');
-    if (feed && feed.children.length > 0) {
-      HERO_SCENARIOS.forEach((s, i) => {
-        const el = $(s.id);
-        if (el) el.classList.toggle('active', i === 0);
-      });
-      scheduleNextHero(6500);
-    } else {
-      runHeroScenario(HERO_SCENARIOS[0], true).then(() => {
-        if (!heroPaused) scheduleNextHero(6500);
-      });
-    }
+    // Always paint the first scenario (includes generative UI card on Sales)
+    runHeroScenario(HERO_SCENARIOS[0], true).then(function () {
+      if (!heroPaused) scheduleNextHero(6500);
+    });
   }
 
   /* ─── BUILDER LOOP STATE ─────────────────────────────────── */

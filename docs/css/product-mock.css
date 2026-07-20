@@ -366,6 +366,129 @@
   box-shadow: 0 0 0 2px rgba(31, 107, 79, 0.15);
 }
 
+/* Generative UI card — mirrors assistant-ui AnalyticsCard in hero demo */
+.demo-chat .msg-bubble--gen {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.demo-gen-card {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 31, 51, 0.1);
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  box-shadow: 0 12px 32px rgba(11, 31, 51, 0.08);
+}
+
+.demo-gen-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(11, 31, 51, 0.08);
+}
+
+.demo-gen-card__kicker {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--demo-muted);
+}
+
+.demo-gen-card__title {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--demo-ink);
+}
+
+.demo-gen-card__period {
+  margin: 2px 0 0;
+  font-size: 0.72rem;
+  color: var(--demo-muted);
+}
+
+.demo-gen-card__live {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--demo-green);
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(31, 107, 79, 0.08);
+  border: 1px solid rgba(31, 107, 79, 0.14);
+  white-space: nowrap;
+}
+
+.demo-gen-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 12px 14px;
+}
+
+.demo-gen-card__metrics div {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(11, 31, 51, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.demo-gen-card__metrics span {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--demo-muted);
+}
+
+.demo-gen-card__metrics strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--demo-ink);
+}
+
+.demo-gen-card__metrics em {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--demo-green);
+}
+
+.demo-gen-card__trend {
+  padding: 10px 14px 14px;
+  border-top: 1px solid rgba(11, 31, 51, 0.08);
+}
+
+.demo-gen-card__trend > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--demo-muted);
+}
+
+.demo-gen-card__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 48px;
+}
+
+.demo-gen-card__bars i {
+  flex: 1;
+  display: block;
+  min-height: 8px;
+  border-radius: 3px;
+  background: var(--demo-ink-2);
+  opacity: 0.82;
+}
+
 .hero-zero {
   display: none;
 }

@@ -117,6 +117,10 @@ html.page-home body {
   margin: 0 0 0.75rem;
 }
 
+.g-demo-embed[hidden] {
+  display: none !important;
+}
+
 .g-demo-embed {
   position: relative;
   min-height: 520px;
