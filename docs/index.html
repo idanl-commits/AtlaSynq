@@ -20,12 +20,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260721c">
-  <link rel="stylesheet" href="/css/pages.css?v=20260721c">
-  <link rel="stylesheet" href="/css/growth.css?v=20260721c">
-  <link rel="stylesheet" href="/css/product-mock.css?v=20260721c">
-  <link rel="stylesheet" href="/css/blog.css?v=20260721c">
-  <link rel="stylesheet" href="/js/hero-widget/hero-widget.css?v=20260721c">
+  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260724a">
+  <link rel="stylesheet" href="/css/pages.css?v=20260724a">
+  <link rel="stylesheet" href="/css/growth.css?v=20260724a">
+  <link rel="stylesheet" href="/css/product-mock.css?v=20260724a">
+  <link rel="stylesheet" href="/css/blog.css?v=20260724a">
+  <link rel="stylesheet" href="/js/hero-widget/hero-widget.css?v=20260724a">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -85,31 +85,71 @@
 </div>
 
 <main>
-  <section class="g-hero g-hero--split">
+  <section class="g-hero g-hero--split" id="hero">
+    <div class="g-hero-grid-bg" aria-hidden="true"></div>
     <div class="container g-hero-split">
       <div class="g-hero-copy">
-        <p class="g-hero-kicker">Governed enterprise AI</p>
-        <h1>Work AI your security team can actually approve.</h1>
-        <p class="g-hero-lead">Role-scoped agents over Salesforce, Jira, Slack, and 27+ tools — with RBAC on every query, citations on every answer, and approval before writes.</p>
+        <p class="g-hero-kicker">Enterprise agent platform</p>
+        <h1>Your stack. Your rules. <span class="g-hero-accent">Agents that stay in bounds.</span></h1>
+        <p class="g-hero-lead">Deploy scoped agents for Sales, Finance, and Engineering over Salesforce, Jira, Slack, and 27+ tools — RBAC on every query, citations on every answer, approval before anything writes back.</p>
+        <div class="g-hero-proof">
+          <div class="g-hero-proof-item">
+            <strong>12+ hrs</strong>
+            <span>reclaimed per person / week</span>
+          </div>
+          <div class="g-hero-proof-item">
+            <strong>27+</strong>
+            <span>MCP connectors</span>
+          </div>
+          <div class="g-hero-proof-item">
+            <strong>100%</strong>
+            <span>audit trail on queries</span>
+          </div>
+        </div>
         <div class="g-hero-actions">
           <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
           <a href="/signup/" class="clay-btn clay-btn-outline">Start building free</a>
         </div>
         <div class="g-trust-row">
-          <span>SOC 2 Type II</span>
-          <span>SSO / SAML</span>
-          <span>Zero training on your data</span>
-          <span>27+ connectors</span>
+          <span class="g-trust-pill">SOC 2 Type II</span>
+          <span class="g-trust-pill">SSO / SAML</span>
+          <span class="g-trust-pill">Zero training on your data</span>
         </div>
       </div>
 
       <div class="g-demo-stage">
         <div class="g-demo-glow" aria-hidden="true"></div>
         <div class="g-demo-wrap">
-          <p class="g-demo-label"><span class="g-demo-pulse"></span> Interactive workspace preview</p>
+          <p class="g-demo-label"><span class="g-demo-pulse"></span> Live agent workspace</p>
           <div id="hero-generative-root" class="g-demo-widget-root" aria-label="AtlaSynq generative workspace demo"></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="g-value-bar" aria-label="Platform highlights">
+    <div class="container g-value-bar-inner">
+      <article class="g-value-item">
+        <span class="g-value-icon" aria-hidden="true">01</span>
+        <div>
+          <h3>Pick any model per team</h3>
+          <p>GPT, Claude, Gemini, or Llama — routed with the same governance layer.</p>
+        </div>
+      </article>
+      <article class="g-value-item">
+        <span class="g-value-icon" aria-hidden="true">02</span>
+        <div>
+          <h3>Generative UI, not plain text</h3>
+          <p>Dashboards, pipeline cards, and approvals render inside the thread.</p>
+        </div>
+      </article>
+      <article class="g-value-item">
+        <span class="g-value-icon" aria-hidden="true">03</span>
+        <div>
+          <h3>Security can sign off</h3>
+          <p>Role policies, citations, and human-in-the-loop before writes.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -127,6 +167,35 @@
     </div>
   </section>
 
+  <section class="g-contrast" aria-label="Why governed agents">
+    <div class="container">
+      <div class="g-section-head g-section-head--center">
+        <h2>Stop choosing between speed and control</h2>
+        <p>Shadow AI gets work done fast — until compliance asks where the data went. AtlaSynq gives teams both.</p>
+      </div>
+      <div class="g-contrast-grid">
+        <div class="g-contrast-col g-contrast-col--before">
+          <h3>Without governance</h3>
+          <ul>
+            <li>Reps paste CRM exports into public chatbots</li>
+            <li>No record of who queried what</li>
+            <li>Finance and HR data mixed in one thread</li>
+            <li>Write actions with no approval step</li>
+          </ul>
+        </div>
+        <div class="g-contrast-col g-contrast-col--after">
+          <h3>With AtlaSynq</h3>
+          <ul>
+            <li>Agents query Salesforce and Jira in place</li>
+            <li>Full audit log on every tool call</li>
+            <li>Department-scoped RBAC by default</li>
+            <li>Human approval before any write</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="g-how" aria-label="How AtlaSynq works">
     <div class="container">
       <div class="g-section-head g-section-head--center">
@@ -136,18 +205,18 @@
       <div class="g-how-grid">
         <article class="g-how-step">
           <div class="g-how-num">01</div>
-          <h3>Connect your tools</h3>
-          <p>OAuth into Salesforce, Jira, Slack, NetSuite, and 27+ MCP connectors. Each integration inherits your existing permissions.</p>
+          <h3>Connect your stack</h3>
+          <p>OAuth into Salesforce, Jira, Slack, NetSuite, and 27+ MCP connectors. Permissions inherit from the tools you already use.</p>
         </article>
         <article class="g-how-step">
           <div class="g-how-num">02</div>
-          <h3>Define role policies</h3>
-          <p>Scope each agent to a department — Sales cannot reach HR data, Finance cannot query engineering repos. RBAC enforced on every query.</p>
+          <h3>Scope by department</h3>
+          <p>Sales cannot reach HR data. Finance cannot query engineering repos. Each agent gets only what that role owns.</p>
         </article>
         <article class="g-how-step">
           <div class="g-how-num">03</div>
-          <h3>Deploy with citations</h3>
-          <p>Answers cite source records. Write actions queue for human approval. Full audit trail for compliance and security reviews.</p>
+          <h3>Ship with citations</h3>
+          <p>Answers link to source records. Writes queue for approval. Compliance gets a trail they can actually audit.</p>
         </article>
       </div>
     </div>
@@ -161,16 +230,19 @@
       </div>
       <div class="g-use-grid">
         <div class="g-use-card">
+          <span class="g-use-icon" aria-hidden="true">$</span>
           <h3>Sales &amp; revenue</h3>
           <p>Pipeline risk, account briefs, and next-step drafts from CRM and call intel — without exposing finance or HR data.</p>
           <div class="g-use-tools"><span>Salesforce</span><span>HubSpot</span><span>Gong</span><span>Slack</span></div>
         </div>
         <div class="g-use-card">
+          <span class="g-use-icon" aria-hidden="true">%</span>
           <h3>Finance &amp; ops</h3>
           <p>Runway, vendor lookups, and variance explanations with citations from ERP and billing — scoped to what finance can access.</p>
           <div class="g-use-tools"><span>NetSuite</span><span>QuickBooks</span><span>Stripe</span><span>Excel</span></div>
         </div>
         <div class="g-use-card">
+          <span class="g-use-icon" aria-hidden="true">&lt;/&gt;</span>
           <h3>Engineering</h3>
           <p>Release blockers, incident context, and PR summaries from Jira and GitHub — limited to repos and projects the role owns.</p>
           <div class="g-use-tools"><span>Jira</span><span>GitHub</span><span>Linear</span><span>Datadog</span></div>
@@ -287,7 +359,7 @@
   </div>
 </div>
 
-<script type="module" src="/js/hero-widget/hero-widget.js?v=20260721c"></script>
-<script src="/js/site-demos.js?v=20260721c" defer></script>
+<script type="module" src="/js/hero-widget/hero-widget.js?v=20260724a"></script>
+<script src="/js/site-demos.js?v=20260724a" defer></script>
 </body>
 </html>
