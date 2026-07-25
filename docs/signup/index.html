@@ -823,6 +823,51 @@
         }
         if (btnMicrosoftSignup) btnMicrosoftSignup.href = CP_BASE + '/api/cp/oauth/microsoft/start' + sq;
 
+        var _inviteToken = null;
+        try { _inviteToken = new URLSearchParams(location.search).get('invite'); } catch (e) {}
+
+        function lockSignupWithoutInvite() {
+          var headline = document.getElementById('signupHeadline');
+          var subtext = document.getElementById('signupSubtext');
+          var formEl = document.getElementById('signupForm');
+          var oauth = document.querySelector('.oauth-btns');
+          var msg = document.getElementById('signupMsg');
+          if (headline) headline.textContent = 'Invite only';
+          if (subtext) subtext.textContent = 'AtlaSynq accounts are invite-only. Ask your admin for an invite link, or book a demo.';
+          if (formEl) formEl.style.display = 'none';
+          if (oauth) oauth.style.display = 'none';
+          if (msg) {
+            msg.textContent = 'Need access? Ask an AtlaSynq admin to invite you, or book a demo.';
+            msg.className = '';
+            msg.style.display = 'block';
+          }
+        }
+
+        fetch(CP_BASE + '/api/cp/public/auth-config')
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(cfg) {
+            if (cfg && cfg.invite_only_signup && !_inviteToken) lockSignupWithoutInvite();
+          })
+          .catch(function() {});
+
+        if (_inviteToken) {
+          fetch(CP_BASE + '/api/cp/invitations/resolve?token=' + encodeURIComponent(_inviteToken))
+            .then(function(r) { return r.ok ? r.json() : null; })
+            .then(function(inv) {
+              if (!inv || !inv.email) return;
+              var emailEl = document.getElementById('email');
+              if (emailEl) {
+                emailEl.value = inv.email;
+                emailEl.setAttribute('readonly', 'readonly');
+              }
+              var headline = document.getElementById('signupHeadline');
+              var subtext = document.getElementById('signupSubtext');
+              if (headline) headline.textContent = "You're invited!";
+              if (subtext) subtext.textContent = 'Complete your account to join AtlaSynq.';
+            })
+            .catch(function() {});
+        }
+
         const msgEl = document.getElementById('signupMsg');
         const form = document.getElementById('signupForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -856,12 +901,14 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Creating account...';
             try {
+              var payload = { full_name: fullName, email: email, password: password };
+              if (_inviteToken) payload.invite_token = _inviteToken;
               const r = await fetch(CP_BASE + '/api/cp/signup', {
                 method: 'POST',
                 mode: 'cors',
                 credentials: 'omit',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ full_name: fullName, email, password }),
+                body: JSON.stringify(payload),
               });
               const data = await r.json().catch(function() { return {}; });
               if (r.ok && data.access_token) {
@@ -874,13 +921,16 @@
                 setMsg('Account created! Check your email for a verification code.', 'success');
                 setTimeout(function() {
                   var _vBase = (location.hostname === 'www.atlasynq.com' || location.hostname === 'atlasynq.com') ? '/verify/' : '/verify.html';
-                  window.location.href = _vBase + '?email=' + encodeURIComponent(email) + '&next=/onboarding/';
+                  var verifyUrl = _vBase + '?email=' + encodeURIComponent(email) + '&next=/onboarding/';
+                  if (_inviteToken) verifyUrl += '&invite=' + encodeURIComponent(_inviteToken);
+                  window.location.href = verifyUrl;
                 }, 1200);
                 return;
               }
-              const detail = typeof data.detail === 'string' ? data.detail
+              var detail = typeof data.detail === 'string' ? data.detail
                 : (Array.isArray(data.detail) && data.detail[0] && data.detail[0].msg) ? data.detail[0].msg
                 : 'Signup failed';
+              if (detail === 'invitation_required') detail = 'Signup is invite-only. Use your invite link or ask an admin.';
               setMsg(detail, 'error');
             } catch (err) {
               setMsg('Network error. Please try again.', 'error');
