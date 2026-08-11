@@ -1,31 +1,27 @@
 <!DOCTYPE html>
-<html class="page-home" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtlaSynq — Governed AI agents for your enterprise stack</title>
-  <meta name="description" content="Give Sales, Finance, and Engineering role-scoped AI agents over Salesforce, Jira, NetSuite, and 27+ tools. Any LLM. RBAC on every query. Citations and approval before writes.">
+  <title>AtlaSynq — We bring the customers. You take care of the rest.</title>
+  <meta name="description" content="AtlaSynq is the AI operating system for growing businesses. Ads, SMS, booking, and reputation in one workspace — so your team can focus on the work that matters.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.atlasynq.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.atlasynq.com/">
-  <meta property="og:title" content="AtlaSynq — Governed AI agents for your enterprise stack">
-  <meta property="og:description" content="Role-scoped agents over your tools. Pick GPT, Claude, Gemini, or Llama per team — with governance built in.">
-  <meta property="og:image" content="https://www.atlasynq.com/images/blog-roi.svg?v=20260719c">
+  <meta property="og:title" content="AtlaSynq — We bring the customers. You take care of the rest.">
+  <meta property="og:description" content="Ads, leads, calendar, automations, and reviews in one AI operating system. AtlaSynq brings the customers — you take care of the rest.">
+  <meta property="og:image" content="https://www.atlasynq.com/images/icon.png?v=20260811a">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260718f">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260718f">
-  <link rel="icon" type="image/png" sizes="96x96" href="/images/icon.png?v=20260718f">
-  <link rel="apple-touch-icon" href="/images/icon.png?v=20260718f">
+  <meta name="twitter:title" content="AtlaSynq — We bring the customers. You take care of the rest.">
+  <meta name="twitter:description" content="Ads, leads, calendar, automations, and reviews in one AI operating system.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260811a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260811a">
+  <link rel="apple-touch-icon" href="/images/icon.png?v=20260811a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/clay-marketing.css?v=20260724a">
-  <link rel="stylesheet" href="/css/pages.css?v=20260724a">
-  <link rel="stylesheet" href="/css/growth.css?v=20260724a">
-  <link rel="stylesheet" href="/css/product-mock.css?v=20260724a">
-  <link rel="stylesheet" href="/css/blog.css?v=20260724a">
-  <link rel="stylesheet" href="/js/hero-widget/hero-widget.css?v=20260724d">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/crm-home.css?v=20260811a">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHR1VRHF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,332 +30,401 @@
     gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied' });
     gtag('config', 'G-JXPHR1VRHF');
   </script>
-  <style>
-    body { background: var(--g-paper, #FAFBFC); }
-    .nav-login { font-size: 0.86rem; font-weight: 500; color: var(--g-body); text-decoration: none; padding: 8px 12px; }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AtlaSynq",
+    "url": "https://www.atlasynq.com/",
+    "logo": "https://www.atlasynq.com/images/icon.png",
+    "description": "The AI operating system for growing businesses that sell appointments."
+  }
+  </script>
 </head>
-<body>
+<body class="crm-home">
 
-<header class="site-header" role="banner">
-  <nav class="container nav-inner" aria-label="Main navigation">
-    <a href="/" class="nav-logo" aria-label="AtlaSynq home">
-      <img src="/images/atlasynq-logo.svg?v=20260718f" alt="AtlaSynq" height="30">
-      
+<header class="crm-header" id="siteHeader" role="banner">
+  <div class="crm-header-inner">
+    <a href="/" class="crm-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg?v=20260811a" alt="AtlaSynq">
     </a>
-    <ul class="nav-links" role="list">
-      <li><a href="/features/">Product</a></li>
-      <li><a href="/integrations/">Integrations</a></li>
-      <li><a href="/pricing/">Pricing</a></li>
-      <li><a href="/blog/">Insights</a></li>
-      <li><a href="/security/">Security</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="/login/" class="nav-login">Log in</a>
-      <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" style="padding:9px 18px;font-size:0.86rem;" target="_blank" rel="noopener">Book a demo</a>
+    <nav class="crm-nav" aria-label="Main">
+      <a href="/features/">Product</a>
+      <a href="#how-we-work">How it works</a>
+      <a href="/blog/">Insights</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/integrations/">Integrations</a>
+    </nav>
+    <div class="crm-header-actions" aria-label="Account">
+      <a class="crm-btn crm-btn-ghost" href="/login/">Sign in</a>
+      <a class="crm-btn crm-btn-white" href="/signup/">Sign up</a>
     </div>
-    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <button class="crm-hamburger" id="openMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
-  </nav>
+  </div>
 </header>
 
-<div class="mobile-menu-overlay" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="mobile-menu-panel">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;">
-      <a href="/" class="nav-logo">
-        <img src="/images/atlasynq-logo.svg?v=20260718f" alt="AtlaSynq" height="26">
-        
-      </a>
-      <button id="closeMobileMenu" aria-label="Close menu" style="background:var(--clay-elevated);border:1px solid var(--clay-border);border-radius:6px;width:36px;height:36px;font-size:1.1rem;cursor:pointer;">&#x2715;</button>
-    </div>
-    <a href="/features/">Product</a>
-    <a href="/integrations/">Integrations</a>
-    <a href="/pricing/">Pricing</a>
-    <a href="/blog/">Insights</a>
-    <a href="/security/">Security</a>
-    <div style="height:1px;background:var(--clay-border-soft);margin:0.5rem 0;"></div>
-    <a href="/login/">Log in</a>
-    <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
+<div class="crm-mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+  <div class="crm-mobile-top">
+    <a href="/" class="crm-logo" aria-label="AtlaSynq home">
+      <img src="/images/atlasynq-logo.svg?v=20260811a" alt="AtlaSynq" height="26">
+    </a>
+    <button class="crm-mobile-close" id="closeMenu" type="button" aria-label="Close menu">✕</button>
   </div>
+  <a href="/features/">Product</a>
+  <a href="#how-we-work">How it works</a>
+  <a href="/blog/">Insights</a>
+  <a href="/pricing/">Pricing</a>
+  <a href="/integrations/">Integrations</a>
+  <a href="/login/">Sign in</a>
+  <a href="/signup/">Sign up</a>
+  <a href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
 </div>
 
 <main>
-  <section class="g-hero g-hero--split" id="hero">
-    <div class="g-hero-grid-bg" aria-hidden="true"></div>
-    <div class="container g-hero-split">
-      <div class="g-hero-copy">
-        <p class="g-hero-kicker">Enterprise agent platform</p>
-        <h1>Your stack. Your rules. <span class="g-hero-accent">Agents that stay in bounds.</span></h1>
-        <p class="g-hero-lead">Deploy scoped agents for Sales, Finance, and Engineering over Salesforce, Jira, Slack, and 27+ tools — RBAC on every query, citations on every answer, approval before anything writes back.</p>
-        <div class="g-hero-proof">
-          <div class="g-hero-proof-item">
-            <strong>12+ hrs</strong>
-            <span>reclaimed per person / week</span>
-          </div>
-          <div class="g-hero-proof-item">
-            <strong>27+</strong>
-            <span>MCP connectors</span>
-          </div>
-          <div class="g-hero-proof-item">
-            <strong>100%</strong>
-            <span>audit trail on queries</span>
-          </div>
-        </div>
-        <div class="g-hero-actions">
-          <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a 30-min walkthrough</a>
-          <a href="/signup/" class="clay-btn clay-btn-outline">Start building free</a>
-        </div>
-        <div class="g-trust-row">
-          <span class="g-trust-pill">SOC 2 Type II</span>
-          <span class="g-trust-pill">SSO / SAML</span>
-          <span class="g-trust-pill">Zero training on your data</span>
-        </div>
+  <section class="crm-hero" id="hero">
+    <div class="crm-hero-bg" aria-hidden="true"></div>
+    <div class="crm-hero-grid" aria-hidden="true"></div>
+    <div class="crm-hero-copy">
+      <p class="crm-kicker">AtlaSynq</p>
+      <h1>Your AI operating system<br>for booked appointments.</h1>
+      <p class="crm-hero-lead">
+        Ads, inbox, SMS, and booking in one workspace — so dream clients get answered in minutes,
+        and your team only steps in when a human should.
+      </p>
+      <div class="crm-hero-actions">
+        <a class="crm-btn crm-btn-white crm-btn-lg" href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo →</a>
+        <a class="crm-btn crm-btn-outline-light crm-btn-lg" href="#live-demo">See how it books</a>
       </div>
+      <p class="crm-hero-note">Built for clinics, med spas, and service businesses that sell appointments.</p>
+    </div>
 
-      <div class="g-demo-stage">
-        <div class="g-demo-glow" aria-hidden="true"></div>
-        <div class="g-demo-wrap">
-          <p class="g-demo-label"><span class="g-demo-pulse"></span> Live agent workspace</p>
-          <div id="hero-generative-root" class="g-demo-widget-root" aria-label="AtlaSynq generative workspace demo"></div>
+    <div class="crm-hero-stage" id="live-demo">
+      <div class="crm-workspace" aria-label="AtlaSynq workspace preview">
+        <div class="crm-workspace-bar">
+          <span>AtlaSynq workspace</span>
+          <span class="crm-live">Live preview</span>
+        </div>
+        <div class="crm-workspace-body">
+          <aside class="crm-pane">
+            <p class="crm-pane-label">Today</p>
+            <span class="crm-side-item is-active">Home</span>
+            <span class="crm-side-item">Inbox</span>
+            <span class="crm-side-item">Leads</span>
+            <span class="crm-side-item">Calendar</span>
+            <span class="crm-side-item">Marketing</span>
+          </aside>
+          <div class="crm-pane">
+            <div class="crm-chat-title">
+              <strong>Jessica · New lead</strong>
+              <span class="crm-badge">Human review</span>
+            </div>
+            <div class="crm-bubble crm-bubble-in">Yes! Do you have anything next week in the morning?</div>
+            <div class="crm-bubble crm-bubble-out">We have Tue 9:30 AM or Wed 10:00 AM. Which works better?</div>
+            <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;">
+              <span class="crm-btn crm-btn-white" style="padding:0.55rem 0.9rem;font-size:0.82rem;">Send times</span>
+              <span style="font-size:0.75rem;color:hsl(0 0% 100% / 0.45);">Botox · $1,250 · SMS</span>
+            </div>
+          </div>
+          <aside class="crm-pane">
+            <p class="crm-pane-label">Connected</p>
+            <div class="crm-tool"><span>Meta Ads</span><span class="crm-dot" aria-hidden="true"></span></div>
+            <div class="crm-tool"><span>Google Calendar</span><span class="crm-dot" aria-hidden="true"></span></div>
+            <div class="crm-tool"><span>SMS</span><span class="crm-dot" aria-hidden="true"></span></div>
+            <div class="crm-tool"><span>Reviews</span><span class="crm-dot" aria-hidden="true"></span></div>
+          </aside>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="g-value-bar" aria-label="Platform highlights">
-    <div class="container g-value-bar-inner">
-      <article class="g-value-item">
-        <span class="g-value-icon" aria-hidden="true">01</span>
-        <div>
-          <h3>Pick any model per team</h3>
-          <p>GPT, Claude, Gemini, or Llama — routed with the same governance layer.</p>
-        </div>
-      </article>
-      <article class="g-value-item">
-        <span class="g-value-icon" aria-hidden="true">02</span>
-        <div>
-          <h3>Generative UI, not plain text</h3>
-          <p>Dashboards, pipeline cards, and approvals render inside the thread.</p>
-        </div>
-      </article>
-      <article class="g-value-item">
-        <span class="g-value-icon" aria-hidden="true">03</span>
-        <div>
-          <h3>Security can sign off</h3>
-          <p>Role policies, citations, and human-in-the-loop before writes.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="g-logos" aria-label="Integrations">
-    <div class="container g-logos-inner">
-      <div class="g-logos-label">Connects to</div>
-      <img src="/images/salesforce.png" alt="Salesforce" height="22">
-      <img src="/images/slack.png" alt="Slack" height="22">
-      <img src="/images/jira.png" alt="Jira" height="22">
-      <img src="/images/hubspot.png" alt="HubSpot" height="28">
-      <img src="/images/netsuite.png" alt="NetSuite" height="22">
-      <img src="/images/notion.png" alt="Notion" height="22">
-      <img src="/images/github.jpg" alt="GitHub" height="22">
-      <a href="/integrations/" style="font-size:0.8rem;font-weight:600;color:var(--g-muted);">View all connectors →</a>
-    </div>
-  </section>
-
-  <section class="g-contrast" aria-label="Why governed agents">
-    <div class="container">
-      <div class="g-section-head g-section-head--center">
-        <h2>Stop choosing between speed and control</h2>
-        <p>Shadow AI gets work done fast — until compliance asks where the data went. AtlaSynq gives teams both.</p>
+  <section class="crm-proof" aria-label="Product outcomes">
+    <div class="crm-proof-grid">
+      <div class="crm-proof-item">
+        <p class="crm-proof-value">248</p>
+        <p class="crm-proof-label">New leads / week</p>
+        <p class="crm-proof-hint">From ads, site, and SMS</p>
       </div>
-      <div class="g-contrast-grid">
-        <div class="g-contrast-col g-contrast-col--before">
-          <h3>Without governance</h3>
-          <ul>
-            <li>Reps paste CRM exports into public chatbots</li>
-            <li>No record of who queried what</li>
-            <li>Finance and HR data mixed in one thread</li>
-            <li>Write actions with no approval step</li>
+      <div class="crm-proof-item">
+        <p class="crm-proof-value">18m</p>
+        <p class="crm-proof-label">Avg. first response</p>
+        <p class="crm-proof-hint">AI answers while you treat</p>
+      </div>
+      <div class="crm-proof-item">
+        <p class="crm-proof-value">34</p>
+        <p class="crm-proof-label">Appointments booked</p>
+        <p class="crm-proof-hint">Straight into your calendar</p>
+      </div>
+      <div class="crm-proof-item">
+        <p class="crm-proof-value">4.2x</p>
+        <p class="crm-proof-label">Top campaign ROI</p>
+        <p class="crm-proof-hint">Attributed to real bookings</p>
+      </div>
+    </div>
+    <p class="crm-proof-note">Illustrative sample from the live product preview — your numbers, your market.</p>
+  </section>
+
+  <section class="crm-section" id="money-moment">
+    <div class="crm-wrap crm-split">
+      <div>
+        <p class="crm-label">The money moment</p>
+        <h2>AtlaSynq recommends.<br>You approve. They book.</h2>
+        <p class="crm-section-lead">
+          When a lead replies about pricing, AtlaSynq drafts the next move — send open times,
+          lock the slot, keep spend and outreach under your control.
+        </p>
+        <ul class="crm-list">
+          <li><span class="crm-list-icon">1</span><span>SMS thread stays in the lead panel — no tool-hopping.</span></li>
+          <li><span class="crm-list-icon">2</span><span>Human Review catches edge cases before anything goes live.</span></li>
+        </ul>
+        <div style="margin-top:1.75rem;">
+          <a class="crm-btn crm-btn-primary crm-btn-lg" href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">See it on a walkthrough →</a>
+        </div>
+      </div>
+      <article class="crm-card-dark" aria-label="Recommendation preview">
+        <p class="crm-pane-label" style="color:hsl(0 0% 100% / 0.55);">AtlaSynq recommends</p>
+        <h3>Jessica replied via SMS about Botox pricing. Send morning times to lock the booking.</h3>
+        <div style="margin-top:1.1rem;">
+          <div class="crm-bubble crm-bubble-in">Yes! Do you have anything next week in the morning?</div>
+          <div class="crm-bubble crm-bubble-out">We have Tue 9:30 AM or Wed 10:00 AM. Which works better?</div>
+        </div>
+        <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;">
+          <span class="crm-btn crm-btn-white" style="padding:0.55rem 0.9rem;font-size:0.82rem;">Send times</span>
+          <span style="font-size:0.75rem;color:hsl(0 0% 100% / 0.45);">Botox · $1,250 · New Lead</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="crm-section crm-section-muted" id="operating-system">
+    <div class="crm-wrap crm-center">
+      <p class="crm-label">Operating system</p>
+      <h2>Work. Grow. Automate.</h2>
+      <p class="crm-section-lead">One workspace for the day-to-day, demand generation, and AI that waits for your yes.</p>
+      <div class="crm-pillars">
+        <article class="crm-pillar">
+          <p class="crm-label">Work</p>
+          <h3>Run the day from one queue</h3>
+          <p>Home, Inbox, Leads, and Calendar — the same IA your team opens every morning.</p>
+          <ul class="crm-modules">
+            <li>Home <span>— next actions</span></li>
+            <li>Inbox <span>— approvals &amp; replies</span></li>
+            <li>Leads <span>— pipeline + SMS</span></li>
+            <li>Calendar <span>— real slots</span></li>
           </ul>
-        </div>
-        <div class="g-contrast-col g-contrast-col--after">
-          <h3>With AtlaSynq</h3>
-          <ul>
-            <li>Agents query Salesforce and Jira in place</li>
-            <li>Full audit log on every tool call</li>
-            <li>Department-scoped RBAC by default</li>
-            <li>Human approval before any write</li>
+        </article>
+        <article class="crm-pillar">
+          <p class="crm-label">Grow</p>
+          <h3>Fill the book on purpose</h3>
+          <p>Marketing, Website, Reputation, and Commerce — demand tied to booked revenue.</p>
+          <ul class="crm-modules">
+            <li>Marketing <span>— Meta &amp; Google ROI</span></li>
+            <li>Website <span>— SEO &amp; AEO</span></li>
+            <li>Reputation <span>— review asks</span></li>
+            <li>Commerce <span>— deposits</span></li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="g-how" aria-label="How AtlaSynq works">
-    <div class="container">
-      <div class="g-section-head g-section-head--center">
-        <h2>From connectors to governed agents in three steps</h2>
-        <p>No rip-and-replace. Plug into your stack, set role policies, and ship department agents your security team can audit.</p>
-      </div>
-      <div class="g-how-grid">
-        <article class="g-how-step">
-          <div class="g-how-num">01</div>
-          <h3>Connect your stack</h3>
-          <p>OAuth into Salesforce, Jira, Slack, NetSuite, and 27+ MCP connectors. Permissions inherit from the tools you already use.</p>
         </article>
-        <article class="g-how-step">
-          <div class="g-how-num">02</div>
-          <h3>Scope by department</h3>
-          <p>Sales cannot reach HR data. Finance cannot query engineering repos. Each agent gets only what that role owns.</p>
-        </article>
-        <article class="g-how-step">
-          <div class="g-how-num">03</div>
-          <h3>Ship with citations</h3>
-          <p>Answers link to source records. Writes queue for approval. Compliance gets a trail they can actually audit.</p>
+        <article class="crm-pillar">
+          <p class="crm-label">Automate</p>
+          <h3>AI that waits for your yes</h3>
+          <p>AI Employee, Automations, and Integrations — work happens after you approve.</p>
+          <ul class="crm-modules">
+            <li>AI Employee <span>— drafts &amp; actions</span></li>
+            <li>Automations <span>— follow-ups</span></li>
+            <li>Integrations <span>— your stack</span></li>
+            <li>Approvals <span>— spend control</span></li>
+          </ul>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="g-usecases">
-    <div class="container">
-      <div class="g-section-head">
-        <h2>Built for how departments actually work</h2>
-        <p>Scoped agents with the tools and models each team needs — not a generic chatbot.</p>
-      </div>
-      <div class="g-use-grid">
-        <div class="g-use-card">
-          <span class="g-use-icon" aria-hidden="true">$</span>
-          <h3>Sales &amp; revenue</h3>
-          <p>Pipeline risk, account briefs, and next-step drafts from CRM and call intel — without exposing finance or HR data.</p>
-          <div class="g-use-tools"><span>Salesforce</span><span>HubSpot</span><span>Gong</span><span>Slack</span></div>
-        </div>
-        <div class="g-use-card">
-          <span class="g-use-icon" aria-hidden="true">%</span>
-          <h3>Finance &amp; ops</h3>
-          <p>Runway, vendor lookups, and variance explanations with citations from ERP and billing — scoped to what finance can access.</p>
-          <div class="g-use-tools"><span>NetSuite</span><span>QuickBooks</span><span>Stripe</span><span>Excel</span></div>
-        </div>
-        <div class="g-use-card">
-          <span class="g-use-icon" aria-hidden="true">&lt;/&gt;</span>
-          <h3>Engineering</h3>
-          <p>Release blockers, incident context, and PR summaries from Jira and GitHub — limited to repos and projects the role owns.</p>
-          <div class="g-use-tools"><span>Jira</span><span>GitHub</span><span>Linear</span><span>Datadog</span></div>
-        </div>
+  <section class="crm-section crm-section-muted" style="padding:0;border-bottom:1px solid var(--line);">
+    <div class="crm-cta-band crm-wrap">
+      <h2>Ready to fill the book without living in the inbox?</h2>
+      <p>See AtlaSynq run ads, lead response, and booking for your business — then decide with your team.</p>
+      <div class="crm-cta-actions">
+        <a class="crm-btn crm-btn-primary crm-btn-lg" href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
+        <a class="crm-btn crm-btn-outline crm-btn-lg" href="/pricing/">See pricing</a>
       </div>
     </div>
   </section>
 
-  <section class="g-insights" aria-label="Insights and blog">
-    <div class="container">
-      <div class="g-insights-head">
-        <div class="g-section-head" style="margin:0;">
-          <h2>Insights for ops, revenue &amp; security leaders</h2>
-          <p>Guides on AI governance, ROI math, and winning citations in the age of answer engines.</p>
-        </div>
-        <a href="/blog/" class="g-insights-link">All articles →</a>
-      </div>
-      <div class="blog-grid">
-        <a href="/blog/governed-ai-agents-roi/" class="blog-card">
-          <div class="blog-card__thumb"><img src="/images/blog-roi.svg?v=20260719c" alt="" loading="lazy" width="640" height="360"></div>
-          <div class="blog-card__body">
-            <div class="blog-card__tag">ROI &amp; Productivity</div>
-            <h3 class="blog-card__title">The ROI of governed AI agents: how teams save 12+ hours per week</h3>
-            <p class="blog-card__excerpt">Shadow AI costs enterprises thousands per employee. Here is the math on governed agents with RBAC, audit trails, and compounding time savings.</p>
-            <div class="blog-card__footer"><span>Jul 1, 2026 · 7 min read</span><span class="blog-card__read">Read article →</span></div>
-          </div>
-        </a>
-        <a href="/blog/what-is-ai-governance/" class="blog-card">
-          <div class="blog-card__thumb"><img src="/images/blog-governance.svg?v=20260719c" alt="" loading="lazy" width="640" height="360"></div>
-          <div class="blog-card__body">
-            <div class="blog-card__tag">AI Governance</div>
-            <h3 class="blog-card__title">What is AI governance? A practical enterprise guide</h3>
-            <p class="blog-card__excerpt">RBAC, audit trails, human-in-the-loop controls — and how AtlaSynq compares to ChatGPT Enterprise.</p>
-            <div class="blog-card__footer"><span>Jun 20 · 6 min read</span><span class="blog-card__read">Read article →</span></div>
-          </div>
-        </a>
-        <a href="/blog/aeo-for-b2b-saas/" class="blog-card">
-          <div class="blog-card__thumb"><img src="/images/blog-aeo.svg?v=20260719c" alt="" loading="lazy" width="640" height="360"></div>
-          <div class="blog-card__body">
-            <div class="blog-card__tag">AEO Strategy</div>
-            <h3 class="blog-card__title">Answer engine optimization for B2B SaaS</h3>
-            <p class="blog-card__excerpt">How structured answers and schema markup help products get cited by AI assistants — not buried in blue links.</p>
-            <div class="blog-card__footer"><span>Jun 10 · 5 min read</span><span class="blog-card__read">Read article →</span></div>
-          </div>
-        </a>
+  <section class="crm-section" id="how-we-work">
+    <div class="crm-wrap crm-center">
+      <p class="crm-label">How it works</p>
+      <h2>Ask. Act. Approve.</h2>
+      <p class="crm-section-lead">AtlaSynq does the chase. You stay in control of anything that costs money or goes public.</p>
+      <div class="crm-steps">
+        <article class="crm-step">
+          <p class="crm-step-num">01</p>
+          <h3>Ask in plain language</h3>
+          <p>Talk to AtlaSynq like a sharp ops manager — not a report builder.</p>
+          <p class="crm-step-example">"Which campaign booked the most appointments this month?"</p>
+        </article>
+        <article class="crm-step">
+          <p class="crm-step-num">02</p>
+          <h3>AtlaSynq prepares the move</h3>
+          <p>It drafts campaigns, SMS follow-ups, budget shifts, and booking times from your live data.</p>
+          <p class="crm-step-example">Jessica asked about pricing — Send times is ready in the lead panel.</p>
+        </article>
+        <article class="crm-step">
+          <p class="crm-step-num">03</p>
+          <h3>You approve what matters</h3>
+          <p>Spend, publishing, and mass outreach need your sign-off. Nothing costly goes live without you.</p>
+          <p class="crm-step-example">Approve, edit, or decline — before money or messages move.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="g-close">
-    <div class="container">
-      <div class="g-close-grid">
-        <div class="g-close-stat">
-          <div class="g-roi-stat">12<span>+</span> hrs</div>
-          <p>Average weekly time reclaimed per team member when research moves from manual tool-hopping to governed agents.</p>
-          <div class="g-close-actions">
-            <a href="/roi/" class="clay-btn clay-btn-primary">Run your ROI estimate</a>
-            <a href="/pricing/" class="clay-btn clay-btn-ghost">See pricing</a>
-          </div>
-        </div>
-        <div class="g-close-cta">
-          <h2>See it on your stack in 30 minutes</h2>
-          <p>Your tools, your roles, your model preferences. We walk through a live agent on Salesforce, Jira, or NetSuite — whatever you run today.</p>
-          <div class="g-close-actions">
-            <a href="https://calendly.com/idanl-atlasynq/30min" class="clay-btn clay-btn-primary" target="_blank" rel="noopener">Book a demo</a>
-            <a href="/blog/" class="clay-btn clay-btn-ghost">Read insights</a>
-          </div>
-        </div>
+  <section class="crm-section crm-section-muted">
+    <div class="crm-wrap crm-center">
+      <p class="crm-label">Integrations</p>
+      <h2>Connect the channels you already pay for</h2>
+      <p class="crm-section-lead">Ads, calendar, SMS, reviews, and payments — one growth loop with you approving what spends money.</p>
+      <div class="crm-cta-actions">
+        <a class="crm-btn crm-btn-primary crm-btn-lg" href="/integrations/">Browse integrations →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section" id="faq">
+    <div class="crm-wrap crm-center">
+      <p class="crm-label">FAQ</p>
+      <h2>Questions teams ask first</h2>
+      <div class="crm-faq">
+        <details open>
+          <summary>What is AtlaSynq?</summary>
+          <p>AtlaSynq is the AI operating system for growing businesses. We bring customers through ads, SEO, and outreach — then answer, qualify, book, and follow up — so your team can focus on the work that matters.</p>
+        </details>
+        <details>
+          <summary>Who is AtlaSynq built for?</summary>
+          <p>Growing businesses that want more booked customers without hiring a full marketing ops team — from service businesses and clinics to multi-location operators.</p>
+        </details>
+        <details>
+          <summary>Will AtlaSynq spend my ad budget without approval?</summary>
+          <p>No. Campaign changes, budget shifts, and publishing stay under your control. Configure approval thresholds so automation never becomes a black box.</p>
+        </details>
+        <details>
+          <summary>How fast can we go live?</summary>
+          <p>Most teams connect ads, calendar, and SMS in the first onboarding sessions. We walk through your lead flow on the demo and map a rollout that matches your team.</p>
+        </details>
+        <details>
+          <summary>Can I try it before buying?</summary>
+          <p>Yes — explore the live product preview on this page, then book a demo for a walkthrough with your real lead flow and calendar.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="crm-section crm-section-dark" style="border-bottom:0;">
+    <div class="crm-cta-band crm-wrap">
+      <h2>Put the workspace in front of your team.</h2>
+      <p>Book a 30-minute walkthrough. We'll map AtlaSynq to your lead flow, calendar, and ad accounts — then leave you with a clear next step.</p>
+      <div class="crm-cta-actions">
+        <a class="crm-btn crm-btn-white crm-btn-lg" href="https://calendly.com/idanl-atlasynq/30min" target="_blank" rel="noopener">Book a demo</a>
+        <a class="crm-btn crm-btn-outline-light crm-btn-lg" href="#live-demo">Click the live workspace</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo" style="margin-bottom:0.65rem;">
-          <img src="/images/atlasynq-logo.svg?v=20260718f" alt="AtlaSynq" height="26">
-          
+<footer class="crm-footer" role="contentinfo">
+  <div class="crm-wrap">
+    <div class="crm-footer-grid">
+      <div class="crm-footer-brand">
+        <a href="/" class="crm-logo" aria-label="AtlaSynq home">
+          <img src="/images/atlasynq-logo.svg?v=20260811a" alt="AtlaSynq" height="26">
         </a>
-        <p>Governed department agents over your enterprise stack.</p>
+        <p>We bring the customers. You take care of the rest.</p>
       </div>
       <div>
         <h4>Product</h4>
-        <a href="/features/" class="footer-link">Features</a>
-        <a href="/integrations/" class="footer-link">Integrations</a>
-        <a href="/pricing/" class="footer-link">Pricing</a>
-        <a href="/security/" class="footer-link">Security</a>
+        <a href="/features/">Features</a>
+        <a href="/integrations/">Integrations</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="/security/">Security</a>
       </div>
       <div>
         <h4>Resources</h4>
-        <a href="/blog/" class="footer-link">Insights</a>
-        <a href="/roi/" class="footer-link">ROI calculator</a>
-        <a href="/updates/" class="footer-link">Product updates</a>
-        <a href="/about/" class="footer-link">About</a>
+        <a href="/blog/">Insights</a>
+        <a href="/roi/">ROI calculator</a>
+        <a href="/updates/">Product updates</a>
+        <a href="/about/">About</a>
       </div>
       <div>
         <h4>Legal</h4>
-        <a href="/privacy/" class="footer-link">Privacy</a>
-        <a href="/terms/" class="footer-link">Terms</a>
-        <a href="/careers/" class="footer-link">Careers</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/careers/">Careers</a>
       </div>
     </div>
-    <div class="footer-bottom"><span>&#169; 2026 AtlaSynq, Inc.</span></div>
+    <div class="crm-footer-bottom"><span>© 2026 AtlaSynq, Inc.</span></div>
   </div>
 </footer>
 
-<div class="cookie-banner" id="cookieBanner" role="complementary" aria-label="Cookie consent">
-  <div class="cookie-content">We use cookies for analytics. <a href="/privacy/">Privacy</a></div>
-  <div class="cookie-buttons">
-    <button class="btn-cookie-accept">Accept</button>
-    <button class="btn-cookie-decline">Decline</button>
+<div class="crm-cookie" id="cookieBanner" role="complementary" aria-label="Cookie consent">
+  <div>We use cookies for analytics. <a href="/privacy/">Privacy</a></div>
+  <div class="crm-cookie-actions">
+    <button class="crm-cookie-accept" type="button">Accept</button>
+    <button class="crm-cookie-decline" type="button">Decline</button>
   </div>
 </div>
 
-<script type="module" src="/js/hero-widget/hero-widget.js?v=20260724d"></script>
-<script src="/js/site-demos.js?v=20260724a" defer></script>
+<script>
+  (function () {
+    var header = document.getElementById("siteHeader");
+    var openBtn = document.getElementById("openMenu");
+    var closeBtn = document.getElementById("closeMenu");
+    var menu = document.getElementById("mobileMenu");
+    var cookie = document.getElementById("cookieBanner");
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    function setMenu(open) {
+      if (!menu || !openBtn) return;
+      menu.classList.toggle("is-open", open);
+      menu.hidden = !open;
+      openBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+
+    if (openBtn) openBtn.addEventListener("click", function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener("click", function () { setMenu(false); });
+    if (menu) {
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () { setMenu(false); });
+      });
+    }
+
+    var key = "atlasynq-cookie-consent";
+    try {
+      if (!localStorage.getItem(key) && cookie) cookie.classList.add("is-visible");
+    } catch (e) {}
+
+    function setConsent(value) {
+      try { localStorage.setItem(key, value); } catch (e) {}
+      if (cookie) cookie.classList.remove("is-visible");
+      if (typeof gtag === "function") {
+        gtag("consent", "update", {
+          analytics_storage: value === "accept" ? "granted" : "denied",
+          ad_storage: value === "accept" ? "granted" : "denied"
+        });
+      }
+    }
+
+    var accept = document.querySelector(".crm-cookie-accept");
+    var decline = document.querySelector(".crm-cookie-decline");
+    if (accept) accept.addEventListener("click", function () { setConsent("accept"); });
+    if (decline) decline.addEventListener("click", function () { setConsent("decline"); });
+  })();
+</script>
 </body>
 </html>
